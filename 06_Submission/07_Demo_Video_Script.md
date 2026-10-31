@@ -79,10 +79,11 @@ right.
 
 **Narration:**
 > "The teacher supplies one approved source. This is the only well of facts for the entire run —
-> the agent has no internet access and no licence to remember.
-> From it, the Planner maps five outputs to the curriculum outcome C4, with foundation B5:
-> a lesson plan, a pre-test, a post-test, a slide outline, a student article, and an infographic
-> brief."
+> the agent is not permitted to use a fact from outside it. No memory, no outside knowledge.
+> The rule is enforced by the Reviewer, not by a firewall — so it is checked, not assumed.
+> From it, the Planner maps five formats to the curriculum outcome C4, with foundation B5:
+> a lesson plan, a quiz (pre-test and post-test), a slide outline, a student article, and an
+> infographic brief."
 
 **On screen beat:** scroll the outline so the CP mapping is visible.
 
@@ -167,14 +168,13 @@ awaiting human approval`. Show `00_run_config.md` with `Human approver: PENDING`
 **On screen:** Final pack on screen: five documents + the interactive quiz. Then the numbers.
 
 **Narration:**
-> "Five formats from one source. Eleven rules checked, each with a verdict. A full audit trail.
+> "Five formats from one source. Twelve rules checked, each with a verdict. A full audit trail.
 > An estimated six to eight hours of drafting and checking, reduced to a review of material that
 > has already been checked.
 > EduCraft does not replace the teacher's judgement. It removes the part of her evening that was
 > never really teaching."
 
-**End card:** Project title · short blurb · `github.com/<org>/educraft` (or "exported workflow
-included") · team names.
+**End card:** Project title · short blurb · `github.com/otnamhcar/educraft-hackathon-workbuddy-2026` · team names.
 
 ---
 

@@ -19,9 +19,9 @@ Legend: `READY` = artefact exists in this bundle · `TODO` = must be done by the
 | 4 | Accountability sheet (one page) | REQUIRED | **READY** | `03_Accountability_Sheet.md` |
 | 5 | Test results **with screenshots** | REQUIRED | **PARTIAL** | Table ready in `04_Test_Results.md`; **screenshots still TODO** (§3 below) |
 | 6 | Architecture diagram | REQUIRED | **READY** | `architecture_diagram.png` (2720×3000) + `.html` + `05_Architecture.md` |
-| 7 | Demo video, 5–8 min | REQUIRED | **TODO** | Script ready: `07_Demo_Video_Script.md` (7:20) |
+| 7 | Demo video, 5–8 min | REQUIRED | **TODO** | Script `07_Demo_Video_Script.md` (7:20) + production runbook `13_Demo_Video_Runbook.md`. 7 of 10 scenes recordable now; 3 need the agent live |
 | 8 | Product sharing | REQUIRED | **READY** | `06_Product_Sharing.md` |
-| 9 | Source code / exported workflow | REQUIRED | **READY** | Public repo (MIT): https://github.com/otnamhcar/educraft-hackathon-workbuddy-2026 — 88 files |
+| 9 | Source code / exported workflow | REQUIRED | **READY** | Public repo (MIT): https://github.com/otnamhcar/educraft-hackathon-workbuddy-2026 — 100+ files |
 | 10 | Cover image (optional, 16:9) | OPTIONAL | **READY** | `cover_image_380x216.png` + `cover_image_1280x720.png` |
 | 11 | Project link (bonus) | BONUS | **TODO** | Optional live demo URL |
 

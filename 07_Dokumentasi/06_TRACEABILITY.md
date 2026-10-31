@@ -91,6 +91,7 @@ Anything in this list must not be stated as fact in the submission until an arte
 | U4 | Run `-001` has teacher approval | UNVERIFIED | `00_run_config.md` says `PENDING`. Say "pending", never "approved" |
 | U5 | "Field testing" has happened | OVERSTATED | One teacher, one review session, one printed set. Say "single-teacher review" |
 | U6 | The engine is domain-parameterised | PARTIAL | True since rulebook v2.0 (no hardcoded tag numbers), but never demonstrated on a second subject |
+| U7 | How the demo video must be delivered (file, link, or platform upload) | **UNKNOWN** | Handbook §7 states the runtime and content but not the delivery form. Do both: keep `EduCraft_Demo_Video.mp4` and an unlisted link, then test the link in a private window. See `06_Submission/13_Demo_Video_Runbook.md` §7 |
 
 ---
 
