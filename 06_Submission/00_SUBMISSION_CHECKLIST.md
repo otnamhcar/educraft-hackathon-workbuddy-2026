@@ -71,7 +71,7 @@ MIT licence · 118 tracked files · HEAD `b56104f`, pushed 31 October 2026.
 Published contents: `README.md` (front page, including a **"Run it yourself"** path written for a
 teacher rather than a developer), `05_Bukti_Proses/skills_package/` (four contracts + full knowledge
 assets), `03_Hasil/` (both runs, both review reports), `06_Submission/`,
-`04_Diskusi/test_cases_matrix.md`, `tools/` (grounding check, `install_skills.sh`, `doctor.sh`),
+`04_Diskusi/test_cases_matrix.md`, `tools/` (grounding check, `install_skills.py`, `doctor.py` — all Python, all cross-OS),
 `LICENSE`, `THIRD_PARTY_NOTICES.md`.
 
 **Also published: the two official ministry PDFs** the knowledge layer is built from — *Panduan Mata
@@ -84,7 +84,7 @@ Deliberately **not** published, with a reason per file in `02_Sumber/README.md`:
 handbook, `.workbuddy-ai/` and working notes. Enforced by `.gitignore` in the repo root.
 
 **Verified 31 October 2026:** a fresh `git clone` of `main` installs the four skills and passes
-`tools/doctor.sh` — `8 passed · 0 failed · 0 warning`, exit 0.
+`tools/doctor.py` — `8 passed / 0 failed / 0 warning`, exit 0.
 
 Remaining housekeeping: re-run the push after any further edit, so the repo and the bundle match.
 

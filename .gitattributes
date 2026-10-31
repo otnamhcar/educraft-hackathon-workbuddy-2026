@@ -1,0 +1,22 @@
+# Same bytes on every operating system.
+#
+# The team is split across Linux and Windows. Without this, a Windows clone with
+# core.autocrlf=true rewrites every .py and .md to CRLF, and the first `git diff`
+# after a pull shows the whole repository as changed.
+#
+# Rules are explicit rather than `* text=auto`, so nothing is normalised by
+# surprise. The extracted PDF text is marked -text on purpose: it is the output
+# of an extraction step and should keep exactly the bytes it was produced with.
+
+*.py    text eol=lf
+*.md    text eol=lf
+*.html  text eol=lf
+*.svg   text eol=lf
+*.json  text eol=lf
+
+*.pdf   binary
+*.png   binary
+*.pptx  binary
+*.rar   binary
+
+02_Sumber/extracted/*.txt -text

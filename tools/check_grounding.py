@@ -266,7 +266,9 @@ def main():
                  "dihukum otomatis.")
 
     os.makedirs(os.path.dirname(os.path.abspath(args.out)), exist_ok=True)
-    with open(args.out, "w", encoding="utf-8") as fh:
+    # newline="\n" so a report generated on Windows is byte-identical to one
+    # generated on Linux -- the check is meant to be reproducible across the team.
+    with open(args.out, "w", encoding="utf-8", newline="\n") as fh:
         fh.write("\n".join(lines) + "\n")
 
     if not args.quiet:

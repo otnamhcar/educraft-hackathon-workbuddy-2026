@@ -3,6 +3,14 @@
 Panduan ini untuk siapa pun yang baru meng-*clone* repo ini dan ingin menjalankannya.
 Tidak ada compile, tidak ada build. Skill = folder berisi `SKILL.md`.
 
+Semua skrip di repo ini **Python**, bukan bash, karena tim ini lintas OS: Linux (Linux Mint) dan
+Windows. Perintahnya sama di kedua sistem — hanya cara memanggil `python` yang berbeda.
+
+| | Linux / macOS | Windows (cmd / PowerShell) |
+|---|---|---|
+| Python | `python3` | `python` (atau `py` bila `python` tidak ada di PATH) |
+| Pemisah path | `/` | `\` |
+
 ---
 
 ## Cara tercepat (disarankan)
@@ -10,29 +18,54 @@ Tidak ada compile, tidak ada build. Skill = folder berisi `SKILL.md`.
 Dari akar folder repo:
 
 ```bash
-./tools/install_skills.sh
+python3 tools/install_skills.py          # Linux / macOS
+```
+
+```bat
+python tools\install_skills.py           :: Windows
 ```
 
 Skrip ini menyalin empat folder dari `05_Bukti_Proses/skills_package/` ke direktori skill
-WorkBuddy, lalu memverifikasi jumlahnya. Kalau jumlahnya bukan 4, skrip berhenti dengan pesan error.
+WorkBuddy, lalu memverifikasi jumlahnya. Kalau jumlahnya bukan 4, skrip berhenti dengan kode 1.
+Ingin melihat rencananya dulu tanpa menulis apa pun: tambahkan `--dry-run`.
 
 Lalu **restart WorkBuddy** — daftar skill dibaca saat sesi dibuka, bukan saat file disalin.
 
 Setelah restart, periksa seluruh clone sekaligus:
 
 ```bash
-./tools/doctor.sh
+python3 tools/doctor.py                  # Linux / macOS
 ```
 
-Enam pemeriksaan: python3, kontrak skill, skill terpasang, knowledge layer, checksum rulebook,
-dan cek grounding R001 pada kedua run. Keluar dengan kode 0 hanya kalau semuanya lolos.
+```bat
+python tools\doctor.py                   :: Windows
+```
+
+Enam pemeriksaan: versi Python, kontrak skill, skill terpasang, knowledge layer, checksum salinan
+(rulebook + source material), dan cek grounding R001 pada kedua run. Keluar dengan kode 0 hanya
+kalau semuanya lolos — hasil sehat mencetak `8 passed / 0 failed / 0 warning`.
 
 ### Kalau direktori skill Anda berbeda
 
-Beberapa versi WorkBuddy membaca skill dari lokasi lain. Arahkan sendiri:
+Beberapa versi WorkBuddy membaca skill dari lokasi lain. Arahkan sendiri, dua cara:
 
 ```bash
-WORKBUDDY_SKILLS_DIR=~/.workbuddy/skills ./tools/install_skills.sh
+python3 tools/install_skills.py --dest ~/.workbuddy/skills        # Linux / macOS
+```
+
+```bat
+python tools\install_skills.py --dest "%USERPROFILE%\.workbuddy\skills"   :: Windows
+```
+
+Atau lewat environment variable (berlaku juga untuk `doctor.py`):
+
+```bash
+WORKBUDDY_SKILLS_DIR=~/.workbuddy/skills python3 tools/doctor.py  # Linux / macOS
+```
+
+```bat
+set WORKBUDDY_SKILLS_DIR=%USERPROFILE%\.workbuddy\skills
+python tools\doctor.py                                            :: Windows
 ```
 
 Cek lokasi sebenarnya di **Settings → Skills**.
@@ -75,10 +108,11 @@ itu menyembunyikan nilai "asisten".
 
 | Gejala | Yang diperiksa |
 |--------|----------------|
-| `install_skills.sh: ... SKILL.md not found` | Anda menjalankan skrip dari folder yang bukan clone lengkap |
-| Skill tidak muncul di daftar | Belum restart WorkBuddy; atau `WORKBUDDY_SKILLS_DIR` menunjuk folder yang salah |
-| `doctor.sh` gagal di cek 6 | Jalankan `python3 tools/check_grounding.py --run 03_Hasil/materi_ajar --knowledge 03_Hasil/referensi --out /tmp/r.md` dan baca laporannya |
-| `HOME is not set` | Lingkungan tanpa `HOME` (mis. cron/container). Set `WORKBUDDY_SKILLS_DIR` eksplisit |
+| `... SKILL.md not found` | Anda menjalankan skrip dari folder yang bukan clone lengkap |
+| `could not replace ...` | Ada file yang sedang dibuka editor / agen masih jalan (khas Windows). Tutup lalu ulangi |
+| Skill tidak muncul di daftar | Belum restart WorkBuddy; atau `WORKBUDDY_SKILLS_DIR` / `--dest` menunjuk folder yang salah |
+| `doctor.py` gagal di cek 6 | Jalankan `python3 tools/check_grounding.py --run 03_Hasil/materi_ajar --knowledge 03_Hasil/referensi --out grounding_report.md` lalu baca laporannya |
+| `python: command not found` (Windows) | Coba `py tools\install_skills.py`, atau pasang Python 3 dari python.org dan centang *Add to PATH* |
 
-Kalau masih gagal, buka `README.md` → bagian **Troubleshooting**, atau buat issue dengan
-menyertakan keluaran lengkap `./tools/doctor.sh`.
+Kalau masih gagal, buka `README.md` → bagian **Run it yourself** dan tabel gejalanya, atau buat
+issue dengan menyertakan keluaran lengkap `doctor.py`.

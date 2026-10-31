@@ -70,12 +70,13 @@ happy path would prove less.
 
 ## 3. How to reproduce
 
-Two commands, then a health check — the scripts are in `tools/`:
+Two commands, then a health check. Every script is Python, so Linux, macOS and Windows run the same
+code — only the interpreter name differs (`python3` on Linux/macOS, `python` or `py` on Windows):
 
 ```bash
-./tools/install_skills.sh     # 4 skills into ~/.workbuddy-ai/skills, count verified
+python3 tools/install_skills.py   # 4 skills into ~/.workbuddy-ai/skills, count verified
 # restart WorkBuddy, then:
-./tools/doctor.sh             # 8 passed · 0 failed · 0 warning on a healthy clone
+python3 tools/doctor.py           # 8 passed / 0 failed / 0 warning on a healthy clone
 ```
 
 Then invoke the orchestrator with: topic, grade band (Fase C), the CP codes, and the source sheet
@@ -84,8 +85,8 @@ already sitting in each skill's `assets/`. Expect
 `publish_status: PENDING`. If it publishes on its own, the install is wrong.
 
 The `assets/` folders are already populated in the clone, so "copy the knowledge layer" is not a
-step. No build, no dependencies, no API keys of its own. Full walkthrough, including the Windows
-note: README → "Run it yourself".
+step. No build, no dependencies, no API keys of its own. Full walkthrough, with the per-OS command
+table: README → "Run it yourself".
 
 ## 4. What is still missing (action required before submit)
 

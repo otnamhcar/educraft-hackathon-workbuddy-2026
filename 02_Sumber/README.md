@@ -48,3 +48,14 @@ The MIT licence covers the code, the contracts and the written documentation —
 A reviewer can start at any draft sentence, follow its tag to a `source_material_*.md` entry, follow
 that entry's line reference into `extracted/panduan_ipas.txt`, and land on the page of the PDF. That
 is what "grounded" means here — not that a citation exists, but that it can be walked.
+
+To re-run the extraction yourself (needs `pip install pymupdf`):
+
+```bash
+python3 02_Sumber/extract_pdf.py        # Linux / macOS
+python 02_Sumber\extract_pdf.py         # Windows
+```
+
+It resolves paths from its own location, so it works from any directory, and it writes CRLF on every
+OS so the output matches the committed `.txt` files byte for byte rather than producing a whole-file
+diff.

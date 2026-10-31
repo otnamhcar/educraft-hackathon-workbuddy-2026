@@ -83,8 +83,8 @@ Three properties are enforced by contract, not by hope:
 | `06_Submission/architecture_diagram.png` | Component and trust-boundary diagram |
 | `07_Dokumentasi/` | Engineering docs: architecture, workflow, skill boundaries, rulebook spec, test plan, requirements traceability, gap register |
 | `tools/check_grounding.py` | Deterministic R001 check — resolves every tag against the knowledge layer, exits non-zero on failure. Checks drafts only; run metadata is skipped and named in the report |
-| `tools/install_skills.sh` | Copies the four skill folders where WorkBuddy looks for them, then verifies the count is 4 |
-| `tools/doctor.sh` | Six pre-flight checks on a fresh clone — Python, contracts, installed skills, knowledge layer, rulebook checksums, grounding on both runs |
+| `tools/install_skills.py` | Copies the four skill folders where WorkBuddy looks for them, then verifies the count is 4. Python, so it runs unchanged on Linux, macOS and Windows |
+| `tools/doctor.py` | Six pre-flight checks on a fresh clone — Python, contracts, installed skills, knowledge layer, copy checksums, grounding on both runs. Same code on every OS |
 
 ---
 
@@ -172,40 +172,48 @@ python3 tools/check_grounding.py --run 03_Hasil/materi_ajar \
 
 ## Run it yourself
 
-Written for a teacher on a laptop, not for a developer. Three commands, one restart, then a health
-check.
+Written for a teacher on a laptop, not for a developer. Two commands, one restart, then a health
+check. **The same two commands work on Linux, macOS and Windows** — every script in `tools/` is
+Python, because this team runs Linux (Mint) and Windows and a bash script is a different program on
+each.
 
 ```bash
 git clone https://github.com/otnamhcar/educraft-hackathon-workbuddy-2026.git
 cd educraft-hackathon-workbuddy-2026
-./tools/install_skills.sh
 ```
 
-The script copies `edu-orchestrator`, `edu-planner`, `edu-writer` and `edu-reviewer` from
-`05_Bukti_Proses/skills_package/` into `~/.workbuddy-ai/skills/`, then counts them back to confirm
-four arrived. **Nothing is compiled and no package manager is involved** — a skill is a folder
-containing `SKILL.md`, and "installing" it means putting that folder where the agent looks.
+Then install, from the repository root:
+
+| | Linux / macOS | Windows (cmd or PowerShell) |
+|---|---|---|
+| Install the skills | `python3 tools/install_skills.py` | `python tools\install_skills.py` |
+| Health check | `python3 tools/doctor.py` | `python tools\doctor.py` |
+
+If `python` is not on your PATH on Windows, use the launcher: `py tools\install_skills.py`.
+
+The installer copies `edu-orchestrator`, `edu-planner`, `edu-writer` and `edu-reviewer` from
+`05_Bukti_Proses/skills_package/` into `~/.workbuddy-ai/skills/` (on Windows,
+`C:\Users\<you>\.workbuddy-ai\skills`), then counts them back to confirm four arrived.
+**Nothing is compiled and no package manager is involved** — a skill is a folder containing
+`SKILL.md`, and "installing" it means putting that folder where the agent looks. Add `--dry-run` to
+see the plan without writing anything.
 
 Then **restart WorkBuddy**. The skill list is read when a session opens, so a session that is
-already running will not see the new folders. Open a new chat and check that `edu-orchestrator` is
-recognised, then verify the rest of the clone:
-
-```bash
-./tools/doctor.sh
-```
+already running will not see the new folders. Open a new chat, check that `edu-orchestrator` is
+recognised, then verify the rest of the clone with `doctor.py` (table above).
 
 It runs six checks and exits non-zero if any fails, so a broken clone says *where* it is broken:
 
 | # | Check | What a FAIL means |
 |---|-------|-------------------|
-| 1 | `python3` present | the grounding check cannot run |
+| 1 | Python 3.6+ | the grounding check cannot run |
 | 2 | four contracts in the clone | the clone is incomplete |
-| 3 | four `edu-*` skills installed | run `install_skills.sh`, then restart |
+| 3 | four `edu-*` skills installed | run `install_skills.py`, then restart |
 | 4 | rulebook, CP, actual-context register, both source sheets | the knowledge layer is missing |
 | 5 | rulebook and wujud-zat source copies share one SHA-256 each | a copy has drifted — the Reviewer would judge against different rules than the Writer wrote to |
 | 6 | grounding check on both runs | a draft no longer resolves against its sources |
 
-A healthy clone prints `8 passed · 0 failed · 0 warning` and exits 0.
+A healthy clone prints `8 passed / 0 failed / 0 warning` and exits 0.
 
 ### First run
 
@@ -228,16 +236,22 @@ the gate is the product, and it is the first thing to verify.
 
 | Symptom | Cause | Fix |
 |---------|-------|-----|
-| `doctor.sh` says `0 of 4 installed` | skills went somewhere the agent does not read | `WORKBUDDY_SKILLS_DIR=/path/to/skills ./tools/install_skills.sh` |
-| `Permission denied` | the clone lost the executable bit | `chmod +x tools/*.sh` |
-| `python3 not found` | Python absent, or not on `PATH` (common on Windows) | install Python 3 — the grounding check is the point of the project, so `doctor.sh` will not pass without it |
+| `doctor.py` says `0 of 4 installed` | skills went somewhere the agent does not read | point both scripts at the real folder: `--dest <path>`, or set `WORKBUDDY_SKILLS_DIR` |
+| `could not replace ...` | a file is open in an editor, or the agent is still running (common on Windows) | close it and retry |
+| `python: command not found` (Windows) | Python not installed, or not on PATH | try `py tools\doctor.py`; otherwise install Python 3 and tick *Add to PATH* |
+| `python3: command not found` (Linux/macOS) | Python 3 missing | `sudo apt install python3` — the grounding check is the point of the project, so `doctor.py` will not pass without it |
 | Skills still not recognised after install | session not restarted | quit WorkBuddy fully, reopen, new chat |
 
-**Windows:** run all three commands in **Git Bash**, not `cmd` or PowerShell — the scripts are bash.
-`HOME` is set there, so no extra configuration is needed.
+**Windows specifics.** `cmd`, PowerShell and Git Bash all work — there is no bash script to run. Use
+backslashes (`tools\doctor.py`) or forward slashes; both are accepted. If the console prints colour
+codes as text, add `--no-color`.
 
-**What you need:** WorkBuddy (or any agent runtime that reads `SKILL.md` folders) and `python3` for
-the grounding check. No API keys of its own, no build step, no database.
+**Line endings.** `.gitattributes` pins `*.py` and `*.md` to LF and marks the PDFs and the extracted
+text as binary, so a Windows clone with `core.autocrlf=true` does not rewrite the repository and
+does not show a whole-file diff after a pull.
+
+**What you need:** WorkBuddy (or any agent runtime that reads `SKILL.md` folders) and Python 3.6+.
+No API keys of its own, no build step, no database.
 
 ---
 
