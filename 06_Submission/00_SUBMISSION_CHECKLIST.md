@@ -67,7 +67,9 @@ zoom 100% di laptop 1080p. Kalau juri harus menyipitkan mata, screenshot itu tid
 ## 4. Publikasi kode — ✅ SELESAI (Opsi A)
 
 **Repo GitHub publik:** https://github.com/otnamhcar/educraft-hackathon-workbuddy-2026
-Lisensi MIT · 119 berkas ter-track · HEAD `abe293f`, di-push 31 Oktober 2026.
+Lisensi MIT · 119 berkas ter-track · di-push 31 Oktober 2026 (HEAD `6844280`).
+Hash ini akan bergeser setiap kali ada suntingan baru — perbarui di sini setelah push terakhir,
+atau kutip tanggalnya saja bila submission dikirim setelah commit berikutnya.
 
 Isi yang dipublikasikan: `README.md` (halaman depan, termasuk jalur **"Jalankan sendiri"** yang
 ditulis untuk guru, bukan untuk pengembang), `05_Bukti_Proses/skills_package/` (empat kontrak +
