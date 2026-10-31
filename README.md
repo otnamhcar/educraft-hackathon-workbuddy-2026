@@ -90,6 +90,7 @@ Tiga sifat ditegakkan oleh kontrak, bukan oleh harapan:
 | `tools/check_grounding.py` | Pemeriksaan R001 deterministik — me-resolve setiap tag terhadap lapisan pengetahuan, keluar non-nol bila gagal. Hanya memeriksa draf; metadata run dilewati dan disebutkan namanya di laporan |
 | `tools/install_skills.py` | Menyalin empat folder skill ke tempat WorkBuddy membacanya, lalu memverifikasi jumlahnya 4. Python, jadi jalan sama di Linux, macOS, dan Windows |
 | `tools/doctor.py` | Enam pemeriksaan pra-terbang pada clone baru — Python, kontrak, skill terpasang, lapisan pengetahuan, checksum salinan, grounding di kedua run. Kode yang sama di semua OS |
+| `tools/check_capture.py` | Memeriksa berkas screenshot sebelum submit: mana yang belum ada, mana yang di bawah 1600 px, mana yang bukan PNG, mana yang tidak terdaftar di tracker. Daftar berkasnya dibaca dari `INDEX.md`, bukan dari daftar kedua yang bisa melenceng |
 
 ---
 

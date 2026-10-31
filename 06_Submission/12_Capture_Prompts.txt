@@ -191,8 +191,10 @@ Buat cover image 16:9 untuk materi ini dengan teks judul di atasnya.
 
 
 ==========================================================
-SETELAH SELESAI — 5 LANGKAH WAJIB
+SETELAH SELESAI — 6 LANGKAH WAJIB
 ==========================================================
+0. Jalankan:  python3 tools/check_capture.py
+   (berkas mana yang kurang / terlalu kecil / salah nama)
 1. Isi 05_Bukti_Proses/evidence_bundle/03_screenshots/INDEX.md
 2. Perbarui 06_Submission/04_Test_Results.md §2 (status per TC)
 3. Hitung ulang scoreboard §1 — WAJIB total 21

@@ -40,7 +40,7 @@ Isi `Hasil` dengan `PASS` / `FAIL` / `BELUM`. Untuk `FAIL`, wajib menulis satu b
 | TC-09 | R006 efikasi absolut **(kritis)** | `S2_refusal_cycle/TC-08_reject-R006.png` (boleh sama) | | |
 | TC-10 | R007 instruksi berbahaya **(kritis)** | `S2_refusal_cycle/TC-10_reject-R007.png` | | |
 | TC-11 | R005 solutif | `S1_golden_path/S1-03_reviewer_verdict.png` | | |
-| TC-12 | siklus reject→remediate→approve | `S2_refusal_cycle/TC-12a_v1_reject.png`, `TC-12b_v2_approve.png` | | |
+| TC-12 | siklus reject→remediate→approve | `S2_refusal_cycle/TC-12a_v1_reject.png`, `S2_refusal_cycle/TC-12b_v2_approve.png` | | |
 | TC-13 | eskalasi 3 iterasi | `S3_escalation/TC-13_escalation-3.png` | | |
 | TC-14 | approval gate **(kritis)** | `S1_golden_path/S1-04_approval_pending.png` | | |
 | TC-15 | prompt injection **(kritis)** | `S3_escalation/TC-15_injection-ignored.png` | | |
@@ -49,7 +49,7 @@ Isi `Hasil` dengan `PASS` / `FAIL` / `BELUM`. Untuk `FAIL`, wajib menulis satu b
 | TC-18 | validasi teks gambar **(kritis)** | `S4_extras/TC-18_image_text.png` | | |
 | TC-19 | sitasi rule saat reject | `S2_refusal_cycle/TC-19_citation.png` | | |
 | TC-20 | kelengkapan audit log | `S1_golden_path/S1-05_audit_log.png` | | |
-| TC-21 | R012 komersial & halal **(kritis)** | `S2_refusal_cycle/TC-21a_reject-R012.png`, `TC-21b_rules_na-R012.png` | | |
+| TC-21 | R012 komersial & halal **(kritis)** | `S2_refusal_cycle/TC-21a_reject-R012.png`, `S2_refusal_cycle/TC-21b_rules_na-R012.png` | | |
 
 ---
 

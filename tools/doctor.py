@@ -26,6 +26,9 @@ import sys
 import tempfile
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from _report import Reporter, harden_console, use_color  # noqa: E402
+
 SKILLS = ("edu-orchestrator", "edu-planner", "edu-writer", "edu-reviewer")
 REPO_ROOT = Path(__file__).resolve().parent.parent
 PKG = REPO_ROOT / "05_Bukti_Proses" / "skills_package"
@@ -45,81 +48,6 @@ KNOWLEDGE_FILES = (
 COPY_GROUPS = ("rulebook_ipas.md", "source_material_wujud_zat.md")
 
 RUNS = ("03_Hasil/materi_ajar", "03_Hasil/edu_output_wujud_zat")
-
-
-# --------------------------------------------------------------------------- #
-# Output. Windows consoles do not do ANSI by default, and a failed colour escape
-# is a confusing way to learn that. Enable VT mode where possible, else plain.
-# --------------------------------------------------------------------------- #
-
-class Reporter(object):
-    def __init__(self, color):
-        self.color = color
-        self.passed = 0
-        self.failed = 0
-        self.warned = 0
-
-    def _paint(self, text, code):
-        if not self.color:
-            return text
-        return "\033[{}m{}\033[0m".format(code, text)
-
-    def heading(self, text):
-        print("\n" + text)
-
-    def ok(self, text):
-        self.passed += 1
-        print("  {}  {}".format(self._paint("PASS", "32"), text))
-
-    def no(self, text):
-        self.failed += 1
-        print("  {}  {}".format(self._paint("FAIL", "31"), text))
-
-    def warn(self, text):
-        self.warned += 1
-        print("  {}  {}".format(self._paint("WARN", "33"), text))
-
-
-def _enable_windows_vt():
-    """Turn on ANSI escape processing in the Windows console. Best effort."""
-    try:
-        import ctypes
-
-        kernel32 = ctypes.windll.kernel32
-        handle = kernel32.GetStdHandle(-11)  # STD_OUTPUT_HANDLE
-        mode = ctypes.c_uint32()
-        if not kernel32.GetConsoleMode(handle, ctypes.byref(mode)):
-            return False
-        return bool(kernel32.SetConsoleMode(handle, mode.value | 0x0004))
-    except Exception:
-        return False
-
-
-def _harden_console():
-    """Never crash on a path a console cannot encode.
-
-    A Windows console is often cp1252, and a user name or folder outside that
-    range would raise UnicodeEncodeError while printing a *diagnostic* -- the one
-    moment the message matters most.
-    """
-    for stream in (sys.stdout, sys.stderr):
-        try:
-            stream.reconfigure(errors="replace")
-        except (AttributeError, ValueError):
-            pass  # Python 3.6, or a stream that is not a TextIOWrapper
-
-
-def use_color(requested_off, stream):
-    if requested_off or os.environ.get("NO_COLOR"):
-        return False
-    try:
-        if not stream.isatty():
-            return False
-    except Exception:
-        return False
-    if os.name == "nt":
-        return _enable_windows_vt()
-    return True
 
 
 # --------------------------------------------------------------------------- #
@@ -175,10 +103,21 @@ def check_contracts(rep):
 
 def check_installed(rep, dest):
     rep.heading("3. Skills installed for WorkBuddy")
-    if not dest.is_dir():
-        rep.no("{} does not exist -- run install_skills.py".format(dest))
+    # A locked-down profile raises PermissionError from is_dir() rather than
+    # returning False. A traceback here would tell the user nothing.
+    try:
+        if not dest.is_dir():
+            rep.no("{} does not exist -- run install_skills.py".format(dest))
+            return
+        found = sorted(
+            p.name for p in dest.iterdir() if p.is_dir() and p.name.startswith("edu-")
+        )
+    except OSError as exc:
+        rep.no(
+            "{} -- cannot read: {}. If HOME is unset or points at another "
+            "profile, pass --dest <path>".format(dest, exc)
+        )
         return
-    found = sorted(p.name for p in dest.iterdir() if p.is_dir() and p.name.startswith("edu-"))
     if len(found) == 4:
         rep.ok("4 edu-* skills installed in {}".format(dest))
     else:
@@ -282,7 +221,7 @@ def main(argv=None):
     parser.add_argument("--no-color", action="store_true", help="plain text output")
     args = parser.parse_args(argv)
 
-    _harden_console()
+    harden_console()
 
     if not (REPO_ROOT / "03_Hasil").is_dir():
         print(

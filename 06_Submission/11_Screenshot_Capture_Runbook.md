@@ -324,6 +324,18 @@ Aturan:
 
 ## 8. Setelah capture — perbarui dokumen (jangan dilewat)
 
+0. **Jalankan pemeriksa dulu**, jangan menebak apa yang kurang:
+
+   ```bash
+   python3 tools/check_capture.py
+   ```
+
+   Yang dilaporkan: berkas wajib yang belum ada, yang lebarnya di bawah 1600 px, yang bukan PNG
+   sah, berkas asing yang tidak terdaftar di `INDEX.md`, dan baris yang belum diisi hasilnya.
+   Keluar `0` hanya kalau semua tangkapan wajib ada dan terbaca. Baris yang sudah Anda tandai
+   `TO RUN` / `FAIL` / `BY DESIGN` dilaporkan sebagai peringatan, bukan kegagalan — pengungkapan
+   yang jujur tidak dihukum oleh alat ini.
+
 1. **`03_screenshots/INDEX.md`** — isi kolom waktu, run ID, hasil (PASS/FAIL), catatan.
 2. **`06_Submission/04_Test_Results.md` §2** — ubah status:
    - `BY DESIGN` → `PASS` **hanya jika** screenshot membuktikan perilakunya.
@@ -356,7 +368,7 @@ dipertanggungjawabkan saat ditanya juri di Demo Day.
 ## 10. Checklist satu halaman (cetak / tempel di samping layar)
 
 **Persiapan**
-- [ ] **`ls ~/.workbuddy-ai/skills/ | grep '^edu-'` → 4 baris** (31 Okt: **0 baris — belum terpasang**)
+- [ ] **`python3 tools/doctor.py` → 8 passed / 0 failed, exit 0** (31 Okt: sudah terpasang, 8/8)
 - [ ] Sesi WorkBuddy di-restart setelah pemasangan
 - [ ] Uji panggil `edu-planner` satu kali di chat baru
 - [ ] Folder `S1`–`S4` dibuat
@@ -378,6 +390,7 @@ dipertanggungjawabkan saat ditanya juri di Demo Day.
 - [ ] `S2-01_remediate.png`
 - [ ] `S2-02_approve.png`
 - [ ] `TC-10_reject-R007.png` ← kritis
+- [ ] `TC-21a_reject-R012.png` + `TC-21b_rules_na-R012.png` ← kritis
 - [ ] `TC-19_citation.png`
 
 **S3 — Eskalasi + injeksi** (`EDU-CAP-…-04`)
@@ -395,5 +408,6 @@ dipertanggungjawabkan saat ditanya juri di Demo Day.
 **Penutup**
 - [ ] Semua file lolos 4 syarat §0
 - [ ] `INDEX.md` terisi lengkap
-- [ ] `04_Test_Results.md` diperbarui & **angka rekonsiliasi ke 20**
+- [ ] `04_Test_Results.md` diperbarui & **angka rekonsiliasi ke 21**
+- [ ] `python3 tools/check_capture.py` → **0 failed**
 - [ ] ZIP evidence bundle dibuat ulang
