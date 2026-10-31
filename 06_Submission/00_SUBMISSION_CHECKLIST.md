@@ -20,12 +20,12 @@ Legend: `READY` = artefact exists in this bundle · `TODO` = must be done by the
 | 6 | Architecture diagram | REQUIRED | **READY** | `architecture_diagram.png` (2720×3000) + `.html` + `05_Architecture.md` |
 | 7 | Demo video, 5–8 min | REQUIRED | **TODO** | Script ready: `07_Demo_Video_Script.md` (7:20) |
 | 8 | Product sharing | REQUIRED | **READY** | `06_Product_Sharing.md` |
-| 9 | Source code / exported workflow | REQUIRED | **PARTIAL** | Package ready in `05_Bukti_Proses/`; **repo or export still TODO** (§4) |
+| 9 | Source code / exported workflow | REQUIRED | **READY** | Public repo (MIT): https://github.com/otnamhcar/educraft-hackathon-workbuddy-2026 — 88 files |
 | 10 | Cover image (optional, 16:9) | OPTIONAL | **READY** | `cover_image_380x216.png` + `cover_image_1280x720.png` |
 | 11 | Project link (bonus) | BONUS | **TODO** | Optional live demo URL |
 
-**Score: 7 ready · 2 partial · 2 todo.** The two partials are the two the judges weigh heaviest
-(test evidence and code), so do not submit on the strength of the document count.
+**Score: 8 ready · 1 partial · 2 todo.** The remaining partial is test evidence — the one judges
+weigh heaviest — so do not submit on the strength of the document count.
 
 ---
 
@@ -62,19 +62,20 @@ on a 1080p laptop. If a judge has to squint, it does not count.
 
 ---
 
-## 4. Code publication — pick one
+## 4. Code publication — ✅ DONE (Option A)
 
-**Option A (stronger).** Public GitHub repo:
-1. `git init` inside `05_Bukti_Proses/skills_package/`
-2. Add a README built from `05_Architecture.md` §1 + `09_Source_Code_and_Evidence.md` §1–2
-3. Add `LICENSE` (MIT) and a note that `02_Sumber/` documents are **not** redistributed
-4. Push, set public, paste the URL into the form
+**Public GitHub repo:** https://github.com/otnamhcar/educraft-hackathon-workbuddy-2026
+MIT licence · 88 files · pushed 31 October 2026.
 
-**Option B (acceptable).** Export the WorkBuddy workflow and submit the evidence bundle as-is,
-stating explicitly: *"Exported WorkBuddy workflow with evidence of use; see run trail in
-09_Source_Code_and_Evidence.md §2."*
+Published contents: `README.md` (front page), `05_Bukti_Proses/skills_package/` (four contracts +
+full knowledge assets), `03_Hasil/` (both runs, both review reports), `06_Submission/`,
+`04_Diskusi/test_cases_matrix.md`, `LICENSE`.
 
-Do **not** upload third-party curriculum PDFs to a public repo. They are reference material only.
+Deliberately **not** published: `01_Dokumen/` and `02_Sumber/` (third-party curriculum PDFs — link
+to official sources instead), `.workbuddy-ai/` and `04_Diskusi/` working notes (internal).
+Enforced by `.gitignore` in the repo root.
+
+Remaining housekeeping: re-run the push after any further edit, so the repo and the bundle match.
 
 ---
 

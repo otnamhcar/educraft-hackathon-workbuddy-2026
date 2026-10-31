@@ -3,7 +3,8 @@
 > Handbook §7 (REQUIRED): *"A public code repository, or your exported WorkBuddy workflow with
 > evidence of use."*
 
-**Status: PARTIAL — artefacts are ready, publication step is pending (see §4).**
+**Status: DONE — published at https://github.com/otnamhcar/educraft-hackathon-workbuddy-2026**
+(public, MIT, 31 October 2026).
 
 ---
 
@@ -20,18 +21,31 @@ correct artefact for this challenge: a judge can read every rule the agent obeys
 │   │   ├── SKILL.md                     # state machine, limits, approval gate, escalation
 │   │   └── assets/
 │   │       ├── rulebook_ipas.md         # R001–R011
-│   │       └── source_material_ipas.md
-│   ├── edu-planner/SKILL.md             # decomposition contract
+│   │       ├── cp_ipas.md
+│   │       ├── konteks_aktual.md
+│   │       ├── source_material_ipas.md
+│   │       └── source_material_energi.md
+│   ├── edu-planner/
+│   │   ├── SKILL.md                     # decomposition contract
+│   │   └── assets/cp_ipas.md
 │   ├── edu-writer/
 │   │   ├── SKILL.md                     # drafting contract, tagging discipline
-│   │   └── assets/source_material_ipas.md
+│   │   └── assets/
+│   │       ├── source_material_ipas.md
+│   │       └── source_material_energi.md
 │   └── edu-reviewer/
 │       ├── SKILL.md                     # verdict contract, must cite rule + quote text
 │       └── assets/
 │           ├── rulebook_ipas.md
-│           └── source_material_ipas.md
-└── edu-creator-agent-skills.zip         # the same package, distributable
+│           ├── cp_ipas.md
+│           ├── konteks_aktual.md
+│           ├── source_material_ipas.md
+│           └── source_material_energi.md
+└── evidence_bundle/                     # run trail, screenshot slots, audit copies
 ```
+
+The published repository mirrors this bundle, with `README.md` as the front page:
+https://github.com/otnamhcar/educraft-hackathon-workbuddy-2026
 
 **Note on the duplicated rulebook:** the rulebook ships inside both `edu-orchestrator/assets/` and
 `edu-reviewer/assets/` so that each skill is self-contained when installed. The two copies are
@@ -68,12 +82,12 @@ No build step, no dependencies, no API keys required to read the contracts.
 
 ## 4. What is still missing (action required before submit)
 
-| Gap | Why it matters | Options |
-|-----|----------------|---------|
-| **Public repository** | Handbook accepts either a public repo *or* an exported workflow with evidence. We have the latter; a repo is stronger. | (a) Push `05_Bukti_Proses/skills_package/` to a public GitHub repo with this bundle's README as the front page; or (b) submit the exported workflow + this evidence trail and say so explicitly |
-| **Screenshots** | Required by §7 for test results | Capture per `04_Test_Results.md` §3; store in `05_Bukti_Proses/evidence_bundle/03_screenshots/` |
-| **Demo video** | Required, 5–8 min | Script is ready: `07_Demo_Video_Script.md` |
-| **Human approval** | Ethical gate, not a formality | A teacher/SME must sign off on the five drafts before anything is called published |
+| Gap | Why it matters | Status |
+|-----|----------------|--------|
+| **Public repository** | Handbook accepts either a public repo *or* an exported workflow with evidence. | ✅ **DONE** — https://github.com/otnamhcar/educraft-hackathon-workbuddy-2026 (public, MIT). Option (a) chosen. |
+| **Screenshots** | Required by §7 for test results | ⏳ Capture per `04_Test_Results.md` §3; store in `05_Bukti_Proses/evidence_bundle/03_screenshots/` |
+| **Demo video** | Required, 5–8 min | ⏳ Script is ready: `07_Demo_Video_Script.md` |
+| **Human approval** | Ethical gate, not a formality | ✅ Run `-002` approved by teacher 30 Oct 2026 17:19; run `-001` still PENDING |
 
 ## 5. Licence and data note
 
