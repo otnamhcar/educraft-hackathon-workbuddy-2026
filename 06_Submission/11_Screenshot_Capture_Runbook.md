@@ -27,34 +27,34 @@ Satu screenshot **diterima** kalau memenuhi 4 syarat:
 
 ## 1. Persiapan (sekali saja, ± 25 menit)
 
-### 1.0 Pre-flight — **jangan lewati** (diperiksa 31 Okt 2026)
+### 1.0 Pre-flight — **jangan lewati** (diperiksa ulang 31 Okt 2026, 18:40)
 
-**Temuan:** keempat skill **belum terpasang** di mesin ini.
+**Status: terpasang.** Keempat skill sudah ada di `~/.workbuddy-ai/skills/`, diverifikasi
+dengan `ls`, bukan diasumsikan:
 
 ```
-$ ls -1 ~/.workbuddy-ai/skills/
-_bm_skillid_migration.json
+$ ls -1 ~/.workbuddy-ai/skills/ | grep '^edu-'
+edu-orchestrator
+edu-planner
+edu-reviewer
+edu-writer
 ```
 
-Tidak ada satu pun entri `edu-*`. Artinya **setiap sesi di bawah akan gagal di langkah pertama** —
-`edu-orchestrator` tidak akan dikenali, dan screenshot yang dihasilkan tidak akan menunjukkan
-pipeline yang dinilai.
+`tools/doctor.py` juga lulus 8/8 (exit 0) pada keadaan ini. Sebelumnya — sampai 31 Okt pagi —
+bagian ini mencatat bahwa **tidak ada satu pun** entri `edu-*`, dan itu membuat setiap sesi gagal
+di langkah pertama. Sudah diperbaiki, tetapi **periksa lagi sebelum sesi pertama**: kalau
+WorkBuddy diperbarui atau profil direset, daftar ini bisa kosong lagi.
 
-Urutan yang benar:
+Kalau ternyata kosong, urutan pemulihannya:
 
-1. Salin keempat folder dari `05_Bukti_Proses/skills_package/` ke `~/.workbuddy-ai/skills/`:
+1. Pasang ulang dari paket di repo (jangan salin manual satu per satu):
    ```bash
-   cp -r 05_Bukti_Proses/skills_package/edu-orchestrator \
-        05_Bukti_Proses/skills_package/edu-planner \
-        05_Bukti_Proses/skills_package/edu-writer \
-        05_Bukti_Proses/skills_package/edu-reviewer \
-        ~/.workbuddy-ai/skills/
+   python3 tools/install_skills.py
    ```
 2. **Mulai ulang sesi WorkBuddy** — daftar skill dibaca saat sesi dibuka.
 3. Verifikasi, jangan diasumsikan:
    ```bash
-   ls -1 ~/.workbuddy-ai/skills/ | grep '^edu-'
-   # harus keluar 4 baris
+   python3 tools/doctor.py      # harus 8 passed / 0 failed, exit 0
    ```
 4. Uji satu kali di chat baru: `Gunakan edu-planner untuk ...`. Kalau skill tidak terpanggil,
    **berhenti** dan perbaiki dulu — jangan lanjut ke Sesi 1.
@@ -126,11 +126,12 @@ Simpan **langsung** dengan nama final (lihat §7). Jangan menumpuk `Screenshot f
 **Prioritas kalau waktu habis:** S1 (wajib, bukti dasar) → S2 (kasus kritis + momen demo) → S3
 (eskalasi & injeksi) → S4 (bonus).
 
-> **TC-21 (R012, kritis) belum ada di peta sesi ini.** Kasusnya baru ditulis 31 Okt
-> (`04_Diskusi/test_cases_matrix.md` §K). Polanya sama dengan S2 — brief yang harus ditolak — jadi
-> jalankan di sesi itu dan tambahkan 10–15 menit serta dua screenshot: `TC-21a_reject-R012.png`
-> (REJECT menyebut R012 + tiga sub-klausa) dan `TC-21b_rules_na-R012.png` (`rules_na` beralasan pada
-> materi bersih). Angka durasi di tabel di atas belum termasuk tambahan ini.
+> **TC-21 (R012, kritis) dijalankan sebagai SESI 2c** — prompt siap-tempelnya ada di
+> `12_Capture_Prompts.txt` bagian "SESI 2c". Polanya sama dengan S2 — brief yang harus ditolak —
+> jadi jalankan menempel di sesi itu, tambah 10–15 menit, dan ambil dua screenshot:
+> `TC-21a_reject-R012.png` (REJECT menyebut R012 + tiga sub-klausa: klaim khasiat/superlatif,
+> halal tanpa sertifikat, komersial) dan `TC-21b_rules_na-R012.png` (`rules_na: R012` **beralasan**
+> pada materi bersih — diam saja = gagal). Angka durasi di tabel di atas belum termasuk tambahan ini.
 
 ---
 

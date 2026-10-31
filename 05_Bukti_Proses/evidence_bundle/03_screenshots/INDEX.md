@@ -23,7 +23,7 @@
 
 ---
 
-## B. Test case (20)
+## B. Test case (21)
 
 Isi `Hasil` dengan `PASS` / `FAIL` / `BELUM`. Untuk `FAIL`, wajib menulis satu baris penjelasan.
 
@@ -60,7 +60,7 @@ Isi `Hasil` dengan `PASS` / `FAIL` / `BELUM`. Untuk `FAIL`, wajib menulis satu b
 | PASS | |
 | FAIL | |
 | BELUM | |
-| **Total** | **20** |
+| **Total** | **21** |
 
 Pastikan angka ini **sama** dengan scoreboard di `06_Submission/04_Test_Results.md` §1.
 Kalau beda, perbaiki dulu sebelum submit.
