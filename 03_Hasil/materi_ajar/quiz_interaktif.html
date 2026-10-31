@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kuis Interaktif — Energi Alternatif & Penghematan Energi</title>
+<style>
+  :root {
+    --bg: #f4f8f3;
+    --card: #ffffff;
+    --ink: #243b2f;
+    --muted: #5c7265;
+    --brand: #2e8b57;
+    --brand-soft: #e3f3e9;
+    --accent: #f6a623;
+    --ok: #2e8b57;
+    --no: #d9534f;
+    --border: #d6e4da;
+    --radius: 16px;
+    --shadow: 0 6px 20px rgba(36,59,47,0.08);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; font-family: "Segoe UI", "Trebuchet MS", system-ui, sans-serif;
+    background: var(--bg); color: var(--ink); line-height: 1.6;
+  }
+  header {
+    background: linear-gradient(135deg, #2e8b57, #3fae72);
+    color: #fff; padding: 28px 20px; text-align: center;
+  }
+  header h1 { margin: 0 0 6px; font-size: 1.5rem; }
+  header p { margin: 0; opacity: .95; font-size: .95rem; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 20px; }
+  .tabs { display: flex; gap: 10px; margin: 18px 0; }
+  .tab {
+    flex: 1; padding: 12px; border: 2px solid var(--border); border-radius: var(--radius);
+    background: var(--card); cursor: pointer; text-align: center; font-weight: 600; color: var(--muted);
+    transition: .2s;
+  }
+  .tab.active { border-color: var(--brand); background: var(--brand-soft); color: var(--brand); }
+  .card {
+    background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 18px 18px 14px; margin-bottom: 16px; box-shadow: var(--shadow);
+  }
+  .q { font-weight: 600; margin-bottom: 12px; }
+  .q .num { color: var(--brand); margin-right: 6px; }
+  .src {
+    display: inline-block; font-size: .72rem; color: var(--brand); background: var(--brand-soft);
+    border-radius: 999px; padding: 2px 10px; margin-top: 8px;
+  }
+  .opt { display: block; padding: 10px 14px; margin: 8px 0; border: 2px solid var(--border);
+    border-radius: 12px; cursor: pointer; transition: .15s; }
+  .opt:hover { border-color: var(--brand); background: var(--brand-soft); }
+  .opt input { margin-right: 10px; }
+  .opt.correct { border-color: var(--ok); background: #e6f6ec; }
+  .opt.wrong { border-color: var(--no); background: #fdeaea; }
+  textarea {
+    width: 100%; min-height: 70px; border: 2px solid var(--border); border-radius: 12px;
+    padding: 10px; font-family: inherit; font-size: .95rem; resize: vertical;
+  }
+  .model { margin-top: 8px; font-size: .88rem; color: var(--muted); }
+  .model b { color: var(--brand); }
+  .btn {
+    display: inline-block; background: var(--brand); color: #fff; border: none; border-radius: 12px;
+    padding: 14px 26px; font-size: 1rem; font-weight: 700; cursor: pointer; margin-top: 6px;
+  }
+  .btn:hover { background: #26744a; }
+  .btn.ghost { background: transparent; color: var(--brand); border: 2px solid var(--brand); }
+  .result {
+    background: var(--card); border: 2px solid var(--brand); border-radius: var(--radius);
+    padding: 22px; text-align: center; box-shadow: var(--shadow);
+  }
+  .result h2 { margin: 0 0 8px; color: var(--brand); }
+  .score { font-size: 2.4rem; font-weight: 800; color: var(--brand); }
+  .badge { display: inline-block; padding: 6px 16px; border-radius: 999px; font-weight: 700; margin-top: 10px; }
+  .badge.good { background: var(--brand-soft); color: var(--brand); }
+  .badge.ok { background: #fff3d6; color: #b9791b; }
+  .note { font-size: .85rem; color: var(--muted); margin-top: 14px; }
+  .hidden { display: none; }
+  footer { text-align: center; color: var(--muted); font-size: .8rem; padding: 24px; }
+  .cta { background: var(--brand-soft); border-radius: var(--radius); padding: 16px; margin-top: 8px;
+    color: var(--ink); font-weight: 600; text-align: center; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Kuis Interaktif IPAS</h1>
+  <p>Energi Alternatif dan Penghematan Energi · Fase C (Kelas V–VI) · Kurikulum Merdeka</p>
+</header>
+
+<div class="wrap">
+  <div class="tabs">
+    <div class="tab active" id="tabPre" onclick="showTest('pre')">Pre-test (Cek Awal)</div>
+    <div class="tab" id="tabPost" onclick="showTest('post')">Post-test (Cek Pemahaman)</div>
+  </div>
+
+  <!-- PRE TEST -->
+  <section id="preSection">
+    <div id="preQuestions"></div>
+    <button class="btn" onclick="grade('pre')">Periksa Jawaban Pre-test</button>
+    <div id="preResult" class="hidden"></div>
+  </section>
+
+  <!-- POST TEST -->
+  <section id="postSection" class="hidden">
+    <div id="postQuestions"></div>
+    <button class="btn" onclick="grade('post')">Periksa Jawaban Post-test</button>
+    <div id="postResult" class="hidden"></div>
+  </section>
+
+  <div class="cta">🌱 Ayo menjaga bumi: matikan alat yang tak terpakai, gunakan lampu hemat energi, dan tanam pohon!</div>
+
+  <footer>
+    Setiap soal merujuk sumber fakta terverifikasi <code>[src:#]</code> dari Panduan IPAS Revisi 4/2025.
+    Kunci jawaban &amp; skor telah disiapkan untuk persetujuan guru sebelum digunakan siswa.
+  </footer>
+</div>
+
+<script>
+const PRE = [
+  { q:"Energi alternatif adalah sumber energi yang …", opts:["sulit ditemukan","dapat diperbarui dan ramah lingkungan","hanya ada di kota besar","menghasilkan banyak sampah"], a:1, src:"[src:2]" },
+  { q:"Berikut yang termasuk energi alternatif adalah …", opts:["minyak bumi","gas alam","surya (matahari) dan angin","batu bara"], a:2, src:"[src:2]" },
+  { q:"Salah satu cara menghemat energi di rumah adalah …", opts:["membiarkan lampu menyala terus","mematikan alat yang tidak terpakai","menyalakan kipas di ruangan kosong","menggunakan banyak alat listrik sekaligus"], a:1, src:"[src:7]" },
+  { q:"Pada lampu yang menyala, energi listrik berubah menjadi …", opts:["cahaya dan panas","bunyi saja","gerak saja","cahaya saja"], a:0, src:"[src:5]" },
+  { q:"PLTS Terapung Cirata terletak di …", opts:["Danau Toba, Sumatra Utara","Waduk Cirata, Jawa Barat","Waduk Jatiluhur, Jawa Tengah","Teluk Jakarta"], a:1, src:"[src:CA1]" },
+  { q:"Bentuk energi yang dihasilkan oleh matahari adalah energi …", opts:["kimia","cahaya (surya)","bunyi","gerak"], a:1, src:"[src:4],[src:3]" },
+  { q:"Menghemat energi termasuk upaya …", opts:["menambah sampah","mitigasi perubahan iklim","memboroskan uang","menebang hutan"], a:1, src:"[src:7],[src:8]" }
+];
+
+const POST = [
+  { q:"Energi alternatif yang berasal dari matahari disebut energi …", opts:["angin","surya","biogas","air"], a:1, src:"[src:2]" },
+  { q:"Berikut yang BUKAN termasuk energi alternatif adalah …", opts:["angin","air","batu bara","biogas"], a:2, src:"[src:2]" },
+  { q:"Sifat energi alternatif adalah …", opts:["tidak dapat diperbarui","dapat diperbarui dan ramah lingkungan","cepat habis","hanya untuk industri"], a:1, src:"[src:2]" },
+  { q:"Contoh perubahan bentuk energi: listrik → gerak terdapat pada …", opts:["lampu","kipas","kompor","radio"], a:1, src:"[src:5]" },
+  { q:"Energi listrik pada lampu berubah menjadi …", opts:["cahaya dan panas","bunyi","gerak","kimia"], a:0, src:"[src:5]" },
+  { q:"Makanan (energi kimia) diubah tubuh menjadi energi … untuk bergerak.", opts:["listrik","gerak","cahaya","bunyi"], a:1, src:"[src:5]" },
+  { q:"Prinsip bahwa energi tidak diciptakan atau dimusnahkan, hanya diubah bentuknya, artinya energi …", opts:["dapat dibuang","berubah bentuk","hilang sendiri","bertambah terus"], a:1, src:"[src:6]" },
+  { q:"Upaya penghematan energi di sekolah adalah …", opts:["membiarkan proyektor menyala terus","mematikan lampu ruangan yang kosong","menyalakan semua kipas","menggunakan alat boros"], a:1, src:"[src:7]" },
+  { q:"Menggunakan lampu hemat energi termasuk upaya …", opts:["pemborosan","penghematan energi","polusi","mitigasi sampah"], a:1, src:"[src:7]" },
+  { q:"Menanam pohon dan mengurangi sampah termasuk upaya …", opts:["mitigasi perubahan iklim","menambah polusi","pemborosan","perusakan alam"], a:0, src:"[src:8]" },
+  { q:"Sumber daya alam yang harus dijaga agar tersedia bagi generasi mendatang meliputi …", opts:["air, tanah, hutan, udara","uang saja","mainan","pakaian"], a:0, src:"[src:8]" },
+  { q:"PLTS Terapung Cirata memiliki kapasitas sekitar …", opts:["145 MWac (192 MWp)","10 MWp","500 MWp","1 MWp"], a:0, src:"[src:CA1]" },
+  { q:"PLTS Terapung Cirata beroperasi sejak tahun …", opts:["2019","2023","2025","2010"], a:1, src:"[src:CA1]" },
+  { q:"Sebutkan dua contoh energi alternatif selain surya!", type:"text", model:"Angin, air, dan biogas (sebutkan dua di antaranya).", src:"[src:2]" },
+  { q:"Jelaskan apa yang dimaksud dengan energi alternatif dalam satu kalimat!", type:"text", model:"Energi dari sumber yang dapat diperbarui dan ramah lingkungan, seperti surya, angin, air, dan biogas.", src:"[src:2]" },
+  { q:"Tuliskan tiga bentuk energi yang kamu ketahui!", type:"text", model:"Gerak, panas, cahaya, listrik, kimia, dan bunyi (sebutkan tiga).", src:"[src:4]" },
+  { q:"Apa yang terjadi pada energi listrik ketika kita menyalakan kipas angin?", type:"text", model:"Energi listrik berubah menjadi energi gerak.", src:"[src:5]" },
+  { q:"Sebutkan dua cara menghemat energi di rumah yang kamu lakukan!", type:"text", model:"Mematikan alat yang tidak terpakai dan menggunakan lampu hemat energi.", src:"[src:7]" },
+  { q:"Mengapa menanam pohon dan mengurangi sampah membantu bumi?", type:"text", model:"Karena menjaga sumber daya alam dan mengurangi dampak perubahan iklim (mitigasi).", src:"[src:8]" },
+  { q:"Apa hubungan PLTS Terapung Cirata dengan pembelajaran energi alternatif?", type:"text", model:"Cirata adalah contoh nyata PLTS (surya apung) terbesar Asia Tenggara, kapasitas 145 MWac (192 MWp), diresmikan 2023 — bukti energi alternatif digunakan di Indonesia.", src:"[src:CA1],[src:2]" }
+];
+
+function showTest(which){
+  document.getElementById('preSection').classList.toggle('hidden', which!=='pre');
+  document.getElementById('postSection').classList.toggle('hidden', which!=='post');
+  document.getElementById('tabPre').classList.toggle('active', which==='pre');
+  document.getElementById('tabPost').classList.toggle('active', which==='post');
+  document.getElementById('preResult').classList.add('hidden');
+  document.getElementById('postResult').classList.add('hidden');
+}
+
+function render(containerId, data){
+  const c = document.getElementById(containerId);
+  c.innerHTML = '';
+  data.forEach((item, i) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    let inner = `<div class="q"><span class="num">${i+1}.</span>${item.q}</div>`;
+    if(item.type === 'text'){
+      inner += `<textarea data-i="${i}" placeholder="Tulis jawabanmu di sini…"></textarea>`;
+      inner += `<div class="model hidden" id="${containerId}-m-${i}"><b>Jawaban rujukan:</b> ${item.model}</div>`;
+    } else {
+      item.opts.forEach((o, j) => {
+        inner += `<label class="opt" data-q="${i}" data-o="${j}"><input type="radio" name="${containerId}-${i}" value="${j}"> ${String.fromCharCode(65+j)}. ${o}</label>`;
+      });
+    }
+    inner += `<span class="src">${item.src}</span>`;
+    card.innerHTML = inner;
+    c.appendChild(card);
+  });
+}
+
+function grade(which){
+  const data = which === 'pre' ? PRE : POST;
+  const resId = which === 'pre' ? 'preResult' : 'postResult';
+  const contId = which === 'pre' ? 'preQuestions' : 'postQuestions';
+  let score = 0, max = 0, mcTotal = 0, usTotal = 0;
+
+  data.forEach((item, i) => {
+    if(item.type === 'text'){
+      usTotal += 4; max += 4;
+      const ta = document.querySelector(`#${contId} textarea[data-i="${i}"]`);
+      const m = document.getElementById(`${contId}-m-${i}`);
+      if(m) m.classList.remove('hidden');
+      const val = (ta && ta.value.trim().length > 0) ? 1 : 0;
+      score += val * 4; // jawaban tertulis dinilai guru; di sini dihitung bila terisi
+    } else {
+      mcTotal += (which === 'pre' ? 1 : 2);
+      max += (which === 'pre' ? 1 : 2);
+      const chosen = document.querySelector(`input[name="${contId}-${i}"]:checked`);
+      const labels = document.querySelectorAll(`#${contId} .opt[data-q="${i}"]`);
+      labels.forEach(l => l.classList.remove('correct','wrong'));
+      labels[item.a].classList.add('correct');
+      if(chosen){
+        const v = parseInt(chosen.value, 10);
+        if(v === item.a){ score += (which === 'pre' ? 1 : 2); }
+        else { labels[v].classList.add('wrong'); }
+      }
+    }
+  });
+
+  const pct = Math.round((score / max) * 100);
+  let badge = '', cls = '';
+  if(pct >= 75){ badge = "Kerja bagus! Pemahamanmu kuat 🌟"; cls = "good"; }
+  else if(pct >= 50){ badge = "Tetap semangat, kamu sudah berkembang!"; cls = "ok"; }
+  else { badge = "Ayo belajar lagi, kamu pasti bisa!"; cls = "ok"; }
+
+  const r = document.getElementById(resId);
+  r.classList.remove('hidden');
+  r.innerHTML = `
+    <div class="result">
+      <h2>Hasil ${which === 'pre' ? 'Pre-test' : 'Post-test'}</h2>
+      <div class="score">${pct}<span style="font-size:1rem">/100</span></div>
+      <div>Skor mentah: ${score} dari ${max} poin</div>
+      <div class="badge ${cls}">${badge}</div>
+      <p class="note">${which === 'pre'
+        ? 'Ini cek awal untuk mengetahui pengetahuanmu sebelum belajar. Tidak untuk nilai akhir.'
+        : 'Jawaban uraian dinilai oleh guru. Lihat "Jawaban rujukan" di tiap soal uraian.'}</p>
+      <button class="btn ghost" onclick="location.reload()">Ulangi Kuis</button>
+    </div>`;
+  r.scrollIntoView({behavior:'smooth'});
+}
+
+render('preQuestions', PRE);
+render('postQuestions', POST);
+</script>
+</body>
+</html>

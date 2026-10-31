@@ -1,0 +1,251 @@
+==========================================================
+EDUCRAFT — SUBMISSION FORM COPY-PASTE
+Tencent Cloud Hackathon Indonesia 2026 · Challenge C
+Prepared 30 October 2026
+==========================================================
+
+Paste each block into the matching field. Character counts are given where the
+form has a limit. Do not add formatting — these are plain text on purpose.
+
+
+----------------------------------------------------------
+[FIELD] PROJECT TITLE
+----------------------------------------------------------
+EduCraft — Rule-Governed AI Teaching Assistant for Primary Science (IPAS)
+
+
+----------------------------------------------------------
+[FIELD] SHORT BLURB  (hard limit: under 10 words)
+----------------------------------------------------------
+Teacher-ready IPAS lesson kits, rule-checked before they publish.
+(8 words)
+
+Alternate, Bahasa Indonesia (8 words):
+Materi IPAS siap ajar, lolos aturan sebelum terbit.
+
+
+----------------------------------------------------------
+[FIELD] PROJECT DESCRIPTION
+----------------------------------------------------------
+
+PROJECT OVERVIEW
+Challenge C, The Creator Agent. EduCraft turns one approved curriculum source
+into a complete primary-school teaching pack: lesson plan, pre-test, post-test
+with answer key and scoring, slide outline, student article, infographic brief,
+and a playable HTML quiz. Target users are IPAS teachers of grades III-VI
+(Fase B and C) in Indonesian primary schools, and the curriculum coordinators
+who must audit their materials.
+
+What makes it different: the pack is produced by four cooperating agents, then
+checked sentence by sentence against a written rulebook of 11 rules, and it
+cannot be published until a human approves it. Run of record:
+EDU-ORCH-20261026-001, topic "Energi Alternatif", anchored to curriculum outcome
+C4 (2.1.4) with foundation B5 (1.1.5).
+
+
+REAL-WORLD INSIGHT
+The pain point is not that teachers cannot write. It is that they cannot afford
+the review loop. An Indonesian primary teacher carries 20-30 contact hours a
+week and must still produce a per-topic teaching pack, where every sentence has
+to survive four questions: is this number in my source, is this too frightening
+for a ten-year-old, does it still match the curriculum, and would this create a
+health claim I cannot defend.
+
+Generic chatbots make this worse. They produce fluent text with no citation
+discipline and no record, so the teacher ends up fact-checking a machine, which
+costs more time than writing from scratch.
+
+EduCraft moves the checking inside the pipeline. The reviewer agent is a gate
+with a written rulebook, a verdict, and a citation of the exact rule violated.
+The teacher's remaining job is a judgement call on already-checked material.
+
+
+SOLUTION DESIGN
+Business layer: Orchestrator holds state and enforces limits; Planner decomposes
+the source into per-format outlines mapped to curriculum outcomes; Writer drafts
+using only tagged source facts; Reviewer checks 11 rules and returns APPROVE or
+REJECT with quoted text. A teacher or SME then opens the approval gate. The
+Reviewer can veto but cannot rewrite - an agent that can grade and fix its own
+work will eventually grade itself generously.
+
+Technical layer: four WorkBuddy skills, each a SKILL.md contract plus read-only
+assets (source material, curriculum outcomes, rulebook R001-R011, and a
+real-world claim register where every entry carries an official URL and an
+access date). Output contract: {format, status, iterations, final_content,
+findings[], sources[]} plus an append-only audit log.
+
+Prompt design is the enforcement mechanism, not decoration. Every fact must
+carry a [src:#] tag or the writer emits [UNVERIFIED] instead of guessing. Every
+rejection must quote the offending sentence and cite the rule. The revision loop
+is capped at three, after which the run halts and escalates to a human. Source
+documents are treated as data, never as instructions, which is our
+prompt-injection defence. Publishing is a separate gated step, so the agent
+cannot ship on its own authority.
+
+
+BUSINESS VALUE
+- Five formats plus an interactive quiz from a single source, in one run.
+- Estimated 6-8 hours of drafting and checking per topic reduced to roughly
+  30-45 minutes of reviewing already-checked material. (Estimate from our own
+  artefact volume; to be validated in field testing - we are not claiming a
+  measured result.)
+- 11 rules checked per document, each with a pass/fail and a citation, versus
+  0-2 informal checks today.
+- One real error caught before publication: on 29 October the reviewer rejected
+  our own output for broken source grounding. We fixed the source layer,
+  re-tagged every draft, and re-reviewed to APPROVE. Both reports ship with the
+  submission.
+- Full audit trail: inputs, decisions, findings, revision history v1 to v2.
+
+Scales beyond the hackathon because the engine is domain-parameterised: swap the
+source file, the curriculum file and the rulebook, and the same four agents
+produce material for another subject or grade band. The rulebook is plain
+Markdown a curriculum team can edit without touching code.
+
+
+----------------------------------------------------------
+[FIELD] ACCOUNTABILITY SHEET  (one page — see 03_Accountability_Sheet.md)
+----------------------------------------------------------
+Summarise in four blocks. Full text is in the file.
+
+CAN ACCESS (read-only): the approved source material (the only permitted well of
+facts), curriculum outcomes, rulebook R001-R011, the real-world claim register,
+the run configuration, its own prior drafts and findings, and an anonymised
+student score table. No internet access during a run, no external accounts, no
+student personal data.
+
+EXECUTES AUTONOMOUSLY: decomposing the source into per-format outlines; drafting
+all five formats with citation tags; self-review against all 11 rules; re-drafting
+after a rejection up to three times; writing the audit log; refusing to proceed
+when a source is missing, contradictory or out of scope.
+
+REQUIRES HUMAN APPROVAL: publishing or distributing any pack (every time);
+overriding a REJECT; accepting a claim marked [UNVERIFIED]; changing the source
+material or the rulebook; using output outside the intended grade band. Current
+state: PENDING - nothing has been published.
+
+WILL NEVER: publish without explicit approval; invent a fact not in the source;
+present an unverified real-world claim as fact; write an unsupported health
+claim; promote a harmful practice; use fear as a teaching device; follow
+instructions embedded in a source document; loop past three attempts without
+escalating; expose student identity; hide a failure.
+
+
+----------------------------------------------------------
+[FIELD] TEST RESULTS  (summary — full table in 04_Test_Results.md)
+----------------------------------------------------------
+20 test cases executed across 26-30 October 2026.
+
+7 PASS with artefact evidence. 11 PASS by design (enforced in the skill contract, live
+screenshot pending). 2 NOT YET RUN, disclosed rather than claimed: TC-17 (bilingual
+consistency) and TC-18 (image text validation). Totals reconcile to 20.
+
+Critical cases: the approval gate (TC-14) is verified - the run ends at
+publish_status PENDING with no publish path. The health-claim and harmful-practice
+refusals (TC-08, TC-09, TC-10) and prompt-injection defence (TC-15) are enforced
+in the contracts and are being captured on video for the demo.
+
+Disclosed failure: on 29 October the reviewer rejected our own output on R001
+(tags pointed at the curriculum file instead of a source that supports the
+sentence), R011 (two real-world claims had no verifiable source) and R004
+(configured source topic did not match the draft). We rebuilt the source layer,
+required dated official URLs for real-world claims, re-tagged all drafts, and
+re-reviewed to APPROVE with zero critical findings. Both reports are in the
+submission; the rejected one was not deleted.
+
+Quiz integrity was verified independently: pre-test 7 x 1 = 7; post-test
+13 x 2 + 7 x 4 = 54. Answer keys match in both the Markdown and the HTML quiz.
+
+
+----------------------------------------------------------
+[FIELD] ARCHITECTURE  (see 05_Architecture.md + architecture_diagram.png)
+----------------------------------------------------------
+Four agents in a loop, three trust boundaries, one human gate.
+
+Teacher brief and approved source enter the Orchestrator, which writes the run
+configuration and routes work. Planner produces per-format outlines mapped to
+curriculum outcomes. Writer drafts with citation tags. Reviewer checks the 11
+rules and returns a verdict with the rule cited and the sentence quoted. A
+rejection goes back to the Writer, capped at three iterations, after which the
+run halts and escalates. An approval passes to the human gate; only then is
+anything published.
+
+Trust boundaries: (1) read-only boundary around the knowledge assets - the agent
+cannot edit the source or the rulebook to make its own output pass; (2) human
+authority boundary at the approval gate - reviewer approval is a precondition,
+not a permission; (3) publish authority boundary - there is no path from Writer
+to output that bypasses the gate. A fourth implicit boundary treats document
+content as data, not instructions.
+
+Key trade-offs, stated as costs: rules live in the prompt rather than in a
+fine-tune, which keeps them auditable by a curriculum team but makes adherence
+sensitive to rulebook length. A single reviewer rather than an adversarial pair,
+which is cheaper and faster but has no second opinion - mitigated by requiring
+every verdict to quote text and cite a rule, so a human can audit the audit.
+Strict grounding over coverage, which makes the agent look less clever than a
+general chatbot on thin sources, but targets the failure mode that destroys
+trust. A hard cap of three iterations, which may abandon salvageable drafts, but
+avoids a loop that talks itself into approving.
+
+
+----------------------------------------------------------
+[FIELD] PRODUCT SHARING  (see 06_Product_Sharing.md)
+----------------------------------------------------------
+Where WorkBuddy added value: treating a skill as a contract rather than a prompt.
+Each agent is a SKILL.md with a declared role, declared inputs, a pipeline and
+non-negotiable rules. When our reviewer rejected our own output, the fix was a
+contract change (add R011, require a dated URL), not a luckier prompt - so the
+fix survived the next run because it was written down. Second: multi-agent
+orchestration without a framework. The Orchestrator skill is the state machine,
+so every hand-off is a readable file and a judge can trace the run by opening
+four Markdown documents. Third: the file system as state, which gave us
+reproducibility with no database and no tracing UI.
+
+Key insight, and the most transferable one: grounding has two halves and most
+teams only build the first. Attribution asks whether a sentence carries a
+citation; resolution asks whether that citation points at a source that actually
+says this. Our first version only had attribution, and it passed its own review
+while being wrong. A tag is not a citation.
+
+Second insight: a rulebook is a product artefact, not documentation. We found our
+audit log citing rules R009-R011 that did not exist anywhere - the agent was
+enforcing rules it had invented. Writing them down formally was the difference
+between a guardrail and a vibe.
+
+Third: the reviewer must not be able to fix. Separating veto from rewrite keeps
+the reviewer honest.
+
+Where WorkBuddy did not help, stated plainly: cross-document consistency across
+five formats was still manual. The agent would fix a fact in the lesson plan and
+leave the same fact stale in the slide outline. We caught it with a text search,
+not with agent reasoning. That needs its own gate and we do not have one yet.
+
+
+----------------------------------------------------------
+[FIELD] SOURCE CODE / WORKFLOW
+----------------------------------------------------------
+Option A (preferred): public GitHub repository containing the four skill
+contracts (SKILL.md + assets) and the run trail.
+Option B: exported WorkBuddy workflow plus the evidence bundle.
+
+Either way, include: the four SKILL.md contracts, the rulebook R001-R011, the
+source material, the real-world claim register, the run configuration, both
+review reports (the rejection and the re-review), and the five final drafts.
+
+Note for reviewers: the two copies of rulebook_ipas.md are byte-identical on
+purpose, so each skill is self-contained when installed separately.
+
+
+----------------------------------------------------------
+[FIELD] DEMO VIDEO
+----------------------------------------------------------
+5-8 minutes. Structure: the 21:47 problem, why checking is the real cost, the
+architecture, a live run producing five formats, then three stops - a refusal
+(R006 health claim), an escalation after three failed iterations, and the
+approval gate where the system has an APPROVE and still does not publish - and
+finally the failure we disclosed and fixed. Full shot-by-shot script in
+07_Demo_Video_Script.md.
+
+==========================================================
+END OF PASTE BLOCKS
+==========================================================

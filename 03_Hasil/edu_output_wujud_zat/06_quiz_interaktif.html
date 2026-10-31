@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kuis Perubahan Wujud Zat — IPAS Fase C</title>
+<style>
+  :root{
+    --cream:#FFF8F0; --ink:#1F2937; --muted:#6B7280;
+    --indigo:#4338CA; --teal:#0F766E; --amber:#D97706;
+    --line:#E5D9C9; --ok:#0F766E; --warn:#B45309;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--cream); color:var(--ink);
+    font-family:"Segoe UI","Trebuchet MS",Arial,sans-serif; line-height:1.6;
+    padding:28px 18px 60px;
+  }
+  .wrap{max-width:860px;margin:0 auto}
+  header{text-align:center;margin-bottom:22px}
+  h1{font-size:30px;color:var(--indigo);margin:0 0 6px}
+  .sub{color:var(--muted);font-size:15px;margin:0}
+  .tabs{display:flex;gap:10px;justify-content:center;margin:20px 0 22px;flex-wrap:wrap}
+  .tab{
+    border:2px solid var(--line);background:#fff;color:var(--muted);
+    padding:9px 22px;border-radius:999px;font-size:15px;font-weight:600;
+    cursor:pointer;transition:.15s;
+  }
+  .tab.active{border-color:var(--indigo);color:var(--indigo);background:#EEF2FF}
+  .card{
+    background:#fff;border:3px solid var(--line);border-radius:16px;
+    padding:18px 20px;margin-bottom:16px;
+  }
+  .hint{
+    background:#FFF7ED;border:2px solid #FED7AA;border-radius:12px;
+    padding:12px 16px;font-size:15px;color:#9A3412;margin-bottom:18px;
+  }
+  .q{margin-bottom:22px}
+  .q:last-child{margin-bottom:0}
+  .qtext{font-weight:600;margin-bottom:10px}
+  .qno{
+    display:inline-block;min-width:26px;height:26px;line-height:22px;text-align:center;
+    border:2px solid var(--indigo);color:var(--indigo);border-radius:8px;
+    font-size:13px;font-weight:700;margin-right:8px;background:#EEF2FF;
+  }
+  label.opt{
+    display:flex;gap:10px;align-items:flex-start;padding:9px 12px;border-radius:10px;
+    border:2px solid transparent;cursor:pointer;font-size:15px;
+  }
+  label.opt:hover{background:#FFF8F0}
+  label.opt input{margin-top:5px;accent-color:var(--indigo)}
+  label.opt.pick{border-color:#C7D2FE;background:#EEF2FF}
+  label.opt.benar{border-color:#99F6E4;background:#F0FDFA}
+  label.opt.salah{border-color:#FECACA;background:#FEF2F2}
+  textarea{
+    width:100%;min-height:76px;border:2px solid var(--line);border-radius:10px;
+    padding:10px 12px;font-family:inherit;font-size:15px;resize:vertical;background:#FFFDF9;
+  }
+  .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px}
+  button.primary{
+    background:var(--indigo);color:#fff;border:none;border-radius:999px;
+    padding:12px 30px;font-size:16px;font-weight:700;cursor:pointer;
+  }
+  button.primary:hover{background:#3730A3}
+  button.ghost{
+    background:#fff;color:var(--indigo);border:2px solid var(--indigo);
+    border-radius:999px;padding:10px 22px;font-size:15px;font-weight:600;cursor:pointer;
+  }
+  .result{display:none;margin-top:4px}
+  .result.show{display:block}
+  .score{
+    display:flex;gap:18px;align-items:center;flex-wrap:wrap;
+    background:#EEF2FF;border:3px solid #C7D2FE;border-radius:14px;padding:16px 20px;
+    margin-bottom:14px;
+  }
+  .score .num{font-size:34px;font-weight:800;color:var(--indigo)}
+  .badge{
+    padding:5px 14px;border-radius:999px;font-size:14px;font-weight:700;
+    border:2px solid currentColor;
+  }
+  .badge.ok{color:var(--ok);background:#F0FDFA}
+  .badge.mid{color:var(--warn);background:#FFF7ED}
+  .badge.low{color:#B91C1C;background:#FEF2F2}
+  .fb{font-size:15px;color:#374151;margin-top:6px}
+  .keybox{
+    display:none;margin-top:10px;padding:10px 14px;border-radius:10px;
+    background:#F0FDFA;border:2px solid #99F6E4;font-size:14px;color:#115E59;
+  }
+  .keybox.show{display:block}
+  .teacher{margin-top:18px;border-top:2px dashed var(--line);padding-top:14px}
+  .teacher input[type=number]{
+    width:80px;padding:7px 10px;border:2px solid var(--line);border-radius:8px;font-size:15px;
+  }
+  .foot{text-align:center;color:var(--muted);font-size:13px;margin-top:26px}
+  .hidden{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Kuis Perubahan Wujud Zat</h1>
+    <p class="sub">IPAS &middot; Fase C &middot; Kelas V&ndash;VI &middot; Sumber: <em>Panduan IPAS Revisi 4/2025</em> [src:B4]</p>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" data-view="pre">Pre-Test (7 soal)</button>
+    <button class="tab" data-view="post">Post-Test (20 soal)</button>
+  </div>
+
+  <!-- ============ PRE ============ -->
+  <section id="view-pre">
+    <div class="hint">
+      <strong>Tenang, ini bukan ujian.</strong> Pre-test hanya membantu gurumu mengetahui apa yang sudah kamu pahami.
+      Jika ada yang belum yakin, pilih jawaban yang menurutmu paling mungkin. Tidak apa-apa jika belum tepat.
+    </div>
+    <form id="form-pre" class="card"></form>
+    <div class="actions">
+      <button class="primary" id="btn-pre">Periksa Jawaban</button>
+      <button class="ghost" id="reset-pre">Ulangi</button>
+      <button class="ghost" id="key-pre">Kunci (guru)</button>
+    </div>
+    <div class="result" id="res-pre"></div>
+  </section>
+
+  <!-- ============ POST ============ -->
+  <section id="view-post" class="hidden">
+    <div class="hint">
+      <strong>Bagian ini berisi 20 soal.</strong> 14 soal pilihan ganda dan 6 soal uraian singkat.
+      Jawab dengan bahasamu sendiri. Tidak ada jawaban yang memalukan.
+    </div>
+    <form id="form-post" class="card"></form>
+    <div class="actions">
+      <button class="primary" id="btn-post">Periksa Pilihan Ganda</button>
+      <button class="ghost" id="reset-post">Ulangi</button>
+      <button class="ghost" id="key-post">Kunci (guru)</button>
+    </div>
+    <div class="result" id="res-post"></div>
+  </section>
+
+  <p class="foot">Materi dan kunci jawaban belum dipublikasikan ke murid sebelum disetujui guru/SME.</p>
+</div>
+
+<script>
+const PRE = [
+ {q:"Ada berapa wujud zat yang kita pelajari?", o:["Satu","Dua","Tiga","Empat"], k:2},
+ {q:"Es batu termasuk zat berwujud apa?", o:["Padat","Cair","Gas","Uap"], k:0},
+ {q:"Air yang dipanaskan akan menguap menjadi uap air. Uap air termasuk zat berwujud…", o:["Padat","Cair","Gas","Padat dan cair"], k:2},
+ {q:"Es yang dibiarkan di ruangan hangat berubah menjadi air. Perubahan ini disebut…", o:["Membeku","Menguap","Mencair","Mengembun"], k:2},
+ {q:"Air yang dipanaskan lama-lama akan berubah menjadi uap. Perubahan ini disebut…", o:["Mengembun","Menguap","Membeku","Menyublim"], k:1},
+ {q:"Air yang dimasukkan ke dalam freezer berubah menjadi es. Perubahan ini disebut…", o:["Mencair","Menguap","Mengembun","Membeku"], k:3},
+ {q:"Menurutmu, apa yang menyebabkan wujud zat dapat berubah?", o:["Warna benda","Perubahan suhu","Berat benda","Nama benda"], k:1}
+];
+
+const POST_MC = [
+ {q:"Urutan wujud yang tepat untuk es batu, air, dan uap air adalah…", o:["Es (gas) – air (cair) – uap (padat)","Es (padat) – air (cair) – uap (gas)","Es (cair) – air (padat) – uap (gas)","Es (padat) – air (gas) – uap (cair)"], k:1},
+ {q:"Perubahan dari padat menjadi cair disebut…", o:["Membeku","Mencair atau melebur","Menguap","Mengkristal"], k:1},
+ {q:"Perubahan dari cair menjadi padat disebut…", o:["Membeku","Mencair","Mengembun","Menyublim"], k:0},
+ {q:"Perubahan dari cair menjadi gas disebut…", o:["Mengembun","Membeku","Menguap","Menyublim"], k:2},
+ {q:"Perubahan dari gas menjadi cair disebut…", o:["Menguap","Mengembun","Mencair","Mengkristal"], k:1},
+ {q:"Perubahan dari padat menjadi gas disebut…", o:["Mengkristal","Membeku","Menyublim","Mengembun"], k:2},
+ {q:"Perubahan dari gas menjadi padat disebut…", o:["Menyublim","Mencair","Menguap","Mengkristal"], k:3},
+ {q:"Pasangan perubahan wujud yang arahnya berlawanan adalah…", o:["Menguap dan menyublim","Mencair dan membeku","Mencair dan menguap","Membeku dan mengkristal"], k:1},
+ {q:"Ketika suhu di sekitar zat naik, perubahan yang mungkin terjadi adalah…", o:["Membeku, mengembun, mengkristal","Mencair, menguap, menyublim","Hanya membeku","Tidak terjadi perubahan"], k:1},
+ {q:"Ketika suhu di sekitar zat turun, perubahan yang mungkin terjadi adalah…", o:["Membeku, mengembun, mengkristal","Mencair, menguap, menyublim","Hanya menguap","Tidak terjadi perubahan"], k:0},
+ {q:"Es, air, dan uap air dapat berasal dari bahan yang sama. Yang berubah adalah…", o:["Jenis bahannya","Wujudnya","Warnanya","Beratnya"], k:1},
+ {q:"Butiran air muncul di dinding luar gelas yang berisi minuman dingin. Perubahan wujud yang terjadi adalah…", o:["Air menjadi uap","Uap air menjadi air","Es menjadi air","Air menjadi es"], k:1},
+ {q:"Pernyataan yang paling tepat tentang perubahan wujud adalah…", o:["Perubahan wujud hanya terjadi di laboratorium","Perubahan wujud tidak berhubungan dengan suhu","Perubahan wujud dapat disebabkan perubahan suhu","Perubahan wujud hanya terjadi pada air"], k:2},
+ {q:"Rani mengamati es di gelas mengecil, sementara dinding gelas menjadi basah. Kesimpulan yang paling tepat adalah…", o:["Es hilang tanpa jejak","Es mencair menjadi air, dan uap air di udara mengembun di dinding gelas","Air berubah menjadi es","Gelas menyerap seluruh air"], k:1}
+];
+
+const POST_SA = [
+ {q:"Sebutkan tiga wujud zat.", a:"Padat, cair, dan gas."},
+ {q:"Mengapa es dapat mencair ketika dibiarkan di ruangan yang lebih hangat?", a:"Karena terjadi perubahan suhu: suhu di sekitar es menjadi lebih hangat, sehingga es mencair."},
+ {q:"Tuliskan dua contoh perubahan wujud yang pernah kamu lihat di rumah, lengkap dengan nama perubahannya.", a:"Contoh: es mencair (padat menjadi cair); air membeku (cair menjadi padat); air menguap (cair menjadi gas); uap mengembun (gas menjadi cair)."},
+ {q:"Pakaian basah yang dijemur menjadi kering. Perubahan wujud apa yang terjadi, dan dari wujud apa ke wujud apa?", a:"Menguap, yaitu dari cair menjadi gas."},
+ {q:"Lengkapi urutan berikut beserta nama perubahannya: padat → … → gas.", a:"Padat → cair (mencair) → gas (menguap)."},
+ {q:"Kamu ingin mengamati satu perubahan wujud di rumah. Tuliskan: benda yang diamati, apa yang akan kamu catat, dan mengapa perlu dicatat.", a:"Contoh: mengamati es di gelas; mencatat wujud sebelum dan sesudah serta perubahan suhu; mencatat agar perubahan dapat dibandingkan dan dibuktikan."}
+];
+
+const LABEL = ["A","B","C","D"];
+
+function buildMC(list, name, startNo){
+  return list.map((item,i)=>{
+    const no = startNo + i;
+    const opts = item.o.map((t,j)=>`
+      <label class="opt" data-i="${i}" data-j="${j}">
+        <input type="radio" name="${name}${i}" value="${j}">
+        <span><strong>${LABEL[j]}.</strong> ${t}</span>
+      </label>`).join("");
+    return `<div class="q" id="${name}-q${i}">
+      <div class="qtext"><span class="qno">${no}</span>${item.q}</div>
+      ${opts}
+      <div class="keybox" id="${name}-k${i}">Kunci: <strong>${LABEL[item.k]}.</strong> ${item.o[item.k]}</div>
+    </div>`;
+  }).join("");
+}
+
+function buildSA(list, startNo){
+  return list.map((item,i)=>{
+    const no = startNo + i;
+    return `<div class="q">
+      <div class="qtext"><span class="qno">${no}</span>${item.q}</div>
+      <textarea placeholder="Tulis jawabanmu di sini…" data-sa="${i}"></textarea>
+      <div class="keybox" id="sakey-${i}">Contoh jawaban: ${item.a}</div>
+    </div>`;
+  }).join("");
+}
+
+document.getElementById("form-pre").innerHTML = buildMC(PRE,"pre",1);
+document.getElementById("form-post").innerHTML =
+  buildMC(POST_MC,"post",1) +
+  `<div style="margin-top:26px;padding-top:14px;border-top:2px dashed var(--line)">
+     <div style="font-weight:700;color:var(--muted);font-size:14px;letter-spacing:.5px;margin-bottom:14px">URAIAN SINGKAT</div>
+   </div>` + buildSA(POST_SA,15);
+
+// interaksi pilihan
+document.querySelectorAll("label.opt input").forEach(inp=>{
+  inp.addEventListener("change",e=>{
+    const box = e.target.closest(".q");
+    box.querySelectorAll("label.opt").forEach(l=>l.classList.remove("pick"));
+    e.target.closest("label.opt").classList.add("pick");
+  });
+});
+
+// tab
+document.querySelectorAll(".tab").forEach(t=>{
+  t.addEventListener("click",()=>{
+    document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
+    t.classList.add("active");
+    const v = t.dataset.view;
+    document.getElementById("view-pre").classList.toggle("hidden", v!=="pre");
+    document.getElementById("view-post").classList.toggle("hidden", v!=="post");
+  });
+});
+
+// kunci guru
+document.getElementById("key-pre").addEventListener("click",()=>{
+  document.querySelectorAll("#form-pre .keybox").forEach(k=>k.classList.toggle("show"));
+});
+document.getElementById("key-post").addEventListener("click",()=>{
+  document.querySelectorAll("#form-post .keybox").forEach(k=>k.classList.toggle("show"));
+});
+
+function badge(pct){
+  if(pct>=80) return `<span class="badge ok">Tercapai</span>`;
+  if(pct>=60) return `<span class="badge mid">Berkembang</span>`;
+  return `<span class="badge low">Perlu pendampingan</span>`;
+}
+
+function scoreMC(list, prefix, form){
+  let benar = 0;
+  list.forEach((item,i)=>{
+    const picked = form.querySelector(`input[name="${prefix}${i}"]:checked`);
+    const box = document.getElementById(`${prefix}-q${i}`);
+    box.querySelectorAll("label.opt").forEach((l,j)=>{
+      l.classList.remove("benar","salah");
+      if(j===item.k) l.classList.add("benar");
+      else if(picked && Number(picked.value)===j) l.classList.add("salah");
+    });
+    if(picked && Number(picked.value)===item.k) benar++;
+  });
+  return benar;
+}
+
+document.getElementById("btn-pre").addEventListener("click",()=>{
+  const form = document.getElementById("form-pre");
+  const benar = scoreMC(PRE,"pre",form);
+  const pct = Math.round(benar/PRE.length*100);
+  const res = document.getElementById("res-pre");
+  res.innerHTML = `
+    <div class="score">
+      <div class="num">${benar} / ${PRE.length}</div>
+      <div>
+        <div style="font-weight:700">Nilai awal: ${pct}%</div>
+        <div class="fb">Ini hanya titik awal, bukan nilai rapor. Bagian yang belum tepat akan kita pelajari bersama.</div>
+      </div>
+    </div>`;
+  res.classList.add("show");
+});
+
+document.getElementById("btn-post").addEventListener("click",()=>{
+  const form = document.getElementById("form-post");
+  const benar = scoreMC(POST_MC,"post",form);
+  const pctMC = Math.round(benar/POST_MC.length*100);
+  const res = document.getElementById("res-post");
+  res.innerHTML = `
+    <div class="score">
+      <div class="num">${benar} / ${POST_MC.length}</div>
+      <div>
+        <div style="font-weight:700">Pilihan ganda: ${pctMC}%</div>
+        <div class="fb">Bagian uraian dinilai bersama guru. Lihat tanda hijau untuk jawaban yang sudah tepat, lalu periksa bagian yang belum tepat bersama teman atau guru.</div>
+      </div>
+    </div>
+    <div class="card teacher">
+      <div style="font-weight:700;margin-bottom:8px">Panel guru &mdash; skor uraian (0&ndash;6)</div>
+      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+        <input type="number" id="sa-score" min="0" max="6" value="0">
+        <button class="ghost" id="sa-go">Hitung total</button>
+        <span id="sa-out" style="font-weight:700"></span>
+      </div>
+      <div class="fb" style="margin-top:8px">Total = skor pilihan ganda (0&ndash;14) + skor uraian (0&ndash;6). Nilai = total &divide; 20 &times; 100.</div>
+    </div>`;
+  res.classList.add("show");
+
+  document.getElementById("sa-go").addEventListener("click",()=>{
+    let sa = Number(document.getElementById("sa-score").value);
+    sa = Math.max(0, Math.min(6, isNaN(sa)?0:sa));
+    const total = benar + sa;
+    const pct = Math.round(total/20*100);
+    document.getElementById("sa-out").innerHTML =
+      `Total ${total}/20 &rarr; ${pct}% ${badge(pct)}`;
+  });
+});
+
+document.getElementById("reset-pre").addEventListener("click",()=>{
+  document.getElementById("form-pre").reset();
+  document.querySelectorAll("#form-pre label.opt").forEach(l=>l.classList.remove("pick","benar","salah"));
+  document.getElementById("res-pre").classList.remove("show");
+});
+document.getElementById("reset-post").addEventListener("click",()=>{
+  document.getElementById("form-post").reset();
+  document.querySelectorAll("#form-post label.opt").forEach(l=>l.classList.remove("pick","benar","salah"));
+  document.getElementById("res-post").classList.remove("show");
+});
+</script>
+</body>
+</html>
