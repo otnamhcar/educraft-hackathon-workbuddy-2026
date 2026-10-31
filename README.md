@@ -202,10 +202,10 @@ It runs six checks and exits non-zero if any fails, so a broken clone says *wher
 | 2 | four contracts in the clone | the clone is incomplete |
 | 3 | four `edu-*` skills installed | run `install_skills.sh`, then restart |
 | 4 | rulebook, CP, actual-context register, both source sheets | the knowledge layer is missing |
-| 5 | the three rulebook copies share one SHA-256 | a copy has drifted — the Reviewer would judge against different rules than the Writer wrote to |
+| 5 | rulebook and wujud-zat source copies share one SHA-256 each | a copy has drifted — the Reviewer would judge against different rules than the Writer wrote to |
 | 6 | grounding check on both runs | a draft no longer resolves against its sources |
 
-A healthy clone prints `7 passed · 0 failed · 0 warning` and exits 0.
+A healthy clone prints `8 passed · 0 failed · 0 warning` and exits 0.
 
 ### First run
 

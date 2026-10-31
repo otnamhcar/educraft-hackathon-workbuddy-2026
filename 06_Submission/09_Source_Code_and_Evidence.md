@@ -75,7 +75,7 @@ Two commands, then a health check — the scripts are in `tools/`:
 ```bash
 ./tools/install_skills.sh     # 4 skills into ~/.workbuddy-ai/skills, count verified
 # restart WorkBuddy, then:
-./tools/doctor.sh             # 7 passed · 0 failed · 0 warning on a healthy clone
+./tools/doctor.sh             # 8 passed · 0 failed · 0 warning on a healthy clone
 ```
 
 Then invoke the orchestrator with: topic, grade band (Fase C), the CP codes, and the source sheet

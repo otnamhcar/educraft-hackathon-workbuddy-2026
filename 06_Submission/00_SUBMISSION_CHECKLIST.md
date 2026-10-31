@@ -66,15 +66,25 @@ on a 1080p laptop. If a judge has to squint, it does not count.
 ## 4. Code publication — ✅ DONE (Option A)
 
 **Public GitHub repo:** https://github.com/otnamhcar/educraft-hackathon-workbuddy-2026
-MIT licence · 88 files · pushed 31 October 2026.
+MIT licence · 118 tracked files · HEAD `b56104f`, pushed 31 October 2026.
 
-Published contents: `README.md` (front page), `05_Bukti_Proses/skills_package/` (four contracts +
-full knowledge assets), `03_Hasil/` (both runs, both review reports), `06_Submission/`,
-`04_Diskusi/test_cases_matrix.md`, `LICENSE`.
+Published contents: `README.md` (front page, including a **"Run it yourself"** path written for a
+teacher rather than a developer), `05_Bukti_Proses/skills_package/` (four contracts + full knowledge
+assets), `03_Hasil/` (both runs, both review reports), `06_Submission/`,
+`04_Diskusi/test_cases_matrix.md`, `tools/` (grounding check, `install_skills.sh`, `doctor.sh`),
+`LICENSE`, `THIRD_PARTY_NOTICES.md`.
 
-Deliberately **not** published: `01_Dokumen/` and `02_Sumber/` (third-party curriculum PDFs — link
-to official sources instead), `.workbuddy-ai/` and `04_Diskusi/` working notes (internal).
-Enforced by `.gitignore` in the repo root.
+**Also published: the two official ministry PDFs** the knowledge layer is built from — *Panduan Mata
+Pelajaran IPAS* (Revisi 4) and *Permendikdasmen 13/2025* — plus their text extractions, in
+`02_Sumber/`. Reason: the grounding check is only verifiable if a reader can open the page a claim
+came from. They sit outside the MIT licence and are carved out in `THIRD_PARTY_NOTICES.md`.
+
+Deliberately **not** published, with a reason per file in `02_Sumber/README.md`: six
+`centralpendidikan.com` RPP worksheets, the SMP assessment guide, a WhatsApp export, the organiser's
+handbook, `.workbuddy-ai/` and working notes. Enforced by `.gitignore` in the repo root.
+
+**Verified 31 October 2026:** a fresh `git clone` of `main` installs the four skills and passes
+`tools/doctor.sh` — `8 passed · 0 failed · 0 warning`, exit 0.
 
 Remaining housekeeping: re-run the push after any further edit, so the repo and the bundle match.
 
@@ -84,9 +94,10 @@ Remaining housekeeping: re-run the push after any further edit, so the repo and 
 
 | Check | Status |
 |-------|--------|
-| Teacher/SME has reviewed the 5 drafts and the answer key | **TODO** |
-| Approval recorded (name + date) in `00_run_config.md` | **TODO** |
-| Nothing described as "published" or "live" in the submission | **HOLDS** — run config says PENDING |
+| Run `-002` reviewed and approved by a teacher | **HOLDS for `-002`** — approver named, timestamped 30 Oct 2026 17:19 GMT+7, scope recorded in `03_Hasil/edu_output_wujud_zat/00_run_config.md` |
+| Run `-001` reviewed by a teacher | **TODO** — still `PENDING`; it is never described as approved anywhere in this bundle |
+| Approval record carries all four protocol parts | **PARTIAL for `-002`** — named human ✓, timestamp ✓, scope ✓, **verbatim statement ✗**. Either quote the approver's exact sentence into the run config, or state in the submission that the record has three of four parts |
+| Nothing described as "published" or "live" in the submission | **HOLDS** — `-002` gate opened for *limited distribution only*; `-001` says `PENDING` |
 | Student data anonymised | **HOLDS** |
 | Mock data disclosed as mock | **HOLDS** — stated in `09_Source_Code_and_Evidence.md` §5 |
 

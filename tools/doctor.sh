@@ -66,17 +66,22 @@ for f in 03_Hasil/referensi/rulebook_ipas.md \
 done
 [ "$kmiss" -eq 0 ] && ok "rulebook, CP, actual-context register and both source sheets found"
 
-head_ "5. Rulebook copies identical"
+head_ "5. Copies identical (rulebook, wujud-zat source)"
 if command -v sha256sum >/dev/null 2>&1; then
-  sums="$(sha256sum 03_Hasil/referensi/rulebook_ipas.md \
-      05_Bukti_Proses/skills_package/edu-orchestrator/assets/rulebook_ipas.md \
-      05_Bukti_Proses/skills_package/edu-reviewer/assets/rulebook_ipas.md 2>/dev/null \
-      | awk '{print $1}' | sort -u | wc -l | tr -d ' ')"
-  if [ "$sums" = "1" ]; then
-    ok "3 copies, one checksum ($(sha256sum 03_Hasil/referensi/rulebook_ipas.md | cut -c1-16))"
-  else
-    no "$sums distinct checksums — the copies have drifted"
-  fi
+  drift=0
+  for group in "rulebook_ipas.md" "source_material_wujud_zat.md"; do
+    n="$(sha256sum "03_Hasil/referensi/$group" \
+         05_Bukti_Proses/skills_package/edu-orchestrator/assets/"$group" \
+         05_Bukti_Proses/skills_package/edu-reviewer/assets/"$group" \
+         05_Bukti_Proses/skills_package/edu-writer/assets/"$group" 2>/dev/null \
+         | awk '{print $1}' | sort -u | wc -l | tr -d ' ')"
+    if [ "$n" = "1" ]; then
+      ok "$group — one checksum across copies ($(sha256sum "03_Hasil/referensi/$group" | cut -c1-16))"
+    else
+      no "$group — $n distinct checksums, the copies have drifted"
+      drift=1
+    fi
+  done
 else
   meh "sha256sum not available, skipped"
 fi
