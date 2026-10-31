@@ -1,6 +1,6 @@
 # Storyboard & Naskah Video — "Es, Air, dan Uap: Perubahan Wujud Zat"
 
-> **Untuk:** `edu-video` | **Sumber fakta:** `[src:B4]` saja
+> **Untuk:** `edu-video` | **Sumber fakta:** `[src:W1]`–`[src:W11]` (turunan: `[src:W10]`, `[src:W11]`)
 > **Durasi:** 4 menit 45 detik | **Sasaran:** Fase C (Kelas V–VI)
 > **Narasi:** bahasa Indonesia baku sesuai KBBI, artikulasi tenang (± 135 kata/menit), jeda 1 detik antarkalimat kunci (R009)
 > **Penutup:** selalu diakhiri ajakan positif (R009)

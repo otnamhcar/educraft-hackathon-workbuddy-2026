@@ -52,12 +52,12 @@ column should ever be quoted.
 | Impact & Relevance | Real-world problem, meaningful value | Teacher review-loop framing; approved and printed pack | No measured time saving; one teacher | 7 → 8 | Problem is real and specific; value claim is still an estimate |
 | Human-Centered Design | Designed around real users and needs | Separate student (no key) / teacher (key) packs; age-calibrated rule R003 | No student usability test | 8 → 8 | Artefacts show user thinking; no user test evidence |
 | AI Interaction | Genuinely agentic, not single-pass | 4 agents, 2 real reject→remediate cycles, gates | Loop counter not machine-enforced | 8 → 8 | Two independent runs with different verdict paths |
-| Technical Execution | Working prototype + performance against test cases | Deterministic grounding check (121 tags PASS); 2 complete runs | 0 screenshots; 11 cases BY DESIGN; D1 open | 5 → 8 | Prototype works; test evidence incomplete |
+| Technical Execution | Working prototype + performance against test cases | Deterministic grounding check passes on both runs (121 / 115 tags) | 0 screenshots; 11 cases BY DESIGN | 5 → 8 | Prototype works; test evidence incomplete |
 | Feasibility | Realistic, could scale beyond hackathon | No infra, Markdown rules, printable output | Single subject domain | 7 → 8 | Cost of adoption is near zero for a school |
 | Demo & Storytelling | How effectively presented | 7:20 script with 3 accountability stops | No video | 3 → 8 | Nothing recorded yet |
 | Innovation & Creativity | Originality of approach | "A tag is not a citation" + resolution gate | Insight is documented, gate not yet mandatory | 7 → 8 | Insight is genuinely uncommon in RAG demos |
 | UX & Accessibility | Usability and accessibility | Print packs, single-file HTML quiz, large type | No audio, no screen-reader check, Indonesian only | 6 → 7 | Usable, not yet accessible |
-| Responsible AI & Ethics | Sources, permissions, approval, limits, record | Accountability sheet, 4 boundaries, disclosed failure | Critical evidence 1 of 6; D1 open | 6 → 9 | Strong design, thin proof |
+| Responsible AI & Ethics | Sources, permissions, approval, limits, record | Accountability sheet, 4 boundaries, disclosed failure, D1 fixed in the open | Critical evidence 1 of 6 | 6 → 9 | Strong design, thin proof |
 | Overall Quality | Would a judge trust it in their organisation | Honest defect log; reproducible checks | Inconsistencies between docs (being fixed) | 7 → 8 | Trust comes from disclosure, which is present |
 
 **Where the score is lost today is not design, it is capture:** three dimensions (Technical
@@ -74,7 +74,7 @@ video, not by missing capability. Those are mechanical to fix and are the cheape
 | Execute and submit results with screenshots | GAP | 0 screenshots |
 | Include failures | READY | Two defects logged (D1, D2); 29 Oct rejection retained |
 | Disclose rather than conceal | READY | Rejection report shipped; defect log added |
-| Build on the shared dataset | **UNVERIFIED / deviation** | We built an IPAS domain instead of the fictional-company dataset. See U3. |
+| Build on the shared dataset | **RESOLVED — waived** | Committee waived the shared dataset and its test cases (`BUKTI_KOMITE` §3). Our own domain is permitted |
 | Live 90-second surprise test | PARTIAL | Protocol written (`05_TEST_PLAN.md` §7); never rehearsed |
 
 ---
@@ -83,14 +83,14 @@ video, not by missing capability. Those are mechanical to fix and are the cheape
 
 Anything in this list must not be stated as fact in the submission until an artefact exists.
 
-| ID | Claim we rely on | Why it is unverified | What closes it |
-|----|------------------|----------------------|----------------|
-| U1 | Submission deadline is **7 Nov 2026** | Handbook p.13 says **1 Nov 2026**. The extension is a message from a teacher, not stored here | Save the committee notice to `01_Dokumen/` and cite it. **If U1 is false, the deadline is tomorrow.** |
-| U2 | Participant-defined test cases are allowed | Committee update quoted verbally; no notice stored | Same as U1 — one screenshot closes both |
-| U3 | Using our own domain instead of the shared dataset is acceptable | Handbook §6 says all teams build on the same dataset; we did not | State the deviation explicitly in the form, or obtain written clarification |
-| U4 | Run `-001` has teacher approval | `00_run_config.md` says `PENDING` | A recorded approval, or stop implying it |
-| U5 | "Field testing" has happened | One teacher, one review session, one class set printed | Say "single-teacher review", not "field testing" |
-| U6 | The engine is domain-parameterised | True since rulebook v2.0 (no hardcoded tag numbers), but never demonstrated on a second subject | Run one topic outside IPAS, or soften the claim to "designed to be" |
+| ID | Claim we rely on | Status | Evidence |
+|----|------------------|--------|----------|
+| U1 | Submission deadline is **7 Nov 2026** | **RESOLVED** | `01_Dokumen/BUKTI_KOMITE_2026-10-31.md` §2 — committee message 27/10/2026 21:23: "diperpanjang hingga 7 November 2026 (dari jadwal awal 1 November)". Handbook p.13 is superseded |
+| U2 | Participant-defined test cases are allowed | **RESOLVED** | same file §3 — 21/10/2026 09:53: "Untuk dataset dan test case dibebaskan … gunakan data atau skenario mandiri"; reinforced 28/10/2026 13:41 |
+| U3 | Using our own domain instead of the shared dataset is acceptable | **RESOLVED** | same file §3 — the dataset is explicitly waivable. No deviation needs to be argued |
+| U4 | Run `-001` has teacher approval | UNVERIFIED | `00_run_config.md` says `PENDING`. Say "pending", never "approved" |
+| U5 | "Field testing" has happened | OVERSTATED | One teacher, one review session, one printed set. Say "single-teacher review" |
+| U6 | The engine is domain-parameterised | PARTIAL | True since rulebook v2.0 (no hardcoded tag numbers), but never demonstrated on a second subject |
 
 ---
 
@@ -98,7 +98,7 @@ Anything in this list must not be stated as fact in the submission until an arte
 
 | Claim in current documents | Why it must change |
 |----------------------------|--------------------|
-| "100% of factual sentences carry a source tag" (`02_Project_Description.md` §3.4) | True as *attribution*; false as *resolution* for run `-002` (84 violations). Rephrase: "100% attribution; resolution enforced by a deterministic check, which currently fails on run `-002` (defect D1)" |
+| "100% of factual sentences carry a source tag" (`02_Project_Description.md` §3.4) | Already corrected: attribution and resolution are now stated separately, and both pass on both runs after D1 was fixed. Do not revert to the single-number claim |
 | "The run of record is `-001`" | Two runs with different statuses. Always name the run and its status |
 | "Nothing has been published" (`03_Accountability_Sheet.md` §3) | True for `-001`; run `-002` print packs were distributed after approval |
 | "Five formats in one run" | True for `-001` only (5 documents + 1 interactive quiz). Contracts still list 3 formats — fix the contracts or scope the claim |

@@ -107,7 +107,8 @@ Result, 31 October 2026:
 | Run | Tags checked | Dangling | Class violations | Verdict |
 |-----|-------------:|---------:|-----------------:|---------|
 | `-001` Energi | 121 | 0 | 0 | **PASS** |
-| `-002` Wujud Zat | 89 | 0 | **84** | **FAIL** — defect D1 |
+| `-002` Wujud Zat, before fix | 89 | 0 | 84 | **FAIL** — defect D1 |
+| `-002` Wujud Zat, after fix | 115 | 0 | 0 | **PASS** |
 
 Exit code is 0 on pass and 1 on failure, so the check can gate a pipeline without a human reading it.
 That is what makes TC-01 demonstrable in 90 seconds on Demo Day.
@@ -118,7 +119,7 @@ That is what makes TC-01 demonstrable in 90 seconds on Demo Day.
 
 | ID | Case | What happened | Evidence | Status |
 |----|------|---------------|----------|--------|
-| D1 | TC-01 on run `-002` | 84 of 89 tags are `[src:B4]`, which resolves to a **curriculum topic entry** in `cp_ipas.md`, not to a fact-bearing source. The Reviewer passed R001 because it checked attribution, not resolution | `03_Hasil/edu_output_wujud_zat/grounding_report.md` | **OPEN** — fix is `source_material_wujud_zat.md` + re-tag; the printed packs are already distributed, so the correction is a memo, not a reprint |
+| D1 | TC-01 on run `-002` | 84 of 89 tags were `[src:B4]`, a **curriculum topic entry** in `cp_ipas.md`, not a fact-bearing source. The Reviewer passed R001 because it checked attribution, not resolution | before: `03_Hasil/edu_output_wujud_zat/grounding_report.md` (89 tags, 84 class violations) · after: 115 tags, 0 violations | **CLOSED 31 Oct** — `source_material_wujud_zat.md` created from the official Panduan IPAS pp. 26–27, artefacts re-tagged to `[src:W1]`–`[src:W11]`, check PASS. Content unchanged. `[src:W10]`/`[src:W11]` are team-derived and await teacher validation; printed packs covered by `11_Memo_Koreksi_Tag_2026-10-31.md` |
 | D2 | TC-20 on run `-001` | `audit_log_edu_orchestrator.md` §3.4 records "iteration 1: APPROVE, no rejection", while the 29 Oct report is a REJECT. The log was never updated | both files, compared | **OPEN** — append the rejection and the v1→v2 history; do not rewrite the existing entries |
 
 Both defects are disclosed rather than hidden. That is a scoring asset under §6.3, but only if the

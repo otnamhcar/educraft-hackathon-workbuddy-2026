@@ -61,10 +61,12 @@ Supporting machinery: `tools/check_grounding.py` — deterministic R001 check; w
 |------|-------|
 | Submission items | 7 READY · 1 PARTIAL · 2 GAP · 1 bonus GAP |
 | Test suite | 20 cases defined with parameters; **0 screenshots captured** |
-| Deterministic checks | R001 — PASS on run `-001` (121 tags), FAIL on run `-002` (84 class violations) |
+| Deterministic checks | R001 — **PASS on both runs** (121 tags; 115 tags). D1 found 84 violations, then closed by re-tagging |
 | Rulebook | v2.0, three copies, checksum verified |
 | Public repo | `github.com/otnamhcar/educraft-hackathon-workbuddy-2026`, MIT, 88 files |
-| Open defects | D1 (run `-002` grounding), D2 (`-001` audit log) |
+| Deadline | **7 Nov 2026** — confirmed by committee message 27/10 21:23 (`01_Dokumen/BUKTI_KOMITE_2026-10-31.md`). Internal submit target: **5 Nov** |
+| Dataset & test cases | Waived by committee; participant-defined scenarios are permitted (same evidence file §3) |
+| Open defects | D2 only (`-001` audit log missing the rejection record). **D1 closed 31 Oct** by re-tagging |
 | Where the score is lost | Not design — capture. Screenshots (0) and video (none) hold down three dimensions |
 
 ---

@@ -165,3 +165,28 @@
 4. **Opsional:** rekam narasi dari `03_video_storyboard.md`, lalu render animatik ke MP4 bila video final dibutuhkan.
 5. **Opsional:** bila materi hendak dipakai lintas kelas, jalankan run baru untuk versi Fase B murni (kelas III–IV) dengan penurunan kedalaman proses.
 6. Bila guru meminta topik lain, jalankan run baru dengan Run ID berikutnya (`EDU-ORCH-YYYYMMDD-NNN`).
+
+---
+
+## 7. KOREKSI PASCA-RUN — penomoran tag (31 Oktober 2026)
+
+**Jenis:** koreksi ketertelusuran. **Bukan** perubahan isi materi.
+
+| Item | Sebelum | Sesudah |
+|------|---------|---------|
+| Sumber fakta | `source_material_ipas.md` → `[src:B4]` (entri **topik** di `cp_ipas.md`) | `source_material_wujud_zat.md` → `[src:W1]`–`[src:W11]` |
+| Tag di 5 draf | 84 tag `[src:B4]` | `[src:W1]`–`[src:W9]` (kutipan resmi), `[src:W10]`–`[src:W11]` (turunan tim) |
+| Tag di HTML/PDF sumber | `[src:B4]` di footer | `[src:W1]`–`[src:W11]` |
+
+**Alasan:** `[src:B4]` menunjuk "Proses perubahan wujud zat" di `cp_ipas.md` — nama topik, bukan
+sumber fakta. Reviewer Pass 2 meloloskan R001 karena memeriksa keberadaan tag, bukan resolusinya.
+Pemeriksaan deterministik (`tools/check_grounding.py`) kemudian menemukan 84 pelanggaran kelas tag.
+
+**Hasil setelah koreksi:** 115 tag, 0 dangling, 0 pelanggaran kelas → **PASS**
+(`grounding_report.md`, 31 Okt 2026). Isi materi tidak diubah: tidak ada kalimat yang ditambah,
+dihapus, atau diperhalus.
+
+**Yang belum tertutup:** `[src:W10]` dan `[src:W11]` adalah **turunan tim** (pemetaan arah perubahan
+dan penerapan sehari-hari), bukan kutipan dari Panduan IPAS. Keduanya wajib divalidasi guru.
+Paket cetak yang sudah beredar memuat `[src:B4]` di footer; memo koreksi untuk guru ada di
+`11_Memo_Koreksi_Tag_2026-10-31.md`.

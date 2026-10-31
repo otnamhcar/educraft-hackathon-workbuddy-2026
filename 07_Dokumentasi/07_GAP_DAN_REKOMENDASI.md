@@ -11,11 +11,11 @@
 
 | ID | Gap | Evidence it is real | Definition of done | Unlocks |
 |----|-----|---------------------|--------------------|---------|
-| **G1** | Run `-002` grounds 84 of 89 tags on `[src:B4]`, a curriculum topic entry, not a fact source | `03_Hasil/edu_output_wujud_zat/grounding_report.md` — FAIL | `03_Hasil/referensi/source_material_wujud_zat.md` exists with `[src:1]`–`[src:n]` facts traceable to the official Panduan IPAS (section *Proses Perubahan Wujud Zat*, `02_Sumber/extracted/panduan_ipas.txt` lines 856–870); artefacts re-tagged; `check_grounding.py` returns PASS; a correction memo covers the already-printed packs | TC-01 honesty; the core product claim; removes the easiest attack a judge can make |
+| ~~**G1**~~ | ~~Run `-002` grounds 84 of 89 tags on a curriculum entry~~ | **CLOSED 31 Oct** — `03_Hasil/edu_output_wujud_zat/grounding_report.md`: 115 tags, 0 dangling, 0 violations | Done. Content unchanged; `[src:W10]`/`[src:W11]` are team-derived and await teacher validation (`11_Memo_Koreksi_Tag_2026-10-31.md`) | TC-01 honesty on both runs; the core product claim |
 | **G2** | Two runs, contradictory status statements | `03_Accountability_Sheet.md` says "NOT PUBLISHED"; `edu_output_wujud_zat/audit_log.md` says the gate opened | Every document names the run and its status; accountability sheet has a per-run table | Removes a self-contradiction a judge can find in 2 minutes |
 | **G3** | 0 screenshots for 20 test cases | `05_Bukti_Proses/evidence_bundle/03_screenshots/` contains only `INDEX.md` | ≥6 captured, P0 first: TC-08, TC-10, TC-14, TC-15, TC-18 (+TC-02) | Test results item becomes READY; critical evidence 1/6 → 5/6; lifts Technical Execution and Responsible AI |
 | **G4** | No demo video | `06_Submission/` has a script, no media file | 5:00–8:00 video, 3 accountability stops, audio intelligible | Demo & Storytelling 3 → 8 (10 points) |
-| **G5** | Deadline claim unverified | Handbook p.13: 1 Nov. Project assumes 7 Nov | Committee notice stored in `01_Dokumen/` and cited | Determines whether P0 items are even possible. **Decide this first.** |
+| ~~**G5**~~ | ~~Deadline claim unverified~~ | **CLOSED 31 Oct** — `01_Dokumen/BUKTI_KOMITE_2026-10-31.md` §2: committee extended the deadline to **7 Nov 2026** | Done. Internal target: submit **5 Nov** | Unblocked all P0 work |
 
 ---
 
@@ -43,17 +43,21 @@
 
 ---
 
-## The decision that must be made today
+## Schedule — 31 October to 5 November (submit date)
 
-**G5.** The handbook says the deadline is **1 November 2026**. The project has been operating on a
-7 November extension that exists only as a message from a teacher. Two futures:
+Deadline is confirmed **7 November 2026** (`BUKTI_KOMITE_2026-10-31.md` §2). Internal target is
+**5 November**, leaving two days for upload failures and form problems.
 
-| If deadline is 1 Nov | If deadline is 7 Nov |
-|----------------------|----------------------|
-| Submit what is READY now. Fix G2 (wording) only — it costs 20 minutes and removes a contradiction. Screenshots of TC-14 and TC-15 from existing artefacts are still possible; a video is not. | Execute P0 in order: G1 → G3 → G4 → G2. Then P1 G6–G8. Rehearse G15. |
+| Day | Work | Why this order |
+|-----|------|----------------|
+| **31 Oct** | ✅ **DONE** — G1 (fact sheet, re-tag, grounding PASS, correction memo); G5 closed (deadline verified); U1–U3 resolved | It was the only P0 item that changes the product's truthfulness; everything else is presentation |
+| **1 Nov** | G3 — capture the 5 critical screenshots (TC-08, 10, 14, 15, 18) + TC-02 | Critical evidence 1/6 → 5/6; unblocks the Responsible AI cap |
+| **2 Nov** | G4 — record the 5–8 min video from the existing script | Largest single dimension gain (3 → 8) |
+| **3 Nov** | G6–G8 — contract format list, iteration field, `-001` audit log append | Removes contradictions a judge can find by reading |
+| **4 Nov** | G10 + G15 — one R012 test case, two timed surprise-test rehearsals | Demo Day readiness; cheap |
+| **5 Nov** | Final reconciliation: test counts, checksums, links, ZIP, submit + screenshot the confirmation | The mechanical points that are free |
 
-Do not start G1 (re-tagging) before G5 is settled: if the deadline is tomorrow, re-tagging printed
-material is the wrong use of the remaining hours.
+If any day slips, drop in this order: G10 → G8 → G6. Never drop G1 or G3.
 
 ---
 

@@ -149,7 +149,8 @@ python3 tools/check_grounding.py --run 03_Hasil/materi_ajar \
 | Run | Tags checked | Dangling | Class violations | Verdict |
 |-----|-------------:|---------:|-----------------:|---------|
 | `-001` Energi | 121 | 0 | 0 | **PASS** |
-| `-002` Wujud Zat | 89 | 0 | 84 | **FAIL** — defect D1, disclosed |
+| `-002` Wujud Zat, before fix | 89 | 0 | 84 | **FAIL** — defect D1 |
+| `-002` Wujud Zat, after fix | 115 | 0 | 0 | **PASS** |
 
 ---
 
@@ -174,9 +175,12 @@ No build step, no dependencies, no API keys required to read the contracts.
 - **Grounding needs two checks, and we only had one.** Attribution ("does this sentence carry a
   tag?") was enforced; resolution ("does the tag point at a source that actually says this?") was
   not. That gap is what produced the 29 October rejection. A tag is not a citation.
-- **Run `-002` is anchored to a topic anchor, not a fact sheet.** Its claims cite `[src:B4]`, which
-  is the curriculum topic entry in `cp_ipas.md`. The content was reviewed and approved by the
-  teacher on its merits; a dedicated fact sheet for that topic is still to be added.
+- **Run `-002` was originally anchored to a topic entry, not a fact sheet — fixed.** Its claims cited
+  `[src:B4]`, the curriculum topic name in `cp_ipas.md`. The deterministic check found 84 class
+  violations; a dedicated `source_material_wujud_zat.md` was created from the official Panduan IPAS
+  (pp. 26–27) and every artefact re-tagged to `[src:W1]`–`[src:W11]`. Content was not edited. Two
+  entries (`[src:W10]`, `[src:W11]`) are **team-derived** — direction mapping and everyday examples
+  the official guide does not state — labelled as such and awaiting teacher validation.
 - **Strict grounding produces thin material.** A thin source yields a thin pack, and the agent will
   look less impressive than a general chatbot on the same topic. We optimised for the failure mode
   that damages trust.

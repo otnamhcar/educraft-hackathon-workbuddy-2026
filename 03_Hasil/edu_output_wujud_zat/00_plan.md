@@ -3,7 +3,7 @@
 > **Run ID:** EDU-ORCH-20261030-002
 > **Topik:** Perubahan Wujud Zat
 > **Sasaran:** Fase C (Kelas V–VI) — **dengan catatan traceability wajib** (lihat `gaps`)
-> **Sumber fakta:** `assets/source_material_ipas.md` → `[src:B4]` (satu-satunya sumber fakta topik)
+> **Sumber fakta:** `assets/source_material_wujud_zat.md` → `[src:W1]`–`[src:W11]` (satu-satunya sumber fakta topik; `[src:W10]`–`[src:W11]` adalah turunan tim yang wajib divalidasi guru)
 > **Rulebook:** R001–R011
 > **Disusun oleh:** edu-planner (dijalankan Orchestrator)
 
@@ -44,11 +44,11 @@ Konsekuensi: materi ini berstatus **pemantapan/pengayaan lintas fase**, bukan ma
 ### 2.1 `short_article` (400–600 kata)
 
 1. Hook ramah: es di gelas yang mencair, embun di luar gelas dingin.
-2. Tiga wujud zat + ciri yang bisa diamati `[src:B4]`.
-3. Enam perubahan wujud berpasangan (mencair↔membeku, menguap↔mengembun, menyublim↔mengkristal) `[src:B4]`.
-4. Peran suhu sebagai pemicu `[src:B4]`.
+2. Tiga wujud zat + ciri yang bisa diamati `[src:W1]`.
+3. Enam perubahan wujud berpasangan (mencair↔membeku, menguap↔mengembun, menyublim↔mengkristal) `[src:W2][src:W10]`.
+4. Peran suhu sebagai pemicu `[src:W3]`.
 5. Contoh kehidupan nyata: dapur, minuman dingin, jemuran, kamper.
-6. Penutup solutif + ajakan mengamati di rumah `[src:B4]`.
+6. Penutup solutif + ajakan mengamati di rumah `[src:W6]`.
 
 ### 2.2 `infographic` (5 blok + CTA)
 
@@ -72,7 +72,7 @@ Konsekuensi: materi ini berstatus **pemantapan/pengayaan lintas fase**, bukan ma
 
 - Pre-test: 7 PG, mengukur pengetahuan awal (wujud, contoh, arah perubahan).
 - Post-test: 14 PG + 6 uraian singkat, mengukur pemahaman + penalaran data.
-- Setiap butir ber-tag `[src:B4]`; kunci + pedoman skor untuk guru.
+- Setiap butir ber-tag `[src:W1]`–`[src:W11]`; kunci + pedoman skor untuk guru.
 
 ---
 
@@ -102,9 +102,9 @@ Konsekuensi: materi ini berstatus **pemantapan/pengayaan lintas fase**, bukan ma
   "outline": {
     "short_article": [
       "Hook ramah: es mencair, embun di gelas dingin",
-      "Tiga wujud zat dan ciri teramati [src:B4]",
-      "Enam perubahan wujud berpasangan [src:B4]",
-      "Suhu sebagai pemicu perubahan [src:B4]",
+      "Tiga wujud zat dan ciri teramati [src:W1]",
+      "Enam perubahan wujud berpasangan [src:W2][src:W10]",
+      "Suhu sebagai pemicu perubahan [src:W3]",
       "Contoh kehidupan nyata (dapur, jemuran, kamper)",
       "Penutup solutif + ajakan mengamati"
     ],
@@ -137,7 +137,7 @@ Konsekuensi: materi ini berstatus **pemantapan/pengayaan lintas fase**, bukan ma
   "curriculum_refs": [
     "CP-B.1.1.4 — Menyimpulkan proses perubahan wujud zat (Pemahaman IPAS, Fase B)",
     "CP-C.2.2 — Keterampilan Proses Fase C (tabel/grafik, pola, evaluasi-refleksi)",
-    "src:B4"
+    "src:W1", "src:W2", "src:W3", "src:W10", "src:W11"
   ]
 }
 ```

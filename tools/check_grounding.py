@@ -52,7 +52,7 @@ def classify(tag: str) -> str:
         return "actual_context"
     if tag.upper() == "CP" or re.fullmatch(r"[BC]\d+", tag, re.IGNORECASE):
         return "curriculum"
-    if tag.isdigit():
+    if re.fullmatch(r"W\d+", tag, re.IGNORECASE) or tag.isdigit():
         return "fact"
     return "unknown"
 

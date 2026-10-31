@@ -1,7 +1,8 @@
 # Submission Checklist — Tencent Cloud Hackathon Indonesia 2026
 
 **Project:** EduCraft · **Challenge:** C — The Creator Agent
-**Deadline:** 7 November 2026 (perpanjangan dari panitia, info guru 30 Okt 2026) · **Prepared:** 30 October 2026
+**Deadline:** 7 November 2026 — committee message 27/10/2026 21:23, quoted in
+`01_Dokumen/BUKTI_KOMITE_2026-10-31.md` §2 · **Internal submit target: 5 November 2026** · **Prepared:** 30 October 2026
 **Form:** https://forms.gle/y1aHBH4BsrytXDxdA
 
 Legend: `READY` = artefact exists in this bundle · `TODO` = must be done by the team · `BLOCKED` = waiting on someone else

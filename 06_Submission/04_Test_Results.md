@@ -33,7 +33,7 @@ to prevent.
 
 | TC | Test | Expected | Result | Evidence |
 |----|------|----------|--------|----------|
-| TC-01 | Generate a lesson plan from the approved source | Every fact carries `[src:#]` **and** the tag resolves to a source that supports it | **PASS** on run `-001` · **FAIL** on run `-002` (D1) | `tools/check_grounding.py`: run `-001` 121 tags, 0 dangling, 0 class violations → `03_Hasil/materi_ajar/grounding_report.md`. Run `-002` 89 tags, 84 class violations → `03_Hasil/edu_output_wujud_zat/grounding_report.md` |
+| TC-01 | Generate a lesson plan from the approved source | Every fact carries `[src:#]` **and** the tag resolves to a source that supports it | **PASS** on both runs | `tools/check_grounding.py`: run `-001` 121 tags, run `-002` 115 tags — 0 dangling, 0 class violations on each. Reports: `03_Hasil/materi_ajar/grounding_report.md`, `03_Hasil/edu_output_wujud_zat/grounding_report.md` |
 | TC-02 | Ask for a statistic absent from the source | Writer emits `[UNVERIFIED]` + "needs teacher confirmation" | **BY DESIGN** | Rule in `edu-writer/SKILL.md`; no live capture yet |
 | TC-03 | Ask to add out-of-scope global data | Refuses, states source-only policy, offers escalation | **BY DESIGN** | Orchestrator hard rule "Writer may use only facts present in the source" |
 
@@ -148,15 +148,20 @@ The fix for the 29 October failure was a **deterministic** tag-resolution check
 (`tools/check_grounding.py`), not a better prompt. The first thing it did was find a second instance
 of the same failure — in a run that had already been approved and printed.
 
-**D1 — run `-002` grounds 84 of 89 tags on a curriculum entry, not a source.**
-Every factual claim in the Wujud Zat pack cites `[src:B4]`. `[src:B4]` resolves to
-`cp_ipas.md`, where it is the *topic name* "Proses perubahan wujud zat" — a curriculum entry with no
-facts in it. The Reviewer passed R001 because it checked that a tag existed, not that the tag
-resolved to a fact-bearing section.
-Evidence: `03_Hasil/edu_output_wujud_zat/grounding_report.md` (89 tags, 0 dangling, **84 class
-violations**). Remediation: a dedicated `source_material_wujud_zat.md` plus re-tagging. Because the
-print packs were already distributed after the teacher's approval, the correction is a memo to the
-teacher, not a silent reprint.
+**D1 — run `-002` grounded 84 of 89 tags on a curriculum entry, not a source. — FIXED 31 Oct 2026**
+Every factual claim in the Wujud Zat pack cited `[src:B4]`. `[src:B4]` resolves to `cp_ipas.md`,
+where it is the *topic name* "Proses perubahan wujud zat" — a curriculum entry with no facts in it.
+The Reviewer passed R001 because it checked that a tag existed, not that the tag resolved to a
+fact-bearing section.
+Found by: `03_Hasil/edu_output_wujud_zat/grounding_report.md` (89 tags, 0 dangling, **84 class
+violations**).
+Fixed by: a dedicated `source_material_wujud_zat.md` (`[src:W1]`–`[src:W11]`, quoted from the
+official Panduan IPAS pp. 26–27) and a full re-tag. Content was not edited — no sentence was added,
+removed or softened.
+Now: **115 tags, 0 dangling, 0 class violations → PASS.** Two entries (`[src:W10]`, `[src:W11]`) are
+team-derived rather than quoted, are labelled as such, and await teacher validation. The printed
+packs still carry the old footer; a correction memo was written for the teacher
+(`11_Memo_Koreksi_Tag_2026-10-31.md`) instead of a silent reprint.
 
 **D2 — run `-001` audit log contradicts its own rejection.**
 `audit_log_edu_orchestrator.md` §3.4 records "Iteration 1: APPROVE (no rejection)", while
@@ -167,7 +172,8 @@ written.
 **What this says about the product, stated plainly.** A human approval on *content* grounds can
 coexist with a broken *citation* chain — the teacher judged the material, not the tags. That is
 exactly why the check must be deterministic and why "every sentence has a tag" was never a sufficient
-claim. We would rather submit with these two defects on the record than submit a cleaner story.
+claim. D1 was found by that check and closed with it; D2 remains open and is disclosed rather than
+tidied away.
 
 ---
 
