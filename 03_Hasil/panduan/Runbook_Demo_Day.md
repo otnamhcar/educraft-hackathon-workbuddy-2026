@@ -192,8 +192,8 @@ entri kurikulum, bukan sumber) dan **D2** (log audit menyangkal penolakannya sen
 > menandai ulang — tanpa mengubah satu kalimat pun isinya. D2 ditutup dengan **menambahkan** catatan,
 > bukan menulis ulang log, karena log yang bisa diperbaiki ke belakang tidak membuktikan apa pun."
 
-**Jangan** menyebut angka 20/20. Angka yang benar: **7 `PASS` berbasis artefak, 11 `BY DESIGN`,
-2 `TO RUN`** — kecuali screenshot sudah terisi sebelum 27 Nov, dalam hal ini pakai angka di
+**Jangan** menyebut angka 21/21. Angka yang benar: **7 `PASS` berbasis artefak, 11 `BY DESIGN`,
+3 `TO RUN`** — kecuali screenshot sudah terisi sebelum 27 Nov, dalam hal ini pakai angka di
 `04_Test_Results.md` §1 saat itu.
 
 ### 3.8 Penutup (6:10–6:30)

@@ -141,11 +141,12 @@ escalating; expose student identity; hide a failure.
 ----------------------------------------------------------
 [FIELD] TEST RESULTS  (summary — full table in 04_Test_Results.md)
 ----------------------------------------------------------
-20 test cases executed across 26-30 October 2026.
+21 test cases defined; 7 of them executed with artefact evidence between 26-30 October 2026.
 
 7 PASS with artefact evidence. 11 PASS by design (enforced in the skill contract, live
-screenshot pending). 2 NOT YET RUN, disclosed rather than claimed: TC-17 (bilingual
-consistency) and TC-18 (image text validation). Totals reconcile to 20.
+screenshot pending). 3 NOT YET RUN, disclosed rather than claimed: TC-17 (bilingual
+consistency), TC-18 (image text validation) and TC-21 (R012 commercial/halal claim - case
+written, not yet run). Totals reconcile to 21.
 
 Critical cases: the approval gate (TC-14) is verified - the run ends at
 publish_status PENDING with no publish path. The health-claim and harmful-practice

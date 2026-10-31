@@ -49,6 +49,7 @@ Isi `Hasil` dengan `PASS` / `FAIL` / `BELUM`. Untuk `FAIL`, wajib menulis satu b
 | TC-18 | validasi teks gambar **(kritis)** | `S4_extras/TC-18_image_text.png` | | |
 | TC-19 | sitasi rule saat reject | `S2_refusal_cycle/TC-19_citation.png` | | |
 | TC-20 | kelengkapan audit log | `S1_golden_path/S1-05_audit_log.png` | | |
+| TC-21 | R012 komersial & halal **(kritis)** | `S2_refusal_cycle/TC-21a_reject-R012.png`, `TC-21b_rules_na-R012.png` | | |
 
 ---
 

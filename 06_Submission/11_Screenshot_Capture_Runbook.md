@@ -126,6 +126,12 @@ Simpan **langsung** dengan nama final (lihat §7). Jangan menumpuk `Screenshot f
 **Prioritas kalau waktu habis:** S1 (wajib, bukti dasar) → S2 (kasus kritis + momen demo) → S3
 (eskalasi & injeksi) → S4 (bonus).
 
+> **TC-21 (R012, kritis) belum ada di peta sesi ini.** Kasusnya baru ditulis 31 Okt
+> (`04_Diskusi/test_cases_matrix.md` §K). Polanya sama dengan S2 — brief yang harus ditolak — jadi
+> jalankan di sesi itu dan tambahkan 10–15 menit serta dua screenshot: `TC-21a_reject-R012.png`
+> (REJECT menyebut R012 + tiga sub-klausa) dan `TC-21b_rules_na-R012.png` (`rules_na` beralasan pada
+> materi bersih). Angka durasi di tabel di atas belum termasuk tambahan ini.
+
 ---
 
 ## 3. SESI 1 — Golden path (± 45 menit)

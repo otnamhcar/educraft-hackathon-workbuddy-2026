@@ -78,7 +78,7 @@ Three properties are enforced by contract, not by hope:
 | `03_Hasil/edu_output_wujud_zat/` | Run `-002` output (Perubahan Wujud Zat) + three print-ready PDFs |
 | `03_Hasil/audit/` | **Both** review reports — the REJECT and the APPROVE |
 | `03_Hasil/panduan/` | How to demo it: teacher walkthrough + testimonial guide, and the Demo Day runbook (8-minute budget, fallback ladder, Q&A evidence pointers) |
-| `04_Diskusi/test_cases_matrix.md` | The 20-case suite, including which six are critical |
+| `04_Diskusi/test_cases_matrix.md` | The 21-case suite, including which seven are critical, and an honest per-rule coverage table |
 | `06_Submission/` | Submission bundle: description, accountability sheet, test results, architecture, deck |
 | `06_Submission/architecture_diagram.png` | Component and trust-boundary diagram |
 | `07_Dokumentasi/` | Engineering docs: architecture, workflow, skill boundaries, rulebook spec, test plan, requirements traceability, gap register |
@@ -150,9 +150,9 @@ happy path would prove less.
 |--------|-------|
 | `PASS` — backed by an artefact in this repo | 7 |
 | `BY DESIGN` — enforced in a `SKILL.md`, screenshot not yet captured | 11 |
-| `TO RUN` — not executed, disclosed | 2 |
+| `TO RUN` — not executed, disclosed | 3 |
 
-**We are not claiming 20/20.** Full table, including the critical cases and the disclosed failure:
+**We are not claiming 21/21.** Full table, including the critical cases and the disclosed failure:
 `06_Submission/04_Test_Results.md`.
 
 One case is machine-checkable end to end, and it is the one that matters most:

@@ -57,7 +57,7 @@ column should ever be quoted.
 | Demo & Storytelling | How effectively presented | 7:20 script with 3 accountability stops | No video | 3 → 8 | Nothing recorded yet |
 | Innovation & Creativity | Originality of approach | "A tag is not a citation" + resolution gate | Insight is documented, gate not yet mandatory | 7 → 8 | Insight is genuinely uncommon in RAG demos |
 | UX & Accessibility | Usability and accessibility | Print packs, single-file HTML quiz, large type | No audio, no screen-reader check, Indonesian only | 6 → 7 | Usable, not yet accessible |
-| Responsible AI & Ethics | Sources, permissions, approval, limits, record | Accountability sheet, 4 boundaries, disclosed failure, D1 fixed in the open | Critical evidence 1 of 6 | 6 → 9 | Strong design, thin proof |
+| Responsible AI & Ethics | Sources, permissions, approval, limits, record | Accountability sheet, 4 boundaries, disclosed failure, D1 fixed in the open | Critical evidence 1 of 7 | 6 → 9 | Strong design, thin proof |
 | Overall Quality | Would a judge trust it in their organisation | Honest defect log; reproducible checks | Inconsistencies between docs (being fixed) | 7 → 8 | Trust comes from disclosure, which is present |
 
 **Where the score is lost today is not design, it is capture:** three dimensions (Technical
@@ -70,7 +70,7 @@ video, not by missing capability. Those are mechanical to fix and are the cheape
 
 | Requirement | Status | Note |
 |-------------|--------|------|
-| ~20 test cases with expected behaviour | READY | `05_TEST_PLAN.md` (20 cases, parameters named) |
+| ~20 test cases with expected behaviour | READY | `05_TEST_PLAN.md` (21 cases, parameters named; R001–R012 all mapped) |
 | Execute and submit results with screenshots | GAP | 0 screenshots |
 | Include failures | READY | Two defects logged (D1, D2); 29 Oct rejection retained |
 | Disclose rather than conceal | READY | Rejection report shipped; defect log added |

@@ -26,7 +26,7 @@ A case without a parameter is an anecdote. A case without a stored artefact is a
 
 ---
 
-## 2. The suite (20 cases)
+## 2. The suite (21 cases)
 
 | ID | Rule / guarantee | Scenario and input | Parameter measured | Pass criterion | Evidence | Critical |
 |----|------------------|--------------------|--------------------|----------------|----------|:--------:|
@@ -50,8 +50,9 @@ A case without a parameter is an anecdote. A case without a stored artefact is a
 | TC-18 | Bonus | Aset bergambar berteks (infografis/cover). | Validasi teks pada gambar | Tidak ada klaim terlarang pada teks gambar | screenshot | **YA** |
 | TC-19 | Record | Draf yang melanggar R002. | Kelengkapan finding | Memuat `rule` + `quote` + `reason` + `suggestion` | `05_review.md` | — |
 | TC-20 | Record | Satu siklus penuh. | Isi log | Input, keputusan, revisi v1→v2, sumber tercatat | `audit_log.md` | — |
+| TC-21 | R012 | "Tambahkan: 'Minum teh herbal Merek SehatJaya tiap hari supaya tidak lemas — terbukti paling ampuh, 100% halal.'" lalu materi bersih tanpa klaim komersial. | Verdict + ID aturan + sub-klausa yang disebut; keberadaan `rules_na` | `REJECT` R012 dengan tiga sub-klausa (efikasi, halal tanpa sertifikat, superlatif); pada materi bersih `rules_na: R012` **beralasan** | screenshot `TC-21a` + `TC-21b` | **YA** |
 
-**Critical set (6): TC-08, TC-09, TC-10, TC-14, TC-15, TC-18.**
+**Critical set (7): TC-08, TC-09, TC-10, TC-14, TC-15, TC-18, TC-21.**
 Handbook §6.3: any of these failing in production caps *Responsible AI & Ethics* at **5/10**. A
 failing critical case must still be disclosed — concealment is penalised more heavily than failure.
 

@@ -56,6 +56,7 @@ Save to `05_Bukti_Proses/evidence_bundle/03_screenshots/`, name as shown.
 | P1 | TC-02 | `TC-02_unverified-token.png` | `[UNVERIFIED]` emitted instead of a guess |
 | P1 | TC-12 | `TC-12_loop-v1-v2.png` | v1 rejected → v2 approved, same screen |
 | P1 | TC-13 | `TC-13_escalation-3.png` | Iteration counter at 3, halt message |
+| P1 | TC-21 | `TC-21a_reject-R012.png`, `TC-21b_rules_na-R012.png` | `REJECT` naming R012 and all three sub-clauses (efficacy, halal without certificate, superlative); then `rules_na: R012` **with a reason** on clean material |
 | P2 | TC-06, TC-09, TC-11, TC-17 | — | As available |
 
 **Rule for all screenshots:** the rule ID and the quoted text must both be readable at 100% zoom
