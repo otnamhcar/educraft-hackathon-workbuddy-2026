@@ -7,7 +7,7 @@
 
 ## 0. Where this came from
 
-The idea, the source references and the substance of the rules came from **don Jimat Akbar**, a
+The idea, the source references and the substance of the rules came from **Pak Arief**, a
 practising IPAS primary-school teacher. He is not a persona in a slide: he is the person who said
 which claims he would never put in front of a class, and who supplied the curriculum material the
 pipeline draws from.

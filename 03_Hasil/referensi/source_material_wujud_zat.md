@@ -7,7 +7,7 @@
 > *Panduan Mata Pelajaran IPAS, Revisi 4, 3 Oktober 2025* (Puskurjar, Kemendikdasmen), bagian
 > **"d. Proses Perubahan Wujud Zat"**, halaman 26–27. Rujukan baris mengacu pada ekstraksi teks
 > `02_Sumber/extracted/panduan_ipas.txt`.
-> Entri `[src:W10]` adalah **turunan tim, bukan kutipan** — ditandai eksplisit dan wajib divalidasi guru.
+> Entri `[src:W10]` dan `[src:W11]` adalah **turunan tim, bukan kutipan** — ditandai eksplisit dan wajib divalidasi guru.
 >
 > **Aturan pemakaian:** setiap klaim fakta di draf wajib merujuk salah satu entri di bawah.
 > Entri bertanda **TURUNAN** tidak boleh dipakai untuk klaim yang akan diujikan tanpa persetujuan guru.

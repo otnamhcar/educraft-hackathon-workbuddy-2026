@@ -70,15 +70,22 @@ happy path would prove less.
 
 ## 3. How to reproduce
 
-1. Install the four skills from `05_Bukti_Proses/skills_package/` into your agent runtime
-   (see `01_Dokumen/CARA_IMPORT_SKILL.md`).
-2. Place `source_material_energi.md`, `cp_ipas.md`, `konteks_aktual.md` and `rulebook_ipas.md`
-   where the orchestrator expects them (`assets/` of each skill).
-3. Invoke the orchestrator with: topic, grade band (Fase C), and the CP codes C4 + B5.
-4. Expect: `Plan → Draft → Review → (REJECT → remediate ≤3) → APPROVE → STOP at approval gate`.
-5. The run must end at `publish_status: PENDING`. If it publishes on its own, the install is wrong.
+Two commands, then a health check — the scripts are in `tools/`:
 
-No build step, no dependencies, no API keys required to read the contracts.
+```bash
+./tools/install_skills.sh     # 4 skills into ~/.workbuddy-ai/skills, count verified
+# restart WorkBuddy, then:
+./tools/doctor.sh             # 7 passed · 0 failed · 0 warning on a healthy clone
+```
+
+Then invoke the orchestrator with: topic, grade band (Fase C), the CP codes, and the source sheet
+already sitting in each skill's `assets/`. Expect
+`Plan → Draft → Review → (REJECT → remediate ≤3) → APPROVE → STOP at the approval gate`, ending at
+`publish_status: PENDING`. If it publishes on its own, the install is wrong.
+
+The `assets/` folders are already populated in the clone, so "copy the knowledge layer" is not a
+step. No build, no dependencies, no API keys of its own. Full walkthrough, including the Windows
+note: README → "Run it yourself".
 
 ## 4. What is still missing (action required before submit)
 
@@ -91,11 +98,20 @@ No build step, no dependencies, no API keys required to read the contracts.
 
 ## 5. Licence and data note
 
-- **Code/contracts:** intended for open publication with the submission (MIT or CC-BY-4.0 — choose
-  one and state it in the repo README).
-- **Source material:** `source_material_energi.md` is a **mock/illustrative** document written for
-  this hackathon. The handbook permits mock data (§10: *"Mock data is acceptable"*). Real-world
-  claims are the exception: those cite official URLs in `konteks_aktual.md`.
+- **Code/contracts:** **MIT** — `LICENSE` at the repository root; scope spelled out in README §
+  "Licence and data".
+- **Source material — two different bases, stated separately:**
+  - Run `-001` (`source_material_energi.md`) is a **mock/illustrative** document written for this
+    hackathon. Handbook §10 permits mock data (*"Mock data is acceptable"*). Its real-world claims are
+    the exception and cite official URLs in `konteks_aktual.md`.
+  - Run `-002` (`source_material_wujud_zat.md`) is **quoted from the official Panduan IPAS, pp. 26–27**,
+    with line references. Nine entries are quotations; two (`[src:W10]`, `[src:W11]`) are team-derived
+    and labelled as such.
 - **Student data:** the score table uses anonymised participant IDs. No real student data is included.
-- **Third-party curriculum documents** in `02_Sumber/` are **not** redistributed in the public repo —
-  they are reference material only. The repo should link to the official sources instead.
+- **Third-party curriculum documents ARE redistributed**, unmodified and attributed, in `02_Sumber/`:
+  the official *Panduan Mata Pelajaran IPAS* (Revisi 4) and *Permendikdasmen No. 13/2025*, plus their
+  text extractions. They are excluded from the MIT licence and carved out in `THIRD_PARTY_NOTICES.md`.
+  The point is verification: a reader can walk any `[src:W#]` tag back to a page of the original PDF
+  instead of trusting our summary. Third-party material that is **not** ours to publish — the six
+  `centralpendidikan.com` RPP worksheets and the organiser's handbook — is excluded; `02_Sumber/README.md`
+  lists every exclusion with its reason.

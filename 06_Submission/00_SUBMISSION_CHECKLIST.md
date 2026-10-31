@@ -105,7 +105,7 @@ submission currently claims no publication — keep it that way until a human si
 - [ ] Every file link in the form resolves for someone outside the team
 - [ ] No file path contains a local drive letter (judges cannot open `D:/...`)
 - [ ] Rejection report is included, not quietly dropped
-- [ ] **Named teacher has agreed to be named** — don Jimat Akbar appears in the repo, the
+- [ ] **Named teacher has agreed to be named** — Pak Arief appears in the repo, the
       description, the accountability sheet and the video. Confirm in writing before submitting
 - [ ] Video contains the build-approach reflection and names the teacher (handbook §7 requires it)
 - [ ] Team names and contact on the end card match the registration

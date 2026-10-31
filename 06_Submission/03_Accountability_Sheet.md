@@ -7,10 +7,12 @@
 **Project:** EduCraft — Rule-Governed AI Teaching Assistant for Primary Science (IPAS)
 
 **Domain authority.** The substance of the rulebook and the source references came from
-**don Jimat Akbar**, a practising IPAS primary-school teacher — he is also the named approver of run
-`-002`. The team formalised his judgement into machine-checkable predicates; it did not originate it.
-This matters for accountability: the rules the agent enforces are a practitioner's, and the person
-who wrote them is the same person who signs the release.
+**Pak Arief**, a practising IPAS primary-school teacher. The team formalised his judgement into
+machine-checkable predicates; it did not originate it. This matters for accountability: the rules the
+agent enforces are a practitioner's judgement written down, not an engineer's guess about pedagogy.
+
+Two roles are recorded separately and should not be merged: **domain authorship** (Pak Arief) and
+**per-run release approval** (the named approver in the table below, who signs a specific run).
 
 **Two runs exist. They are not interchangeable — each has its own status:**
 

@@ -2,11 +2,33 @@
 .workbuddy-ai/
 PROJECT.md
 
-# Third-party curriculum documents are reference material only.
-# Handbook §7 and 06_Submission/09_Source_Code_and_Evidence.md §5:
-# do not redistribute them. Link to the official sources instead.
-01_Dokumen/
-02_Sumber/
+# ── 01_Dokumen: only the setup guide is published ────────────────
+# Excluded on purpose:
+#   WhatsApp Chat ...            private committee chat export (not ours to publish)
+#   BUKTI_KOMITE_2026-10-31.md   quotes that chat verbatim
+#   *Handbook*.pdf / handbook_text.txt   the organiser's document
+#   README_lama_workBuddy_work.md         superseded legacy index
+01_Dokumen/*
+!01_Dokumen/CARA_IMPORT_SKILL.md
+
+# ── 02_Sumber: the official public documents ARE published ───────
+# The curriculum sources are official public documents from Kemendikdasmen.
+# They are redistributed unmodified, with attribution, and are NOT covered by
+# this project's MIT licence (see THIRD_PARTY_NOTICES.md). A cloner can then
+# verify every quoted fact against the original rather than trusting our summary.
+02_Sumber/*
+!02_Sumber/README.md
+!02_Sumber/extract_pdf.py
+!02_Sumber/Final Panduan Mata Pelajaran IPAS_03_10_2025_Revisi 4.pdf
+!02_Sumber/Permendikdasmen-no-13-tahun-2025.pdf
+!02_Sumber/extracted/
+02_Sumber/extracted/*
+!02_Sumber/extracted/panduan_ipas.txt
+!02_Sumber/extracted/permendikdasmen_13_2025.txt
+
+# Still excluded: the six centralpendidikan.com RPP worksheets and the SMP
+# assessment guide. They are third-party commercial material, they cover SMP
+# kelas 7 (outside this project's SD domain), and no artefact depends on them.
 
 # Internal working notes. The public test suite is kept below.
 04_Diskusi/*

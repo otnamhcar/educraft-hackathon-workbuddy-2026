@@ -28,7 +28,7 @@ until an independent reviewer agent has checked every sentence against a written
 on every factual claim, plus an audit trail of who decided what and why.
 
 **Origin — the rules are a teacher's, not ours.** The substance of the rulebook did not come from
-the team. It came from **don Jimat Akbar**, a practising IPAS primary-school teacher, who supplied
+the team. It came from **Pak Arief**, a practising IPAS primary-school teacher, who supplied
 both the source references this project is built on and the judgement about what a teacher will and
 will not put in front of children: no permanent health claims, no fear-mongering, nothing that
 humiliates a student, no halal or commercial claim without a certificate. The team's contribution
@@ -40,8 +40,8 @@ pedagogy; this one is a practitioner's judgement, written down where it can be a
 why the artefact a school could adopt is `rulebook_ipas.md` rather than the code — a curriculum team
 can edit the rules without touching the pipeline.
 
-*(Name as recorded in `03_Hasil/edu_output_wujud_zat/audit_log.md` §1, where he is the named
-requester and approver of run `-002`.)*
+*(Pak Arief is the source of the pain point named in §3.2, not a persona: the requirements below
+came from him, and the rulebook is the written form of his judgement.)*
 
 **Demonstrated run.** Run `EDU-ORCH-20261026-001`, topic *Energi Alternatif dan Penghematan
 Energi*, anchored to CP **C4 (2.1.4)** with foundation **B5 (1.1.5)**. Output: RPP, pre/post
@@ -72,6 +72,13 @@ has to sign off on 40 documents; ultimately the student who receives unverified 
 not a suggestion — it is a gate with a written rulebook, a verdict, and a citation of the exact
 rule that was violated. The teacher's remaining job is a judgement call on an already-checked
 draft, not a full audit.
+
+**Where this insight comes from.** Handbook §7 asks for *the source of the pain point*, not just a
+description of it. Ours is **Pak Arief**, a practising IPAS primary-school teacher: the four
+questions above are the ones he actually asks of every draft, and they became R001 (grounding), R003
+(age-appropriateness), R004 (curriculum alignment) and R006 (health claims) in the rulebook. We did
+not workshop the pain point in a sprint; we transcribed it from someone who has to answer for it in
+front of a class.
 
 **Evidence this is real (from our own run).** On 29 October 2026 our reviewer agent **rejected
 our own output**: the draft was built on a source document about a different topic, and two

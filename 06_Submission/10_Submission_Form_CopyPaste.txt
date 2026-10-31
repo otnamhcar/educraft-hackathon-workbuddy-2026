@@ -43,7 +43,7 @@ EDU-ORCH-20261026-001, topic "Energi Alternatif", anchored to curriculum outcome
 C4 (2.1.4) with foundation B5 (1.1.5).
 
 Where it came from: the idea, the curriculum references and the substance of the
-rules came from don Jimat Akbar, a practising IPAS primary-school teacher. He set
+rules came from Pak Arief, a practising IPAS primary-school teacher. He set
 which claims a teacher will never put in front of a class; our work was to
 formalise that judgement into rules a machine can check and to build the pipeline
 that enforces them. The rulebook, not the code, is the artefact a school could

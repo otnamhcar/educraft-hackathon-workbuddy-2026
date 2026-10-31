@@ -22,8 +22,8 @@ The product is not the generated text. **The product is the gate.**
 
 ### Whose rules these are
 
-The idea, the curriculum references and the substance of the rulebook came from **don Jimat
-Akbar**, a practising IPAS primary-school teacher. He set what a teacher will never put in front of
+The idea, the curriculum references and the substance of the rulebook came from **Pak Arief**,
+a practising IPAS primary-school teacher. He set what a teacher will never put in front of
 a class — no permanent health claims, no fear-mongering, no halal claim without a certificate. The
 team's work was to formalise that judgement into predicates a machine can check, and to build the
 pipeline that enforces them.
@@ -72,6 +72,7 @@ Three properties are enforced by contract, not by hope:
 |------|---------------|
 | `05_Bukti_Proses/skills_package/` | **The code**: four `SKILL.md` contracts + knowledge assets |
 | `05_Bukti_Proses/skills_package/edu-reviewer/assets/rulebook_ipas.md` | **The rulebook** R001–R012 (v2.0) |
+| `02_Sumber/` | The two official ministry PDFs the knowledge layer is built from, plus the extracted plain text. Inventory and exclusions: `02_Sumber/README.md` |
 | `03_Hasil/referensi/` | Knowledge layer: source material, CP, actual-context register, rulebook |
 | `03_Hasil/materi_ajar/` | Run `-001` output (Energi Alternatif), corrected drafts + HTML quiz |
 | `03_Hasil/edu_output_wujud_zat/` | Run `-002` output (Perubahan Wujud Zat) + three print-ready PDFs |
@@ -82,6 +83,8 @@ Three properties are enforced by contract, not by hope:
 | `06_Submission/architecture_diagram.png` | Component and trust-boundary diagram |
 | `07_Dokumentasi/` | Engineering docs: architecture, workflow, skill boundaries, rulebook spec, test plan, requirements traceability, gap register |
 | `tools/check_grounding.py` | Deterministic R001 check — resolves every tag against the knowledge layer, exits non-zero on failure. Checks drafts only; run metadata is skipped and named in the report |
+| `tools/install_skills.sh` | Copies the four skill folders where WorkBuddy looks for them, then verifies the count is 4 |
+| `tools/doctor.sh` | Six pre-flight checks on a fresh clone — Python, contracts, installed skills, knowledge layer, rulebook checksums, grounding on both runs |
 
 ---
 
@@ -167,16 +170,74 @@ python3 tools/check_grounding.py --run 03_Hasil/materi_ajar \
 
 ---
 
-## How to reproduce
+## Run it yourself
 
-1. Install the four skills from `05_Bukti_Proses/skills_package/` into your agent runtime.
-2. Each skill is self-contained: its `assets/` folder already holds the rulebook, `cp_ipas.md`,
-   `konteks_aktual.md` and both source materials. Pick the source for the topic you want to run.
-3. Invoke the orchestrator with: topic, grade band (Fase B or C), and the CP codes.
-4. Expect: `Plan → Draft → Review → (REJECT → remediate ≤3) → APPROVE → STOP at the approval gate`.
-5. The run must end at `publish_status: PENDING`. If it publishes on its own, the install is wrong.
+Written for a teacher on a laptop, not for a developer. Three commands, one restart, then a health
+check.
 
-No build step, no dependencies, no API keys required to read the contracts.
+```bash
+git clone https://github.com/otnamhcar/educraft-hackathon-workbuddy-2026.git
+cd educraft-hackathon-workbuddy-2026
+./tools/install_skills.sh
+```
+
+The script copies `edu-orchestrator`, `edu-planner`, `edu-writer` and `edu-reviewer` from
+`05_Bukti_Proses/skills_package/` into `~/.workbuddy-ai/skills/`, then counts them back to confirm
+four arrived. **Nothing is compiled and no package manager is involved** — a skill is a folder
+containing `SKILL.md`, and "installing" it means putting that folder where the agent looks.
+
+Then **restart WorkBuddy**. The skill list is read when a session opens, so a session that is
+already running will not see the new folders. Open a new chat and check that `edu-orchestrator` is
+recognised, then verify the rest of the clone:
+
+```bash
+./tools/doctor.sh
+```
+
+It runs six checks and exits non-zero if any fails, so a broken clone says *where* it is broken:
+
+| # | Check | What a FAIL means |
+|---|-------|-------------------|
+| 1 | `python3` present | the grounding check cannot run |
+| 2 | four contracts in the clone | the clone is incomplete |
+| 3 | four `edu-*` skills installed | run `install_skills.sh`, then restart |
+| 4 | rulebook, CP, actual-context register, both source sheets | the knowledge layer is missing |
+| 5 | the three rulebook copies share one SHA-256 | a copy has drifted — the Reviewer would judge against different rules than the Writer wrote to |
+| 6 | grounding check on both runs | a draft no longer resolves against its sources |
+
+A healthy clone prints `7 passed · 0 failed · 0 warning` and exits 0.
+
+### First run
+
+Paste this into the new chat:
+
+> Use `edu-orchestrator`. Topic: Perubahan Wujud Zat. Fase C (grades V–VI).
+> CP codes: CP-B.1.1.4 and CP-C.2.2. Formats: lesson plan, article, quiz.
+> Source: `assets/source_material_wujud_zat.md`.
+
+Expect this sequence, and nothing shorter:
+
+```
+Plan → Draft → Review → (REJECT → remediate, max 3) → APPROVE → STOP at the approval gate
+```
+
+The run must end at `publish_status: PENDING`. **If it publishes on its own, the install is wrong** —
+the gate is the product, and it is the first thing to verify.
+
+### If something fails
+
+| Symptom | Cause | Fix |
+|---------|-------|-----|
+| `doctor.sh` says `0 of 4 installed` | skills went somewhere the agent does not read | `WORKBUDDY_SKILLS_DIR=/path/to/skills ./tools/install_skills.sh` |
+| `Permission denied` | the clone lost the executable bit | `chmod +x tools/*.sh` |
+| `python3 not found` | Python absent, or not on `PATH` (common on Windows) | install Python 3 — the grounding check is the point of the project, so `doctor.sh` will not pass without it |
+| Skills still not recognised after install | session not restarted | quit WorkBuddy fully, reopen, new chat |
+
+**Windows:** run all three commands in **Git Bash**, not `cmd` or PowerShell — the scripts are bash.
+`HOME` is set there, so no extra configuration is needed.
+
+**What you need:** WorkBuddy (or any agent runtime that reads `SKILL.md` folders) and `python3` for
+the grounding check. No API keys of its own, no build step, no database.
 
 ---
 
@@ -207,13 +268,24 @@ No build step, no dependencies, no API keys required to read the contracts.
 
 ## Licence and data
 
-- **Code and contracts:** MIT — see `LICENSE`.
-- **Source material** is mock/illustrative, written for this hackathon. The handbook permits mock
-  data. Real-world claims are the exception: those carry an official URL and an access date in
-  `konteks_aktual.md`.
+- **Code, contracts and documentation:** MIT — see `LICENSE`. This covers the pipeline, the four
+  `SKILL.md` files, the checker and every document in this repository.
+- **Attribution:** the substance of the rulebook is Pak Arief's professional judgement, formalised by
+  the team. The MIT licence covers this repository's implementation of it, not his authorship.
+- **Two official Indonesian ministry documents are redistributed unmodified** —
+  `Final Panduan Mata Pelajaran IPAS_03_10_2025_Revisi 4.pdf` and
+  `Permendikdasmen-no-13-tahun-2025.pdf` — together with the plain text extracted from them. They are
+  here because the grounding check is meaningless without the text it checks against: a reviewer
+  must be able to open the page a claim came from. **Their terms are not ours to relicense.** See
+  `THIRD_PARTY_NOTICES.md`; any of them will be removed on request.
+- **What is *not* redistributed:** six RPP documents downloaded from `centralpendidikan.com`, a
+  commercial assessment guide, a WhatsApp export and the hackathon handbook. Reasons per file in
+  `02_Sumber/README.md`.
+- **Source material:** run `-001` (`source_material_energi.md`) is mock, written for this hackathon,
+  and says so in its own header. Run `-002` (`source_material_wujud_zat.md`) is **quoted from the
+  official Panduan IPAS pp. 26–27**, with page numbers, because mock data was the original defect.
+  Real-world claims carry an official URL and an access date in `konteks_aktual.md`.
 - **Student data:** score tables use anonymised participant IDs. No real student data is included.
-- **Third-party curriculum documents** are *not* redistributed here. They are reference material
-  only; this repository links to the official sources instead.
 
 ---
 
