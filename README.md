@@ -60,7 +60,7 @@ Three properties are enforced by contract, not by hope:
 | Path | What is in it |
 |------|---------------|
 | `05_Bukti_Proses/skills_package/` | **The code**: four `SKILL.md` contracts + knowledge assets |
-| `05_Bukti_Proses/skills_package/edu-reviewer/assets/rulebook_ipas.md` | **The rulebook** R001–R011 |
+| `05_Bukti_Proses/skills_package/edu-reviewer/assets/rulebook_ipas.md` | **The rulebook** R001–R012 (v2.0) |
 | `03_Hasil/referensi/` | Knowledge layer: source material, CP, actual-context register, rulebook |
 | `03_Hasil/materi_ajar/` | Run `-001` output (Energi Alternatif), corrected drafts + HTML quiz |
 | `03_Hasil/edu_output_wujud_zat/` | Run `-002` output (Perubahan Wujud Zat) + three print-ready PDFs |
@@ -69,11 +69,11 @@ Three properties are enforced by contract, not by hope:
 | `06_Submission/` | Submission bundle: description, accountability sheet, test results, architecture, deck |
 | `06_Submission/architecture_diagram.png` | Component and trust-boundary diagram |
 | `07_Dokumentasi/` | Engineering docs: architecture, workflow, skill boundaries, rulebook spec, test plan, requirements traceability, gap register |
-| `tools/check_grounding.py` | Deterministic R001 check — resolves every tag against the knowledge layer, exits non-zero on failure |
+| `tools/check_grounding.py` | Deterministic R001 check — resolves every tag against the knowledge layer, exits non-zero on failure. Checks drafts only; run metadata is skipped and named in the report |
 
 ---
 
-## The rulebook (R001–R011)
+## The rulebook (R001–R012, v2.0)
 
 | Rule | Guards against |
 |------|----------------|
@@ -88,6 +88,7 @@ Three properties are enforced by contract, not by hope:
 | R009 | Non-standard Indonesian, or a narrative with no positive call to action |
 | R010 | Wording that stigmatises or blames students or groups |
 | R011 | A real-world claim without a dated, official, traceable URL |
+| R012 | Commercial, product-efficacy, superlative or halal claims without a certificate — `N/A` for purely educational material |
 
 A rulebook a curriculum team can edit without touching code is what makes institutional adoption
 realistic rather than theoretical. It is also the honest trade-off: rules in the prompt compete for

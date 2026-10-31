@@ -163,17 +163,21 @@ team-derived rather than quoted, are labelled as such, and await teacher validat
 packs still carry the old footer; a correction memo was written for the teacher
 (`11_Memo_Koreksi_Tag_2026-10-31.md`) instead of a silent reprint.
 
-**D2 — run `-001` audit log contradicts its own rejection.**
-`audit_log_edu_orchestrator.md` §3.4 records "Iteration 1: APPROVE (no rejection)", while
-`review_kepatuhan_R001-R011_2026-10-29.md` is a REJECT. The log was written before the rejection and
-never updated. Remediation: append the rejection and the v1→v2 history; the existing entries stay as
-written.
+**D2 — run `-001` audit log contradicted its own rejection. — FIXED 31 Oct 2026**
+`audit_log_edu_orchestrator.md` §3.4 recorded "Iteration 1: APPROVE (no rejection)", while
+`review_kepatuhan_R001-R011_2026-10-29.md` is a REJECT of the same run. The log was written on
+26 October, before the re-review, and never continued.
+Fixed by: **appending §7** — the 29 Oct rejection, the three findings, the remediation, the 30 Oct
+APPROVE, and the corrected iteration count (`1` rejection, not zero). §3.3 and §3.4 are left
+**exactly as written**, with a forward pointer to §7, because an audit log that can be corrected
+retroactively proves nothing. The iteration count is now also a field in both `00_run_config.md`
+files rather than a sentence.
 
 **What this says about the product, stated plainly.** A human approval on *content* grounds can
 coexist with a broken *citation* chain — the teacher judged the material, not the tags. That is
 exactly why the check must be deterministic and why "every sentence has a tag" was never a sufficient
-claim. D1 was found by that check and closed with it; D2 remains open and is disclosed rather than
-tidied away.
+claim. D1 was found by that check and closed with it. D2 was a *logging* failure rather than a
+content one, and it is closed the same way: by appending evidence, not by rewriting history.
 
 ---
 

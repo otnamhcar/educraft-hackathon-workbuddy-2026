@@ -39,7 +39,7 @@ sha256sum 03_Hasil/referensi/rulebook_ipas.md \
 
 | Rule | Guards against | Enforcement | Evidence that it works |
 |------|----------------|-------------|------------------------|
-| R001 | Unresolvable or misclassified citation | Prompt + **deterministic tool** | `tools/check_grounding.py`; run `-001` 121 tags → PASS; run `-002` → 84 class violations (defect D1) |
+| R001 | Unresolvable or misclassified citation | Prompt + **deterministic tool** | `tools/check_grounding.py`; run `-001` 121 tags → PASS; run `-002` 115 tags → PASS after the D1 fix (it was 84 class violations before, which is what found the defect) |
 | R002 | Fear-mongering | Prompt only | Reviewer finding F-? — quoted rejection in `05_review.md`; live screenshot **TO RUN** |
 | R003 | Age-inappropriate language | Prompt only | Rule present; live capture **TO RUN** |
 | R004 | Curriculum drift | Prompt + human sign-off | Run `-002` flagged `PERLU KONFIRMASI GURU`, teacher approved 30 Oct 17:19 |

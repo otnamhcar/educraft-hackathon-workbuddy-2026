@@ -66,7 +66,7 @@ Supporting machinery: `tools/check_grounding.py` — deterministic R001 check; w
 | Public repo | `github.com/otnamhcar/educraft-hackathon-workbuddy-2026`, MIT, 88 files |
 | Deadline | **7 Nov 2026** — confirmed by committee message 27/10 21:23 (`01_Dokumen/BUKTI_KOMITE_2026-10-31.md`). Internal submit target: **5 Nov** |
 | Dataset & test cases | Waived by committee; participant-defined scenarios are permitted (same evidence file §3) |
-| Open defects | D2 only (`-001` audit log missing the rejection record). **D1 closed 31 Oct** by re-tagging |
+| Open defects | **None.** D1 closed 31 Oct by re-tagging; D2 closed 31 Oct by appending §7 to the `-001` audit log |
 | Where the score is lost | Not design — capture. Screenshots (0) and video (none) hold down three dimensions |
 
 ---

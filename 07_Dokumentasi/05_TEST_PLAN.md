@@ -120,7 +120,7 @@ That is what makes TC-01 demonstrable in 90 seconds on Demo Day.
 | ID | Case | What happened | Evidence | Status |
 |----|------|---------------|----------|--------|
 | D1 | TC-01 on run `-002` | 84 of 89 tags were `[src:B4]`, a **curriculum topic entry** in `cp_ipas.md`, not a fact-bearing source. The Reviewer passed R001 because it checked attribution, not resolution | before: `03_Hasil/edu_output_wujud_zat/grounding_report.md` (89 tags, 84 class violations) · after: 115 tags, 0 violations | **CLOSED 31 Oct** — `source_material_wujud_zat.md` created from the official Panduan IPAS pp. 26–27, artefacts re-tagged to `[src:W1]`–`[src:W11]`, check PASS. Content unchanged. `[src:W10]`/`[src:W11]` are team-derived and await teacher validation; printed packs covered by `11_Memo_Koreksi_Tag_2026-10-31.md` |
-| D2 | TC-20 on run `-001` | `audit_log_edu_orchestrator.md` §3.4 records "iteration 1: APPROVE, no rejection", while the 29 Oct report is a REJECT. The log was never updated | both files, compared | **OPEN** — append the rejection and the v1→v2 history; do not rewrite the existing entries |
+| D2 | TC-20 on run `-001` | `audit_log_edu_orchestrator.md` §3.4 recorded "iteration 1: APPROVE, no rejection", while the 29 Oct report is a REJECT. The log was never continued | both files, compared | **CLOSED 31 Oct** — §7 appended: the rejection, the three findings, the remediation, the 30 Oct APPROVE, and the corrected count (`1` rejection). §3.3/§3.4 left intact with a forward pointer |
 
 Both defects are disclosed rather than hidden. That is a scoring asset under §6.3, but only if the
 disclosure is *specific* — which is what this table is for.

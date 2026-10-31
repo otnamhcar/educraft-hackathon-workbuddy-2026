@@ -20,7 +20,7 @@ correct artefact for this challenge: a judge can read every rule the agent obeys
 │   ├── edu-orchestrator/
 │   │   ├── SKILL.md                     # state machine, limits, approval gate, escalation
 │   │   └── assets/
-│   │       ├── rulebook_ipas.md         # R001–R011
+│   │       ├── rulebook_ipas.md         # R001–R012
 │   │       ├── cp_ipas.md
 │   │       ├── konteks_aktual.md
 │   │       ├── source_material_ipas.md

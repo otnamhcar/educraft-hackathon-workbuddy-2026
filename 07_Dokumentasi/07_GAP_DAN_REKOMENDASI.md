@@ -13,7 +13,7 @@
 |----|-----|---------------------|--------------------|---------|
 | ~~**G1**~~ | ~~Run `-002` grounds 84 of 89 tags on a curriculum entry~~ | **CLOSED 31 Oct** — `03_Hasil/edu_output_wujud_zat/grounding_report.md`: 115 tags, 0 dangling, 0 violations | Done. Content unchanged; `[src:W10]`/`[src:W11]` are team-derived and await teacher validation (`11_Memo_Koreksi_Tag_2026-10-31.md`) | TC-01 honesty on both runs; the core product claim |
 | **G2** | Two runs, contradictory status statements | `03_Accountability_Sheet.md` says "NOT PUBLISHED"; `edu_output_wujud_zat/audit_log.md` says the gate opened | Every document names the run and its status; accountability sheet has a per-run table | Removes a self-contradiction a judge can find in 2 minutes |
-| **G3** | 0 screenshots for 20 test cases | `05_Bukti_Proses/evidence_bundle/03_screenshots/` contains only `INDEX.md` | ≥6 captured, P0 first: TC-08, TC-10, TC-14, TC-15, TC-18 (+TC-02) | Test results item becomes READY; critical evidence 1/6 → 5/6; lifts Technical Execution and Responsible AI |
+| **G3** | 0 screenshots for 20 test cases | `05_Bukti_Proses/evidence_bundle/03_screenshots/` contains only `INDEX.md`. **Two blockers found 31 Oct:** (a) no `edu-*` skill is installed — `ls ~/.workbuddy-ai/skills/` returns zero matches, so every capture session would fail at step one; (b) the runbook's capture instructions were Windows-only (`Win + Shift + S`) on a Linux machine | ≥6 captured, P0 first: TC-08, TC-10, TC-14, TC-15, TC-18 (+TC-02). Runbook §1.0 now opens with the install check and §1.4 with the `gnome-screenshot` commands verified present on this machine | Test results item becomes READY; critical evidence 1/6 → 5/6; lifts Technical Execution and Responsible AI |
 | **G4** | No demo video | `06_Submission/` has a script, no media file | 5:00–8:00 video, 3 accountability stops, audio intelligible | Demo & Storytelling 3 → 8 (10 points) |
 | ~~**G5**~~ | ~~Deadline claim unverified~~ | **CLOSED 31 Oct** — `01_Dokumen/BUKTI_KOMITE_2026-10-31.md` §2: committee extended the deadline to **7 Nov 2026** | Done. Internal target: submit **5 Nov** | Unblocked all P0 work |
 
@@ -23,11 +23,11 @@
 
 | ID | Gap | Evidence | Definition of done |
 |----|-----|----------|--------------------|
-| **G6** | Contracts list 3 formats; submission claims 5 + quiz | `edu-orchestrator/SKILL.md`, `edu-writer/SKILL.md` vs `02_Project_Description.md` | Format list defined once (`01_ARSITEKTUR.md` §3) and copied into both contracts |
-| **G7** | Loop counter is prose, not a field | `02_WORKFLOW.md` §4; audit logs say "2/3" with no machine-readable field | `iteration: <int>` in `00_run_config.md`, rewritten at every transition; TC-13 demonstrable |
-| **G8** | `-001` audit log contradicts its own rejection | `audit_log_edu_orchestrator.md` §3.4 "no rejection" vs the 29 Oct REJECT report | Append the rejection and v1→v2 history; never rewrite existing entries |
+| ~~**G6**~~ | ~~Contracts list 3 formats; submission claims 5 + quiz~~ | **CLOSED 31 Oct** — `edu-orchestrator` and `edu-writer` were already on the canonical six; `edu-planner` was not: its description, task list and JSON schema all said three formats, so a four-format run like `-002` could not be planned from the contract | Done. `edu-planner/SKILL.md` now carries the canonical six-format list, the "any subset, at least two" rule, and an updated schema |
+| ~~**G7**~~ | ~~Loop counter is prose, not a field~~ | **CLOSED 31 Oct** — `Iteration` row added to `edu_output/00_run_config.md`; `edu_output_wujud_zat/00_run_config.md` created (it did not exist at all) | Done. Both runs record `iteration: 1` of 3. Honest caveat kept in `02_WORKFLOW.md` §4: **recorded, not enforced** |
+| ~~**G8**~~ | ~~`-001` audit log contradicts its own rejection~~ | **CLOSED 31 Oct** — §7 appended to `audit_log_edu_orchestrator.md`: the 29 Oct REJECT, the remediation, the 30 Oct APPROVE, and the corrected iteration count. §3.3/§3.4 left intact with a forward pointer | Done. Nothing was rewritten; the log stays append-only |
 | **G9** | Rulebook copies could drift | Two asset copies + canonical | Checksum check script + pre-submit step (documented in `04_RULEBOOK.md` §1); today identical |
-| **G10** | R012 is declared but not exercised | `04_RULEBOOK.md` §2 | One test case using a halal claim, or a `tools/check_claims.py`; either makes it demonstrable |
+| **G10** | R012 is declared but not exercised | `04_RULEBOOK.md` §2. **31 Oct:** found the deeper cause — `edu-reviewer/SKILL.md` listed R001–R011 and its "special checks" covered only R002/R003/R006, so the agent enforcing the rulebook was never told R012 existed | **Contract half DONE 31 Oct**: Reviewer now names R001–R012, carries an explicit R012 check, and must return `rules_na` with a reason (a rule with no verdict = unchecked). **Still open**: no live test case has exercised R012 — status remains `TO RUN` until one is captured |
 
 ---
 
@@ -50,14 +50,14 @@ Deadline is confirmed **7 November 2026** (`BUKTI_KOMITE_2026-10-31.md` §2). In
 
 | Day | Work | Why this order |
 |-----|------|----------------|
-| **31 Oct** | ✅ **DONE** — G1 (fact sheet, re-tag, grounding PASS, correction memo); G5 closed (deadline verified); U1–U3 resolved | It was the only P0 item that changes the product's truthfulness; everything else is presentation |
-| **1 Nov** | G3 — capture the 5 critical screenshots (TC-08, 10, 14, 15, 18) + TC-02 | Critical evidence 1/6 → 5/6; unblocks the Responsible AI cap |
+| **31 Oct** | ✅ **DONE** — G1 (fact sheet, re-tag, grounding PASS, correction memo); G5 closed (deadline verified); U1–U3 resolved; **G6–G8 pulled forward and closed** (planner format list, `iteration` field + missing `-002` run config, `-001` audit addendum); **G3 unblocked** (skill-install pre-flight + Linux capture commands) | G1 was the only P0 item that changes the product's truthfulness; G6–G8 were mechanical and sat in front of G3, so doing them early buys a day of buffer for the video |
+| **1 Nov** | G3 — capture the 5 critical screenshots (TC-08, 10, 14, 15, 18) + TC-02. **First install the four skills** (runbook §1.0) | Critical evidence 1/6 → 5/6; unblocks the Responsible AI cap |
 | **2 Nov** | G4 — record the 5–8 min video from the existing script | Largest single dimension gain (3 → 8) |
-| **3 Nov** | G6–G8 — contract format list, iteration field, `-001` audit log append | Removes contradictions a judge can find by reading |
+| **3 Nov** | *Buffer* — G6–G8 are already done. Use the day for a second capture pass (S3/S4) or G10 | Absorbs the overrun that capture sessions always produce |
 | **4 Nov** | G10 + G15 — one R012 test case, two timed surprise-test rehearsals | Demo Day readiness; cheap |
 | **5 Nov** | Final reconciliation: test counts, checksums, links, ZIP, submit + screenshot the confirmation | The mechanical points that are free |
 
-If any day slips, drop in this order: G10 → G8 → G6. Never drop G1 or G3.
+If any day slips, drop in this order: G10 → G9 → G15. Never drop G1 or G3.
 
 ---
 

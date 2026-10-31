@@ -21,6 +21,14 @@ What it does
      CLASS         a curriculum tag carries a sentence that is not about curriculum
 5. Writes a Markdown report and exits non-zero if anything failed.
 
+Scope — drafts only
+-------------------
+Run **metadata** is skipped: `audit_log.md`, `05_review.md`, `grounding_report.md`,
+`00_run_config.md`, and `11_Memo_*` correction memos. Those files quote tags as evidence or
+declare which tags a run uses; they do not assert a fact *with* a tag. Counting them produced
+four false CLASS violations on 31 October 2026, when a run config was first added to a run
+folder. Skipped files are named in every report so the exclusion is visible, never silent.
+
 Usage
 -----
   python3 tools/check_grounding.py \
@@ -44,7 +52,21 @@ CURRICULUM_WORDS = re.compile(
     r"\b(CP|capaian|fase|kurikulum|elemen|tujuan pembelajaran|keterampilan proses)\b",
     re.IGNORECASE,
 )
-SKIP_FILES = {"audit_log.md", "05_review.md", "grounding_report.md"}
+SKIP_FILES = {
+    "audit_log.md",        # records decisions, quotes tags as evidence
+    "05_review.md",        # the reviewer's own verdict
+    "grounding_report.md",  # this tool's output
+    "00_run_config.md",    # state file: declares which source tags are in use
+}
+# Files that *discuss* tags rather than *use* them as support for a sentence.
+# A correction memo naming the wrong tag is not a claim supported by that tag.
+SKIP_PREFIXES = ("11_Memo_",)
+
+
+def is_metadata(name: str) -> bool:
+    """True for run metadata: it may name a tag without asserting a fact with it."""
+    return name in SKIP_FILES or name.startswith(SKIP_PREFIXES)
+
 
 
 def classify(tag: str) -> str:
@@ -140,8 +162,9 @@ def main():
     anchors = load_anchors(args.knowledge)
     anchors.update(load_cp_codes(args.knowledge))
 
-    drafts = [f for f in sorted(os.listdir(args.run))
-              if f.endswith(".md") and f not in SKIP_FILES]
+    all_md = [f for f in sorted(os.listdir(args.run)) if f.endswith(".md")]
+    drafts = [f for f in all_md if not is_metadata(f)]
+    skipped = [f for f in all_md if is_metadata(f)]
     if not drafts:
         print("error: no drafts found in " + args.run, file=sys.stderr)
         return 2
@@ -201,6 +224,11 @@ def main():
                  f"{dangling} dangling, {class_hits} pelanggaran kelas tag\n")
     lines.append("> Dihasilkan oleh `tools/check_grounding.py`. Pemeriksaan ini deterministik dan "
                  "dapat dijalankan ulang; ia memeriksa **resolusi** tag, bukan sekadar keberadaannya.\n")
+    lines.append(
+        "**Tidak diperiksa (metadata — boleh menyebut tag tanpa mengklaim fakta dengannya):** "
+        + (", ".join(f"`{s}`" for s in skipped) if skipped else "—")
+        + "\n"
+    )
 
     lines.append("## Ringkasan per file\n")
     lines.append("| File | Tag | Dangling | Pelanggaran kelas |")

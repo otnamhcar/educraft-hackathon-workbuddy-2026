@@ -14,7 +14,8 @@
 | **Konteks Aktual** | CA1 (PLTS Terapung Cirata, 145 MWac/192 MWp, 2023), CA6 (FOLU Net Sink 2030 / Net Zero 2060) — lihat `konteks_aktual.md` |
 | **Source file** | `source_material_energi.md` (fakta [src:1–9]) + `konteks_aktual.md` (CA1/CA6) |
 | **CP reference** | `assets/cp_ipas.md` |
-| **Rulebook** | `assets/rulebook_ipas.md` (R001–R011) |
+| **Rulebook** | `assets/rulebook_ipas.md` (R001–R012, v2.0) |
+| **Iteration** | `1` of max `3` — **one rejection** recorded (29 Oct 2026); draft v2 approved 30 Oct 2026. *Review passes: 2 (pass 1 REJECT, pass 2 APPROVE) — see §7 of `audit_log_edu_orchestrator.md`.* |
 | **Human approver** | PENDING (guru/SME) — belum publish |
 | **Publish status** | BELUM — menunggu persetujuan eksplisit |
 

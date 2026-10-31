@@ -30,7 +30,7 @@ Word count: Materi(1) IPAS(2) siap(3) ajar(4) lolos(5) aturan(6) sebelum(7) terb
 |---------|----------------------|
 | Who it is for | "Teacher-ready" — the teacher is the customer, not the student |
 | What it makes | "IPAS lesson kits" — multi-format teaching pack, not a single document |
-| What is different | "rule-checked" — the reviewer agent and R001–R011 guardrail |
+| What is different | "rule-checked" — the reviewer agent and R001–R012 guardrail |
 | What is at stake | "before they publish" — the human approval gate |
 
 Do not exceed 10 words. The form will likely reject or truncate beyond that.

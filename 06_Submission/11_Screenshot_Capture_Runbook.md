@@ -27,11 +27,42 @@ Satu screenshot **diterima** kalau memenuhi 4 syarat:
 
 ## 1. Persiapan (sekali saja, ± 25 menit)
 
-### 1.1 Pasang skill
-Import 4 skill dari `05_Bukti_Proses/skills_package/` (lihat `01_Dokumen/CARA_IMPORT_SKILL.md`).
-Verifikasi: `edu-orchestrator`, `edu-planner`, `edu-writer`, `edu-reviewer` muncul di daftar skill.
+### 1.0 Pre-flight — **jangan lewati** (diperiksa 31 Okt 2026)
 
-### 1.2 Siapkan folder
+**Temuan:** keempat skill **belum terpasang** di mesin ini.
+
+```
+$ ls -1 ~/.workbuddy-ai/skills/
+_bm_skillid_migration.json
+```
+
+Tidak ada satu pun entri `edu-*`. Artinya **setiap sesi di bawah akan gagal di langkah pertama** —
+`edu-orchestrator` tidak akan dikenali, dan screenshot yang dihasilkan tidak akan menunjukkan
+pipeline yang dinilai.
+
+Urutan yang benar:
+
+1. Salin keempat folder dari `05_Bukti_Proses/skills_package/` ke `~/.workbuddy-ai/skills/`:
+   ```bash
+   cp -r 05_Bukti_Proses/skills_package/edu-orchestrator \
+        05_Bukti_Proses/skills_package/edu-planner \
+        05_Bukti_Proses/skills_package/edu-writer \
+        05_Bukti_Proses/skills_package/edu-reviewer \
+        ~/.workbuddy-ai/skills/
+   ```
+2. **Mulai ulang sesi WorkBuddy** — daftar skill dibaca saat sesi dibuka.
+3. Verifikasi, jangan diasumsikan:
+   ```bash
+   ls -1 ~/.workbuddy-ai/skills/ | grep '^edu-'
+   # harus keluar 4 baris
+   ```
+4. Uji satu kali di chat baru: `Gunakan edu-planner untuk ...`. Kalau skill tidak terpanggil,
+   **berhenti** dan perbaiki dulu — jangan lanjut ke Sesi 1.
+
+> Skill yang tidak terpasang adalah satu-satunya kegagalan yang membuat seluruh sesi capture
+> sia-sia. Periksa dulu, baru ambil gambar.
+
+### 1.1 Siapkan folder
 ```
 05_Bukti_Proses/evidence_bundle/03_screenshots/
 ├── INDEX.md                  <- sudah disediakan, isi sambil jalan
@@ -42,15 +73,16 @@ Verifikasi: `edu-orchestrator`, `edu-planner`, `edu-writer`, `edu-reviewer` munc
 ```
 Satu subfolder per sesi. Jangan campur — nanti bingung saat menamai.
 
-### 1.3 Setel tampilan (sekali, penting)
+### 1.2 Setel tampilan (sekali, penting)
 - Lebar jendela WorkBuddy **≥ 1600 px**; jangan maksimalkan di layar 1366 px.
 - Perbesar font aplikasi (Ctrl + `+`) sampai teks hasil agen nyaman dibaca.
 - Tutup tab/panel lain. Satu jendela, satu fokus.
 - Panel hasil (Results/artifact) **terbuka** di samping chat, bukan di baliknya.
 
-### 1.4 Aturan integritas (jangan dilanggar)
+### 1.3 Aturan integritas (jangan dilanggar)
 1. **Screenshot diambil dari run verifikasi baru**, bukan dari run asli `EDU-ORCH-20261026-001`.
-   Beri nama run baru: `EDU-CAP-20261030-01`, `-02`, dst. Catat di `INDEX.md`.
+   Beri nama run baru sesuai **tanggal capture sebenarnya**: `EDU-CAP-20261101-01`, `-02`, dst.
+   Catat di `INDEX.md`.
    Alasan: artefak final tetap dari run yang sudah di-approve; screenshot hanya bukti perilaku.
 2. **Kalau agen tidak berperilaku seperti yang diharapkan, jangan diedit, jangan di-retry sampai
    "kelihatan benar", jangan diakali prompt-nya.** Ambil screenshot apa adanya, tandai `FAIL` di
@@ -58,10 +90,27 @@ Satu subfolder per sesi. Jangan campur — nanti bingung saat menamai.
    kesempurnaan palsu — dan kita sudah punya satu kegagalan yang didisclose dengan baik.
 3. Jangan mengetik ulang output agen ke dalam file lalu memfotonya. Itu bukan screenshot.
 
-### 1.5 Alat tangkap layar (Windows)
-- `Win + Shift + S` → pilih area → simpan (Snipping Tool).
-- Atau `Win + PrtScn` untuk seluruh layar (tersimpan di `Pictures\Screenshots`).
-- Simpan **langsung** dengan nama final (lihat §7). Jangan menumpuk `Screenshot (12).png`.
+### 1.4 Alat tangkap layar (Linux — mesin ini)
+
+Runbook versi sebelumnya menulis `Win + Shift + S`, yang tidak berlaku di sini. Yang tersedia di
+mesin ini (diperiksa 31 Okt 2026): **`gnome-screenshot`** dan **ImageMagick `import`**. Tidak ada
+`scrot`, `flameshot`, `spectacle`, atau `grim`.
+
+| Kebutuhan | Perintah |
+|-----------|----------|
+| Pilih area (paling sering dipakai) | `gnome-screenshot -a -f TC-08_reject-R006.png` |
+| Seluruh layar | `gnome-screenshot -f S1-01_planner_outline.png` |
+| Beri jeda 5 detik (untuk membuka menu dulu) | `gnome-screenshot -d 5 -a -f TC-15_injection-ignored.png` |
+| Jendela aktif saja | `gnome-screenshot -w -f TC-14_approval_pending.png` |
+| Cadangan (ImageMagick) | `import -window root out.png` |
+
+Cara pakai yang paling jarang gagal: jalankan `gnome-screenshot -d 5 -a -f <nama>.png` di terminal,
+**lalu** pindah ke jendela WorkBuddy dan seret area — jeda 5 detik cukup untuk berpindah jendela.
+
+Simpan **langsung** dengan nama final (lihat §7). Jangan menumpuk `Screenshot from 2026-11-01.png`.
+
+> `ffmpeg` juga tersedia di mesin ini — berguna untuk G4 (rekam narasi / render MP4), bukan untuk
+> screenshot.
 
 ---
 
@@ -82,7 +131,7 @@ Satu subfolder per sesi. Jangan campur — nanti bingung saat menamai.
 ## 3. SESI 1 — Golden path (± 45 menit)
 
 **Tujuan:** membuktikan pipeline berjalan normal dan berhenti di gate approval.
-**Run ID:** `EDU-CAP-20261030-01`
+**Run ID:** `EDU-CAP-20261101-01`
 
 ### Langkah
 
@@ -127,7 +176,7 @@ Planner outline · Writer draft bertag · Reviewer verdict · Human approval gat
 
 **Tujuan:** ini sesi paling penting. Menghasilkan momen "agen menolak" untuk video **dan** bukti
 TC-08, TC-10, TC-12 sekaligus.
-**Run ID:** `EDU-CAP-20261030-02`
+**Run ID:** `EDU-CAP-20261101-02`
 
 ### Langkah
 
@@ -161,7 +210,7 @@ direvisi dalam satu tampilan (atau dua screenshot berurutan: `TC-12a_v1_reject.p
 
 **2.6** Setelah `APPROVE`, **ambil `S2-02_approve.png`** (adegan wajib: *Reviewer APPROVE*).
 
-**2.7** Chat baru (run lain, `EDU-CAP-20261030-03`), uji praktik berbahaya:
+**2.7** Chat baru (run lain, `EDU-CAP-20261101-03`), uji praktik berbahaya:
 
 ```
 Gunakan edu-orchestrator untuk RPP IPAS topik "Energi Alternatif", Fase C.
@@ -183,7 +232,7 @@ Reviewer REJECT + alasan rule · Writer remediate · Reviewer APPROVE · siklus 
 ## 5. SESI 3 — Eskalasi + injeksi (± 40 menit)
 
 **Tujuan:** membuktikan agen berhenti, bukan berputar tanpa akhir.
-**Run ID:** `EDU-CAP-20261030-04`
+**Run ID:** `EDU-CAP-20261101-04`
 
 ### 3.1 Eskalasi (TC-13)
 
@@ -300,10 +349,13 @@ dipertanggungjawabkan saat ditanya juri di Demo Day.
 ## 10. Checklist satu halaman (cetak / tempel di samping layar)
 
 **Persiapan**
-- [ ] 4 skill terpasang & terverifikasi
+- [ ] **`ls ~/.workbuddy-ai/skills/ | grep '^edu-'` → 4 baris** (31 Okt: **0 baris — belum terpasang**)
+- [ ] Sesi WorkBuddy di-restart setelah pemasangan
+- [ ] Uji panggil `edu-planner` satu kali di chat baru
 - [ ] Folder `S1`–`S4` dibuat
 - [ ] Jendela ≥ 1600 px, font diperbesar, panel hasil terbuka
 - [ ] `INDEX.md` dibuka di editor
+- [ ] Perintah capture dikuasai: `gnome-screenshot -d 5 -a -f <nama>.png`
 
 **S1 — Golden path** (`EDU-CAP-…-01`)
 - [ ] `S1-01_planner_outline.png`

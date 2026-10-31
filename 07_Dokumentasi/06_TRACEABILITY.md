@@ -37,7 +37,7 @@
 | Writer remediates and resubmits; ≥1 full cycle | run `-001` and `-002` | REJECT → remediation → APPROVE in both | READY |
 | Max 3 iterations, then escalate | `02_WORKFLOW.md` §4 | Behaviour: 2 of 3 used. **Enforcement: GAP** (counter is prose) | PARTIAL |
 | Human approval before publication | `audit_log.md` §3.7 | Approval 30 Oct 17:19, named, quoted | READY |
-| Retain inter-agent exchange + revision history | `audit_log*.md`, both review reports | Rejected report retained, not deleted | PARTIAL — `-001` log lacks the v1→v2 record (D2) |
+| Retain inter-agent exchange + revision history | `audit_log*.md`, both review reports | Rejected report retained, not deleted | READY — `-001` log now carries the v1→v2 record in §7 (D2 closed 31 Oct) |
 
 ---
 

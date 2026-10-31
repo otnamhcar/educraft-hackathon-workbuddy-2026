@@ -18,7 +18,7 @@ grounded, and safe for children.
 **What EduCraft does.** EduCraft is a **multi-agent pipeline** that takes one approved
 source document and produces that whole pack in a single run — then **refuses to release it**
 until an independent reviewer agent has checked every sentence against a written rulebook
-(R001–R011) and a human has explicitly approved.
+(R001–R012) and a human has explicitly approved.
 
 **Target users.**
 - **Primary:** IPAS teachers of Fase B and Fase C (grades III–VI) in Indonesian primary schools.
@@ -83,14 +83,14 @@ Roles:
 | Orchestrator | Holds state, routes work, enforces limits, writes the audit log | Publish on its own |
 | Planner | Decomposes the source into a per-format outline mapped to CP codes | Invent facts |
 | Writer | Drafts each format using only tagged source facts | Use outside facts |
-| Reviewer | Checks the draft against R001–R011, returns APPROVE/REJECT with citations | Rewrite content itself |
+| Reviewer | Checks the draft against R001–R012, returns APPROVE/REJECT with citations | Rewrite content itself |
 
 ### Technical architecture
 
 - **Packaging:** four WorkBuddy skills (`edu-orchestrator`, `edu-planner`, `edu-writer`,
   `edu-reviewer`), each a `SKILL.md` contract plus `assets/`.
 - **Knowledge layer (read-only):** `source_material_energi.md` (facts `[src:1]`–`[src:9]`),
-  `cp_ipas.md` (curriculum outcomes), `rulebook_ipas.md` (R001–R011), `konteks_aktual.md`
+  `cp_ipas.md` (curriculum outcomes), `rulebook_ipas.md` (R001–R012), `konteks_aktual.md`
   (`[src:CA1]`, `[src:CA6]` with official URL and access date).
 - **Output contract:** `{format, status, iterations, final_content, findings[], sources[]}`
   plus an append-only audit log.
@@ -128,7 +128,7 @@ measured across a school yet — we say so plainly.
 |-----------|-----------------|---------------|-------|
 | Formats produced from one topic | 1 at a time, re-read source each time | 5 formats + interactive quiz in one run | Run `EDU-ORCH-20261026-001` output count |
 | Teacher time per topic (draft + check) | ~6–8 hours | ~30–45 min (review an already-checked pack) | Estimated from artefact volume; to be validated in field test |
-| Fact-check coverage | Ad hoc, by memory | 100% of factual sentences carry a source tag; tag resolution checked deterministically | `tools/check_grounding.py` on run `-001`: 121 tags, 0 dangling, 0 class violations. Run `-002` fails this check and the failure is disclosed (`04_Test_Results.md` §4, defect D1) |
+| Fact-check coverage | Ad hoc, by memory | 100% of factual sentences carry a source tag; tag resolution checked deterministically | `tools/check_grounding.py`: run `-001` **121 tags → PASS**; run `-002` **115 tags → PASS** (0 dangling, 0 class violations on each). Before the fix, `-002` failed with 84 class violations — defect D1, disclosed in `04_Test_Results.md` §4b |
 | Rule compliance checks per document | 0–2 informal | 11 rules, each with pass/fail and citation | `review_kepatuhan_R001-R011_2026-10-30_REVISI.md` |
 | Errors prevented | Discovered in class, or never | Caught pre-publication (1 real catch on 29 Oct) | Disclosed rejection in `04_Test_Results.md` |
 | Audit trail | None | Full: inputs, decisions, revisions v1→v2, sources | `audit_log_edu_orchestrator.md` |

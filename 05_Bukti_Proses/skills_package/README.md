@@ -38,7 +38,7 @@ bukan dirujuk lintas folder. Dua set sumber ada karena proyek memakai dua topik 
 
 | File | Isi | Dipakai run |
 |------|-----|-------------|
-| `rulebook_ipas.md` | R001–R011 (identik di orchestrator & reviewer) | semua run |
+| `rulebook_ipas.md` | R001–R012 (identik di orchestrator & reviewer) | semua run |
 | `cp_ipas.md` | Capaian Pembelajaran IPAS Fase B & C | semua run (R004) |
 | `source_material_ipas.md` | Fakta topik **karhutla Kalimantan** `[src:1]`–`[src:8]` | run pra-remediasi 29 Okt |
 | `source_material_energi.md` | Fakta topik **energi alternatif** `[src:1]`–`[src:9]` | run `EDU-ORCH-20261026-001` |

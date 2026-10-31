@@ -23,7 +23,7 @@ published; run `-002` was approved by a named teacher and only then released.
 |----------|--------|-------|
 | Source material (`source_material_energi.md`) | Read-only | The **only** permitted source of facts for the run |
 | Curriculum outcomes (`cp_ipas.md`) | Read-only | CP codes C4 (2.1.4), B5 (1.1.5) |
-| Rulebook (`rulebook_ipas.md`, R001–R011) | Read-only | Enforced by the Reviewer, not advisory |
+| Rulebook (`rulebook_ipas.md`, R001–R012) | Read-only | Enforced by the Reviewer, not advisory |
 | Actual-context register (`konteks_aktual.md`) | Read-only | Each entry carries an official URL + access date |
 | Run configuration (`00_run_config.md`) | Read + append status | Records topic, source, approver, publish state |
 | Own prior drafts and findings | Read | Required for the remediation loop |

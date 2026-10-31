@@ -52,6 +52,11 @@
 - Iterasi 1: APPROVE (tidak ada rejection).
 - Iterasi yang digunakan: **1 / maksimum 3** — tidak diperlukan eskalasi.
 
+> ⚠️ **Entri §3.3 dan §3.4 di atas hanya berlaku sampai 26 Oktober 2026.** Pada **29 Oktober 2026**
+> sebuah tinjauan ulang independen atas run yang sama menghasilkan **REJECT**. Riwayat lengkap,
+> tindakan perbaikan, dan koreksi hitungan iterasi ada di **§7**. Teks asli di atas sengaja
+> **tidak diubah** — lihat alasan di §7.4.
+
 ### 3.5 WRITER (Flow C) → Draft v1
 - **Peran:** edu-writer (Flow C — Ragam Materi Ajar)
 - **Artifacts (v1):**
@@ -82,3 +87,63 @@
 1. Guru/SME meninjau ketiga artefak + kunci jawaban quiz.
 2. Guru memberikan **persetujuan eksplisit** → Orchestrator melakukan publish (atau generate aset infografis/video bila diminta).
 3. Bila guru meminta topik lain / Fase lain, Orchestrator menjalankan run baru dengan run ID berikutnya.
+
+---
+
+## 7. KOREKSI PASCA-RUN — penolakan 29 Oktober dan riwayat v1→v2
+
+**Ditambahkan:** 31 Oktober 2026. **Run:** EDU-ORCH-20261026-001 (sama).
+**Jenis:** pelengkapan catatan. **Bukan** perubahan isi materi.
+
+### 7.1 Mengapa bagian ini ada
+
+§3.3 mencatat `APPROVE` dan §3.4 mencatat "tidak ada rejection". Keduanya ditulis pada 26 Oktober,
+sebelum tinjauan ulang. Pada 29 Oktober run yang **sama** ditolak. Tanpa bagian ini, log akan
+bertentangan dengan laporan review yang ikut dikirim dalam bundel submission — dan pembaca yang
+membandingkan dua file itu akan menemukan kontradiksinya dalam hitungan menit.
+
+### 7.2 Riwayat sebenarnya
+
+| Waktu | Kejadian | Bukti |
+|-------|----------|-------|
+| 2026-10-26 18:35 | Run dijalankan; Reviewer Pass 1 `APPROVE` (§3.3) | §3.1–§3.3 di atas |
+| 2026-10-29 | **Tinjauan ulang independen: `REJECT`** — R001 Critical, R011 Critical, R004 Major | `review_kepatuhan_R001-R011_2026-10-29.md` |
+| 2026-10-29→30 | Remediasi: sumber fakta baru, konteks aktual bertaut URL, re-tag seluruh draf | `03_Hasil/referensi/source_material_energi.md`, `konteks_aktual.md` |
+| 2026-10-30 | **Re-review dari nol: `APPROVE`** — 0 Critical, 0 Major | `review_kepatuhan_R001-R011_2026-10-30_REVISI.md` |
+| 2026-10-31 | R012 diuji terpisah: `N/A` untuk run ini | `03_Hasil/audit/addendum_R012_2026-10-31.md` |
+
+### 7.3 Apa yang ditolak, dan apa yang diperbaiki
+
+| Rule | Temuan 29 Okt | Perbaikan | Verifikasi 30 Okt |
+|------|---------------|-----------|------------------|
+| **R001** Critical | Tag `[src:B5]/[src:C4]/[src:B3]` merujuk **CP**, bukan source material. Source material resmi justru bertopik karhutla, bukan energi. | Dibuat `source_material_energi.md` dengan `[src:1]`–`[src:9]`; draf di-re-tag ke fakta | ✅ |
+| **R011** Critical | CA1 (PLTS Cirata) dan CA6 (Net Zero 2060) tidak punya dokumen sumber resmi/bertanggal | Dibuat `konteks_aktual.md` dengan URL resmi + tanggal akses | ✅ |
+| **R004** Major | Topik draf (energi) tidak didukung source material (karhutla) | `00_run_config.md` dan RPP menunjuk `source_material_energi.md` | ✅ |
+| Fakta | "145 MWp" tidak tepat | Dikoreksi menjadi **145 MWac (192 MWp)**, diresmikan **9 November 2023** | ✅ |
+
+### 7.4 Mengapa §3.3 dan §3.4 tidak ditulis ulang
+
+Log audit hanya bernilai kalau ia tidak bisa diperbaiki ke belakang. Menimpa entri 26 Oktober
+dengan hasil 30 Oktober akan menghasilkan log yang **selalu benar** — dan log yang selalu benar
+tidak membuktikan apa pun. Karena itu entri lama dibiarkan utuh, diberi penunjuk ke bagian ini,
+dan riwayatnya ditambahkan.
+
+### 7.5 Koreksi hitungan iterasi
+
+| Sumber | Nilai | Semantik |
+|--------|-------|----------|
+| §3.4 (26 Okt) | `1 / 3`, "tidak ada rejection" | Menghitung *pass review* sebelum penolakan diketahui — **tidak berlaku lagi** |
+| `00_run_config.md` (31 Okt) | `iteration: 1` | Menghitung **penolakan**: 1 penolakan (29 Okt) |
+| Nilai final | **`1` dari maksimum `3`** | Tidak ada eskalasi; APPROVE dicapai pada draft v2 |
+
+> **Catatan konvensi:** field `iteration` menghitung **penolakan**, bukan pass review. Log run
+> `-002` menulis "Iterasi terpakai: 2/3" karena menghitung pass (pass 1 REJECT, pass 2 APPROVE);
+> untuk run itu nilai field-nya juga **`1`**. Kedua angka sah, semantiknya berbeda — lihat
+> `07_Dokumentasi/02_WORKFLOW.md` §4.
+
+### 7.6 Yang tidak berubah
+
+Isi lima draf tidak diubah oleh remediasi ini selain koreksi fakta 145 MWac dan penambahan tag.
+Tidak ada kalimat yang dihapus atau diperhalus untuk menyenangkan Reviewer. Laporan penolakan
+29 Oktober **tidak dihapus** dan ikut dikirim dalam bundel submission.
+

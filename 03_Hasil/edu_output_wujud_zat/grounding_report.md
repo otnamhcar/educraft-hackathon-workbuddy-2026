@@ -6,6 +6,8 @@
 
 > Dihasilkan oleh `tools/check_grounding.py`. Pemeriksaan ini deterministik dan dapat dijalankan ulang; ia memeriksa **resolusi** tag, bukan sekadar keberadaannya.
 
+**Tidak diperiksa (metadata — boleh menyebut tag tanpa mengklaim fakta dengannya):** `00_run_config.md`, `05_review.md`, `11_Memo_Koreksi_Tag_2026-10-31.md`, `audit_log.md`, `grounding_report.md`
+
 ## Ringkasan per file
 
 | File | Tag | Dangling | Pelanggaran kelas |

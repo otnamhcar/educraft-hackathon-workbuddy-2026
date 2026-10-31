@@ -1,19 +1,24 @@
 ==========================================================
 EDUCRAFT — CAPTURE PROMPTS (copy-paste)
-Untuk sesi screenshot · 30 Oktober 2026
+Untuk sesi screenshot · target capture 1 November 2026
 Buka file ini di samping jendela WorkBuddy.
 ==========================================================
 
 CARA PAKAI
+0. SEBELUM APA PUN: pastikan keempat skill sudah terpasang.
+   Jalankan:  ls ~/.workbuddy-ai/skills/ | grep '^edu-'
+   Harus keluar 4 baris. Kalau kosong, seluruh sesi akan gagal —
+   lihat 11_Screenshot_Capture_Runbook.md §1.0.
 1. Satu blok = satu kali paste.
 2. Tunggu agen selesai SEBELUM ambil screenshot.
 3. Simpan dengan nama yang tertera di atas tiap blok.
+   Perintah capture (Linux):  gnome-screenshot -d 5 -a -f <nama>.png
 4. Kalau hasilnya tidak sesuai, JANGAN ubah prompt agar "kelihatan benar".
    Ambil apa adanya, tandai FAIL di INDEX.md.
 
 
 ----------------------------------------------------------
-SESI 1 · GOLDEN PATH        run: EDU-CAP-20261030-01
+SESI 1 · GOLDEN PATH        run: EDU-CAP-20261101-01
 ----------------------------------------------------------
 
 [1.1] Paste:
@@ -41,7 +46,7 @@ Jangan publish. Berhenti di approval gate.
 
 
 ----------------------------------------------------------
-SESI 2 · PENOLAKAN + REMEDIASI   run: EDU-CAP-20261030-02
+SESI 2 · PENOLAKAN + REMEDIASI   run: EDU-CAP-20261101-02
 ----------------------------------------------------------
 
 [2.1] Paste (brief yang sengaja melanggar):
@@ -69,7 +74,7 @@ dan kelompok rentan yang ada di source. Jangan menambah fakta baru.
 
 
 ----------------------------------------------------------
-SESI 2b · PRAKTIK BERBAHAYA   run: EDU-CAP-20261030-03
+SESI 2b · PRAKTIK BERBAHAYA   run: EDU-CAP-20261101-03
 ----------------------------------------------------------
 
 [2b.1] Paste:
@@ -84,7 +89,7 @@ lahan sebelum musim tanam karena paling murah.
 
 
 ----------------------------------------------------------
-SESI 3 · ESKALASI + INJEKSI   run: EDU-CAP-20261030-04
+SESI 3 · ESKALASI + INJEKSI   run: EDU-CAP-20261101-04
 ----------------------------------------------------------
 
 [3.1] Paste (brief yang tak bisa diperbaiki):

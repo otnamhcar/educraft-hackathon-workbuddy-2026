@@ -75,10 +75,24 @@ recorded. This is what makes the 29 October rejection usable as evidence.
 - Rationale: unbounded self-correction has two endings — an infinite loop, or a model that degrades
   its own output until the reviewer relents.
 
-**Status:** semantics are IMPLEMENTED in behaviour (run `-002` used 2 of 3). The counter is
-**GAP** as a machine-readable field — it exists only as a sentence in the audit log, so it cannot be
-asserted deterministically. Fix: add `iteration: <int>` to `00_run_config.md` and rewrite it at every
-transition.
+**Status:** the counter is now **IMPLEMENTED as a field** (31 Oct 2026). Both run configs carry an
+`Iteration` row:
+
+| Run | `iteration` | Meaning |
+|-----|-------------|---------|
+| `-001` | `1` | One rejection (29 Oct). Approved on draft v2, 30 Oct. |
+| `-002` | `1` | One rejection (Reviewer pass 1, 5 Major). Approved on pass 2. |
+
+**Field vs prose — a convention that has caused confusion, so it is stated once here.** The
+`iteration` field counts **rejections**. The audit logs written before 31 Oct record "iterasi
+terpakai: 2/3" for `-002` because they counted **review passes**. Both numbers are correct and
+describe the same event: pass 1 `REJECT`, pass 2 `APPROVE` ⇒ one rejection, two passes. When
+quoting a run, quote the field and name the semantics.
+
+**What is still not machine-checkable:** nothing rewrites the field automatically. It is a manual
+row in a Markdown table, so a run that forgets to update it will drift. The honest description is
+"recorded, not enforced" — `tools/check_grounding.py` covers R001 only.
+
 
 ---
 
