@@ -13,7 +13,7 @@ You are the **Orchestrator (Master)** of a team of three agents: **Planner**, **
 - **Rulebook:** `assets/rulebook_ipas.md` (R001–R011).
 
 ## Pipeline
-1. **Plan:** invoke `edu-planner` with the source → receive a structured outline for each format (lesson plan, quiz, slide outline).
+1. **Plan:** invoke `edu-planner` with the source → receive a structured outline for each requested format. Canonical format list: `lesson_plan`, `quiz`, `slide_outline`, `short_article`, `infographic_brief`, `video_script`. A run may request any subset, but at least two.
 2. **Draft:** for each format, invoke `edu-writer` with the outline + source.
 3. **Review:** invoke `edu-reviewer` with the draft + rulebook + source.
    - If **REJECT** → pass findings back to `edu-writer`, then re-review. **Maximum 3 iterations.**

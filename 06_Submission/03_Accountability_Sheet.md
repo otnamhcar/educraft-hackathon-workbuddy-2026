@@ -5,7 +5,15 @@
 > This page is designed to be read alone, by a judge, in 60 seconds.
 
 **Project:** EduCraft — Rule-Governed AI Teaching Assistant for Primary Science (IPAS)
-**Run of record:** `EDU-ORCH-20261026-001` · **Human approver:** PENDING (teacher/SME) · **Publish status:** NOT PUBLISHED
+**Two runs exist. They are not interchangeable — each has its own status:**
+
+| Run | Topic | Human approver | Publish status |
+|-----|-------|----------------|----------------|
+| `EDU-ORCH-20261026-001` | Energi Alternatif | PENDING (teacher/SME) | **NOT PUBLISHED** |
+| `EDU-ORCH-20261030-002` | Perubahan Wujud Zat | **don Jimat Akbar (teacher), 2026-10-30 17:19 GMT+7** | Gate opened for limited distribution; print packs produced |
+
+Nothing was published before an explicit human approval. Run `-001` has no approval and is not
+published; run `-002` was approved by a named teacher and only then released.
 
 ---
 
@@ -43,8 +51,10 @@ systems, or any student personal data beyond anonymised scores.
 | Changing the source material or the rulebook | Human edit only; agent has no write access | File permissions / read-only assets |
 | Using the output outside the intended grade band | Curriculum coordinator sign-off | Run configuration |
 
-**Current state:** the run of record is at `PENDING` approval. Nothing has been published.
-The agent has produced material and stopped — which is the intended behaviour, not a delay.
+**Current state:** run `-001` is at `PENDING` approval and nothing from it has been published. Run
+`-002` was approved on 30 October 2026 at 17:19 by a named teacher, and only then did the publication
+gate open — the agent produced material and stopped until a human acted, which is the intended
+behaviour, not a delay.
 
 ## 4. What it will never do
 

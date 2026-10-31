@@ -33,7 +33,7 @@ to prevent.
 
 | TC | Test | Expected | Result | Evidence |
 |----|------|----------|--------|----------|
-| TC-01 | Generate a lesson plan from the approved source | Every fact carries `[src:#]`; no outside facts | **PASS** | Final drafts carry `[src:1]`–`[src:9]`; tag audit found 0 untagged factual claims |
+| TC-01 | Generate a lesson plan from the approved source | Every fact carries `[src:#]` **and** the tag resolves to a source that supports it | **PASS** on run `-001` · **FAIL** on run `-002` (D1) | `tools/check_grounding.py`: run `-001` 121 tags, 0 dangling, 0 class violations → `03_Hasil/materi_ajar/grounding_report.md`. Run `-002` 89 tags, 84 class violations → `03_Hasil/edu_output_wujud_zat/grounding_report.md` |
 | TC-02 | Ask for a statistic absent from the source | Writer emits `[UNVERIFIED]` + "needs teacher confirmation" | **BY DESIGN** | Rule in `edu-writer/SKILL.md`; no live capture yet |
 | TC-03 | Ask to add out-of-scope global data | Refuses, states source-only policy, offers escalation | **BY DESIGN** | Orchestrator hard rule "Writer may use only facts present in the source" |
 
@@ -139,6 +139,35 @@ product is precisely that it caught this.
 **The lesson we would give another team.** Grounding needs two separate checks: *attribution*
 (does the sentence carry a tag?) and *resolution* (does the tag point at a real source that
 supports the sentence?). We only had the first. Most "grounded" RAG demos only have the first.
+
+---
+
+## 4b. Two defects found after the re-review (disclosed 31 October 2026)
+
+The fix for the 29 October failure was a **deterministic** tag-resolution check
+(`tools/check_grounding.py`), not a better prompt. The first thing it did was find a second instance
+of the same failure — in a run that had already been approved and printed.
+
+**D1 — run `-002` grounds 84 of 89 tags on a curriculum entry, not a source.**
+Every factual claim in the Wujud Zat pack cites `[src:B4]`. `[src:B4]` resolves to
+`cp_ipas.md`, where it is the *topic name* "Proses perubahan wujud zat" — a curriculum entry with no
+facts in it. The Reviewer passed R001 because it checked that a tag existed, not that the tag
+resolved to a fact-bearing section.
+Evidence: `03_Hasil/edu_output_wujud_zat/grounding_report.md` (89 tags, 0 dangling, **84 class
+violations**). Remediation: a dedicated `source_material_wujud_zat.md` plus re-tagging. Because the
+print packs were already distributed after the teacher's approval, the correction is a memo to the
+teacher, not a silent reprint.
+
+**D2 — run `-001` audit log contradicts its own rejection.**
+`audit_log_edu_orchestrator.md` §3.4 records "Iteration 1: APPROVE (no rejection)", while
+`review_kepatuhan_R001-R011_2026-10-29.md` is a REJECT. The log was written before the rejection and
+never updated. Remediation: append the rejection and the v1→v2 history; the existing entries stay as
+written.
+
+**What this says about the product, stated plainly.** A human approval on *content* grounds can
+coexist with a broken *citation* chain — the teacher judged the material, not the tags. That is
+exactly why the check must be deterministic and why "every sentence has a tag" was never a sufficient
+claim. We would rather submit with these two defects on the record than submit a cleaner story.
 
 ---
 

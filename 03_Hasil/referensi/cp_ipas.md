@@ -1,5 +1,11 @@
 # CAPAIAN PEMBELAJARAN (CP) — MATA PELAJARAN IPAS (Kurikulum Merdeka)
 
+## [src:CP] Dokumen CP IPAS (rujukan kurikulum)
+
+> Anchor ini menegaskan bahwa `[src:CP]` merujuk **dokumen kurikulum ini**, bukan sumber fakta.
+> Tag turunan `[src:B1]`–`[src:B11]` dan `[src:C1]`–`[src:C9]` merujuk butir bernomor pada bagian
+> FASE B / FASE C di bawah. Semua tag kelas ini hanya boleh menopang pernyataan kurikulum.
+
 > **Sumber:** Panduan Mata Pelajaran IPAS, Revisi 4, 3 Oktober 2025 — Pusat Kurikulum dan Pembelajaran (Puskurjar), Kemendikdasmen.
 > **Landasan hukum:** Permendikdasmen No. 13 Tahun 2025 (perubahan atas Permendikbudristek No. 12 Tahun 2024 tentang Kurikulum pada PAUD, Pendidikan Dasar, dan Pendidikan Menengah).
 > **Fungsi:** Dokumen ini adalah rujukan **kurikulum resmi** bagi `edu-planner` untuk menyambungkan draf materi → CP (memenuhi R004 *curriculum alignment*).

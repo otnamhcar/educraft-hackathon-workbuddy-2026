@@ -68,6 +68,8 @@ Three properties are enforced by contract, not by hope:
 | `04_Diskusi/test_cases_matrix.md` | The 20-case suite, including which six are critical |
 | `06_Submission/` | Submission bundle: description, accountability sheet, test results, architecture, deck |
 | `06_Submission/architecture_diagram.png` | Component and trust-boundary diagram |
+| `07_Dokumentasi/` | Engineering docs: architecture, workflow, skill boundaries, rulebook spec, test plan, requirements traceability, gap register |
+| `tools/check_grounding.py` | Deterministic R001 check — resolves every tag against the knowledge layer, exits non-zero on failure |
 
 ---
 
@@ -136,6 +138,18 @@ happy path would prove less.
 
 **We are not claiming 20/20.** Full table, including the critical cases and the disclosed failure:
 `06_Submission/04_Test_Results.md`.
+
+One case is machine-checkable end to end, and it is the one that matters most:
+
+```bash
+python3 tools/check_grounding.py --run 03_Hasil/materi_ajar \
+    --knowledge 03_Hasil/referensi --out 03_Hasil/materi_ajar/grounding_report.md
+```
+
+| Run | Tags checked | Dangling | Class violations | Verdict |
+|-----|-------------:|---------:|-----------------:|---------|
+| `-001` Energi | 121 | 0 | 0 | **PASS** |
+| `-002` Wujud Zat | 89 | 0 | 84 | **FAIL** — defect D1, disclosed |
 
 ---
 
