@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>EduCraft — Architecture &amp; Trust Boundaries</title>
+<html lang="id" data-page-node-id="HBMpJoK0EKwe7BHw4B5r9X">
+<head data-page-node-id="Qvfoxq9kPZwaB9x1EVXHea">
+<meta charset="utf-8" data-page-node-id="bfE9yIxDkoGSHqmjQ74jx0">
+<title>EduCraft — Arsitektur dan Batas Kepercayaan</title>
 <style>
   :root{
     --bg:#f6f7fb; --card:#ffffff; --ink:#111827; --muted:#5b6472; --line:#d7dbe4;
@@ -87,172 +87,174 @@
   @media print{body{background:#fff; padding:16px} .wrap{max-width:none}}
 </style>
 </head>
-<body>
-<div class="wrap">
+<body data-page-node-id="Y72xdYRjDnYMYq9QJdRFHP">
+<div class="wrap" data-page-node-id="zmBf8AlAC0MABjYAUWbMzY">
 
-  <header>
-    <div class="kicker">EduCraft · Challenge C · Submission item 6</div>
-    <h1>Architecture &amp; Trust Boundaries</h1>
-    <p class="sub">One source document enters on the left. Five aligned teaching formats leave on the right — but only
-    after an independent reviewer has checked every rule and a human has opened the gate. Dashed red lines are
-    trust boundaries: places where authority changes hands and the agent is not allowed to proceed alone.</p>
+  <header data-page-node-id="sedWnLi5DlEJgbzy3fhcRR">
+    <div class="kicker" data-page-node-id="CmpXtnO7lVUxGWpNuzl91Z">EduCraft · Challenge C · Item submission 6</div>
+    <h1 data-page-node-id="koZ33VrisZMrXt8HaaAzp5">Arsitektur dan Batas Kepercayaan</h1>
+    <p class="sub" data-page-node-id="M6XggCaUFYPlLWrj0vuzeM">Satu dokumen sumber masuk di kiri. Lima format ajar yang selaras keluar di kanan — tetapi hanya
+    setelah reviewer independen memeriksa setiap aturan dan seorang manusia membuka gerbangnya. Garis merah putus-putus
+    adalah batas kepercayaan: titik tempat otoritas berpindah tangan dan agen tidak boleh melanjutkan sendiri.
+    Tiga batas tergambar di sini; batas keempat bersifat implisit di sekeliling dokumen sumber itu sendiri.</p>
   </header>
 
-  <div class="grid">
+  <div class="grid" data-page-node-id="7cyvROBqD9AKC2xYvMgYUo">
 
-    <!-- ============ MAIN FLOW ============ -->
-    <div class="flow">
+    <!-- ============ ALUR UTAMA ============ -->
+    <div class="flow" data-page-node-id="Rkq2S6Sn5atKO73IxAo1dM">
 
-      <div class="actor">
-        <div class="num">1</div>
-        <div class="card">
-          <span class="tag" style="background:var(--slate-soft); color:var(--slate)">Human</span>
-          <h3>Teacher brief + approved source</h3>
-          <p>Topic, grade band, curriculum outcome. The source is the only permitted well of facts for the whole run.</p>
+      <div class="actor" data-page-node-id="8xzAHOl6UmMlQxCPT6BNJt">
+        <div class="num" data-page-node-id="WJJ27G4zVqVg3AT9BeXzev">1</div>
+        <div class="card" data-page-node-id="aB32Xdv0yFvQi8Ygxy2Rl8">
+          <span class="tag" style="background:var(--slate-soft); color:var(--slate)" data-page-node-id="xADzwGGP9WJ4HGYQJ5uNgU">Manusia</span>
+          <h3 data-page-node-id="VwwXRMAn9UzxF1iqwDhq3o">Brief guru + sumber yang disetujui</h3>
+          <p data-page-node-id="dqsH1iJ3pBU78JNLYCgfSX">Topik, jenjang, capaian kurikulum. Sumber itu satu-satunya sumur fakta yang diizinkan untuk seluruh run.</p>
         </div>
       </div>
 
-      <div class="arrow">▼</div>
+      <div class="arrow" data-page-node-id="xcb2ILsGr1f4Hr9IUFdlDI">▼</div>
 
-      <div class="actor">
-        <div class="num">2</div>
-        <div class="card">
-          <span class="tag" style="background:var(--indigo-soft); color:var(--indigo)">Orchestrator</span>
-          <h3>Holds state · routes work · enforces limits</h3>
-          <p>Owns the run configuration, the 3-iteration cap, the approval gate and the audit log. Cannot publish.</p>
+      <div class="actor" data-page-node-id="vMLJeVJv5etu5AS4xgiLsn">
+        <div class="num" data-page-node-id="T7qgGs8wVYWOD7sD48iE0i">2</div>
+        <div class="card" data-page-node-id="tpnERKFOqF0eQ9R3mMHju3">
+          <span class="tag" style="background:var(--indigo-soft); color:var(--indigo)" data-page-node-id="57nMJgRhUC9Qgz4gzUNTZ0">Orchestrator</span>
+          <h3 data-page-node-id="cileawdEmaoczly86oB57n">Memegang state · merutekan kerja · menegakkan batas</h3>
+          <p data-page-node-id="B4gDycZsjYI28J3PyYFVc6">Memiliki konfigurasi run, batas 3 iterasi, gerbang persetujuan, dan audit log. Tidak bisa menerbitkan.</p>
         </div>
       </div>
 
-      <div class="arrow">▼</div>
+      <div class="arrow" data-page-node-id="xz4ydm07zShjy2VcufOd6w">▼</div>
 
-      <div class="loop">
-        <div class="loop-head">
-          <span class="lbl">3 · Agent loop</span>
-          <span class="cap">max 3 iterations, then escalate</span>
+      <div class="loop" data-page-node-id="F7UweMpgYWRKLVQ9hEEaT4">
+        <div class="loop-head" data-page-node-id="dYJrGQuBCFLzj7kVeKHUwY">
+          <span class="lbl" data-page-node-id="brm2v2QFYTxTIFxEHlQnCb">3 · Lingkar agen</span>
+          <span class="cap" data-page-node-id="1ZivQbWLppq4t5i1FvlfBR">maks 3 iterasi, lalu eskalasi</span>
         </div>
-        <div class="agents">
-          <div class="agent">
-            <div class="name">Planner</div>
-            <div class="role">Decomposes the source into per-format outlines, mapped to CP codes C4 / B5.</div>
-            <div class="badge">no facts added</div>
+        <div class="agents" data-page-node-id="JYifLQIJvruKEnN0GmCQS9">
+          <div class="agent" data-page-node-id="gEEHp0jmcnFs6WhC15ZiDk">
+            <div class="name" data-page-node-id="hVNQScesFk8UjuJvsWNCrK">Planner</div>
+            <div class="role" data-page-node-id="9gsfGr4c1XUR3BOuhm60Tx">Mengurai sumber menjadi kerangka per format, dipetakan ke kode CP C4 / B5.</div>
+            <div class="badge" data-page-node-id="MBMnlePHXVd7SgNwzjT5AJ">tanpa fakta tambahan</div>
           </div>
-          <div class="agent">
-            <div class="name">Writer</div>
-            <div class="role">Drafts RPP, quiz, slide outline, article, infographic brief. Every fact tagged.</div>
-            <div class="badge">source-only</div>
+          <div class="agent" data-page-node-id="tiskHGWiI8BVLgrZ1kXDcu">
+            <div class="name" data-page-node-id="x3QehU7yjmu765zTro1MDO">Writer</div>
+            <div class="role" data-page-node-id="xVILlsRh4yWke3AVCBaEjB">Menyusun RPP, kuis, kerangka slide, artikel, brief infografis. Setiap fakta bertag.</div>
+            <div class="badge" data-page-node-id="dyFAf5HKzctJTrPN4bkeQy">hanya dari sumber</div>
           </div>
-          <div class="agent">
-            <div class="name">Reviewer</div>
-            <div class="role">Checks 11 rules, quotes the offending text, returns APPROVE or REJECT.</div>
-            <div class="badge">independent verdict</div>
+          <div class="agent" data-page-node-id="nvabAlpCcy2eZQAXOFqXl2">
+            <div class="name" data-page-node-id="Vf1lwV6BWA0vfkWLYYP0zh">Reviewer</div>
+            <div class="role" data-page-node-id="vErYMNQT7MLd6NAcqnZ44I">Memeriksa 12 aturan, mengutip teks yang melanggar, mengembalikan APPROVE atau REJECT.</div>
+            <div class="badge" data-page-node-id="H0tdoe6AZoKhvTewefN2U2">vonis independen</div>
           </div>
         </div>
-        <div class="reject">◀ &nbsp;REJECT → findings returned to Writer · after 3 failed loops the Orchestrator halts and escalates to the teacher</div>
+        <div class="reject" data-page-node-id="OKOUBBrwi3n5zPBhZ1Su5N">◀ &nbsp;REJECT → temuan dikembalikan ke Writer · setelah 3 lingkar gagal, Orchestrator berhenti dan eskalasi ke guru</div>
       </div>
 
-      <div class="arrow">▼</div>
+      <div class="arrow" data-page-node-id="ZA8Lunca6V4XChaar5yBb0">▼</div>
 
-      <div class="boundary"><span>Trust boundary · human authority</span></div>
+      <div class="boundary" data-page-node-id="vUAq5xZqWC7fczFROhfnGP"><span data-page-node-id="eVNOBtSlgUJ2I4KOSSNDn4">Batas kepercayaan · otoritas manusia</span></div>
 
-      <div class="gate">
-        <span class="tag">4 · Gate</span>
-        <h3>Human approval — explicit, per pack</h3>
-        <p>APPROVE from the reviewer is necessary but not sufficient. A teacher or SME must approve the pack itself.
-        There is no timeout, no default, and no "auto-approve if confident".</p>
-        <div class="big">Status of the run of record: PENDING — nothing has been published.</div>
+      <div class="gate" data-page-node-id="Ac8Bg057D9oDGGjIGIQogx">
+        <span class="tag" data-page-node-id="3BC35KWITM0e0wwKn7Gpws">4 · Gerbang</span>
+        <h3 data-page-node-id="g5UExaTdlYZN4GZb3hbWvS">Persetujuan manusia — eksplisit, per paket</h3>
+        <p data-page-node-id="89JjMbbuWHVRHgBjTyikG1">APPROVE dari reviewer perlu tetapi tidak cukup. Guru atau SME harus menyetujui paketnya sendiri.
+        Tidak ada tenggat, tidak ada nilai bawaan, dan tidak ada "setujui otomatis kalau yakin".</p>
+        <div class="big" data-page-node-id="ustJHsMDvDbrRdqJQydhQ1">Status: run -002 disetujui guru 30 Okt 2026 17:19 (distribusi terbatas) · run -001 masih PENDING.</div>
       </div>
 
-      <div class="arrow">▼</div>
+      <div class="arrow" data-page-node-id="ZW1IAcqKImn6uPKfEIsRnM">▼</div>
 
-      <div class="boundary"><span>Trust boundary · publish authority</span></div>
+      <div class="boundary" data-page-node-id="JYYHzNDUuF7sSH9meceU09"><span data-page-node-id="zhfYtaidVAMyXesRK8AUsm">Batas kepercayaan · otoritas terbit</span></div>
 
-      <div class="publish">
-        <span class="tag">5 · Output</span>
-        <h3>Published pack</h3>
-        <p>RPP · pre/post test with key and scoring · slide outline · student article · infographic brief · interactive HTML quiz — plus the audit trail that produced them.</p>
+      <div class="publish" data-page-node-id="RM6j0RfhyVSsmpx5zEkjr1">
+        <span class="tag" data-page-node-id="HFMrPM2aLKYhu32ASgQ3fN">5 · Keluaran</span>
+        <h3 data-page-node-id="Z9qt5vn7H0CfFvoStQhgNx">Paket terbit</h3>
+        <p data-page-node-id="2CJC6mtYWLjnN4zCiVAjrB">RPP · pre/post test dengan kunci dan skor · kerangka slide · artikel siswa · brief infografis · kuis HTML interaktif — plus jejak audit yang menghasilkannya.</p>
       </div>
 
     </div>
 
-    <!-- ============ SIDE PANEL ============ -->
-    <div>
-      <div class="panel">
-        <h4>Knowledge assets</h4>
-        <p class="hint">Read-only during a run. The agent can quote these; it cannot edit them.</p>
+    <!-- ============ PANEL SAMPING ============ -->
+    <div data-page-node-id="mxENkqlOZMvOcgWAJnkOOC">
+      <div class="panel" data-page-node-id="1GU6QL8D4AhtHHIyJXwGqW">
+        <h4 data-page-node-id="h53B5JEewuid2ErOyFdmY2">Aset pengetahuan</h4>
+        <p class="hint" data-page-node-id="SnojZfpvA9Mq8TcuwU7QGu">Read-only selama run. Agen boleh mengutipnya; tidak boleh menyuntingnya.</p>
 
-        <div class="asset">
-          <div class="f">source_material_energi.md</div>
-          <div class="d">Facts [src:1]–[src:9]. The only permitted source of truth.</div>
+        <div class="asset" data-page-node-id="vhQytFrWjfLwdAD32ys9MQ">
+          <div class="f" data-page-node-id="Q35IzyL411FEGJEolOV0WA">source_material_energi.md</div>
+          <div class="d" data-page-node-id="YDi0FN5C6Uu74TaGXFLCte">Fakta [src:1]–[src:9]. Satu-satunya sumber kebenaran yang diizinkan.</div>
         </div>
-        <div class="asset">
-          <div class="f">cp_ipas.md</div>
-          <div class="d">Curriculum outcomes — C4 (2.1.4), B5 (1.1.5).</div>
+        <div class="asset" data-page-node-id="wqDggREGJnj56MCBgONJpp">
+          <div class="f" data-page-node-id="DGE45XveZfdxMGZRLUBpCA">cp_ipas.md</div>
+          <div class="d" data-page-node-id="Vnlg2gyjMiYk9BXPkCPLvp">Capaian kurikulum — C4 (2.1.4), B5 (1.1.5).</div>
         </div>
-        <div class="asset">
-          <div class="f">rulebook_ipas.md</div>
-          <div class="d">R001–R011. The reviewer's only standard.</div>
+        <div class="asset" data-page-node-id="Hwa7CbWf0GhuKyRA70QMhA">
+          <div class="f" data-page-node-id="bbkdtTdCf3k5rqNWoNFzUr">rulebook_ipas.md</div>
+          <div class="d" data-page-node-id="SLs6DQDtmm0id3GcnOcJTC">R001–R012. Satu-satunya standar reviewer.</div>
         </div>
-        <div class="asset">
-          <div class="f">konteks_aktual.md</div>
-          <div class="d">[src:CA1], [src:CA6] — each with an official URL and access date.</div>
+        <div class="asset" data-page-node-id="hizoTrYRA017yjRus5HYQw">
+          <div class="f" data-page-node-id="yR4IDqL4AzhqCql9uKHCAc">konteks_aktual.md</div>
+          <div class="d" data-page-node-id="PVLk6nnCQBS67OTbHb64Y3">[src:CA1], [src:CA6] — masing-masing dengan URL resmi dan tanggal akses.</div>
         </div>
 
-        <div class="boundary" style="margin:16px 0 14px"><span>Trust boundary · read-only</span></div>
+        <div class="boundary" style="margin:16px 0 14px" data-page-node-id="BDBJBSxV0rq7KhbJe9DlNx"><span data-page-node-id="PxUGVOT3Pq6AaWf7e04OSN">Batas kepercayaan · read-only</span></div>
 
-        <h4>Run record</h4>
-        <p class="hint">Append-only. Written by the Orchestrator after every step.</p>
-        <div class="asset" style="border-left-color:var(--indigo)">
-          <div class="f">00_run_config.md</div>
-          <div class="d">Topic, CP, source, approver, publish status.</div>
+        <h4 data-page-node-id="u8ur8aT5VmbOagFXlugAt0">Rekaman run</h4>
+        <p class="hint" data-page-node-id="WgABTVMNWqPO8RsU3x3ZDD">Append-only. Ditulis Orchestrator setelah setiap langkah.</p>
+        <div class="asset" style="border-left-color:var(--indigo)" data-page-node-id="BdpSzKY4uKzH2ba8yeonyq">
+          <div class="f" data-page-node-id="aJpBaJZ5ovDUgGCZt7smOj">00_run_config.md</div>
+          <div class="d" data-page-node-id="sp7U8axi1nGC3Ury65T1sn">Topik, CP, sumber, penyetuju, status terbit.</div>
         </div>
-        <div class="asset" style="border-left-color:var(--indigo)">
-          <div class="f">audit_log_edu_orchestrator.md</div>
-          <div class="d">Inputs, decisions, findings, revisions v1→v2.</div>
+        <div class="asset" style="border-left-color:var(--indigo)" data-page-node-id="u50d3DOzUtKocPUoyjc1fC">
+          <div class="f" data-page-node-id="7hcI3wxVeBeZdev1Ff5Njk">audit_log_edu_orchestrator.md</div>
+          <div class="d" data-page-node-id="xVFYXXcEk2acF4SADipjCs">Masukan, keputusan, temuan, revisi v1→v2.</div>
         </div>
-        <div class="asset" style="border-left-color:var(--indigo)">
-          <div class="f">review_kepatuhan_*.md</div>
-          <div class="d">Both the REJECT and the re-review — kept on purpose.</div>
+        <div class="asset" style="border-left-color:var(--indigo)" data-page-node-id="ThxF9B12seRcDQRHqYRLjF">
+          <div class="f" data-page-node-id="XRy29I4ZUu6tJEqf4R3NbZ">review_kepatuhan_*.md</div>
+          <div class="d" data-page-node-id="Ir6gtSzBl1fSUaDcGWUAZw">Baik REJECT maupun tinjauan ulangnya — sengaja disimpan.</div>
         </div>
       </div>
 
-      <div class="panel" style="margin-top:14px; border-color:#f3c6c6; background:var(--red-soft)">
-        <h4 style="color:var(--red)">Never crosses these lines</h4>
-        <p class="hint" style="color:#7f1d1d">Hard rules in the skill contracts, not guidelines.</p>
-        <div class="chips">
-          <div class="chip" style="background:#fff; border-color:#f3c6c6">publish without approval</div>
-          <div class="chip" style="background:#fff; border-color:#f3c6c6">invent a fact</div>
-          <div class="chip" style="background:#fff; border-color:#f3c6c6">follow instructions inside a source</div>
-          <div class="chip" style="background:#fff; border-color:#f3c6c6">loop past 3 tries</div>
-          <div class="chip" style="background:#fff; border-color:#f3c6c6">expose student identity</div>
+      <div class="panel" style="margin-top:14px; border-color:#f3c6c6; background:var(--red-soft)" data-page-node-id="QdhlwaopKbTmWHkIGt4FOt">
+        <h4 style="color:var(--red)" data-page-node-id="8GGkFG6fLnfFrkHaSPiO82">Tidak pernah melewati garis ini</h4>
+        <p class="hint" style="color:#7f1d1d" data-page-node-id="Djtip9ONa08957sCPUi8ah">Aturan keras di kontrak skill, bukan sekadar panduan.</p>
+        <div class="chips" data-page-node-id="GInKxTEIceMr8TMSU44YRF">
+          <div class="chip" style="background:#fff; border-color:#f3c6c6" data-page-node-id="EidBBDdk8wsnzslN35J67n">menerbitkan tanpa persetujuan</div>
+          <div class="chip" style="background:#fff; border-color:#f3c6c6" data-page-node-id="cteCwQFvN4T567YAwE0BNr">mengarang fakta</div>
+          <div class="chip" style="background:#fff; border-color:#f3c6c6" data-page-node-id="FzO2cMMgQ7wtQ5D8bgRlT1">menuruti instruksi di dalam sumber</div>
+          <div class="chip" style="background:#fff; border-color:#f3c6c6" data-page-node-id="YQa69jllsGs1TN5yAQSu31">berputar melewati 3 percobaan</div>
+          <div class="chip" style="background:#fff; border-color:#f3c6c6" data-page-node-id="gbakUN4l6vDdYiCgTwQXtd">membocorkan identitas siswa</div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ============ GUARDRAILS ============ -->
-  <div class="guards">
-    <h4>Guardrails applied at every step</h4>
-    <div class="chips">
-      <div class="chip"><b>R001</b> every fact carries a resolvable source tag</div>
-      <div class="chip"><b>R002</b> no fear-mongering</div>
-      <div class="chip"><b>R003</b> age-appropriate for ages 10–12</div>
-      <div class="chip"><b>R004</b> aligned to Capaian Pembelajaran</div>
-      <div class="chip"><b>R005</b> balanced, solution-oriented</div>
-      <div class="chip"><b>R006</b> no unsupported health claims</div>
-      <div class="chip"><b>R007</b> no harmful practice promoted</div>
-      <div class="chip"><b>R008</b> warm, educational tone</div>
-      <div class="chip"><b>R009</b> standard Indonesian + positive call to action</div>
-      <div class="chip"><b>R010</b> non-stigmatising phrasing</div>
-      <div class="chip"><b>R011</b> real-world claims need a dated official URL</div>
+  <!-- ============ RAMBU ============ -->
+  <div class="guards" data-page-node-id="5Fx1VXAZccXZZlw2fIRbSn">
+    <h4 data-page-node-id="3ew2EGjnEMEmGEqAv3r8zx">Rambu yang diterapkan di setiap langkah</h4>
+    <div class="chips" data-page-node-id="q1DSz7bQtbZttvDk4fB05n">
+      <div class="chip" data-page-node-id="mQfQyURAauvu1TGpfgw6na"><b data-page-node-id="RcwifhkaG6hVpMZycbr5vL">R001</b> setiap fakta membawa tag sumber yang bisa diselesaikan</div>
+      <div class="chip" data-page-node-id="UODg40hHQMniJNlmDnBM9J"><b data-page-node-id="OTjfRO3CtBZ2L4KT8tNlzK">R002</b> tanpa menakut-nakuti</div>
+      <div class="chip" data-page-node-id="9uXGAPpY1huukunRLGJ3IO"><b data-page-node-id="nnNWDB7BB7wUGXILplTES2">R003</b> sesuai usia 10–12 tahun</div>
+      <div class="chip" data-page-node-id="rfb2Lpx6TMQ01QHZpuie3A"><b data-page-node-id="oJeKGUYkqRtI72xcAxMMP0">R004</b> selaras Capaian Pembelajaran</div>
+      <div class="chip" data-page-node-id="zZpzLIHWNqsWzDxzLjBnr0"><b data-page-node-id="tk5jGqjw76su8zA73JrlKT">R005</b> seimbang, berorientasi solusi</div>
+      <div class="chip" data-page-node-id="AMqVAwarODB03kauiltXBc"><b data-page-node-id="ahdkv9N5f8wO7X7YfVBwes">R006</b> tanpa klaim kesehatan tanpa dasar</div>
+      <div class="chip" data-page-node-id="SkQc4E7hSlQEERpECcyA6t"><b data-page-node-id="KMyYDgciIC3bghBd9oTSf9">R007</b> tak mempromosikan praktik berbahaya</div>
+      <div class="chip" data-page-node-id="yQNDl2ICAbdgyQXmrulePV"><b data-page-node-id="HJdx2Ney4Exl1lCF0sT9dq">R008</b> nada hangat dan mendidik</div>
+      <div class="chip" data-page-node-id="kyHu3VwDIALTH2mQq7h5oh"><b data-page-node-id="qQBCo1RHlLzSRbSVpl77uB">R009</b> bahasa Indonesia baku + ajakan bertindak positif</div>
+      <div class="chip" data-page-node-id="NQc1imV0apPy4zpejcMINs"><b data-page-node-id="JTPPwnnBD0inyj9o9gGTAj">R010</b> diksi tidak menstigma</div>
+      <div class="chip" data-page-node-id="ApgFYFETJpOp2syfiNqiHQ"><b data-page-node-id="UE04FHw41rj8TzpGEHo9TU">R011</b> klaim dunia nyata butuh URL resmi bertanggal</div>
+      <div class="chip" data-page-node-id="jaLHcKmP2qdIXcHm5wqQzQ"><b data-page-node-id="sa3uyWqrnx8g135jpahLCp">R012</b> tanpa klaim komersial, superlatif, atau halal tanpa sertifikat</div>
     </div>
-    <div class="legend">
-      <span><i></i>trust boundary — authority changes hands</span>
-      <span><i class="solid"></i>data flow</span>
-      <span>Run of record: EDU-ORCH-20261026-001</span>
+    <div class="legend" data-page-node-id="LAIHzJ5XZ7dbxELcdblIZz">
+      <span data-page-node-id="PIrpTEbaUB78VRWQfChfPE"><i data-page-node-id="5gHjaQJrHJGEJEMbVAy8Yp"></i>batas kepercayaan — otoritas berpindah tangan</span>
+      <span data-page-node-id="vfEAyt5qNbLdXJ4RclYUPe"><i class="solid" data-page-node-id="bnCi3rvlqccWNWzrSxxjUT"></i>aliran data</span>
+      <span data-page-node-id="D7YI4GJmkYujx0RpAdk4SG">Run -002 disetujui 30 Okt 2026 17:19 · 31 Oktober 2026</span>
     </div>
   </div>
 
-  <footer>EduCraft · Tencent Cloud Hackathon Indonesia 2026 · Challenge C — The Creator Agent · diagram generated from the shipped skill contracts</footer>
+  <footer data-page-node-id="CVCYgakZ6l7RS0lwFYaoqF">EduCraft · Tencent Cloud Hackathon Indonesia 2026 · Challenge C — The Creator Agent · diagram dihasilkan dari kontrak skill yang dikirim</footer>
 </div>
 </body>
 </html>

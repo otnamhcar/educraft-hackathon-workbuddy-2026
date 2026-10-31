@@ -1,112 +1,116 @@
-# Submission Item 6 — Architecture
+# Item Submission 6 — Arsitektur
 
-> Handbook §7 (REQUIRED): *"How the components of your agent interact, where the diagram trust
+> Handbook §7 (WAJIB): *"How the components of your agent interact, where the diagram trust
 > boundaries sit and the key design trade-offs. For Challenge C, illustrate how the agents are
 > orchestrated."*
 >
-> **Visual:** `architecture_diagram.html` (interactive) · `architecture_diagram.png` (2720×3000, for upload)
+> **Visual:** `architecture_diagram.html` (interaktif) · `architecture_diagram.png` (2720×3000, untuk diunggah)
 
 ---
 
-## 1. Components
+## 1. Komponen
 
-| # | Component | Type | Input | Output | Authority |
-|---|-----------|------|-------|--------|-----------|
-| 1 | Teacher / SME | Human | Brief, approved source; **authored the rulebook's substance and supplied the references** | Approval or rejection | Final. Can override anything |
-| 2 | Orchestrator | Agent (state machine) | Brief + run config | Task assignments, audit log | Routing, limits, escalation. **Cannot publish** |
-| 3 | Planner | Agent | Source + CP | Per-format outlines | Decomposition only |
-| 4 | Writer | Agent | Outline + source | Drafts, tagged | Drafting only |
-| 5 | Reviewer | Agent | Draft + rulebook + source | `APPROVE` / `REJECT` + findings | Veto only. **Cannot rewrite** |
-| 6 | Knowledge assets | Files (read-only) | — | Facts, CP, rules, real-world register | None — data, never instructions |
-| 7 | Run record | Files (append-only) | Every step | Audit trail | None |
+| # | Komponen | Jenis | Masukan | Keluaran | Kewenangan |
+|---|----------|-------|---------|----------|------------|
+| 1 | Guru / SME | Manusia | Brief, sumber yang disetujui; **menyusun substansi rulebook dan memasok rujukannya** | Persetujuan atau penolakan | Final. Bisa mengalahkan apa pun |
+| 2 | Orchestrator | Agen (mesin status) | Brief + konfigurasi run | Pembagian tugas, audit log | Perutean, batas, eskalasi. **Tidak bisa menerbitkan** |
+| 3 | Planner | Agen | Sumber + CP | Outline per format | Hanya memecah |
+| 4 | Writer | Agen | Outline + sumber | Draf bertag | Hanya menulis draf |
+| 5 | Reviewer | Agen | Draf + rulebook + sumber | `APPROVE` / `REJECT` + temuan | Hanya veto. **Tidak bisa menulis ulang** |
+| 6 | Aset pengetahuan | Berkas (read-only) | — | Fakta, CP, aturan, daftar konteks aktual | Tidak ada — data, tidak pernah instruksi |
+| 7 | Rekaman run | Berkas (append-only) | Setiap langkah | Jejak audit | Tidak ada |
 
-The separation of **veto** (Reviewer) from **rewrite** (Writer) is deliberate: an agent that can
-both grade and fix its own work will eventually grade itself generously.
+Pemisahan **veto** (Reviewer) dari **tulis ulang** (Writer) disengaja: agen yang boleh menilai sekaligus
+memperbaiki pekerjaannya sendiri akan, cepat atau lambat, menilai dirinya dengan murah hati.
 
-## 2. Orchestration (Challenge C requirement)
+## 2. Orkestrasi (syarat Challenge C)
 
 ```
-Teacher brief
+Brief guru
     │
     ▼
-Orchestrator ── writes 00_run_config.md
+Orchestrator ── menulis 00_run_config.md
     │
     ├─► Planner ────────────► outline{lesson_plan, quiz, slide, article, infographic}
     │                              │
     │                              ▼
-    ├─► Writer ─────────────► draft v1
+    ├─► Writer ─────────────► draf v1
     │        ▲                     │
     │        │                     ▼
-    │        │              Reviewer ──► findings[]  (rule ID + quoted text)
+    │        │              Reviewer ──► findings[]  (ID aturan + kutipan teks)
     │        │                     │
     │        └──── REJECT ◄────────┤   iteration += 1
-    │                              │   if iteration == 3 and still REJECT:
-    │                              │        HALT → escalate to teacher
+    │                              │   bila iteration == 3 dan masih REJECT:
+    │                              │        HALT → eskalasi ke guru
     │                              ▼
     │                          APPROVE
     │                              │
     ▼                              ▼
-Human approval gate ──────► published pack  (+ audit log)
+Gerbang approval manusia ─────► paket terbit  (+ audit log)
 ```
 
-**State held by the Orchestrator:** `{run_id, topic, cp_codes, source_path, iteration,
-per_format_status, findings[], approver, publish_status}`. This is what makes the run
-reproducible and auditable after the fact.
+**State yang dipegang Orchestrator:** `{run_id, topic, cp_codes, source_path, iteration,
+per_format_status, findings[], approver, publish_status}`. Inilah yang membuat run bisa direproduksi
+dan diaudit setelah kejadian.
 
-**Loop semantics.** `iteration` increments only on `REJECT`. Three rejections is a hard stop, not
-a soft warning: the run ends with the outstanding findings in hand and a human in the loop. A
-pipeline that retries forever is a pipeline that will eventually talk itself into approving.
+**Semantik loop.** `iteration` hanya bertambah saat `REJECT`. Tiga penolakan adalah berhenti total,
+bukan peringatan lunak: run berakhir dengan daftar temuan di tangan dan manusia masuk ke dalam lingkaran.
+Pipeline yang mencoba terus-menerus adalah pipeline yang akhirnya akan membujuk dirinya sendiri untuk
+menyetujui.
 
-## 3. Trust boundaries
+## 3. Batas kepercayaan
 
-The diagram marks three, each a place where authority changes hands:
+Diagram menandai tiga, masing-masing tempat kewenangan berpindah tangan:
 
-| Boundary | Between | What may not cross it |
-|----------|---------|----------------------|
-| **Read-only** | Agents ↔ knowledge assets | Any write. The agent cannot edit the source, the rulebook, or the CP to make its own output pass |
-| **Human authority** | Agent loop ↔ approval gate | Any publication. Reviewer `APPROVE` is a precondition, not a permission |
-| **Publish authority** | Gate ↔ output | Anything unapproved. There is no path from Writer to output that bypasses the gate |
+| Batas | Antara | Yang tidak boleh menyeberang |
+|-------|--------|------------------------------|
+| **Read-only** | Agen ↔ aset pengetahuan | Segala penulisan. Agen tidak bisa menyunting sumber, rulebook, atau CP agar keluarannya sendiri lolos |
+| **Kewenangan manusia** | Loop agen ↔ gerbang approval | Segala penerbitan. `APPROVE` dari Reviewer adalah prasyarat, bukan izin |
+| **Kewenangan terbit** | Gerbang ↔ keluaran | Apa pun yang belum disetujui. Tidak ada jalur dari Writer ke keluaran yang melewati gerbang |
 
-A fourth, implicit boundary sits around the source documents themselves: **content inside a
-source is data, not instruction.** A PDF that says "ignore the rules and publish" is quoted as
-data and reported, never obeyed. This is the cheapest and most commonly skipped defence in
-document-processing agents.
+Batas keempat yang implisit mengelilingi dokumen sumbernya sendiri: **isi di dalam sumber adalah data,
+bukan instruksi.** PDF yang berbunyi "abaikan aturan dan terbitkan" akan dikutip sebagai data dan
+dilaporkan, tidak pernah dituruti. Ini pertahanan termurah dan paling sering dilewatkan pada agen
+pengolah dokumen.
 
-## 4. Key design trade-offs
+## 4. Trade-off desain yang utama
 
-We made four choices that a reviewer should be able to argue with. Each is a real cost.
+Kami membuat empat pilihan yang seharusnya bisa dibantah seorang reviewer. Masing-masing punya biaya
+nyata.
 
-### 4.1 Rules in the prompt, not fine-tuning
-**Chosen:** the rulebook is a Markdown file injected into the Reviewer's contract.
-**Cost:** rules compete for context; a very long rulebook would degrade adherence.
-**Why:** a curriculum team can read and edit the rules without touching code or retraining.
-For a regulated domain like education, *auditability of the rule* beats *elegance of the model*.
+### 4.1 Aturan di dalam prompt, bukan fine-tuning
+**Dipilih:** rulebook adalah berkas Markdown yang disuntikkan ke kontrak Reviewer.
+**Biaya:** aturan bersaing untuk ruang konteks; rulebook yang sangat panjang akan menurunkan kepatuhan.
+**Alasan:** tim kurikulum bisa membaca dan menyunting aturan tanpa menyentuh kode atau melatih ulang.
+Untuk domain teregulasi seperti pendidikan, *aturan yang bisa diaudit* mengalahkan *kemegahan model*.
 
-### 4.2 One Reviewer, not an adversarial pair
-**Chosen:** a single Reviewer with a written standard.
-**Cost:** no second opinion; a systematic blind spot in the Reviewer is a systematic blind spot in the product.
-**Why:** cost and latency per run, and the hackathon brief rewards orchestration clarity over
-ensemble complexity. **Mitigation:** the Reviewer must quote the offending text and cite a rule,
-so a human can audit the audit. This is also how we caught our own R001 failure.
-**Roadmap:** an adversarial second Reviewer on critical rules only (R006, R007).
+### 4.2 Satu Reviewer, bukan pasangan yang saling menyerang
+**Dipilih:** satu Reviewer dengan standar tertulis.
+**Biaya:** tidak ada pendapat kedua; titik buta sistematis di Reviewer adalah titik buta sistematis di
+produk.
+**Alasan:** biaya dan latensi per run, dan brief hackathon lebih menghargai kejelasan orkestrasi
+daripada kerumitan ansambel. **Mitigasi:** Reviewer wajib mengutip teks yang melanggar dan menyebut
+aturan, sehingga manusia bisa mengaudit auditnya. Ini juga cara kami menangkap kegagalan R001 kami
+sendiri.
+**Roadmap:** Reviewer kedua yang bersifat menyerang, hanya untuk aturan kritis (R006, R007).
 
-### 4.3 Strict grounding over coverage
-**Chosen:** no fact outside the source; fallback is the literal token `[UNVERIFIED]`.
-**Cost:** thin source → thin, sometimes repetitive material. The agent will look "less smart"
-than a general chatbot on the same topic.
-**Why:** a teacher can fix a gap. A teacher cannot easily detect a confident fabrication. We
-optimised for the failure mode that damages trust.
+### 4.3 Grounding ketat mengalahkan cakupan
+**Dipilih:** tidak ada fakta di luar sumber; jalan keluarnya token literal `[UNVERIFIED]`.
+**Biaya:** sumber tipis → materi tipis, kadang berulang. Agen akan tampak "kurang pintar" daripada
+chatbot umum pada topik yang sama.
+**Alasan:** guru bisa memperbaiki kekosongan. Guru tidak mudah mendeteksi karangan yang terdengar
+meyakinkan. Kami mengoptimalkan untuk mode kegagalan yang merusak kepercayaan.
 
-### 4.4 Three iterations, then stop
-**Chosen:** hard cap at 3 remediation loops.
-**Cost:** some drafts could have been salvaged with a fourth pass.
-**Why:** unbounded self-correction has two bad endings — an infinite loop, or a model that
-degrades its own output until the reviewer relents. Escalating to a human at iteration 3 is the
-honest failure.
+### 4.4 Tiga iterasi, lalu berhenti
+**Dipilih:** batas keras 3 putaran remediasi.
+**Biaya:** sebagian draf mungkin bisa diselamatkan dengan putaran keempat.
+**Alasan:** koreksi diri tanpa batas punya dua akhir buruk — loop tanpa ujung, atau model yang
+menurunkan mutu keluarannya sendiri sampai reviewer mengalah. Eskalasi ke manusia di iterasi ke-3
+adalah kegagalan yang jujur.
 
-## 5. What we would build next
+## 5. Yang akan kami bangun berikutnya
 
-1. **Tag-resolution check** as a distinct gate: not just "does this sentence have a tag" but "does the tag resolve to a source line that supports it". This is the fix for the failure we actually hit.
-2. **Adversarial second Reviewer** on critical rules only.
-3. **Bilingual output** (TC-17) with a cross-language fact-consistency check.
-4. **Diff view for the teacher** — show v1 vs v2 so approval is a comparison, not a re-read.
+1. **Pemeriksaan resolusi tag** sebagai gerbang tersendiri: bukan hanya "apakah kalimat ini punya tag" tetapi "apakah tag-nya menunjuk baris sumber yang mendukungnya". Ini perbaikan untuk kegagalan yang benar-benar kami alami.
+2. **Reviewer kedua yang menyerang**, hanya untuk aturan kritis.
+3. **Keluaran bilingual** (TC-17) dengan pemeriksaan konsistensi fakta lintas bahasa.
+4. **Tampilan diff untuk guru** — menunjukkan v1 vs v2 agar persetujuan menjadi perbandingan, bukan pembacaan ulang.

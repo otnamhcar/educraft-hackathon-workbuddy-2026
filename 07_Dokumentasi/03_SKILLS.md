@@ -1,66 +1,69 @@
-# 03 — Skills and role boundaries (canonical)
+# 03 — Skill dan batas peran (kanonik)
 
-> **Purpose:** prove that no two agents own the same decision. A role is defined by three things:
-> what it must produce, what it may never do, and what it is allowed to read.
-
----
-
-## 1. Role map
-
-| Skill | Role | One-sentence mandate | Reads | Writes |
-|-------|------|----------------------|-------|--------|
-| `edu-orchestrator` | State machine | Holds state, routes work, enforces limits and gates | run config, all artefacts | run config status fields, audit log, grounding report |
-| `edu-planner` | Decomposer | Turns one topic into a per-format outline mapped to CP codes | source, CP | `00_plan.md` |
-| `edu-writer` | Drafter | Produces every text and asset artefact, strictly from the source | plan, source, findings | drafts, briefs, rendered assets |
-| `edu-reviewer` | Gate | Returns `APPROVE`/`REJECT` with rule ID and quoted text | drafts, rulebook, source | `05_review.md` |
-
-Four skills. Not five, not six. The audit-log labels `edu-infographic`, `edu-video`, `edu-quiz` are
-**phases inside `edu-writer`** (asset rendering), not separate agents — they hold no veto.
+> **Tujuan:** membuktikan bahwa tidak ada dua agen yang memiliki keputusan yang sama. Sebuah peran
+> didefinisikan oleh tiga hal: apa yang wajib dihasilkannya, apa yang tidak boleh pernah dilakukannya,
+> dan apa yang boleh dibacanya.
 
 ---
 
-## 2. Non-overlap proof (RACI)
+## 1. Peta peran
 
-`R` = does the work · `A` = accountable for the decision · `C` = consulted · `I` = informed.
-**Every row has exactly one `R`.** If a row ever has two, the design has drifted.
+| Skill | Peran | Mandat satu kalimat | Membaca | Menulis |
+|-------|-------|---------------------|---------|---------|
+| `edu-orchestrator` | State machine | Memegang state, mengarahkan pekerjaan, menegakkan batas dan gerbang | run config, semua artefak | field status run config, audit log, laporan grounding |
+| `edu-planner` | Pengurai | Mengubah satu topik menjadi kerangka per format yang dipetakan ke kode CP | sumber, CP | `00_plan.md` |
+| `edu-writer` | Penyusun | Menghasilkan setiap artefak teks dan aset, ketat dari sumber | kerangka, sumber, temuan | draf, brief, aset ter-render |
+| `edu-reviewer` | Gerbang | Mengembalikan `APPROVE`/`REJECT` dengan ID aturan dan teks kutipan | draf, rulebook, sumber | `05_review.md` |
 
-| Artefact | Orchestrator | Planner | Writer | Reviewer | Human |
-|----------|:---:|:---:|:---:|:---:|:---:|
-| Run configuration | **R** | I | I | I | A |
-| Content plan / outline | I | **R** | I | C | A |
-| Draft text (all formats) | I | I | **R** | C | A |
-| Asset brief (infographic, video) | I | I | **R** | C | A |
-| Rendered asset (PNG, HTML, PDF) | I | I | **R** | C | A |
-| Grounding report | **R** | I | I | C | I |
-| Review verdict | I | I | C | **R** | A |
+Empat skill. Bukan lima, bukan enam. Label di audit log — `edu-infographic`, `edu-video`, `edu-quiz` —
+adalah **fase di dalam `edu-writer`** (rendering aset), bukan agen terpisah; fase-fase itu tidak punya veto.
+
+---
+
+## 2. Bukti tidak ada tumpang tindih (RACI)
+
+`R` = mengerjakan · `A` = bertanggung jawab atas keputusan · `C` = dikonsultasi · `I` = diberi tahu.
+**Setiap baris punya tepat satu `R`.** Bila suatu saat ada dua, desainnya sudah melenceng.
+
+| Artefak | Orchestrator | Planner | Writer | Reviewer | Manusia |
+|---------|:---:|:---:|:---:|:---:|:---:|
+| Konfigurasi run | **R** | I | I | I | A |
+| Rencana konten / kerangka | I | **R** | I | C | A |
+| Teks draf (semua format) | I | I | **R** | C | A |
+| Brief aset (infografis, video) | I | I | **R** | C | A |
+| Aset ter-render (PNG, HTML, PDF) | I | I | **R** | C | A |
+| Laporan grounding | **R** | I | I | C | I |
+| Vonis review | I | I | C | **R** | A |
 | Audit log | **R** | I | I | I | I |
-| Approval record | I | I | I | I | **R** |
+| Catatan persetujuan | I | I | I | I | **R** |
 
-Two separations carry the whole design:
+Dua pemisahan menopang seluruh desain:
 
-- **Veto ≠ rewrite.** Reviewer holds `R` on the verdict and nothing else. Writer holds `R` on content
-  and no verdict. An agent that can grade and fix its own work will eventually grade itself generously.
-- **Route ≠ decide.** Orchestrator decides *when* a gate runs, never *what* the verdict is.
+- **Veto ≠ tulis ulang.** Reviewer memegang `R` atas vonis dan tidak atas apa pun selain itu. Writer
+  memegang `R` atas isi dan tidak atas vonis. Agen yang bisa menilai sekaligus memperbaiki karyanya
+  sendiri pada akhirnya akan menilai dirinya dengan longgar.
+- **Merutekan ≠ memutuskan.** Orchestrator memutuskan *kapan* sebuah gerbang berjalan, tidak pernah
+  *apa* vonisnya.
 
 ---
 
-## 3. Contract schemas
+## 3. Skema kontrak
 
-### 3.1 Planner output
+### 3.1 Keluaran Planner
 
 ```json
 {
   "topic": "string",
   "phase": "Fase B | Fase C",
-  "formats": ["lesson_plan", "quiz", "slide_outline", "short_article", "infographic", "short_video"],
+  "formats": ["lesson_plan", "quiz", "slide_outline", "short_article", "infographic_brief", "video_script"],
   "curriculum_refs": ["CP-B.1.1.4", "CP-C.2.2"],
-  "outline": { "format_name": ["point 1", "point 2"] },
+  "outline": { "format_name": ["poin 1", "poin 2"] },
   "gaps": ["PERLU KONFIRMASI GURU: ..."]
 }
 ```
-`gaps` is mandatory. An empty array is a claim that nothing is missing, and must be true.
+`gaps` bersifat wajib. Larik kosong adalah klaim bahwa tidak ada yang kurang, dan klaim itu harus benar.
 
-### 3.2 Writer output (per artefact)
+### 3.2 Keluaran Writer (per artefak)
 
 ```markdown
 <!-- front-matter -->
@@ -68,46 +71,47 @@ format: short_article | lesson_plan | quiz | slide_outline | infographic_brief |
 word_count: 400
 sources_used: [src:1, src:3, src:CA1]
 
-<!-- body: every factual sentence carries a tag -->
+<!-- body: setiap kalimat faktual membawa tag -->
 ```
 
-Tag rules: fact → `[src:n]`; curriculum → `[src:CP]`/`[src:B4]`; real world → `[src:CA n]`;
-unknown → `[UNVERIFIED]` **plus** a `PERLU KONFIRMASI GURU` note. A curriculum tag may never carry a
-fact.
+Aturan tag: fakta → `[src:n]`; kurikulum → `[src:CP]`/`[src:B4]`; dunia nyata → `[src:CA n]`;
+tidak diketahui → `[UNVERIFIED]` **plus** catatan `PERLU KONFIRMASI GURU`. Tag kurikulum tidak pernah
+boleh menopang fakta.
 
-### 3.3 Reviewer output
+### 3.3 Keluaran Reviewer
 
-See `01_ARSITEKTUR.md` §5.2. Additional constraints:
+Lihat `01_ARSITEKTUR.md` §5.2. Batasan tambahan:
 
-- `findings[]` may not be empty when `status = REJECT`.
-- Every finding needs `rule`, `quote`, `reason`, `suggestion`. A finding without a quote is invalid.
-- The Reviewer may not propose a full rewrite; `suggestion` is a direction, not replacement prose.
-
----
-
-## 4. "May never" list (the actual guardrails)
-
-| Role | May never |
-|------|-----------|
-| Orchestrator | Publish; write or edit content; change a verdict; exceed 3 iterations; edit the rulebook or source |
-| Planner | Introduce a fact not in the source; draft prose; approve anything |
-| Writer | Use a fact outside the source; approve its own draft; publish; edit the rulebook; drop a finding without addressing it |
-| Reviewer | Rewrite content; approve on a rule that is not in the rulebook; end a loop by softening a finding |
+- `findings[]` tidak boleh kosong saat `status = REJECT`.
+- Setiap temuan butuh `rule`, `quote`, `reason`, `suggestion`. Temuan tanpa kutipan tidak sah.
+- Reviewer tidak boleh mengusulkan penulisan ulang penuh; `suggestion` adalah arahan, bukan prosa pengganti.
 
 ---
 
-## 5. Overlaps that exist today (and the fix)
+## 4. Daftar "tidak boleh pernah" (rambu yang sebenarnya)
 
-| Overlap | Why it is a problem | Fix | Status |
-|---------|---------------------|-----|--------|
-| Rulebook shipped 2× (orchestrator + reviewer assets) | Two copies can drift; then "which rules applied?" has no answer | Keep one canonical file, generate copies, verify by checksum | Canonical: `03_Hasil/referensi/rulebook_ipas.md`. Copies are byte-identical today (verified). Add a checksum check to CI/manual pre-submit. |
-| Format list differs by document | Contracts say 3 formats; submission claims 5 + quiz | Single list lives in `01_ARSITEKTUR.md` §3 and Planner schema; contracts updated to match | **GAP** — `edu-orchestrator/SKILL.md` and `edu-writer/SKILL.md` still say three formats |
-| "Run of record" ambiguous | Two runs, different statuses | Always name the run ID; `02_WORKFLOW.md` §7 defines each run's purpose | **GAP** in `03_Accountability_Sheet.md` and `04_Test_Results.md` |
-| Architecture described in 4 places | Drift | `01_ARSITEKTUR.md` is canonical; others are derived and must not add claims | Documented in `00_INDEX.md` |
+| Peran | Tidak boleh pernah |
+|-------|--------------------|
+| Orchestrator | Menerbitkan; menulis atau menyunting isi; mengubah vonis; melewati 3 iterasi; menyunting rulebook atau sumber |
+| Planner | Memasukkan fakta yang tidak ada di sumber; menulis prosa; menyetujui apa pun |
+| Writer | Memakai fakta di luar sumber; menyetujui drafnya sendiri; menerbitkan; menyunting rulebook; membuang temuan tanpa menanganinya |
+| Reviewer | Menulis ulang isi; menyetujui berdasarkan aturan yang tidak ada di rulebook; mengakhiri perulangan dengan melunakkan temuan |
 
 ---
 
-## 6. Install layout
+## 5. Tumpang tindih yang ada hari ini (dan perbaikannya)
+
+| Tumpang tindih | Mengapa bermasalah | Perbaikan | Status |
+|----------------|--------------------|-----------|--------|
+| Rulebook dikirim 2× (aset orchestrator + reviewer) | Dua salinan bisa melenceng; lalu "aturan mana yang berlaku?" tak terjawab | Simpan satu berkas kanonik, hasilkan salinan, verifikasi lewat checksum | Kanonik: `03_Hasil/referensi/rulebook_ipas.md`. Salinan identik byte hari ini (terverifikasi). Cek checksum sudah otomatis di `tools/doctor.py` |
+| Daftar format berbeda antar dokumen | Kontrak menyebut 3 format; submission mengklaim 5 + kuis | Satu daftar hidup di `01_ARSITEKTUR.md` §3 dan skema Planner; kontrak diperbarui agar cocok | **DITUTUP 31 Okt** — keempat kontrak kini memakai enam format kanonik dengan aturan "subset apa pun, minimal dua" |
+| "Run yang jadi acuan" ambigu | Dua run, status berbeda | Selalu sebut ID run; `02_WORKFLOW.md` §7 menetapkan tujuan tiap run | **DITUTUP 31 Okt** — `03_Accountability_Sheet.md` dan `04_Test_Results.md` kini menyebut run di setiap pernyataan |
+| Arsitektur dijelaskan di 4 tempat | Melenceng | `01_ARSITEKTUR.md` kanonik; yang lain turunan dan tidak boleh menambah klaim | Tercatat di `00_INDEX.md` |
+| Bahasa keluaran tidak diatur kontrak | Proyek berbahasa Indonesia, tetapi kontrak tidak pernah mewajibkannya, sehingga bahasa keluaran bergantung kebiasaan | Setiap kontrak memuat bagian **Bahasa**; Writer dan Reviewer menegakkannya | **DITUTUP 31 Okt** — keempat kontrak berbahasa Indonesia dan mewajibkan keluaran berbahasa Indonesia |
+
+---
+
+## 6. Tata letak instalasi
 
 ```
 skills_package/
@@ -125,5 +129,6 @@ skills_package/
     └── assets/   rulebook · cp_ipas · konteks_aktual · source_material_ipas · source_material_energi
 ```
 
-Each skill is self-contained: assets are **copies**, never cross-folder references, so a skill
-installs alone. The cost is duplication; the control is a checksum check before submission.
+Setiap skill mandiri: aset berupa **salinan**, tidak pernah rujukan antar-folder, sehingga satu skill
+bisa dipasang sendiri. Biayanya duplikasi; kendalinya adalah cek checksum sebelum submission
+(`tools/doctor.py`, cek 5).

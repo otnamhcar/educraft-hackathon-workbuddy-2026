@@ -1,105 +1,108 @@
-# 06 — Requirements traceability
+# 06 — Ketertelusuran persyaratan
 
-> **Purpose:** answer, for every requirement the committee wrote, one question: *where is the proof?*
-> Every row has a status. `READY` = artefact exists and is cited. `PARTIAL` = artefact exists but
-> incomplete. `GAP` = not satisfied. `UNVERIFIED` = we rely on a claim we cannot prove from this repo.
-
----
-
-## A. Submission items (handbook §7)
-
-| # | Item | Status | Artefact | Evidence of substance |
-|---|------|--------|----------|-----------------------|
-| 1 | Project title | READY | `06_Submission/01_Title_Blurb.md` | — |
-| 2 | Short blurb, <10 words | READY | same | 8 words, counted in the file |
-| 3 | Project description (4 parts) | READY | `02_Project_Description.md` | 4 sections present; §3.3 covers prompt design as required |
-| 4 | Accountability sheet, 1 page | PARTIAL | `03_Accountability_Sheet.md` | Says run `-001` is `PENDING` / not published. **True for `-001`, false as a statement about the project** — run `-002` was approved and printed. Must name the run. |
-| 5 | Test results + screenshots | **GAP** | `04_Test_Results.md` | Table exists (7 PASS / 11 BY DESIGN / 2 TO RUN). **0 screenshots captured.** Handbook requires them. |
-| 6 | Architecture diagram | READY | `05_Architecture.md`, `architecture_diagram.png` (2720×3000), `.html` | Components, 3 trust boundaries, 4 trade-offs |
-| 7 | Demo video 5–8 min | **GAP** | `07_Demo_Video_Script.md` (7:20) | Script only; no video file exists |
-| 8 | Product sharing | READY | `06_Product_Sharing.md` | WorkBuddy-specific value, insights |
-| 9 | Source code / workflow | READY | `github.com/otnamhcar/educraft-hackathon-workbuddy-2026` | Public, MIT, 88 files; four contracts + knowledge assets |
-| 10 | Cover 16:9 | READY | `cover_image_380x216.png`, `1280x720.png` | Correct dimensions |
-| 11 | Project link (bonus) | GAP | — | No live URL. Optional. |
-
-**Count: 7 READY · 1 PARTIAL · 2 GAP · 1 bonus GAP.**
+> **Tujuan:** menjawab, untuk setiap persyaratan yang ditulis panitia, satu pertanyaan: *di mana
+> buktinya?* Setiap baris punya status. `READY` = artefaknya ada dan disitir. `PARTIAL` = artefaknya
+> ada tetapi belum lengkap. `GAP` = belum terpenuhi. `UNVERIFIED` = kami bersandar pada klaim yang
+> tidak bisa dibuktikan dari repo ini.
 
 ---
 
-## B. Challenge C must-haves (handbook §5)
+## A. Item submission (handbook §7)
 
-| Requirement | Where satisfied | Evidence | Status |
-|-------------|-----------------|----------|--------|
-| ≥3 agents with defined roles (Planner, Writer, Reviewer) | `01_ARSITEKTUR.md` §3 | 4 `SKILL.md` files | READY |
-| ≥2 platforms/formats from one source | `03_Hasil/materi_ajar/` | 5 documents + interactive quiz | READY |
-| Reviewer evaluates every draft against documented rules | `rulebook_ipas.md` v2.0 | 2 review reports with per-rule verdicts | READY |
-| Rejection justified by citing the rule breached | `05_review.md` PASS 1 | 7 findings, each with rule ID + quote | READY |
-| Writer remediates and resubmits; ≥1 full cycle | run `-001` and `-002` | REJECT → remediation → APPROVE in both | READY |
-| Max 3 iterations, then escalate | `02_WORKFLOW.md` §4 | Behaviour: 2 of 3 used. **Enforcement: GAP** (counter is prose) | PARTIAL |
-| Human approval before publication | `audit_log.md` §3.7 | Approval 30 Oct 17:19, named, quoted | READY |
-| Retain inter-agent exchange + revision history | `audit_log*.md`, both review reports | Rejected report retained, not deleted | READY — `-001` log now carries the v1→v2 record in §7 (D2 closed 31 Oct) |
+| # | Item | Status | Artefak | Bukti substansi |
+|---|------|--------|---------|-----------------|
+| 1 | Judul proyek | READY | `06_Submission/01_Title_Blurb.md` | — |
+| 2 | Blurb singkat, <10 kata | READY | sama | 8 kata, dihitung di dalam berkas |
+| 3 | Deskripsi proyek (4 bagian) | READY | `02_Project_Description.md` | 4 bagian ada; §3.3 mencakup desain prompt sesuai ketentuan |
+| 4 | Lembar akuntabilitas, 1 halaman | READY | `03_Accountability_Sheet.md` | Memuat tabel per run: `-001` berstatus `PENDING` / tidak diterbitkan, `-002` disetujui guru 30 Okt 17:19 lalu dicetak. **Setiap pernyataan menyebut run-nya** (G2 ditutup 31 Okt) |
+| 5 | Hasil uji + screenshot | **PARTIAL** | `04_Test_Results.md` | Tabel ada (7 PASS / 11 BY DESIGN / 3 TO RUN). **0 screenshot tertangkap.** Handbook mewajibkannya |
+| 6 | Diagram arsitektur | READY | `05_Architecture.md`, `architecture_diagram.png` (2720×3000), `.html` | Komponen, 4 batas kepercayaan, 4 trade-off |
+| 7 | Video demo 5–8 menit | **GAP** | `07_Demo_Video_Script.md` (7:40) + `13_Demo_Video_Runbook.md` | Baru skrip dan runbook; belum ada berkas video |
+| 8 | Product sharing | READY | `06_Product_Sharing.md` | Nilai spesifik WorkBuddy, insight |
+| 9 | Kode sumber / workflow | READY | `github.com/otnamhcar/educraft-hackathon-workbuddy-2026` | Publik, MIT, 119 berkas ter-track; empat kontrak + aset pengetahuan |
+| 10 | Sampul 16:9 | READY | `cover_image_380x216.png`, `1280x720.png` | Dimensi benar |
+| 11 | Tautan proyek (bonus) | GAP | — | Belum ada URL langsung. Opsional. |
 
----
-
-## C. Judging dimensions (handbook §10, 10 × 10 = 100)
-
-The numeric column is a **triage signal for the team, not a score claim**. It exists to show which
-dimensions are held back by a missing artefact rather than by a design weakness. Only the "basis"
-column should ever be quoted.
-
-| Dimension | What the handbook asks | Our strongest evidence | Weakest point | Est. now → attainable | Basis for estimate |
-|-----------|------------------------|------------------------|---------------|----------------------|--------------------|
-| Impact & Relevance | Real-world problem, meaningful value | Teacher review-loop framing; approved and printed pack | No measured time saving; one teacher | 7 → 8 | Problem is real and specific; value claim is still an estimate |
-| Human-Centered Design | Designed around real users and needs | Separate student (no key) / teacher (key) packs; age-calibrated rule R003 | No student usability test | 8 → 8 | Artefacts show user thinking; no user test evidence |
-| AI Interaction | Genuinely agentic, not single-pass | 4 agents, 2 real reject→remediate cycles, gates | Loop counter not machine-enforced | 8 → 8 | Two independent runs with different verdict paths |
-| Technical Execution | Working prototype + performance against test cases | Deterministic grounding check passes on both runs (121 / 115 tags) | 0 screenshots; 11 cases BY DESIGN | 5 → 8 | Prototype works; test evidence incomplete |
-| Feasibility | Realistic, could scale beyond hackathon | No infra, Markdown rules, printable output | Single subject domain | 7 → 8 | Cost of adoption is near zero for a school |
-| Demo & Storytelling | How effectively presented | 7:20 script with 3 accountability stops | No video | 3 → 8 | Nothing recorded yet |
-| Innovation & Creativity | Originality of approach | "A tag is not a citation" + resolution gate | Insight is documented, gate not yet mandatory | 7 → 8 | Insight is genuinely uncommon in RAG demos |
-| UX & Accessibility | Usability and accessibility | Print packs, single-file HTML quiz, large type | No audio, no screen-reader check, Indonesian only | 6 → 7 | Usable, not yet accessible |
-| Responsible AI & Ethics | Sources, permissions, approval, limits, record | Accountability sheet, 4 boundaries, disclosed failure, D1 fixed in the open | Critical evidence 1 of 7 | 6 → 9 | Strong design, thin proof |
-| Overall Quality | Would a judge trust it in their organisation | Honest defect log; reproducible checks | Inconsistencies between docs (being fixed) | 7 → 8 | Trust comes from disclosure, which is present |
-
-**Where the score is lost today is not design, it is capture:** three dimensions (Technical
-Execution, Demo & Storytelling, Responsible AI) are held down by missing screenshots and a missing
-video, not by missing capability. Those are mechanical to fix and are the cheapest points available.
+**Hitungan: 8 READY · 1 PARTIAL · 2 GAP (satu di antaranya bonus).**
 
 ---
 
-## D. Data & testing requirements (handbook §6)
+## B. Keharusan Challenge C (handbook §5)
 
-| Requirement | Status | Note |
-|-------------|--------|------|
-| ~20 test cases with expected behaviour | READY | `05_TEST_PLAN.md` (21 cases, parameters named; R001–R012 all mapped) |
-| Execute and submit results with screenshots | GAP | 0 screenshots |
-| Include failures | READY | Two defects logged (D1, D2); 29 Oct rejection retained |
-| Disclose rather than conceal | READY | Rejection report shipped; defect log added |
-| Build on the shared dataset | **RESOLVED — waived** | Committee waived the shared dataset and its test cases (`BUKTI_KOMITE` §3). Our own domain is permitted |
-| Live 90-second surprise test | PARTIAL | Protocol written (`05_TEST_PLAN.md` §7); never rehearsed |
-
----
-
-## E. Unverified claims register
-
-Anything in this list must not be stated as fact in the submission until an artefact exists.
-
-| ID | Claim we rely on | Status | Evidence |
-|----|------------------|--------|----------|
-| U1 | Submission deadline is **7 Nov 2026** | **RESOLVED** | `01_Dokumen/BUKTI_KOMITE_2026-10-31.md` §2 — committee message 27/10/2026 21:23: "diperpanjang hingga 7 November 2026 (dari jadwal awal 1 November)". Handbook p.13 is superseded |
-| U2 | Participant-defined test cases are allowed | **RESOLVED** | same file §3 — 21/10/2026 09:53: "Untuk dataset dan test case dibebaskan … gunakan data atau skenario mandiri"; reinforced 28/10/2026 13:41 |
-| U3 | Using our own domain instead of the shared dataset is acceptable | **RESOLVED** | same file §3 — the dataset is explicitly waivable. No deviation needs to be argued |
-| U4 | Run `-001` has teacher approval | UNVERIFIED | `00_run_config.md` says `PENDING`. Say "pending", never "approved" |
-| U5 | "Field testing" has happened | OVERSTATED — but co-design was UNDER-claimed | One teacher, one review session, one printed set; not classroom testing across a school. Say **"single-teacher co-design and review"**. The true, stronger claim is that the teacher authored the rulebook's substance and supplied the references (`04_Diskusi/rencana_persiapan_kategori_C.md` §167 places him as domain authority for both files). Do not claim a school pilot |
-| U6 | The engine is domain-parameterised | PARTIAL | True since rulebook v2.0 (no hardcoded tag numbers), but never demonstrated on a second subject |
-| U7 | How the demo video must be delivered (file, link, or platform upload) | **UNKNOWN** | Handbook §7 states the runtime and content but not the delivery form. Do both: keep `EduCraft_Demo_Video.mp4` and an unlisted link, then test the link in a private window. See `06_Submission/13_Demo_Video_Runbook.md` §7 |
+| Persyaratan | Dipenuhi di mana | Bukti | Status |
+|-------------|------------------|-------|--------|
+| ≥3 agen dengan peran terdefinisi (Planner, Writer, Reviewer) | `01_ARSITEKTUR.md` §3 | 4 berkas `SKILL.md` | READY |
+| ≥2 platform/format dari satu sumber | `03_Hasil/materi_ajar/`, `03_Hasil/edu_output_wujud_zat/` | 5 dokumen + kuis interaktif | READY |
+| Reviewer menilai setiap draf terhadap aturan terdokumentasi | `rulebook_ipas.md` v2.0 | 2 laporan review dengan vonis per aturan | READY |
+| Penolakan dibenarkan dengan menyitir aturan yang dilanggar | `05_review.md` PASS 1 | 7 temuan, masing-masing dengan ID aturan + kutipan | READY |
+| Writer meremediasi dan menyerahkan ulang; ≥1 siklus penuh | run `-001` dan `-002` | REJECT → remediasi → APPROVE di kedua run | READY |
+| Maksimal 3 iterasi, lalu eskalasi | `02_WORKFLOW.md` §4 | Perilaku: 2 dari 3 terpakai. **Penegakan: GAP** (penghitung berupa prosa) | PARTIAL |
+| Persetujuan manusia sebelum penerbitan | `audit_log.md` §3.7 | Persetujuan 30 Okt 17:19, bernama, dikutip | READY |
+| Menyimpan pertukaran antar-agen + riwayat revisi | `audit_log*.md`, kedua laporan review | Laporan yang ditolak tetap disimpan, tidak dihapus | READY — log `-001` kini memuat rekaman v1→v2 di §7 (D2 ditutup 31 Okt) |
 
 ---
 
-## F. Claims we must stop making
+## C. Dimensi penilaian (handbook §10, 10 × 10 = 100)
 
-| Claim in current documents | Why it must change |
-|----------------------------|--------------------|
-| "100% of factual sentences carry a source tag" (`02_Project_Description.md` §3.4) | Already corrected: attribution and resolution are now stated separately, and both pass on both runs after D1 was fixed. Do not revert to the single-number claim |
-| "The run of record is `-001`" | Two runs with different statuses. Always name the run and its status |
-| "Nothing has been published" (`03_Accountability_Sheet.md` §3) | True for `-001`; run `-002` print packs were distributed after approval |
-| "Five formats in one run" | True for `-001` only (5 documents + 1 interactive quiz). Contracts still list 3 formats — fix the contracts or scope the claim |
+Kolom angka adalah **sinyal triase untuk tim, bukan klaim skor**. Kolom ini ada untuk menunjukkan
+dimensi mana yang tertahan oleh artefak yang belum ada, bukan oleh kelemahan desain. Hanya kolom
+"dasar" yang boleh dikutip.
+
+| Dimensi | Yang diminta handbook | Bukti terkuat kita | Titik terlemah | Perkiraan kini → mungkin | Dasar perkiraan |
+|---------|-----------------------|--------------------|----------------|--------------------------|-----------------|
+| Impact & Relevance | Masalah nyata, nilai yang berarti | Kerangka lingkar tinjauan guru; paket disetujui dan dicetak | Belum ada pengukuran penghematan waktu; baru satu guru | 7 → 8 | Masalahnya nyata dan spesifik; klaim nilai masih perkiraan |
+| Human-Centered Design | Dirancang di sekitar pengguna dan kebutuhan nyata | Paket siswa (tanpa kunci) dan guru (dengan kunci) terpisah; aturan R003 terkalibrasi usia | Belum ada uji kegunaan oleh siswa | 8 → 8 | Artefak menunjukkan pemikiran pengguna; belum ada bukti uji pengguna |
+| AI Interaction | Benar-benar agentic, bukan sekali jalan | 4 agen, 2 siklus tolak→remediasi nyata, gerbang | Penghitung perulangan tidak ditegakkan mesin | 8 → 8 | Dua run independen dengan jalur vonis berbeda |
+| Technical Execution | Prototipe berfungsi + kinerja terhadap kasus uji | Cek grounding deterministik lulus di kedua run (121 / 115 tag) | 0 screenshot; 11 kasus BY DESIGN | 5 → 8 | Prototipe berjalan; bukti uji belum lengkap |
+| Feasibility | Realistis, bisa diskalakan melewati hackathon | Tanpa infrastruktur, aturan berupa Markdown, keluaran bisa dicetak | Satu domain mata pelajaran | 7 → 8 | Biaya adopsi hampir nol untuk sebuah sekolah |
+| Demo & Storytelling | Seberapa efektif dipresentasikan | Skrip 7:40 dengan tiga titik akuntabilitas | Belum ada video | 3 → 8 | Belum ada yang direkam |
+| Innovation & Creativity | Orisinalitas pendekatan | "Tag bukanlah sitasi" + gerbang resolusi | Insight terdokumentasi, gerbangnya belum wajib | 7 → 8 | Insight ini memang jarang di demo RAG |
+| UX & Accessibility | Kegunaan dan aksesibilitas | Paket cetak, kuis HTML satu berkas, huruf besar | Tanpa audio, tanpa cek pembaca layar, hanya Bahasa Indonesia | 6 → 7 | Terpakai, belum aksesibel |
+| Responsible AI & Ethics | Sumber, izin, persetujuan, batas, rekaman | Lembar akuntabilitas, 4 batas, kegagalan diungkap, D1 diperbaiki terbuka | Bukti kritis 1 dari 7 | 6 → 9 | Desain kuat, bukti tipis |
+| Overall Quality | Apakah juri akan memercayainya di organisasinya | Log cacat jujur; cek yang bisa direproduksi | Inkonsistensi antar dokumen (sedang diperbaiki) | 7 → 8 | Kepercayaan datang dari pengungkapan, dan itu ada |
+
+**Di mana nilainya hilang hari ini bukan di desain, melainkan di bukti tangkap:** tiga dimensi
+(Technical Execution, Demo & Storytelling, Responsible AI) tertahan oleh screenshot dan video yang
+belum ada, bukan oleh kemampuan yang belum ada. Itu mekanis untuk diperbaiki dan merupakan poin
+termurah yang tersedia.
+
+---
+
+## D. Persyaratan data & pengujian (handbook §6)
+
+| Persyaratan | Status | Catatan |
+|-------------|--------|---------|
+| ~20 kasus uji dengan perilaku yang diharapkan | READY | `05_TEST_PLAN.md` (21 kasus, parameter bernama; R001–R012 semuanya terpetakan) |
+| Jalankan dan serahkan hasil beserta screenshot | GAP | 0 screenshot |
+| Sertakan kegagalan | READY | Dua cacat tercatat (D1, D2); penolakan 29 Okt disimpan |
+| Ungkapkan, jangan sembunyikan | READY | Laporan penolakan disertakan; log cacat ditambahkan |
+| Bangun di atas dataset bersama | **SELESAI — dikeringankan** | Panitia membebaskan dataset bersama dan kasus ujinya (`BUKTI_KOMITE` §3). Domain sendiri diperbolehkan |
+| Uji kejutan 90 detik secara langsung | PARTIAL | Protokolnya tertulis (`05_TEST_PLAN.md` §7); belum pernah dilatih |
+
+---
+
+## E. Daftar klaim yang belum terverifikasi
+
+Apa pun di daftar ini tidak boleh dinyatakan sebagai fakta di submission sampai artefaknya ada.
+
+| ID | Klaim yang kami sandari | Status | Bukti |
+|----|-------------------------|--------|-------|
+| U1 | Tenggat submission **7 Nov 2026** | **SELESAI** | `01_Dokumen/BUKTI_KOMITE_2026-10-31.md` §2 — pesan panitia 27/10/2026 21:23: "diperpanjang hingga 7 November 2026 (dari jadwal awal 1 November)". Handbook hlm. 13 sudah digantikan |
+| U2 | Kasus uji dari peserta diperbolehkan | **SELESAI** | berkas sama §3 — 21/10/2026 09:53: "Untuk dataset dan test case dibebaskan … gunakan data atau skenario mandiri"; ditegaskan lagi 28/10/2026 13:41 |
+| U3 | Memakai domain sendiri alih-alih dataset bersama dapat diterima | **SELESAI** | berkas sama §3 — dataset secara eksplisit bisa diringankan. Tidak ada penyimpangan yang perlu diperdebatkan |
+| U4 | Run `-001` punya persetujuan guru | UNVERIFIED | `00_run_config.md` menyebut `PENDING`. Tulis "menunggu", jangan pernah "disetujui" |
+| U5 | "Uji lapangan" sudah terjadi | BERLEBIH — tetapi ko-desain justru KURANG diklaim | Satu guru, satu sesi tinjauan, satu set cetak; bukan uji kelas di seluruh sekolah. Tulis **"ko-desain dan tinjauan bersama satu guru"**. Klaim yang benar dan justru lebih kuat: guru itu yang menyusun substansi rulebook dan memasok referensinya (`04_Diskusi/rencana_persiapan_kategori_C.md` §167 menempatkannya sebagai otoritas domain untuk kedua berkas). Jangan mengklaim uji coba sekolah |
+| U6 | Mesin ini berparameter domain | PARTIAL | Benar sejak rulebook v2.0 (tidak ada nomor tag keras), tetapi belum pernah didemonstrasikan pada mata pelajaran kedua |
+| U7 | Bagaimana video demo harus diserahkan (berkas, tautan, atau unggahan platform) | **BELUM DIKETAHUI** | Handbook §7 menyebut durasi dan isi, tetapi tidak bentuk penyerahannya. Lakukan keduanya: simpan `EduCraft_Demo_Video.mp4` dan tautan tak-terdaftar, lalu uji tautannya di jendela privat. Lihat `06_Submission/13_Demo_Video_Runbook.md` §7 |
+
+---
+
+## F. Klaim yang harus berhenti kita buat
+
+| Klaim di dokumen saat ini | Mengapa harus berubah |
+|---------------------------|-----------------------|
+| "100% kalimat faktual membawa tag sumber" (`02_Project_Description.md` §3.4) | Sudah dikoreksi: atribusi dan resolusi kini dinyatakan terpisah, dan keduanya lulus di kedua run setelah D1 diperbaiki. Jangan kembali ke klaim satu angka |
+| "Run yang jadi acuan adalah `-001`" | Ada dua run dengan status berbeda. Selalu sebut run dan statusnya |
+| "Belum ada yang diterbitkan" (`03_Accountability_Sheet.md` §3) | Benar untuk `-001`; paket cetak run `-002` sudah didistribusikan setelah persetujuan |
+| "Lima format dalam satu run" | Benar hanya untuk `-001` (5 dokumen + 1 kuis interaktif). Kontrak kini memuat enam format dengan aturan "subset apa pun, minimal dua" — sebutkan run dan subset yang benar-benar diminta |
+| "Aturan R001–R012 semuanya sudah diuji" | Salah. Tujuh kasus punya bukti artefak, sebelas `BY DESIGN`, tiga `TO RUN`. Lihat `04_Test_Results.md` |

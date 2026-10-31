@@ -1,163 +1,162 @@
-# Submission Item 3 — Project Description
+# Item Submission 3 — Deskripsi Proyek
 
-> Handbook §7 requires four parts: **Project overview · Real-world insight · Solution design · Business value.**
-> This file is written to be pasted into the submission form section by section.
-
----
-
-## 3.1 Project overview
-
-**Challenge selected:** Challenge C — *The Creator Agent* (multi-format content generation).
-
-**Scenario.** A primary-school teacher in Indonesia has to turn one curriculum topic into a
-complete teaching pack: a lesson plan (RPP), a pre-test and post-test with an answer key,
-a slide outline, a student article, and an infographic brief. Each artefact must be
-age-appropriate, aligned to the *Capaian Pembelajaran* (learning outcomes), factually
-grounded, and safe for children.
-
-**What EduCraft does.** EduCraft is a **multi-agent pipeline** that takes one approved
-source document and produces that whole pack in a single run — then **refuses to release it**
-until an independent reviewer agent has checked every sentence against a written rulebook
-(R001–R012) and a human has explicitly approved.
-
-**Target users.**
-- **Primary:** IPAS teachers of Fase B and Fase C (grades III–VI) in Indonesian primary schools.
-- **Secondary:** school curriculum coordinators who must audit teaching materials before distribution.
-
-**Value delivered.** One source in, five aligned formats out, each one carrying a citation tag
-on every factual claim, plus an audit trail of who decided what and why.
-
-**Origin — the rules are a teacher's, not ours.** The substance of the rulebook did not come from
-the team. It came from **Pak Arief**, a practising IPAS primary-school teacher, who supplied
-both the source references this project is built on and the judgement about what a teacher will and
-will not put in front of children: no permanent health claims, no fear-mongering, nothing that
-humiliates a student, no halal or commercial claim without a certificate. The team's contribution
-was to formalise that judgement into predicates a machine can check, and to build the pipeline that
-enforces them.
-
-This distinction is the point, not a credit line. A rulebook written by engineers is a guess about
-pedagogy; this one is a practitioner's judgement, written down where it can be audited. It is also
-why the artefact a school could adopt is `rulebook_ipas.md` rather than the code — a curriculum team
-can edit the rules without touching the pipeline.
-
-*(Pak Arief is the source of the pain point named in §3.2, not a persona: the requirements below
-came from him, and the rulebook is the written form of his judgement.)*
-
-**Demonstrated run.** Run `EDU-ORCH-20261026-001`, topic *Energi Alternatif dan Penghematan
-Energi*, anchored to CP **C4 (2.1.4)** with foundation **B5 (1.1.5)**. Output: RPP, pre/post
-test (7 + 20 items with key and scoring), slide outline, student article, infographic brief,
-and a playable HTML quiz.
+> Handbook §7 menuntut empat bagian: **Gambaran proyek · Wawasan dunia nyata · Rancangan solusi ·
+> Nilai bisnis.** Berkas ini ditulis untuk ditempel ke formulir submission bagian demi bagian.
 
 ---
 
-## 3.2 Real-world insight
+## 3.1 Gambaran proyek
 
-**The pain point is not "teachers cannot write". It is "teachers cannot afford the review loop".**
+**Challenge yang dipilih:** Challenge C — *The Creator Agent* (pembuatan konten multi-format).
 
-Indonesian primary teachers are expected to produce per-topic teaching packs while carrying
-20–30 contact hours a week. The expensive part is not drafting — it is the *checking*:
-- Is every number actually in the source, or did it come from memory?
-- Is the wording too frightening for a 10-year-old?
-- Does it still match the *Capaian Pembelajaran* for this phase?
-- Would this sentence create a health claim we cannot defend?
+**Skenario.** Seorang guru SD di Indonesia harus mengubah satu topik kurikulum menjadi satu paket ajar
+utuh: RPP, pre-test dan post-test dengan kunci jawaban, garis besar slide, artikel siswa, dan brief
+infografis. Setiap artefak harus sesuai usia, selaras dengan *Capaian Pembelajaran*, bertumpu pada
+fakta yang bisa ditelusuri, dan aman untuk anak.
 
-Generic chatbots make this **worse**, not better: they produce fluent text with no citation
-discipline, no age calibration, and no record. A teacher then has to fact-check a machine,
-which costs more time than writing from scratch.
+**Apa yang dilakukan EduCraft.** EduCraft adalah **pipeline multi-agen** yang menerima satu dokumen
+sumber yang sudah disetujui lalu menghasilkan seluruh paket itu dalam satu kali jalan — kemudian
+**menolak menerbitkannya** sampai agen reviewer independen memeriksa setiap kalimat terhadap rulebook
+tertulis (R001–R012) dan seorang manusia menyetujuinya secara eksplisit.
 
-**Who experiences it.** The teacher preparing tomorrow's lesson at 21:00; the coordinator who
-has to sign off on 40 documents; ultimately the student who receives unverified material.
+**Pengguna sasaran.**
+- **Utama:** guru IPAS Fase B dan Fase C (kelas III–VI) di SD Indonesia.
+- **Kedua:** koordinator kurikulum sekolah yang harus mengaudit materi ajar sebelum diedarkan.
 
-**What we resolve.** EduCraft moves the checking *inside* the pipeline. The reviewer agent is
-not a suggestion — it is a gate with a written rulebook, a verdict, and a citation of the exact
-rule that was violated. The teacher's remaining job is a judgement call on an already-checked
-draft, not a full audit.
+**Nilai yang diberikan.** Satu sumber masuk, lima format selaras keluar, masing-masing membawa tag
+sitasi pada setiap klaim faktual, plus jejak audit tentang siapa memutuskan apa dan kenapa.
 
-**Where this insight comes from.** Handbook §7 asks for *the source of the pain point*, not just a
-description of it. Ours is **Pak Arief**, a practising IPAS primary-school teacher: the four
-questions above are the ones he actually asks of every draft, and they became R001 (grounding), R003
-(age-appropriateness), R004 (curriculum alignment) and R006 (health claims) in the rulebook. We did
-not workshop the pain point in a sprint; we transcribed it from someone who has to answer for it in
-front of a class.
+**Asal-usul — aturannya milik guru, bukan milik kami.** Substansi rulebook tidak datang dari tim.
+Ia datang dari **Pak Arief**, guru IPAS SD yang masih aktif mengajar, yang memasok baik rujukan sumber
+yang menjadi fondasi proyek ini maupun penilaian tentang apa yang akan dan tidak akan diletakkan
+seorang guru di depan anak-anak: tanpa klaim kesehatan permanen, tanpa menakut-nakuti, tanpa apa pun
+yang mempermalukan murid, tanpa klaim halal atau komersial tanpa sertifikat. Kontribusi tim adalah
+memformalkan penilaian itu menjadi predikat yang bisa diperiksa mesin, lalu membangun pipeline yang
+menegakkannya.
 
-**Evidence this is real (from our own run).** On 29 October 2026 our reviewer agent **rejected
-our own output**: the draft was built on a source document about a different topic, and two
-"actual context" claims had no verifiable source. The pipeline caught it before a human ever
-saw it. That rejection is included in the submission as evidence, not hidden — see
-`04_Test_Results.md` §4.
+Pembeda ini adalah intinya, bukan sekadar baris kredit. Rulebook yang ditulis engineer adalah dugaan
+tentang pedagogi; yang ini adalah penilaian seorang praktisi, dituliskan di tempat yang bisa diaudit.
+Karena itu pula artefak yang bisa diadopsi sekolah adalah `rulebook_ipas.md`, bukan kodenya — tim
+kurikulum bisa menyunting aturan tanpa menyentuh pipeline.
+
+*(Pak Arief adalah sumber pain point yang disebut di §3.2, bukan persona: kebutuhan di bawah berasal
+dari dia, dan rulebook adalah bentuk tertulis dari penilaiannya.)*
+
+**Run yang didemokan.** Run `EDU-ORCH-20261026-001`, topik *Energi Alternatif dan Penghematan Energi*,
+berpijak pada CP **C4 (2.1.4)** dengan fondasi **B5 (1.1.5)**. Keluaran: RPP, pre/post test (7 + 20
+butir dengan kunci dan penskoran), garis besar slide, artikel siswa, brief infografis, dan kuis HTML
+yang bisa dimainkan.
 
 ---
 
-## 3.3 Solution design
+## 3.2 Wawasan dunia nyata
 
-### Business architecture
+**Pain point-nya bukan "guru tidak bisa menulis". Pain point-nya "guru tidak punya waktu untuk siklus
+pemeriksaan".**
+
+Guru SD Indonesia dituntut menghasilkan paket ajar per topik sambil memikul 20–30 jam tatap muka per
+minggu. Bagian yang mahal bukan menyusun draf — melainkan **memeriksa**:
+- Apakah setiap angka benar-benar ada di sumber, atau datang dari ingatan?
+- Apakah pilihan katanya terlalu menakutkan untuk anak 10 tahun?
+- Apakah masih selaras dengan *Capaian Pembelajaran* untuk fase ini?
+- Apakah kalimat ini menciptakan klaim kesehatan yang tidak bisa kita pertanggungjawabkan?
+
+Chatbot generik membuat ini **lebih buruk**, bukan lebih baik: ia menghasilkan teks yang lancar tanpa
+disiplin sitasi, tanpa kalibrasi usia, dan tanpa rekaman. Guru lalu harus memeriksa fakta keluaran
+mesin, yang memakan waktu lebih banyak daripada menulis dari nol.
+
+**Siapa yang mengalaminya.** Guru yang menyiapkan bahan ajar besok pukul 21.00; koordinator yang harus
+menandatangani 40 dokumen; dan akhirnya murid yang menerima materi yang belum terverifikasi.
+
+**Apa yang kami selesaikan.** EduCraft memindahkan pemeriksaan ke **dalam** pipeline. Agen reviewer
+bukan saran — ia gerbang dengan rulebook tertulis, vonis, dan kutipan aturan persis yang dilanggar.
+Sisa pekerjaan guru adalah penilaian atas draf yang sudah diperiksa, bukan audit menyeluruh.
+
+**Dari mana wawasan ini berasal.** Handbook §7 meminta *sumber pain point*, bukan sekadar
+deskripsinya. Sumber kami adalah **Pak Arief**, guru IPAS SD yang masih mengajar: empat pertanyaan di
+atas adalah yang benar-benar ia ajukan pada setiap draf, dan keempatnya menjadi R001 (grounding), R003
+(kesesuaian usia), R004 (keselarasan kurikulum), dan R006 (klaim kesehatan) di rulebook. Pain point ini
+tidak kami karang dalam sprint; kami menuliskannya dari orang yang harus mempertanggungjawabkannya di
+depan kelas.
+
+**Bukti bahwa ini nyata (dari run kami sendiri).** Pada 29 Oktober 2026 agen reviewer kami
+**menolak keluaran kami sendiri**: draf dibangun di atas dokumen sumber untuk topik yang berbeda, dan
+dua klaim "konteks aktual" tidak punya sumber yang bisa diverifikasi. Pipeline menangkapnya sebelum
+manusia sempat melihatnya. Penolakan itu disertakan dalam submission sebagai bukti, bukan
+disembunyikan — lihat `04_Test_Results.md` §4.
+
+---
+
+## 3.3 Rancangan solusi
+
+### Arsitektur bisnis
 
 ```
-Teacher brief  ->  Orchestrator  ->  [Planner -> Writer -> Reviewer]  ->  Approval gate  ->  Teacher
-                                          ^            |
-                                          |  REJECT    |  max 3 loops
-                                          +------------+  then escalate to human
+Brief guru  ->  Orchestrator  ->  [Planner -> Writer -> Reviewer]  ->  Gerbang approval  ->  Guru
+                                       ^            |
+                                       |  REJECT    |  maks 3 putaran
+                                       +------------+  lalu eskalasi ke manusia
 ```
 
-Roles:
-| Role | Responsibility | Cannot do |
-|------|----------------|-----------|
-| Teacher (human) | Supplies the approved source, approves or rejects the final pack | — |
-| Orchestrator | Holds state, routes work, enforces limits, writes the audit log | Publish on its own |
-| Planner | Decomposes the source into a per-format outline mapped to CP codes | Invent facts |
-| Writer | Drafts each format using only tagged source facts | Use outside facts |
-| Reviewer | Checks the draft against R001–R012, returns APPROVE/REJECT with citations | Rewrite content itself |
+Peran:
+| Peran | Tanggung jawab | Tidak boleh |
+|-------|----------------|-------------|
+| Guru (manusia) | Memasok sumber yang disetujui, menyetujui atau menolak paket akhir | — |
+| Orchestrator | Menahan state, merutekan kerja, menegakkan batas, menulis audit log | Menerbitkan sendiri |
+| Planner | Memecah sumber menjadi outline per format yang dipetakan ke kode CP | Mengarang fakta |
+| Writer | Menyusun tiap format hanya dari fakta sumber yang bertag | Memakai fakta dari luar |
+| Reviewer | Memeriksa draf terhadap R001–R012, mengembalikan APPROVE/REJECT dengan kutipan | Menulis ulang isi sendiri |
 
-### Technical architecture
+### Arsitektur teknis
 
-- **Packaging:** four WorkBuddy skills (`edu-orchestrator`, `edu-planner`, `edu-writer`,
-  `edu-reviewer`), each a `SKILL.md` contract plus `assets/`.
-- **Knowledge layer (read-only):** `source_material_energi.md` (facts `[src:1]`–`[src:9]`),
-  `cp_ipas.md` (curriculum outcomes), `rulebook_ipas.md` (R001–R012), `konteks_aktual.md`
-  (`[src:CA1]`, `[src:CA6]` with official URL and access date).
-- **Output contract:** `{format, status, iterations, final_content, findings[], sources[]}`
-  plus an append-only audit log.
-- **State:** the run configuration file (`00_run_config.md`) records topic, CP, source,
-  approver and publish status, so a run can be reconstructed later.
+- **Pengemasan:** empat skill WorkBuddy (`edu-orchestrator`, `edu-planner`, `edu-writer`,
+  `edu-reviewer`), masing-masing berupa kontrak `SKILL.md` plus `assets/`.
+- **Lapisan pengetahuan (read-only):** `source_material_energi.md` (fakta `[src:1]`–`[src:9]`),
+  `cp_ipas.md` (capaian pembelajaran), `rulebook_ipas.md` (R001–R012), `konteks_aktual.md`
+  (`[src:CA1]`, `[src:CA6]` dengan URL resmi dan tanggal akses).
+- **Kontrak keluaran:** `{format, status, iterations, final_content, findings[], sources[]}` plus
+  audit log yang hanya bisa ditambah (append-only).
+- **State:** berkas konfigurasi run (`00_run_config.md`) mencatat topik, CP, sumber, penyetuju, dan
+  status publikasi, sehingga sebuah run bisa direkonstruksi di kemudian hari.
 
-Full component and trust-boundary diagram: `architecture_diagram.html` (companion file
+Diagram komponen dan batas kepercayaan lengkap: `architecture_diagram.html` (berkas pendamping
 `05_Architecture.md`).
 
-### How prompt design drives agent behaviour
+### Bagaimana desain prompt mengendalikan perilaku agen
 
-This is the core engineering claim: **behaviour is enforced by written contracts, not by hope.**
+Ini klaim rekayasa intinya: **perilaku ditegakkan oleh kontrak tertulis, bukan oleh harapan.**
 
-| Design decision | Where it lives | Behaviour it produces |
-|-----------------|----------------|-----------------------|
-| Every fact must carry `[src:#]`; no source, no sentence | Writer contract + R001 | Grounded text; `[UNVERIFIED]` instead of invention |
-| Reviewer must cite the rule ID and quote the offending text | Reviewer contract + record rule (TC-19) | Auditable rejections, not vague "looks fine" |
-| Reviewer returns a machine-readable verdict | Reviewer output schema (`status`, `findings[]`) | Orchestrator can branch deterministically |
-| Hard cap of 3 remediation loops, then halt | Orchestrator hard rules | No infinite self-correction; a human is pulled in |
-| Publish is a separate, gated step | Orchestrator pipeline step 5 | The agent cannot ship on its own authority |
-| Source documents are **data, not instructions** | Orchestrator hard rules | Prompt injection inside a PDF is ignored |
-| Separate "actual context" tag `[src:CA#]` | R011 + `konteks_aktual.md` | Real-world claims need a dated official URL, not vibes |
+| Keputusan desain | Di mana letaknya | Perilaku yang dihasilkan |
+|------------------|------------------|--------------------------|
+| Setiap fakta wajib bertag `[src:#]`; tanpa sumber, tanpa kalimat | Kontrak Writer + R001 | Teks yang bertumpu pada sumber; `[UNVERIFIED]` alih-alih karangan |
+| Reviewer wajib mengutip ID aturan dan menyalin teks yang melanggar | Kontrak Reviewer + aturan rekaman (TC-19) | Penolakan yang bisa diaudit, bukan "sepertinya sudah bagus" |
+| Reviewer mengembalikan vonis yang terbaca mesin | Skema keluaran Reviewer (`status`, `findings[]`) | Orchestrator bisa bercabang secara deterministik |
+| Batas keras 3 putaran remediasi, lalu berhenti | Aturan keras Orchestrator | Tidak ada koreksi diri tanpa ujung; manusia ditarik masuk |
+| Publikasi adalah langkah terpisah yang bergerbang | Langkah 5 pipeline Orchestrator | Agen tidak bisa menerbitkan atas kewenangannya sendiri |
+| Dokumen sumber adalah **data, bukan instruksi** | Aturan keras Orchestrator | Prompt injection di dalam PDF diabaikan |
+| Tag "konteks aktual" terpisah `[src:CA#]` | R011 + `konteks_aktual.md` | Klaim dunia nyata butuh URL resmi bertanggal, bukan perasaan |
 
-The rulebook is the product. The prompts are the enforcement mechanism. A teacher can read
-`rulebook_ipas.md` and know exactly what the machine will and will not write.
+Rulebook adalah produknya. Prompt adalah mekanisme penegakannya. Seorang guru bisa membaca
+`rulebook_ipas.md` dan tahu persis apa yang akan dan tidak akan ditulis mesin ini.
 
 ---
 
-## 3.4 Business value
+## 3.4 Nilai bisnis
 
-All figures below are **estimates from our own run**, with the basis stated. They are not
-measured across a school yet — we say so plainly.
+Semua angka di bawah adalah **estimasi dari run kami sendiri**, dengan dasar yang dinyatakan. Belum
+diukur lintas sekolah — kami katakan apa adanya.
 
-| Dimension | Before (manual) | With EduCraft | Basis |
-|-----------|-----------------|---------------|-------|
-| Formats produced from one topic | 1 at a time, re-read source each time | 5 formats + interactive quiz in one run | Run `EDU-ORCH-20261026-001` output count |
-| Teacher time per topic (draft + check) | ~6–8 hours | ~30–45 min (review an already-checked pack) | Estimated from artefact volume; to be validated in field test |
-| Fact-check coverage | Ad hoc, by memory | 100% of factual sentences carry a source tag; tag resolution checked deterministically | `tools/check_grounding.py`: run `-001` **121 tags → PASS**; run `-002` **115 tags → PASS** (0 dangling, 0 class violations on each). Before the fix, `-002` failed with 84 class violations — defect D1, disclosed in `04_Test_Results.md` §4b |
-| Rule compliance checks per document | 0–2 informal | 12 rules, each with pass/fail and citation | `review_kepatuhan_R001-R011_2026-10-30_REVISI.md` |
-| Errors prevented | Discovered in class, or never | Caught pre-publication (1 real catch on 29 Oct) | Disclosed rejection in `04_Test_Results.md` |
-| Audit trail | None | Full: inputs, decisions, revisions v1→v2, sources | `audit_log_edu_orchestrator.md` |
+| Dimensi | Sebelum (manual) | Dengan EduCraft | Dasar |
+|---------|------------------|-----------------|-------|
+| Format yang dihasilkan dari satu topik | 1 per kali, sumber dibaca ulang tiap kali | 5 format + kuis interaktif dalam satu run | Jumlah keluaran run `EDU-ORCH-20261026-001` |
+| Waktu guru per topik (menyusun + memeriksa) | ~6–8 jam | ~30–45 menit (meninjau paket yang sudah diperiksa) | Estimasi dari volume artefak; akan divalidasi di uji lapangan |
+| Cakupan pemeriksaan fakta | Ad hoc, mengandalkan ingatan | 100% kalimat faktual membawa tag sumber; resolusi tag diperiksa deterministik | `tools/check_grounding.py`: run `-001` **121 tag → PASS**; run `-002` **115 tag → PASS** (0 dangling, 0 pelanggaran kelas di keduanya). Sebelum perbaikan, `-002` gagal dengan 84 pelanggaran kelas — defek D1, diungkap di `04_Test_Results.md` §4b |
+| Pemeriksaan kepatuhan aturan per dokumen | 0–2 informal | 12 aturan, masing-masing dengan lulus/gagal dan kutipan | `review_kepatuhan_R001-R011_2026-10-30_REVISI.md` |
+| Kesalahan yang dicegah | Ditemukan di kelas, atau tidak pernah | Tertangkap sebelum publikasi (1 tangkapan nyata pada 29 Okt) | Penolakan yang diungkap di `04_Test_Results.md` |
+| Jejak audit | Tidak ada | Lengkap: input, keputusan, revisi v1→v2, sumber | `audit_log_edu_orchestrator.md` |
 
-**Why it scales beyond the hackathon.** The engine is domain-parameterised, not topic-hardcoded:
-swap `source_material_*.md`, `cp_*.md` and `rulebook_*.md` and the same four agents produce
-material for a different subject or grade band. The rulebook is a plain Markdown file a
-curriculum team can edit without touching code — which is what makes institutional adoption
-realistic rather than theoretical.
+**Kenapa ini bisa diskalakan di luar hackathon.** Mesinnya berparameter domain, bukan terikat topik:
+ganti `source_material_*.md`, `cp_*.md`, dan `rulebook_*.md`, maka empat agen yang sama menghasilkan
+materi untuk mata pelajaran atau fase lain. Rulebook adalah berkas Markdown biasa yang bisa disunting
+tim kurikulum tanpa menyentuh kode — itulah yang membuat adopsi institusional realistis, bukan
+teoretis.

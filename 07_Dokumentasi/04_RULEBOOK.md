@@ -1,25 +1,25 @@
-# 04 — Rulebook specification (canonical pointer)
+# 04 — Spesifikasi rulebook (penunjuk kanonik)
 
-> **The rulebook itself lives at** `03_Hasil/referensi/rulebook_ipas.md` (v2.0).
-> This file does not repeat the rules — it specifies how the rulebook is governed, how each rule is
-> enforced, and what evidence exists for that enforcement. Duplicating the rule text here would
-> create a second source of truth, which is the exact failure mode this documentation set exists to
-> remove.
+> **Rulebook-nya sendiri ada di** `03_Hasil/referensi/rulebook_ipas.md` (v2.0).
+> Berkas ini tidak mengulang aturannya — berkas ini menetapkan bagaimana rulebook dikelola, bagaimana
+> tiap aturan ditegakkan, dan bukti apa yang ada untuk penegakan itu. Menyalin teks aturan ke sini
+> akan menciptakan sumber kebenaran kedua, dan itu persis mode kegagalan yang ingin dihapus oleh
+> kumpulan dokumentasi ini.
 
 ---
 
-## 1. Governance
+## 1. Tata kelola
 
-| Property | Rule |
-|----------|------|
-| Canonical file | `03_Hasil/referensi/rulebook_ipas.md` |
-| Copies | `skills_package/edu-orchestrator/assets/`, `skills_package/edu-reviewer/assets/` |
-| Copy integrity | Byte-identical; verified by checksum before every submission |
-| Change control | Human edit only. An agent may propose a rule, never enact one |
-| Versioning | `vMAJOR.MINOR` + changelog table at the top of the file |
-| Backward compatibility | A change that loosens a rule requires re-review of every artefact that passed under the old rule |
+| Sifat | Aturan |
+|-------|--------|
+| Berkas kanonik | `03_Hasil/referensi/rulebook_ipas.md` |
+| Salinan | `skills_package/edu-orchestrator/assets/`, `skills_package/edu-reviewer/assets/` |
+| Integritas salinan | Identik byte; diverifikasi dengan checksum sebelum setiap submission |
+| Kendali perubahan | Hanya disunting manusia. Agen boleh mengusulkan aturan, tidak pernah menetapkannya |
+| Pemberian versi | `vMAJOR.MINOR` + tabel changelog di bagian atas berkas |
+| Kompatibilitas mundur | Perubahan yang melonggarkan aturan menuntut tinjauan ulang atas setiap artefak yang lolos di bawah aturan lama |
 
-**Checksum evidence (31 Oct 2026, v2.0):**
+**Bukti checksum (31 Okt 2026, v2.0):**
 
 ```
 9fe6336872159a65  03_Hasil/referensi/rulebook_ipas.md
@@ -27,71 +27,74 @@
 9fe6336872159a65  05_Bukti_Proses/skills_package/edu-reviewer/assets/rulebook_ipas.md
 ```
 
-Re-run with:
+Jalankan ulang dengan:
 ```bash
-sha256sum 03_Hasil/referensi/rulebook_ipas.md \
-          05_Bukti_Proses/skills_package/*/assets/rulebook_ipas.md
+python3 -c "import hashlib,sys,pathlib; [print(hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest()[:16], p) for p in sys.argv[1:]]" \
+  03_Hasil/referensi/rulebook_ipas.md \
+  05_Bukti_Proses/skills_package/*/assets/rulebook_ipas.md
 ```
 
 ---
 
-## 2. Rule set and enforcement status
+## 2. Himpunan aturan dan status penegakan
 
-| Rule | Guards against | Enforcement | Evidence that it works |
-|------|----------------|-------------|------------------------|
-| R001 | Unresolvable or misclassified citation | Prompt + **deterministic tool** | `tools/check_grounding.py`; run `-001` 121 tags → PASS; run `-002` 115 tags → PASS after the D1 fix (it was 84 class violations before, which is what found the defect) |
-| R002 | Fear-mongering | Prompt only | Reviewer finding F-? — quoted rejection in `05_review.md`; live screenshot **TO RUN** |
-| R003 | Age-inappropriate language | Prompt only | Rule present; live capture **TO RUN** |
-| R004 | Curriculum drift | Prompt + human sign-off | Run `-002` flagged `PERLU KONFIRMASI GURU`, teacher approved 30 Oct 17:19 |
-| R005 | Harm-only content | Prompt only | Run `-001` re-review: R005 PASS with student-action section |
-| R006 | Health claims | Prompt only | **TO RUN** (TC-08/09, critical) |
-| R007 | Harmful promotion | Prompt only | **TO RUN** (TC-10, critical) |
-| R008 | Tone | Prompt only | Infographic render loop rejected 2 iterations on clarity (audit log §3.6) |
-| R009 | Language + CTA | Prompt only | CTA present in article/slide/brief; manual check |
-| R010 | Stigmatising wording | Prompt only | Rule present; no failing example captured |
-| R011 | Unsourced real-world claim | Prompt + URL requirement | The 29 Oct rejection (F-02) — two CA claims had no document |
-| R012 | Commercial / halal claim | Prompt only | **NEW in v2.0; never exercised.** Applicability for IPAS material: `N/A` with justification |
+| Aturan | Menjaga terhadap | Penegakan | Bukti bahwa ia bekerja |
+|--------|------------------|-----------|------------------------|
+| R001 | Sitasi tak terselesaikan atau salah kelas | Prompt + **alat deterministik** | `tools/check_grounding.py`; run `-001` 121 tag → PASS; run `-002` 115 tag → PASS setelah perbaikan D1 (sebelumnya 84 pelanggaran kelas, dan itulah yang menemukan cacatnya) |
+| R002 | Menakut-nakuti | Hanya prompt | Temuan Reviewer di `05_review.md`; screenshot langsung **TO RUN** |
+| R003 | Bahasa tak sesuai usia | Hanya prompt | Aturan ada; tangkapan langsung **TO RUN** |
+| R004 | Penyimpangan kurikulum | Prompt + persetujuan manusia | Run `-002` menandai `PERLU KONFIRMASI GURU`, guru menyetujui 30 Okt 17:19 |
+| R005 | Isi yang hanya berisi bahaya | Hanya prompt | Tinjau ulang run `-001`: R005 PASS dengan bagian aksi siswa |
+| R006 | Klaim kesehatan | Hanya prompt | **TO RUN** (TC-08/09, kritis) |
+| R007 | Promosi berbahaya | Hanya prompt | **TO RUN** (TC-10, kritis) |
+| R008 | Nada | Hanya prompt | Lingkar render infografis ditolak 2 iterasi karena kejelasan (audit log §3.6) |
+| R009 | Bahasa + CTA | Hanya prompt | CTA ada di artikel/slide/brief; diperiksa manual |
+| R010 | Diksi yang menstigma | Hanya prompt | Aturan ada; belum ada contoh gagal yang tertangkap |
+| R011 | Klaim dunia nyata tanpa sumber | Prompt + syarat URL | Penolakan 29 Okt (F-02) — dua klaim CA tanpa dokumen |
+| R012 | Klaim komersial / halal | Hanya prompt | **BARU di v2.0.** Ada kasus ujinya sekarang (TC-21) tetapi **belum pernah dijalankan**; untuk kedua run yang ada berlaku `N/A` dengan alasan |
 
-**Honest summary:** one rule (R001) has deterministic enforcement. The other eleven are enforced by
-prompt and audited by a human reading quoted findings. That is the actual state; do not describe it
-as an automated policy engine.
+**Ringkasan jujur:** satu aturan (R001) punya penegakan deterministik. Sebelas sisanya ditegakkan lewat
+prompt dan diaudit oleh manusia yang membaca temuan terkutip. Itulah keadaan sebenarnya; jangan
+menggambarkannya sebagai mesin kebijakan otomatis.
 
 ---
 
-## 3. What changed in v2.0 and why
+## 3. Apa yang berubah di v2.0 dan mengapa
 
-| Change | Reason | Risk if not done |
-|--------|--------|------------------|
-| R003 keyed to the phase in `00_run_config.md` instead of "kelas 5–6" | The project serves Fase B (III–IV) **and** Fase C (V–VI). A rule that only names grades 5–6 cannot judge a Fase B artefact | A Fase B pack would be judged against the wrong age band |
-| R005/R006/R007 lost their hardcoded `[src:6]`/`[src:7]`/`[src:8]` pointers | Those numbers belong to one particular source file. Swap the source and the rules point at the wrong sections — which contradicts the claim that the engine is domain-parameterised | "Swap the source and it works" would be false |
-| R004 lost its topic list | Same reason: the rule named one topic's themes | A new topic would technically violate R004 |
-| R012 added | Handbook Challenge C names *advertising and halal* as review criteria. Without a rule, the Reviewer has no basis to reject a commercial or halal claim | A judge's test case on a halal claim would pass unchecked — a visible hole |
-| §0 tag taxonomy added | The 29 Oct and run `-002` defects both came from a curriculum tag standing in for a fact tag | The rule said "must cite a source" but never defined what counts as one |
-| §0b N/A rule added | "Silently skipped" and "assessed as not applicable" look identical in a report | A judge cannot tell whether a rule was applied |
+| Perubahan | Alasan | Risiko bila tidak dilakukan |
+|-----------|--------|-----------------------------|
+| R003 dikaitkan ke fase di `00_run_config.md`, bukan "kelas 5–6" | Proyek ini melayani Fase B (III–IV) **dan** Fase C (V–VI). Aturan yang hanya menyebut kelas 5–6 tidak bisa menilai artefak Fase B | Paket Fase B akan dinilai dengan jenjang usia yang salah |
+| R005/R006/R007 kehilangan penunjuk keras `[src:6]`/`[src:7]`/`[src:8]` | Angka itu milik satu berkas sumber tertentu. Ganti sumbernya, aturan menunjuk bagian yang salah — bertentangan dengan klaim bahwa mesin ini berparameter domain | Klaim "ganti sumbernya dan tetap jalan" akan jadi bohong |
+| R004 kehilangan daftar topiknya | Alasan sama: aturan itu menyebut tema satu topik | Topik baru akan secara teknis melanggar R004 |
+| R012 ditambahkan | Handbook Challenge C menyebut *iklan dan halal* sebagai kriteria tinjauan. Tanpa aturan, Reviewer tidak punya dasar menolak klaim komersial atau halal | Kasus uji juri tentang klaim halal akan lolos tanpa diperiksa — lubang yang terlihat |
+| §0 taksonomi tag ditambahkan | Cacat 29 Okt dan run `-002` sama-sama berasal dari tag kurikulum yang menggantikan tag fakta | Aturan bilang "wajib menyitir sumber" tetapi tidak pernah mendefinisikan apa yang dihitung sebagai sumber |
+| §0b aturan N/A ditambahkan | "Dilewati diam-diam" dan "dinilai tidak berlaku" terlihat identik di dalam laporan | Juri tidak bisa membedakan apakah sebuah aturan diterapkan |
 
-**Backward compatibility:** no rule was loosened. Every verdict issued under v1.1 remains valid
-without re-review. R012 is recorded as `N/A` for both existing runs because neither contains a
-commercial, efficacy, testimonial or halal claim — verified by search, see
+**Kompatibilitas mundur:** tidak ada aturan yang dilonggarkan. Setiap vonis yang terbit di bawah v1.1
+tetap sah tanpa tinjauan ulang. R012 tercatat `N/A` untuk kedua run yang ada karena keduanya tidak
+memuat klaim komersial, khasiat, testimoni, atau halal — diverifikasi lewat pencarian, lihat
 `03_Hasil/audit/addendum_R012_2026-10-31.md`.
 
 ---
 
-## 4. How to add a rule (procedure)
+## 4. Cara menambah aturan (prosedur)
 
-1. State the harm the rule prevents, in one sentence.
-2. Write the rule as a **testable predicate**: what must be true in the text for it to pass.
-3. Add one calibration example that should `REJECT` and one that should `APPROVE`.
-4. Bump the version and record it in the changelog.
-5. Sync both asset copies; verify checksums.
-6. If the rule is stricter than before, re-review every artefact that passed under the old version.
-7. Add at least one test case to `05_TEST_PLAN.md` so the rule is demonstrable, not just declared.
+1. Nyatakan bahaya yang dicegah aturan itu, dalam satu kalimat.
+2. Tulis aturannya sebagai **predikat yang bisa diuji**: apa yang harus benar di dalam teks agar lolos.
+3. Tambahkan satu contoh kalibrasi yang seharusnya `REJECT` dan satu yang seharusnya `APPROVE`.
+4. Naikkan versi dan catat di changelog.
+5. Sinkronkan kedua salinan aset; verifikasi checksum.
+6. Bila aturannya lebih ketat dari sebelumnya, tinjau ulang setiap artefak yang lolos di versi lama.
+7. Tambahkan minimal satu kasus uji ke `05_TEST_PLAN.md` supaya aturannya bisa didemonstrasikan, bukan
+   hanya dideklarasikan.
 
-A rule that has no test case is a wish. A rule that has no calibration example is ambiguous.
+Aturan tanpa kasus uji hanyalah keinginan. Aturan tanpa contoh kalibrasi bersifat ambigu.
 
 ---
 
-## 5. Known limitation
+## 5. Keterbatasan yang diketahui
 
-The rulebook is only as good as its author. A missing rule is a missing check, and the Reviewer
-cannot reject what the rulebook does not forbid. This is why R012 exists: it was missing, and the
-handbook names it explicitly. The same argument applies to whatever is still missing.
+Rulebook tidak lebih baik daripada penulisnya. Aturan yang tidak ada berarti pemeriksaan yang tidak
+ada, dan Reviewer tidak bisa menolak apa yang tidak dilarang rulebook. Inilah alasan R012 ada: ia
+sempat hilang, dan handbook menyebutnya secara eksplisit. Argumen yang sama berlaku untuk apa pun yang
+masih hilang.

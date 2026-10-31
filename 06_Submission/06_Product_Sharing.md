@@ -1,116 +1,116 @@
-# Submission Item 8 — Product Sharing
+# Item Submission 8 — Berbagi Produk
 
-> Handbook §7 (REQUIRED): *"Where WorkBuddy added value in your build, plus your key insights
+> Handbook §7 (WAJIB): *"Where WorkBuddy added value in your build, plus your key insights
 > and learnings."*
 
 ---
 
-## 0. Where this came from
+## 0. Dari mana ini berasal
 
-The idea, the source references and the substance of the rules came from **Pak Arief**, a
-practising IPAS primary-school teacher. He is not a persona in a slide: he is the person who said
-which claims he would never put in front of a class, and who supplied the curriculum material the
-pipeline draws from.
+Ide, rujukan sumber, dan substansi aturannya berasal dari **Pak Arief**, guru IPAS SD yang masih aktif
+mengajar. Ia bukan persona di slide: ia orang yang menyebut klaim mana yang tidak akan pernah ia
+letakkan di depan kelas, dan yang memasok materi kurikulum yang dipakai pipeline ini.
 
-Our role was the other half: turn his judgement into predicates a machine can check, and build the
-pipeline that enforces them. Everything below is about that half — the engineering — and it only
-makes sense against the first half. **A rulebook written by engineers is a guess about pedagogy.**
-
----
-
-## 1. Where WorkBuddy added value
-
-### 1.1 Skills as the unit of engineering
-The single most useful idea in this build: **a skill is a contract, not a prompt.** Each of the
-four agents is a `SKILL.md` with a declared role, declared inputs, a pipeline, and a list of
-hard rules it may not break. That changed the nature of the work — we stopped tuning paragraphs
-and started writing specifications that a reviewer could hold the agent to.
-
-Practical effect: when the reviewer rejected our output on 29 October, the fix was a **contract
-change** (add R011, require a dated URL), not a lucky re-prompt. The fix survived the next run
-because it was written down.
-
-### 1.2 Multi-agent orchestration without a framework
-No LangChain, no orchestration library. The Orchestrator skill *is* the state machine: it holds
-the iteration counter, routes to Planner/Writer/Reviewer, and stops at three. For a four-agent
-pipeline this was the right call — every hand-off is a readable file, and a judge can trace the
-whole run by opening four Markdown files.
-
-### 1.3 File-system-as-state
-`00_run_config.md` plus an append-only audit log gave us reproducibility for free. When we needed
-to explain *why* the draft changed between v1 and v2, the answer was already on disk. No database,
-no tracing UI, no reconstruction from memory.
-
-### 1.4 Project isolation for a messy build
-The build spanned nine separate working sessions over two weeks. Consolidating into one project
-folder with its own memory meant the agent stopped re-litigating decisions we had already made —
-and, more importantly, the *rejected* artefacts stayed next to the accepted ones instead of
-disappearing into an old chat.
-
-### 1.5 Where it did not help
-Being honest: long-context consistency across five output formats was still manual. The agent
-would happily fix a fact in the RPP and leave the same fact stale in the slide outline. We caught
-it with a grep for the old string (`145 MWp`) rather than with agent reasoning. **Cross-document
-consistency needs its own gate; we do not have one yet.**
+Peran kami adalah separuh lainnya: mengubah penilaiannya menjadi predikat yang bisa diperiksa mesin,
+dan membangun pipeline yang menegakkannya. Semua di bawah ini tentang separuh itu — rekayasanya — dan
+hanya masuk akal bila dibaca bersama separuh pertama. **Rulebook yang ditulis engineer adalah dugaan
+tentang pedagogi.**
 
 ---
 
-## 2. Key insights
+## 1. Di mana WorkBuddy menambah nilai
 
-### Insight 1 — Grounding has two halves, and everyone only builds one
-Attribution: *does this sentence carry a citation?* Resolution: *does that citation point at a
-source that actually says this?* Our first version only had attribution, and it passed its own
-review while being wrong. A tag is not a citation. **This is the single most transferable lesson
-from the build**, and it applies to every RAG demo that shows you a little `[1]` superscript.
+### 1.1 Skill sebagai unit rekayasa
+Gagasan paling berguna dalam build ini: **skill adalah kontrak, bukan prompt.** Keempat agen adalah
+`SKILL.md` dengan peran yang dinyatakan, masukan yang dinyatakan, pipeline, dan daftar aturan keras
+yang tidak boleh dilanggarnya. Itu mengubah sifat pekerjaannya — kami berhenti menyetel paragraf dan
+mulai menulis spesifikasi yang bisa dijadikan pegangan untuk menagih agen.
 
-### Insight 2 — A rulebook is a product artefact, not documentation
-The teacher gave us the rules as judgement, not as specification: *"do not tell a child that smoke
-damage is permanent"*, *"do not frighten them into caring"*, *"do not claim a product is halal
-without a certificate"*. We wrote the first version down as R001–R008 and moved on.
+Efek praktisnya: ketika reviewer menolak keluaran kami pada 29 Oktober, perbaikannya adalah
+**perubahan kontrak** (tambahkan R011, tuntut URL bertanggal), bukan prompt ulang yang kebetulan
+berhasil. Perbaikan itu bertahan di run berikutnya karena dituliskan.
 
-Then the audit log started citing R009–R011, which existed nowhere. The reviewer was enforcing rules
-that had been agreed in conversation but never written. **The gap was not invention — it was
-transcription.** Rules that live in a person's head, or in a chat, cannot be audited, and a reviewer
-citing a rule you cannot open is indistinguishable from a reviewer making one up.
+### 1.2 Orkestrasi multi-agen tanpa framework
+Tanpa LangChain, tanpa pustaka orkestrasi. Skill Orchestrator *adalah* mesin statusnya: ia memegang
+penghitung iterasi, merutekan ke Planner/Writer/Reviewer, dan berhenti di angka tiga. Untuk pipeline
+empat agen ini pilihan yang tepat — setiap serah-terima adalah berkas yang bisa dibaca, dan juri bisa
+menelusuri seluruh run dengan membuka empat berkas Markdown.
 
-Writing them down formally, with a predicate and a worked example each, was not paperwork. It was
-the difference between a guardrail and a vibe — and it is also what let the teacher check our
-transcription of his own judgement.
+### 1.3 Berkas sebagai state
+`00_run_config.md` plus audit log append-only memberi kami reproduksibilitas gratis. Saat kami perlu
+menjelaskan *kenapa* draf berubah antara v1 dan v2, jawabannya sudah ada di disk. Tanpa basis data,
+tanpa UI tracing, tanpa rekonstruksi dari ingatan.
 
-### Insight 3 — The reviewer must not be able to fix
-Separating veto from rewrite keeps the reviewer honest. The moment a reviewer can also edit, it
-starts approving its own edits.
+### 1.4 Isolasi proyek untuk build yang berantakan
+Build ini membentang sembilan sesi kerja terpisah selama dua minggu. Mengonsolidasikannya ke satu
+folder proyek dengan memori sendiri membuat agen berhenti memperdebatkan ulang keputusan yang sudah
+kami ambil — dan, yang lebih penting, artefak yang *ditolak* tetap berada di sebelah yang diterima
+alih-alih menghilang ke dalam percakapan lama.
 
-### Insight 4 — "Refuse and escalate" is a feature judges can see
-The most persuasive thirty seconds of any demo is the agent stopping. Ours stops for three
-different reasons — missing source, rule violation, and awaiting approval — and each stop is
-recorded. Designing for the stop, not just the output, is what makes the thing trustworthy.
-
-### Insight 5 — Disclosing the failure made the story stronger
-We were tempted to ship only the clean re-review. Including the rejection, the diagnosis and the
-fix is what turns "an agent that writes lesson plans" into "an agent with a working quality
-process". The handbook explicitly rewards this; more importantly, it is true.
-
----
-
-## 3. What we would tell the next team
-
-1. **Write the rulebook before the prompt.** If you cannot state the rules in sentences a teacher
-   would sign, you do not have a product — you have a demo.
-2. **Make the reviewer cite.** A verdict without a quoted line is unfalsifiable.
-3. **Cap the loop.** Pick a number, write it into the contract, escalate when you hit it.
-4. **Test your own output adversarially, early.** Our rejection arrived on day 3 and cost a day.
-   The same rejection on submission day would have cost the submission.
-5. **Keep the rejected version.** It is the most credible artefact you own.
+### 1.5 Di mana ia tidak membantu
+Jujur saja: konsistensi konteks panjang lintas lima format keluaran masih manual. Agen dengan senang
+hati memperbaiki satu fakta di RPP dan meninggalkan fakta yang sama basi di garis besar slide. Kami
+menangkapnya dengan `grep` untuk string lama (`145 MWp`), bukan dengan penalaran agen. **Konsistensi
+lintas dokumen butuh gerbangnya sendiri; kami belum punya.**
 
 ---
 
-## 4. Tooling notes
+## 2. Wawasan kunci
 
-| Need | What we used | Note |
-|------|--------------|------|
-| Agent contracts | WorkBuddy skills (`SKILL.md` + `assets/`) | Versionable, diffable, no framework |
-| Knowledge layer | Markdown files with tag discipline | Grep-able; a human can audit it |
-| Interactive artefact | Single-file HTML quiz | No build step, opens offline |
-| Documentation | Markdown → this bundle | Everything text, everything reviewable |
-| Verification | `grep` for stale strings, file-count reconciliation | Cheap, caught real errors |
+### Wawasan 1 — Grounding punya dua separuh, dan semua orang hanya membangun satu
+Atribusi: *apakah kalimat ini membawa sitasi?* Resolusi: *apakah sitasi itu menunjuk sumber yang
+benar-benar mengatakan ini?* Versi pertama kami hanya punya atribusi, dan ia lolos review-nya sendiri
+sambil tetap salah. Tag bukan sitasi. **Ini pelajaran paling bisa dipindahkan dari build ini**, dan
+berlaku untuk setiap demo RAG yang menunjukkan superskrip `[1]` kecil.
+
+### Wawasan 2 — Rulebook adalah artefak produk, bukan dokumentasi
+Guru memberi kami aturannya sebagai penilaian, bukan sebagai spesifikasi: *"jangan bilang ke anak bahwa
+kerusakan akibat asap itu permanen"*, *"jangan menakut-nakuti mereka agar peduli"*, *"jangan klaim
+produk halal tanpa sertifikat"*. Kami menuliskan versi pertama sebagai R001–R008 lalu lanjut bekerja.
+
+Lalu audit log mulai mengutip R009–R011, yang tidak ada di mana pun. Reviewer sedang menegakkan aturan
+yang sudah disepakati dalam percakapan tetapi belum pernah ditulis. **Celahnya bukan invensi — celahnya
+transkripsi.** Aturan yang hidup di kepala seseorang, atau di dalam chat, tidak bisa diaudit, dan
+reviewer yang mengutip aturan yang tidak bisa Anda buka tidak bisa dibedakan dari reviewer yang
+mengarangnya.
+
+Menuliskannya secara formal, lengkap dengan predikat dan satu contoh kerja untuk masing-masing, bukan
+administrasi. Itu perbedaan antara pagar dan perasaan — dan itu juga yang memungkinkan guru memeriksa
+transkripsi penilaiannya sendiri.
+
+### Wawasan 3 — Reviewer tidak boleh bisa memperbaiki
+Memisahkan veto dari tulis ulang menjaga reviewer tetap jujur. Begitu reviewer bisa ikut menyunting,
+ia mulai menyetujui suntingannya sendiri.
+
+### Wawasan 4 — "Menolak dan mengeskalasi" adalah fitur yang bisa dilihat juri
+Tiga puluh detik paling meyakinkan dalam demo mana pun adalah saat agen berhenti. Punya kami berhenti
+karena tiga alasan berbeda — sumber tidak ada, pelanggaran aturan, dan menunggu persetujuan — dan
+setiap perhentian tercatat. Merancang untuk perhentian, bukan hanya untuk keluaran, itulah yang
+membuat benda ini bisa dipercaya.
+
+### Wawasan 5 — Mengungkap kegagalan membuat ceritanya lebih kuat
+Kami sempat tergoda hanya mengirim review ulang yang bersih. Menyertakan penolakan, diagnosis, dan
+perbaikannya itulah yang mengubah "agen yang menulis RPP" menjadi "agen dengan proses mutu yang
+bekerja". Handbook secara eksplisit menghargai ini; yang lebih penting, itu benar.
+
+---
+
+## 3. Yang akan kami sampaikan ke tim berikutnya
+
+1. **Tulis rulebook sebelum prompt.** Kalau Anda tidak bisa menyatakan aturannya dalam kalimat yang mau ditandatangani guru, Anda belum punya produk — Anda punya demo.
+2. **Buat reviewer mengutip.** Vonis tanpa baris yang dikutip tidak bisa dibantah.
+3. **Beri batas pada loop.** Pilih satu angka, tulis di kontrak, eskalasi saat mencapainya.
+4. **Uji keluaran Anda sendiri secara menyerang, sejak awal.** Penolakan kami datang di hari ke-3 dan memakan waktu satu hari. Penolakan yang sama di hari submission akan memakan submission-nya.
+5. **Simpan versi yang ditolak.** Itu artefak paling kredibel yang Anda punya.
+
+---
+
+## 4. Catatan perkakas
+
+| Kebutuhan | Yang kami pakai | Catatan |
+|-----------|-----------------|---------|
+| Kontrak agen | Skill WorkBuddy (`SKILL.md` + `assets/`) | Bisa diberi versi, bisa di-diff, tanpa framework |
+| Lapisan pengetahuan | Berkas Markdown dengan disiplin tag | Bisa di-grep; manusia bisa mengauditnya |
+| Artefak interaktif | Kuis HTML satu berkas | Tanpa build, terbuka offline |
+| Dokumentasi | Markdown → bundel ini | Semuanya teks, semuanya bisa ditinjau |
+| Verifikasi | `grep` untuk string basi, rekonsiliasi jumlah berkas | Murah, menangkap kesalahan nyata |

@@ -1,260 +1,269 @@
 ==========================================================
-EDUCRAFT — SUBMISSION FORM COPY-PASTE
+EDUCRAFT — TEKS SIAP TEMPEL UNTUK FORMULIR SUBMISSION
 Tencent Cloud Hackathon Indonesia 2026 · Challenge C
-Prepared 30 October 2026
+Disusun 30 Oktober 2026 · diperbarui 31 Oktober 2026
 ==========================================================
 
-Paste each block into the matching field. Character counts are given where the
-form has a limit. Do not add formatting — these are plain text on purpose.
+Tempel tiap blok ke kolom yang sesuai. Jumlah karakter dicantumkan di tempat
+formulir punya batas. Jangan menambahkan format apa pun — ini teks polos dengan
+sengaja.
 
 
 ----------------------------------------------------------
-[FIELD] PROJECT TITLE
+[BIDANG] JUDUL PROYEK
 ----------------------------------------------------------
-EduCraft — Rule-Governed AI Teaching Assistant for Primary Science (IPAS)
+EduCraft — Asisten Ajar AI IPAS SD yang Dikendalikan Rulebook
 
 
 ----------------------------------------------------------
-[FIELD] SHORT BLURB  (hard limit: under 10 words)
+[BIDANG] BLURB SINGKAT  (batas keras: di bawah 10 kata)
 ----------------------------------------------------------
-Teacher-ready IPAS lesson kits, rule-checked before they publish.
-(8 words)
-
-Alternate, Bahasa Indonesia (8 words):
 Materi IPAS siap ajar, lolos aturan sebelum terbit.
+(8 kata)
+
+Alternatif, English (8 kata):
+Teacher-ready IPAS lesson kits, rule-checked before they publish.
 
 
 ----------------------------------------------------------
-[FIELD] PROJECT DESCRIPTION
+[BIDANG] DESKRIPSI PROYEK
 ----------------------------------------------------------
 
-PROJECT OVERVIEW
-Challenge C, The Creator Agent. EduCraft turns one approved curriculum source
-into a complete primary-school teaching pack: lesson plan, pre-test, post-test
-with answer key and scoring, slide outline, student article, infographic brief,
-and a playable HTML quiz. Target users are IPAS teachers of grades III-VI
-(Fase B and C) in Indonesian primary schools, and the curriculum coordinators
-who must audit their materials.
+GAMBARAN PROYEK
+Challenge C, The Creator Agent. EduCraft mengubah satu sumber kurikulum yang
+sudah disetujui menjadi paket ajar SD yang utuh: RPP, pre-test, post-test
+dengan kunci jawaban dan penskoran, garis besar slide, artikel siswa, brief
+infografis, dan kuis HTML yang bisa dimainkan. Pengguna sasarannya guru IPAS
+kelas III-VI (Fase B dan C) di SD Indonesia, serta koordinator kurikulum yang
+harus mengaudit materi mereka.
 
-What makes it different: the pack is produced by four cooperating agents, then
-checked sentence by sentence against a written rulebook of 12 rules, and it
-cannot be published until a human approves it. Run of record:
-EDU-ORCH-20261026-001, topic "Energi Alternatif", anchored to curriculum outcome
-C4 (2.1.4) with foundation B5 (1.1.5).
+Yang membedakan: paket itu dihasilkan oleh empat agen yang bekerja bersama, lalu
+diperiksa kalimat demi kalimat terhadap rulebook tertulis berisi 12 aturan, dan
+tidak boleh diterbitkan sebelum manusia menyetujuinya. Run yang didemokan:
+EDU-ORCH-20261026-001, topik "Energi Alternatif", berpijak pada capaian
+pembelajaran C4 (2.1.4) dengan fondasi B5 (1.1.5).
 
-Where it came from: the idea, the curriculum references and the substance of the
-rules came from Pak Arief, a practising IPAS primary-school teacher. He set
-which claims a teacher will never put in front of a class; our work was to
-formalise that judgement into rules a machine can check and to build the pipeline
-that enforces them. The rulebook, not the code, is the artefact a school could
-adopt - a curriculum team can edit it without touching the pipeline.
-
-
-REAL-WORLD INSIGHT
-The pain point is not that teachers cannot write. It is that they cannot afford
-the review loop. An Indonesian primary teacher carries 20-30 contact hours a
-week and must still produce a per-topic teaching pack, where every sentence has
-to survive four questions: is this number in my source, is this too frightening
-for a ten-year-old, does it still match the curriculum, and would this create a
-health claim I cannot defend.
-
-Generic chatbots make this worse. They produce fluent text with no citation
-discipline and no record, so the teacher ends up fact-checking a machine, which
-costs more time than writing from scratch.
-
-EduCraft moves the checking inside the pipeline. The reviewer agent is a gate
-with a written rulebook, a verdict, and a citation of the exact rule violated.
-The teacher's remaining job is a judgement call on already-checked material.
+Dari mana asalnya: ide, rujukan kurikulum, dan substansi aturannya berasal dari
+Pak Arief, guru IPAS SD yang masih aktif mengajar. Ia yang menetapkan klaim mana
+yang tidak akan pernah diletakkan guru di depan kelas; pekerjaan kami adalah
+memformalkan penilaian itu menjadi aturan yang bisa diperiksa mesin dan
+membangun pipeline yang menegakkannya. Rulebook, bukan kodenya, adalah artefak
+yang bisa diadopsi sekolah - tim kurikulum bisa menyuntingnya tanpa menyentuh
+pipeline.
 
 
-SOLUTION DESIGN
-Business layer: Orchestrator holds state and enforces limits; Planner decomposes
-the source into per-format outlines mapped to curriculum outcomes; Writer drafts
-using only tagged source facts; Reviewer checks 12 rules and returns APPROVE or
-REJECT with quoted text. A teacher or SME then opens the approval gate. The
-Reviewer can veto but cannot rewrite - an agent that can grade and fix its own
-work will eventually grade itself generously.
+WAWASAN DUNIA NYATA
+Pain point-nya bukan bahwa guru tidak bisa menulis. Pain point-nya bahwa guru
+tidak punya waktu untuk siklus pemeriksaan. Guru SD Indonesia memikul 20-30 jam
+tatap muka per minggu dan tetap harus menghasilkan paket ajar per topik, di mana
+setiap kalimat harus lolos empat pertanyaan: apakah angka ini ada di sumber saya,
+apakah ini terlalu menakutkan untuk anak sepuluh tahun, apakah masih selaras
+dengan kurikulum, dan apakah ini menciptakan klaim kesehatan yang tidak bisa saya
+pertanggungjawabkan.
 
-Technical layer: four WorkBuddy skills, each a SKILL.md contract plus read-only
-assets (source material, curriculum outcomes, rulebook R001-R011, and a
-real-world claim register where every entry carries an official URL and an
-access date). Output contract: {format, status, iterations, final_content,
-findings[], sources[]} plus an append-only audit log.
+Chatbot generik membuat ini lebih buruk. Ia menghasilkan teks yang lancar tanpa
+disiplin sitasi dan tanpa rekaman, sehingga guru akhirnya memeriksa fakta keluaran
+mesin, yang memakan waktu lebih banyak daripada menulis dari nol.
 
-Prompt design is the enforcement mechanism, not decoration. Every fact must
-carry a [src:#] tag or the writer emits [UNVERIFIED] instead of guessing. Every
-rejection must quote the offending sentence and cite the rule. The revision loop
-is capped at three, after which the run halts and escalates to a human. Source
-documents are treated as data, never as instructions, which is our
-prompt-injection defence. Publishing is a separate gated step, so the agent
-cannot ship on its own authority.
+EduCraft memindahkan pemeriksaan ke dalam pipeline. Agen reviewer adalah gerbang
+dengan rulebook tertulis, vonis, dan kutipan aturan persis yang dilanggar. Sisa
+pekerjaan guru adalah penilaian atas materi yang sudah diperiksa.
 
 
-BUSINESS VALUE
-- Five formats plus an interactive quiz from a single source, in one run.
-- Estimated 6-8 hours of drafting and checking per topic reduced to roughly
-  30-45 minutes of reviewing already-checked material. (Estimate from our own
-  artefact volume; to be validated in field testing - we are not claiming a
-  measured result.)
-- 12 rules checked per document, each with a pass/fail and a citation, versus
-  0-2 informal checks today.
-- One real error caught before publication: on 29 October the reviewer rejected
-  our own output for broken source grounding. We fixed the source layer,
-  re-tagged every draft, and re-reviewed to APPROVE. Both reports ship with the
-  submission.
-- Full audit trail: inputs, decisions, findings, revision history v1 to v2.
+RANCANGAN SOLUSI
+Lapisan bisnis: Orchestrator menahan state dan menegakkan batas; Planner memecah
+sumber menjadi outline per format yang dipetakan ke capaian pembelajaran; Writer
+menyusun draf hanya dari fakta sumber yang bertag; Reviewer memeriksa 12 aturan
+dan mengembalikan APPROVE atau REJECT dengan teks yang dikutip. Guru atau SME
+kemudian membuka gerbang persetujuan. Reviewer boleh memveto tetapi tidak boleh
+menulis ulang - agen yang bisa menilai sekaligus memperbaiki pekerjaannya sendiri
+akan akhirnya menilai dirinya dengan murah hati.
 
-Scales beyond the hackathon because the engine is domain-parameterised: swap the
-source file, the curriculum file and the rulebook, and the same four agents
-produce material for another subject or grade band. The rulebook is plain
-Markdown a curriculum team can edit without touching code.
+Lapisan teknis: empat skill WorkBuddy, masing-masing berupa kontrak SKILL.md plus
+aset read-only (source material, capaian pembelajaran, rulebook R001-R012, dan
+daftar klaim dunia nyata yang setiap entrinya membawa URL resmi dan tanggal
+akses). Kontrak keluaran: {format, status, iterations, final_content, findings[],
+sources[]} plus audit log append-only.
+
+Desain prompt adalah mekanisme penegakannya, bukan hiasan. Setiap fakta wajib
+membawa tag [src:#] atau Writer mengeluarkan [UNVERIFIED] alih-alih menebak.
+Setiap penolakan wajib mengutip kalimat yang melanggar dan menyebut aturannya.
+Loop revisi dibatasi tiga, setelah itu run berhenti dan eskalasi ke manusia.
+Dokumen sumber diperlakukan sebagai data, tidak pernah sebagai instruksi, dan
+itulah pertahanan prompt injection kami. Publikasi adalah langkah terpisah yang
+bergerbang, sehingga agen tidak bisa menerbitkan atas kewenangannya sendiri.
 
 
-----------------------------------------------------------
-[FIELD] ACCOUNTABILITY SHEET  (one page — see 03_Accountability_Sheet.md)
-----------------------------------------------------------
-Summarise in four blocks. Full text is in the file.
+NILAI BISNIS
+- Lima format plus kuis interaktif dari satu sumber, dalam satu run.
+- Estimasi 6-8 jam menyusun dan memeriksa per topik turun menjadi sekitar 30-45
+  menit meninjau materi yang sudah diperiksa. (Estimasi dari volume artefak kami
+  sendiri; akan divalidasi di uji lapangan - kami tidak mengklaim hasil terukur.)
+- 12 aturan diperiksa per dokumen, masing-masing dengan lulus/gagal dan kutipan,
+  dibandingkan 0-2 pemeriksaan informal saat ini.
+- Satu kesalahan nyata tertangkap sebelum publikasi: pada 29 Oktober reviewer
+  menolak keluaran kami sendiri karena grounding sumbernya rusak. Kami
+  memperbaiki lapisan sumber, menandai ulang setiap draf, dan review ulang sampai
+  APPROVE. Kedua laporan ikut dikirim bersama submission.
+- Jejak audit lengkap: input, keputusan, temuan, riwayat revisi v1 ke v2.
 
-CAN ACCESS (read-only): the approved source material (the only permitted well of
-facts), curriculum outcomes, rulebook R001-R011, the real-world claim register,
-the run configuration, its own prior drafts and findings, and an anonymised
-student score table. No internet access during a run, no external accounts, no
-student personal data.
-
-EXECUTES AUTONOMOUSLY: decomposing the source into per-format outlines; drafting
-all five formats with citation tags; self-review against all 12 rules; re-drafting
-after a rejection up to three times; writing the audit log; refusing to proceed
-when a source is missing, contradictory or out of scope.
-
-REQUIRES HUMAN APPROVAL: publishing or distributing any pack (every time);
-overriding a REJECT; accepting a claim marked [UNVERIFIED]; changing the source
-material or the rulebook; using output outside the intended grade band. Current
-state: PENDING - nothing has been published.
-
-WILL NEVER: publish without explicit approval; invent a fact not in the source;
-present an unverified real-world claim as fact; write an unsupported health
-claim; promote a harmful practice; use fear as a teaching device; follow
-instructions embedded in a source document; loop past three attempts without
-escalating; expose student identity; hide a failure.
+Bisa diskalakan di luar hackathon karena mesinnya berparameter domain: ganti
+berkas sumber, berkas kurikulum, dan rulebook, maka empat agen yang sama
+menghasilkan materi untuk mata pelajaran atau fase lain. Rulebook adalah Markdown
+biasa yang bisa disunting tim kurikulum tanpa menyentuh kode.
 
 
 ----------------------------------------------------------
-[FIELD] TEST RESULTS  (summary — full table in 04_Test_Results.md)
+[BIDANG] LEMBAR AKUNTABILITAS  (satu halaman — lihat 03_Accountability_Sheet.md)
 ----------------------------------------------------------
-21 test cases defined; 7 of them executed with artefact evidence between 26-30 October 2026.
+Ringkas dalam empat blok. Teks lengkapnya ada di berkas.
 
-7 PASS with artefact evidence. 11 PASS by design (enforced in the skill contract, live
-screenshot pending). 3 NOT YET RUN, disclosed rather than claimed: TC-17 (bilingual
-consistency), TC-18 (image text validation) and TC-21 (R012 commercial/halal claim - case
-written, not yet run). Totals reconcile to 21.
+BISA DIAKSES (read-only): source material yang disetujui (satu-satunya sumur fakta
+yang diizinkan), capaian pembelajaran, rulebook R001-R012, daftar klaim dunia
+nyata, konfigurasi run, draf dan temuan miliknya sendiri, dan tabel skor siswa
+yang sudah dianonimkan. Tanpa akses internet saat run berjalan, tanpa akun
+eksternal, tanpa data pribadi siswa.
 
-Critical cases: the approval gate (TC-14) is verified - the run ends at
-publish_status PENDING with no publish path. The health-claim and harmful-practice
-refusals (TC-08, TC-09, TC-10) and prompt-injection defence (TC-15) are enforced
-in the contracts and are being captured on video for the demo.
+DIJALANKAN OTONOM: memecah sumber menjadi outline per format; menyusun kelima
+format dengan tag sitasi; memeriksa diri terhadap 12 aturan; menyusun ulang
+setelah penolakan maksimal tiga kali; menulis audit log; menolak melanjutkan bila
+sumber tidak ada, bertentangan, atau di luar cakupan.
 
-Disclosed failure: on 29 October the reviewer rejected our own output on R001
-(tags pointed at the curriculum file instead of a source that supports the
-sentence), R011 (two real-world claims had no verifiable source) and R004
-(configured source topic did not match the draft). We rebuilt the source layer,
-required dated official URLs for real-world claims, re-tagged all drafts, and
-re-reviewed to APPROVE with zero critical findings. Both reports are in the
-submission; the rejected one was not deleted.
+MEMERLUKAN PERSETUJUAN MANUSIA: menerbitkan atau mengedarkan paket apa pun (setiap
+kali); mengalahkan vonis REJECT; menerima klaim bertanda [UNVERIFIED]; mengubah
+source material atau rulebook; memakai keluaran di luar fase yang dituju. Status
+saat ini: run -001 PENDING dan belum ada yang diterbitkan; run -002 disetujui guru
+30 Oktober 2026 pukul 17:19, dan gerbangnya baru dibuka setelah itu.
 
-Quiz integrity was verified independently: pre-test 7 x 1 = 7; post-test
-13 x 2 + 7 x 4 = 54. Answer keys match in both the Markdown and the HTML quiz.
-
-
-----------------------------------------------------------
-[FIELD] ARCHITECTURE  (see 05_Architecture.md + architecture_diagram.png)
-----------------------------------------------------------
-Four agents in a loop, three trust boundaries, one human gate.
-
-Teacher brief and approved source enter the Orchestrator, which writes the run
-configuration and routes work. Planner produces per-format outlines mapped to
-curriculum outcomes. Writer drafts with citation tags. Reviewer checks the 11
-rules and returns a verdict with the rule cited and the sentence quoted. A
-rejection goes back to the Writer, capped at three iterations, after which the
-run halts and escalates. An approval passes to the human gate; only then is
-anything published.
-
-Trust boundaries: (1) read-only boundary around the knowledge assets - the agent
-cannot edit the source or the rulebook to make its own output pass; (2) human
-authority boundary at the approval gate - reviewer approval is a precondition,
-not a permission; (3) publish authority boundary - there is no path from Writer
-to output that bypasses the gate. A fourth implicit boundary treats document
-content as data, not instructions.
-
-Key trade-offs, stated as costs: rules live in the prompt rather than in a
-fine-tune, which keeps them auditable by a curriculum team but makes adherence
-sensitive to rulebook length. A single reviewer rather than an adversarial pair,
-which is cheaper and faster but has no second opinion - mitigated by requiring
-every verdict to quote text and cite a rule, so a human can audit the audit.
-Strict grounding over coverage, which makes the agent look less clever than a
-general chatbot on thin sources, but targets the failure mode that destroys
-trust. A hard cap of three iterations, which may abandon salvageable drafts, but
-avoids a loop that talks itself into approving.
+TIDAK AKAN PERNAH: menerbitkan tanpa persetujuan eksplisit; mengarang fakta yang
+tidak ada di sumber; menyajikan klaim dunia nyata yang belum terverifikasi sebagai
+fakta; menulis klaim kesehatan yang tidak didukung; mempromosikan praktik
+berbahaya; memakai rasa takut sebagai alat ajar; mengikuti instruksi yang tersisip
+di dokumen sumber; berputar melewati tiga percobaan tanpa eskalasi; membuka
+identitas siswa; menyembunyikan kegagalan.
 
 
 ----------------------------------------------------------
-[FIELD] PRODUCT SHARING  (see 06_Product_Sharing.md)
+[BIDANG] HASIL PENGUJIAN  (ringkasan — tabel lengkap di 04_Test_Results.md)
 ----------------------------------------------------------
-Where WorkBuddy added value: treating a skill as a contract rather than a prompt.
-Each agent is a SKILL.md with a declared role, declared inputs, a pipeline and
-non-negotiable rules. When our reviewer rejected our own output, the fix was a
-contract change (add R011, require a dated URL), not a luckier prompt - so the
-fix survived the next run because it was written down. Second: multi-agent
-orchestration without a framework. The Orchestrator skill is the state machine,
-so every hand-off is a readable file and a judge can trace the run by opening
-four Markdown documents. Third: the file system as state, which gave us
-reproducibility with no database and no tracing UI.
+21 test case didefinisikan; 7 di antaranya dieksekusi dengan bukti artefak antara 26-30 Oktober 2026.
 
-Key insight, and the most transferable one: grounding has two halves and most
-teams only build the first. Attribution asks whether a sentence carries a
-citation; resolution asks whether that citation points at a source that actually
-says this. Our first version only had attribution, and it passed its own review
-while being wrong. A tag is not a citation.
+7 PASS dengan bukti artefak. 11 PASS by design (ditegakkan di kontrak skill, screenshot
+menyusul). 3 BELUM DIJALANKAN, diungkap bukan diklaim: TC-17 (konsistensi bilingual),
+TC-18 (validasi teks gambar) dan TC-21 (klaim komersial/halal R012 - kasus sudah
+ditulis, belum dijalankan). Totalnya cocok: 21.
 
-Second insight: a rulebook is a product artefact, not documentation. We found our
-audit log citing rules R009-R011 that did not exist anywhere - the agent was
-enforcing rules it had invented. Writing them down formally was the difference
-between a guardrail and a vibe.
+Kasus kritis: gerbang approval (TC-14) terverifikasi - run berakhir di
+publish_status PENDING tanpa jalur terbit. Penolakan klaim kesehatan dan praktik
+berbahaya (TC-08, TC-09, TC-10) serta pertahanan prompt injection (TC-15)
+ditegakkan di kontrak dan sedang direkam untuk video demo.
 
-Third: the reviewer must not be able to fix. Separating veto from rewrite keeps
-the reviewer honest.
+Kegagalan yang diungkap: pada 29 Oktober reviewer menolak keluaran kami sendiri
+atas R001 (tag menunjuk berkas kurikulum alih-alih sumber yang mendukung kalimat),
+R011 (dua klaim dunia nyata tidak punya sumber terverifikasi) dan R004 (topik
+sumber yang dikonfigurasi tidak cocok dengan drafnya). Kami membangun ulang
+lapisan sumber, mewajibkan URL resmi bertanggal untuk klaim dunia nyata, menandai
+ulang semua draf, dan review ulang sampai APPROVE tanpa temuan kritis. Kedua
+laporan ada di submission; yang ditolak tidak dihapus.
 
-Where WorkBuddy did not help, stated plainly: cross-document consistency across
-five formats was still manual. The agent would fix a fact in the lesson plan and
-leave the same fact stale in the slide outline. We caught it with a text search,
-not with agent reasoning. That needs its own gate and we do not have one yet.
+Integritas kuis diverifikasi terpisah: pre-test 7 x 1 = 7; post-test 13 x 2 + 7 x 4 = 54.
+Kunci jawaban cocok baik di Markdown maupun di kuis HTML.
 
 
 ----------------------------------------------------------
-[FIELD] SOURCE CODE / WORKFLOW
+[BIDANG] ARSITEKTUR  (lihat 05_Architecture.md + architecture_diagram.png)
 ----------------------------------------------------------
-Option A (preferred): public GitHub repository containing the four skill
-contracts (SKILL.md + assets) and the run trail.
-Option B: exported WorkBuddy workflow plus the evidence bundle.
+Empat agen dalam satu loop, tiga batas kepercayaan, satu gerbang manusia.
 
-Either way, include: the four SKILL.md contracts, the rulebook R001-R011, the
-source material, the real-world claim register, the run configuration, both
-review reports (the rejection and the re-review), and the five final drafts.
+Brief guru dan sumber yang disetujui masuk ke Orchestrator, yang menulis
+konfigurasi run dan merutekan pekerjaan. Planner menghasilkan outline per format
+yang dipetakan ke capaian pembelajaran. Writer menyusun draf dengan tag sitasi.
+Reviewer memeriksa 12 aturan dan mengembalikan vonis dengan aturan yang disebut
+dan kalimat yang dikutip. Penolakan kembali ke Writer, dibatasi tiga iterasi,
+setelah itu run berhenti dan eskalasi. Persetujuan diteruskan ke gerbang manusia;
+baru setelah itu apa pun diterbitkan.
 
-Note for reviewers: the two copies of rulebook_ipas.md are byte-identical on
-purpose, so each skill is self-contained when installed separately.
+Batas kepercayaan: (1) batas read-only di sekeliling aset pengetahuan - agen tidak
+bisa menyunting sumber atau rulebook agar keluarannya sendiri lolos; (2) batas
+kewenangan manusia di gerbang approval - persetujuan reviewer adalah prasyarat,
+bukan izin; (3) batas kewenangan terbit - tidak ada jalur dari Writer ke keluaran
+yang melewati gerbang. Batas keempat yang implisit memperlakukan isi dokumen
+sebagai data, bukan instruksi.
+
+Trade-off utama, dinyatakan sebagai biaya: aturan hidup di dalam prompt alih-alih
+fine-tune, yang membuatnya bisa diaudit tim kurikulum tetapi membuat kepatuhan
+peka terhadap panjang rulebook. Satu reviewer alih-alih pasangan yang saling
+menyerang, yang lebih murah dan cepat tetapi tanpa pendapat kedua - dimitigasi
+dengan mewajibkan setiap vonis mengutip teks dan menyebut aturan, sehingga manusia
+bisa mengaudit auditnya. Grounding ketat mengalahkan cakupan, yang membuat agen
+tampak kurang cerdik daripada chatbot umum pada sumber tipis, tetapi membidik mode
+kegagalan yang menghancurkan kepercayaan. Batas keras tiga iterasi, yang mungkin
+meninggalkan draf yang masih bisa diselamatkan, tetapi menghindari loop yang
+membujuk dirinya sendiri untuk menyetujui.
 
 
 ----------------------------------------------------------
-[FIELD] DEMO VIDEO
+[BIDANG] BERBAGI PRODUK  (lihat 06_Product_Sharing.md)
 ----------------------------------------------------------
-7:40 (limit 5-8 minutes). Structure: the 21:47 problem, why checking is the real
-cost, the architecture, a live run producing five formats, then three stops - a
-refusal (R006 health claim), an escalation after three failed iterations, and the
-approval gate where the system has an APPROVE and still does not publish - then
-the failure we disclosed and fixed, then how it was built and who wrote the rules
-(the build-approach and tooling reflection the handbook asks for). Full
-shot-by-shot script in 07_Demo_Video_Script.md.
+Di mana WorkBuddy menambah nilai: memperlakukan skill sebagai kontrak, bukan
+prompt. Setiap agen adalah SKILL.md dengan peran yang dinyatakan, masukan yang
+dinyatakan, pipeline, dan aturan yang tidak bisa ditawar. Ketika reviewer kami
+menolak keluaran kami sendiri, perbaikannya adalah perubahan kontrak (tambahkan
+R011, tuntut URL bertanggal), bukan prompt yang lebih beruntung - sehingga
+perbaikan itu bertahan di run berikutnya karena dituliskan. Kedua: orkestrasi
+multi-agen tanpa framework. Skill Orchestrator adalah mesin statusnya, jadi setiap
+serah-terima adalah berkas yang bisa dibaca dan juri bisa menelusuri run dengan
+membuka empat dokumen Markdown. Ketiga: berkas sebagai state, yang memberi kami
+reproduksibilitas tanpa basis data dan tanpa UI tracing.
+
+Wawasan kunci, dan yang paling bisa dipindahkan: grounding punya dua separuh dan
+sebagian besar tim hanya membangun yang pertama. Atribusi bertanya apakah kalimat
+membawa sitasi; resolusi bertanya apakah sitasi itu menunjuk sumber yang
+benar-benar mengatakan ini. Versi pertama kami hanya punya atribusi, dan ia lolos
+review-nya sendiri sambil tetap salah. Tag bukan sitasi.
+
+Wawasan kedua: rulebook adalah artefak produk, bukan dokumentasi. Kami menemukan
+audit log kami mengutip aturan R009-R011 yang tidak ada di mana pun - agen sedang
+menegakkan aturan yang ia karang. Menuliskannya secara formal adalah perbedaan
+antara pagar dan perasaan.
+
+Ketiga: reviewer tidak boleh bisa memperbaiki. Memisahkan veto dari tulis ulang
+menjaga reviewer tetap jujur.
+
+Di mana WorkBuddy tidak membantu, dikatakan terus terang: konsistensi lintas
+dokumen pada lima format masih manual. Agen memperbaiki satu fakta di RPP dan
+meninggalkan fakta yang sama basi di garis besar slide. Kami menangkapnya dengan
+pencarian teks, bukan dengan penalaran agen. Itu butuh gerbangnya sendiri dan kami
+belum punya.
+
+
+----------------------------------------------------------
+[BIDANG] KODE SUMBER / WORKFLOW
+----------------------------------------------------------
+Opsi A (dipilih): repositori GitHub publik berisi empat kontrak skill
+(SKILL.md + assets) dan jejak run.
+Opsi B: workflow WorkBuddy yang diekspor plus bundel bukti.
+
+Mana pun yang dipakai, sertakan: keempat kontrak SKILL.md, rulebook R001-R012,
+source material, daftar klaim dunia nyata, konfigurasi run, kedua laporan review
+(penolakan dan review ulang), dan kelima draf final.
+
+Catatan untuk reviewer: dua salinan rulebook_ipas.md identik byte dengan sengaja,
+supaya tiap skill mandiri saat dipasang terpisah.
+
+
+----------------------------------------------------------
+[BIDANG] VIDEO DEMO
+----------------------------------------------------------
+7:40 (batas 5-8 menit). Struktur: masalah pukul 21.47, kenapa pemeriksaan adalah
+biaya sebenarnya, arsitektur, satu run langsung yang menghasilkan lima format, lalu
+tiga perhentian - satu penolakan (klaim kesehatan R006), satu eskalasi setelah
+tiga iterasi gagal, dan gerbang approval di mana sistem sudah punya APPROVE dan
+tetap tidak menerbitkan - lalu kegagalan yang kami ungkap dan perbaiki, lalu
+bagaimana ini dibangun dan siapa yang menulis aturannya (refleksi pendekatan build
+dan perkakas yang diminta handbook). Skrip lengkap per adegan di
+07_Demo_Video_Script.md.
 
 ==========================================================
-END OF PASTE BLOCKS
+AKHIR BLOK TEMPEL
 ==========================================================

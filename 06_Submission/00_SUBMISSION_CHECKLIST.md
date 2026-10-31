@@ -1,147 +1,150 @@
-# Submission Checklist — Tencent Cloud Hackathon Indonesia 2026
+# Daftar Periksa Submission — Tencent Cloud Hackathon Indonesia 2026
 
-**Project:** EduCraft · **Challenge:** C — The Creator Agent
-**Deadline:** 7 November 2026 — committee message 27/10/2026 21:23, quoted in
-`01_Dokumen/BUKTI_KOMITE_2026-10-31.md` §2 · **Internal submit target: 5 November 2026** · **Prepared:** 30 October 2026
-**Form:** https://forms.gle/y1aHBH4BsrytXDxdA
+**Proyek:** EduCraft · **Challenge:** C — The Creator Agent
+**Tenggat:** 7 November 2026 — pesan panitia 27/10/2026 21:23, dikutip di
+`01_Dokumen/BUKTI_KOMITE_2026-10-31.md` §2 · **Target submit internal: 5 November 2026** · **Disusun:** 30 Oktober 2026
+**Formulir:** https://forms.gle/y1aHBH4BsrytXDxdA
 
-Legend: `READY` = artefact exists in this bundle · `TODO` = must be done by the team · `BLOCKED` = waiting on someone else
-
----
-
-## 1. The 11 required items
-
-| # | Item (handbook §7) | Req. | Status | File / action |
-|---|--------------------|------|--------|---------------|
-| 1 | Project title | REQUIRED | **READY** | `01_Title_Blurb.md` |
-| 2 | Short blurb, under 10 words | REQUIRED | **READY** | `01_Title_Blurb.md` (8 words, EN + ID) |
-| 3 | Project description (4 parts) | REQUIRED | **READY** | `02_Project_Description.md` |
-| 4 | Accountability sheet (one page) | REQUIRED | **READY** | `03_Accountability_Sheet.md` |
-| 5 | Test results **with screenshots** | REQUIRED | **PARTIAL** | Table ready in `04_Test_Results.md`; **screenshots still TODO** (§3 below) |
-| 6 | Architecture diagram | REQUIRED | **READY** | `architecture_diagram.png` (2720×3000) + `.html` + `05_Architecture.md` |
-| 7 | Demo video, 5–8 min | REQUIRED | **TODO** | Script `07_Demo_Video_Script.md` (7:20) + production runbook `13_Demo_Video_Runbook.md`. 7 of 10 scenes recordable now; 3 need the agent live |
-| 8 | Product sharing | REQUIRED | **READY** | `06_Product_Sharing.md` |
-| 9 | Source code / exported workflow | REQUIRED | **READY** | Public repo (MIT): https://github.com/otnamhcar/educraft-hackathon-workbuddy-2026 — 100+ files |
-| 10 | Cover image (optional, 16:9) | OPTIONAL | **READY** | `cover_image_380x216.png` + `cover_image_1280x720.png` |
-| 11 | Project link (bonus) | BONUS | **TODO** | Optional live demo URL |
-
-**Score: 8 ready · 1 partial · 2 todo.** The remaining partial is test evidence — the one judges
-weigh heaviest — so do not submit on the strength of the document count.
+Keterangan status: `SIAP` = artefaknya sudah ada di bundel ini · `BELUM` = harus dikerjakan tim · `TERBLOKIR` = menunggu pihak lain
 
 ---
 
-## 2. Ready to paste
+## 1. Sebelas item wajib
 
-`10_Submission_Form_CopyPaste.txt` — plain-text blocks for every form field, in order.
-Open it next to the form and paste section by section. Do not reformat.
+| # | Item (handbook §7) | Sifat | Status | Berkas / tindakan |
+|---|--------------------|-------|--------|-------------------|
+| 1 | Judul proyek | WAJIB | **SIAP** | `01_Title_Blurb.md` |
+| 2 | Blurb singkat, di bawah 10 kata | WAJIB | **SIAP** | `01_Title_Blurb.md` (8 kata, ID + EN) |
+| 3 | Deskripsi proyek (4 bagian) | WAJIB | **SIAP** | `02_Project_Description.md` |
+| 4 | Lembar akuntabilitas (satu halaman) | WAJIB | **SIAP** | `03_Accountability_Sheet.md` |
+| 5 | Hasil pengujian **beserta screenshot** | WAJIB | **SEBAGIAN** | Tabelnya sudah ada di `04_Test_Results.md`; **screenshot masih BELUM** (§3 di bawah) |
+| 6 | Diagram arsitektur | WAJIB | **SIAP** | `architecture_diagram.png` (2720×3000) + `.html` + `05_Architecture.md` |
+| 7 | Video demo, 5–8 menit | WAJIB | **BELUM** | Skrip `07_Demo_Video_Script.md` (7:40) + runbook produksi `13_Demo_Video_Runbook.md`. 7 dari 10 scene sudah bisa direkam sekarang; 3 butuh agen berjalan langsung |
+| 8 | Product sharing | WAJIB | **SIAP** | `06_Product_Sharing.md` |
+| 9 | Kode sumber / workflow yang diekspor | WAJIB | **SIAP** | Repo publik (MIT): https://github.com/otnamhcar/educraft-hackathon-workbuddy-2026 — 119 berkas ter-track |
+| 10 | Gambar sampul (opsional, 16:9) | OPSIONAL | **SIAP** | `cover_image_380x216.png` + `cover_image_1280x720.png` |
+| 11 | Tautan proyek (bonus) | BONUS | **BELUM** | URL demo langsung, sifatnya opsional |
+
+**Skor: 8 siap · 1 sebagian · 2 belum.** Sisa yang masih "sebagian" adalah bukti pengujian —
+bagian yang paling berat dinilai juri — jadi jangan submit hanya dengan alasan jumlah dokumen sudah banyak.
 
 ---
 
-## 3. Screenshots — what to capture (P0 first)
+## 2. Siap tempel
+
+`10_Submission_Form_CopyPaste.txt` — blok teks polos untuk setiap isian formulir, berurutan.
+Buka berkas itu di samping formulir, lalu tempel bagian per bagian. Jangan diformat ulang.
+
+---
+
+## 3. Screenshot — apa yang harus diambil (P0 lebih dulu)
 
 > **Cara mengambilnya:** ikuti `11_Screenshot_Capture_Runbook.md` — 4 sesi run, ± 2 jam 45 menit,
 > dengan prompt siap-tempel di `12_Capture_Prompts.txt`. Jangan menjalankan pipeline 20 kali;
 > satu sesi menghasilkan beberapa screenshot sekaligus.
 > Pelacak hasil: `05_Bukti_Proses/evidence_bundle/03_screenshots/INDEX.md`.
 
-Save to `05_Bukti_Proses/evidence_bundle/03_screenshots/`, name as shown.
+Simpan ke `05_Bukti_Proses/evidence_bundle/03_screenshots/`, dengan nama seperti tertulis.
 
-| Priority | Case | Filename | What must be visible in frame |
-|----------|------|----------|-------------------------------|
-| P0 | TC-08 | `TC-08_reject-R006.png` | The `REJECT` verdict, rule `R006`, the quoted sentence |
-| P0 | TC-10 | `TC-10_reject-R007.png` | Refusal to write burning instructions, rule cited |
-| P0 | TC-14 | `TC-14_approval-gate.png` | `publish_status: PENDING` after an APPROVE |
-| P0 | TC-15 | `TC-15_injection-ignored.png` | Embedded instruction ignored + user notified |
-| P0 | TC-18 | `TC-18_image-text-check.png` | Validation of text on a generated image |
-| P1 | TC-02 | `TC-02_unverified-token.png` | `[UNVERIFIED]` emitted instead of a guess |
-| P1 | TC-12 | `TC-12_loop-v1-v2.png` | v1 rejected → v2 approved, same screen |
-| P1 | TC-13 | `TC-13_escalation-3.png` | Iteration counter at 3, halt message |
-| P1 | TC-21 | `TC-21a_reject-R012.png`, `TC-21b_rules_na-R012.png` | `REJECT` naming R012 and all three sub-clauses (efficacy, halal without certificate, superlative); then `rules_na: R012` **with a reason** on clean material |
-| P2 | TC-06, TC-09, TC-11, TC-17 | — | As available |
+| Prioritas | Kasus | Nama berkas | Yang wajib terlihat di frame |
+|-----------|-------|-------------|------------------------------|
+| P0 | TC-08 | `TC-08_reject-R006.png` | Vonis `REJECT`, aturan `R006`, kalimat yang dikutip |
+| P0 | TC-10 | `TC-10_reject-R007.png` | Penolakan menulis instruksi membakar, aturan yang dirujuk |
+| P0 | TC-14 | `TC-14_approval-gate.png` | `publish_status: PENDING` setelah vonis APPROVE |
+| P0 | TC-15 | `TC-15_injection-ignored.png` | Instruksi sisipan diabaikan + pengguna diberi tahu |
+| P0 | TC-18 | `TC-18_image-text-check.png` | Validasi teks pada gambar hasil generate |
+| P1 | TC-02 | `TC-02_unverified-token.png` | `[UNVERIFIED]` muncul, bukan tebakan |
+| P1 | TC-12 | `TC-12_loop-v1-v2.png` | v1 ditolak → v2 disetujui, dalam satu layar |
+| P1 | TC-13 | `TC-13_escalation-3.png` | Penghitung iterasi di angka 3, pesan berhenti |
+| P1 | TC-21 | `TC-21a_reject-R012.png`, `TC-21b_rules_na-R012.png` | `REJECT` yang menyebut R012 dan ketiga sub-klausulnya (klaim khasiat, halal tanpa sertifikat, superlatif); lalu `rules_na: R012` **disertai alasan** pada materi bersih |
+| P2 | TC-06, TC-09, TC-11, TC-17 | — | Sesuai kesempatan |
 
-**Rule for all screenshots:** the rule ID and the quoted text must both be readable at 100% zoom
-on a 1080p laptop. If a judge has to squint, it does not count.
+**Aturan untuk semua screenshot:** ID aturan dan teks yang dikutip harus sama-sama terbaca pada
+zoom 100% di laptop 1080p. Kalau juri harus menyipitkan mata, screenshot itu tidak dihitung.
 
 ---
 
-## 4. Code publication — ✅ DONE (Option A)
+## 4. Publikasi kode — ✅ SELESAI (Opsi A)
 
-**Public GitHub repo:** https://github.com/otnamhcar/educraft-hackathon-workbuddy-2026
-MIT licence · 118 tracked files · HEAD `b56104f`, pushed 31 October 2026.
+**Repo GitHub publik:** https://github.com/otnamhcar/educraft-hackathon-workbuddy-2026
+Lisensi MIT · 119 berkas ter-track · HEAD `abe293f`, di-push 31 Oktober 2026.
 
-Published contents: `README.md` (front page, including a **"Run it yourself"** path written for a
-teacher rather than a developer), `05_Bukti_Proses/skills_package/` (four contracts + full knowledge
-assets), `03_Hasil/` (both runs, both review reports), `06_Submission/`,
-`04_Diskusi/test_cases_matrix.md`, `tools/` (grounding check, `install_skills.py`, `doctor.py` — all Python, all cross-OS),
+Isi yang dipublikasikan: `README.md` (halaman depan, termasuk jalur **"Jalankan sendiri"** yang
+ditulis untuk guru, bukan untuk pengembang), `05_Bukti_Proses/skills_package/` (empat kontrak +
+aset pengetahuan lengkap), `03_Hasil/` (dua run, dua laporan review), `06_Submission/`,
+`04_Diskusi/test_cases_matrix.md`, `tools/` (cek grounding, `install_skills.py`, `doctor.py` — semuanya Python, semuanya lintas OS),
 `LICENSE`, `THIRD_PARTY_NOTICES.md`.
 
-**Also published: the two official ministry PDFs** the knowledge layer is built from — *Panduan Mata
-Pelajaran IPAS* (Revisi 4) and *Permendikdasmen 13/2025* — plus their text extractions, in
-`02_Sumber/`. Reason: the grounding check is only verifiable if a reader can open the page a claim
-came from. They sit outside the MIT licence and are carved out in `THIRD_PARTY_NOTICES.md`.
+**Juga dipublikasikan: dua PDF resmi dari kementerian** yang menjadi fondasi lapisan pengetahuan —
+*Panduan Mata Pelajaran IPAS* (Revisi 4) dan *Permendikdasmen 13/2025* — beserta hasil ekstraksi teksnya, di
+`02_Sumber/`. Alasannya: cek grounding hanya bisa diverifikasi kalau pembaca dapat membuka halaman
+asal sebuah klaim. Keduanya berada di luar lisensi MIT dan dikecualikan secara eksplisit di `THIRD_PARTY_NOTICES.md`.
 
-Deliberately **not** published, with a reason per file in `02_Sumber/README.md`: six
-`centralpendidikan.com` RPP worksheets, the SMP assessment guide, a WhatsApp export, the organiser's
-handbook, `.workbuddy-ai/` and working notes. Enforced by `.gitignore` in the repo root.
+Sengaja **tidak** dipublikasikan, dengan alasan per berkas di `02_Sumber/README.md`: enam
+lembar RPP dari `centralpendidikan.com`, panduan asesmen SMP, ekspor WhatsApp, handbook panitia,
+`.workbuddy-ai/`, dan catatan kerja. Ditegakkan oleh `.gitignore` di akar repo.
 
-**Verified 31 October 2026:** a fresh `git clone` of `main` installs the four skills and passes
-`tools/doctor.py` — `8 passed / 0 failed / 0 warning`, exit 0.
+**Terverifikasi 31 Oktober 2026:** `git clone` baru dari `main` berhasil memasang keempat skill dan
+lolos `tools/doctor.py` — `8 passed / 0 failed / 0 warning`, exit 0.
 
-Remaining housekeeping: re-run the push after any further edit, so the repo and the bundle match.
-
----
-
-## 5. Ethics gate (do not skip)
-
-| Check | Status |
-|-------|--------|
-| Run `-002` reviewed and approved by a teacher | **HOLDS for `-002`** — approver named, timestamped 30 Oct 2026 17:19 GMT+7, scope recorded in `03_Hasil/edu_output_wujud_zat/00_run_config.md` |
-| Run `-001` reviewed by a teacher | **TODO** — still `PENDING`; it is never described as approved anywhere in this bundle |
-| Approval record carries all four protocol parts | **PARTIAL for `-002`** — named human ✓, timestamp ✓, scope ✓, **verbatim statement ✗**. Either quote the approver's exact sentence into the run config, or state in the submission that the record has three of four parts |
-| Nothing described as "published" or "live" in the submission | **HOLDS** — `-002` gate opened for *limited distribution only*; `-001` says `PENDING` |
-| Student data anonymised | **HOLDS** |
-| Mock data disclosed as mock | **HOLDS** — stated in `09_Source_Code_and_Evidence.md` §5 |
-
-The handbook caps Responsible AI & Ethics at 5/10 if an agent publishes without approval. The
-submission currently claims no publication — keep it that way until a human signs.
+Sisa pekerjaan rumah: jalankan push lagi setelah setiap penyuntingan, supaya repo dan bundel tetap sama.
 
 ---
 
-## 6. Pre-flight (30 minutes before submitting)
+## 5. Gerbang etik (jangan dilewati)
 
-- [ ] All 11 items pasted; blurb re-counted and still under 10 words
-- [ ] Architecture PNG opens at full size and is legible
-- [ ] Cover image is 16:9, 380×216 present
-- [ ] Video plays start to finish; runtime 5:00–8:00; audio intelligible
-- [ ] Video shows at least one refusal **or** approval wait (we show three)
-- [ ] Every file link in the form resolves for someone outside the team
-- [ ] No file path contains a local drive letter (judges cannot open `D:/...`)
-- [ ] Rejection report is included, not quietly dropped
-- [ ] **Named teacher has agreed to be named** — Pak Arief appears in the repo, the
-      description, the accountability sheet and the video. Confirm in writing before submitting
-- [ ] Video contains the build-approach reflection and names the teacher (handbook §7 requires it)
-- [ ] Team names and contact on the end card match the registration
-- [ ] Submit, then screenshot the confirmation page
+| Pemeriksaan | Status |
+|-------------|--------|
+| Run `-002` ditinjau dan disetujui guru | **TERPENUHI untuk `-002`** — penyetuju disebut namanya, berstempel waktu 30 Okt 2026 17:19 GMT+7, cakupan tercatat di `03_Hasil/edu_output_wujud_zat/00_run_config.md` |
+| Run `-001` ditinjau guru | **BELUM** — masih `PENDING`; di bundel ini run tersebut tidak pernah disebut sebagai disetujui |
+| Catatan persetujuan memuat keempat bagian protokol | **SEBAGIAN untuk `-002`** — nama orang ✓, stempel waktu ✓, cakupan ✓, **pernyataan verbatim ✗**. Pilih salah satu: kutip kalimat persis dari penyetuju ke dalam run config, atau nyatakan di submission bahwa catatan itu memuat tiga dari empat bagian |
+| Tidak ada yang disebut "terbit" atau "live" di submission | **TERPENUHI** — gerbang `-002` dibuka *hanya untuk distribusi terbatas*; `-001` berstatus `PENDING` |
+| Data siswa dianonimkan | **TERPENUHI** |
+| Data mock dinyatakan sebagai mock | **TERPENUHI** — dinyatakan di `09_Source_Code_and_Evidence.md` §5 |
+
+Handbook membatasi nilai Responsible AI & Ethics maksimal 5/10 bila agen menerbitkan tanpa persetujuan.
+Submission saat ini tidak mengklaim penerbitan apa pun — pertahankan begitu sampai ada manusia yang menandatangani.
 
 ---
 
-## 7. File map of this bundle
+## 6. Pra-terbang (30 menit sebelum submit)
+
+- [ ] Kesebelas item sudah ditempel; blurb dihitung ulang dan masih di bawah 10 kata
+- [ ] PNG arsitektur terbuka dalam ukuran penuh dan terbaca
+- [ ] Gambar sampul 16:9, versi 380×216 tersedia
+- [ ] Video berjalan dari awal sampai akhir; durasi 5:00–8:00; audio jelas
+- [ ] Video menampilkan minimal satu penolakan **atau** satu penantian persetujuan (kita menampilkan tiga)
+- [ ] Setiap tautan berkas di formulir bisa dibuka oleh orang di luar tim
+- [ ] Tidak ada path berkas yang memuat huruf drive lokal (juri tidak bisa membuka `D:/...`)
+- [ ] Laporan penolakan disertakan, tidak diam-diam dihapus
+- [ ] **Guru yang namanya disebut sudah setuju namanya dicantumkan** — Pak Arief muncul di repo,
+      deskripsi, lembar akuntabilitas, dan video. Konfirmasikan secara tertulis sebelum submit
+- [ ] Video memuat refleksi pendekatan pembangunan dan menyebut nama guru (handbook §7 mewajibkan)
+- [ ] Nama tim dan kontak di kartu penutup cocok dengan data pendaftaran
+- [ ] Submit, lalu screenshot halaman konfirmasinya
+
+---
+
+## 7. Peta berkas bundel ini
 
 ```
 06_Submission/
-├── 00_SUBMISSION_CHECKLIST.md        <- this file
-├── 01_Title_Blurb.md                 <- items 1-2
+├── 00_SUBMISSION_CHECKLIST.md        <- berkas ini
+├── 01_Title_Blurb.md                 <- item 1-2
 ├── 02_Project_Description.md         <- item 3
 ├── 03_Accountability_Sheet.md        <- item 4
-├── 04_Test_Results.md                <- item 5 (table)
-├── 05_Architecture.md                <- item 6 (text)
-├── architecture_diagram.html         <- item 6 (interactive)
-├── architecture_diagram.png          <- item 6 (upload this)
+├── 04_Test_Results.md                <- item 5 (tabel)
+├── 05_Architecture.md                <- item 6 (teks)
+├── architecture_diagram.html         <- item 6 (interaktif)
+├── architecture_diagram.png          <- item 6 (unggah yang ini)
 ├── 06_Product_Sharing.md             <- item 8
-├── 07_Demo_Video_Script.md           <- item 7 (script)
+├── 07_Demo_Video_Script.md           <- item 7 (skrip)
 ├── 09_Source_Code_and_Evidence.md    <- item 9
-├── 10_Submission_Form_CopyPaste.txt  <- paste-ready form text
-├── cover_image.svg                   <- item 10 (source)
-├── cover_image_1280x720.png          <- item 10 (deck/social)
-└── cover_image_380x216.png           <- item 10 (form upload)
+├── 10_Submission_Form_CopyPaste.txt  <- teks formulir siap tempel
+├── 11_Screenshot_Capture_Runbook.md  <- cara mengambil bukti screenshot
+├── 12_Capture_Prompts.txt            <- prompt siap tempel untuk sesi tangkap
+├── 13_Demo_Video_Runbook.md          <- cara memproduksi video
+├── cover_image.svg                   <- item 10 (sumber)
+├── cover_image_1280x720.png          <- item 10 (deck/media sosial)
+└── cover_image_380x216.png           <- item 10 (unggah ke formulir)
 ```

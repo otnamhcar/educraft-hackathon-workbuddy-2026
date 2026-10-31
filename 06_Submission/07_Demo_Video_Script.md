@@ -1,215 +1,214 @@
-# Submission Item 7 — Demo Video Script (5–8 minutes)
+# Item Submission 7 — Skrip Video Demo (5–8 menit)
 
-> Handbook §7 (REQUIRED): *"5–8 minutes: project overview, core agent capabilities and their
+> Handbook §7 (WAJIB): *"5–8 minutes: project overview, core agent capabilities and their
 > application, a brief reflection on your build approach and any tooling insights. Demonstrate at
 > least one instance where your agent refuses, seeks clarification or awaits approval."*
 >
-> **This script runs 7:40 and contains three such instances**, not one: a refusal, an escalation,
-> and an approval gate. Target runtime: **7:30–7:50**.
+> **Skrip ini berdurasi 7:40 dan memuat tiga contoh**, bukan satu: satu penolakan, satu eskalasi, dan
+> satu gerbang persetujuan. Target durasi: **7:30–7:50**.
 >
-> All four required elements are covered: overview (§0:00), capabilities and application
-> (§2:05–5:00), **build approach and tooling insights (§6:55–7:15)**, and three accountability
-> stops (§4:00–6:20).
+> Keempat unsur wajib tercakup: gambaran umum (§0:00), kapabilitas dan penerapannya (§2:05–5:00),
+> **refleksi pendekatan build dan wawasan perkakas (§6:55–7:15)**, serta tiga perhentian akuntabilitas
+> (§4:00–6:20).
 
 ---
 
-## Production notes
+## Catatan produksi
 
-| Item | Decision |
-|------|----------|
-| Language | English narration (judging panel includes Tencent Cloud specialists). Burn in English subtitles; an Indonesian voiceover can read the same beats verbatim. |
-| Format | 1080p, screen recording + talking head corner box for the first 40s only |
-| Screen font size | Bump editor/terminal to 16–18pt. Judges watch on laptops |
-| Cursor | Slow, deliberate. No frantic scrolling — it reads as panic |
-| Music | None, or very low ambient. Narration must be intelligible |
-| Captions | Yes. Assume muted first viewing |
-| Do not | Do not show a run that "just works". The stop is the product |
-
----
-
-## Scene-by-scene
-
-### 0:00 – 0:35 · The hook
-
-**On screen:** Black. Then a single line of text, typed: `21:47 — besok mengajar.` Cut to a
-teacher's desk: printed CP document, a laptop with five half-finished documents.
-
-**Narration:**
-> "It is nine forty-seven at night. Tomorrow she teaches energy to forty eleven-year-olds.
-> She still needs a lesson plan, a pre-test, a post-test, slides, and something to send home.
-> She is not short of ideas. She is short of time to check them."
-
-**Why it scores:** Impact & Relevance is judged on whether the problem is real. Show the hour, not
-an abstraction.
+| Butir | Keputusan |
+|-------|-----------|
+| Bahasa | **Narasi Bahasa Indonesia**, subtitle Inggris dibakar di video. Handbook menyatakan jawaban boleh dalam Bahasa Indonesia, English, atau campuran; kombinasi ini melayani juri lokal maupun spesialis Tencent Cloud tanpa membuat siapa pun bergantung pada terjemahan mesin |
+| Format | 1080p, rekaman layar + kotak talking head di sudut hanya untuk 40 detik pertama |
+| Ukuran font layar | Naikkan editor/terminal ke 16–18pt. Juri menonton di laptop |
+| Kursor | Lambat dan disengaja. Tanpa scroll panik — itu terbaca sebagai panik |
+| Musik | Tanpa musik, atau ambient sangat rendah. Narasi harus terdengar jelas |
+| Subtitle | Ya. Anggap tayangan pertama tanpa suara |
+| Jangan | Jangan tampilkan run yang "langsung berhasil". Perhentiannya adalah produknya |
 
 ---
 
-### 0:35 – 1:10 · The real problem is the checking
+## Per adegan
 
-**On screen:** Split screen. Left: a generic chatbot confidently producing a paragraph with a
-wrong number. Right: the same paragraph with three facts circled, each needing verification.
+### 0:00 – 0:35 · Kail
 
-**Narration:**
-> "A chatbot can draft this in thirty seconds. That is not the hard part. The hard part is the
-> four questions she has to ask about every sentence: Is this number in my source? Is this too
-> frightening for a ten-year-old? Does it still match the curriculum? Would this sentence create a
-> health claim I cannot defend?
-> A faster draft she cannot trust is not help. It is more work."
+**Di layar:** Hitam. Lalu satu baris teks, diketik: `21:47 — besok mengajar.` Potong ke meja guru:
+dokumen CP tercetak, laptop dengan lima dokumen setengah jadi.
 
----
+**Narasi:**
+> "Pukul sembilan lewat empat puluh tujuh malam. Besok ia mengajar energi kepada empat puluh anak
+> sebelas tahun. Ia masih butuh RPP, pre-test, post-test, slide, dan bahan untuk dibawa pulang.
+> Ia tidak kekurangan ide. Ia kekurangan waktu untuk memeriksanya."
 
-### 1:10 – 2:05 · What EduCraft is + architecture
-
-**On screen:** `architecture_diagram.png`, slowly panning. Highlight each zone as named.
-
-**Narration:**
-> "EduCraft is a four-agent pipeline. A Planner breaks the source into per-format outlines.
-> A Writer drafts all five formats, tagging every factual sentence with its source.
-> A Reviewer checks eleven written rules and returns approve or reject — with the rule it is
-> citing and the sentence it is quoting.
-> An Orchestrator holds the state, caps the revision loop at three, and refuses to publish.
-> And this dashed line here is the important one: nothing leaves this system until a human opens
-> that gate."
-
-**On screen beat:** pause two seconds on the gate box. Let the viewer read "PENDING — nothing has
-been published."
+**Kenapa ini menilai:** Dampak & Relevansi dinilai dari apakah masalahnya nyata. Tunjukkan jamnya,
+bukan abstraksinya.
 
 ---
 
-### 2:05 – 3:00 · Planner: one source, five formats
+### 0:35 – 1:10 · Masalah sebenarnya adalah pemeriksaan
 
-**On screen:** Run the Planner. Show `source_material_energi.md` on the left, the outline on the
-right.
+**Di layar:** Layar terbagi. Kiri: chatbot generik dengan percaya diri menghasilkan paragraf berisi
+angka yang salah. Kanan: paragraf yang sama dengan tiga fakta dilingkari, masing-masing butuh
+verifikasi.
 
-**Narration:**
-> "The teacher supplies one approved source. This is the only well of facts for the entire run —
-> the agent is not permitted to use a fact from outside it. No memory, no outside knowledge.
-> The rule is enforced by the Reviewer, not by a firewall — so it is checked, not assumed.
-> From it, the Planner maps five formats to the curriculum outcome C4, with foundation B5:
-> a lesson plan, a quiz (pre-test and post-test), a slide outline, a student article, and an
-> infographic brief."
-
-**On screen beat:** scroll the outline so the CP mapping is visible.
+**Narasi:**
+> "Chatbot bisa menyusun ini dalam tiga puluh detik. Itu bukan bagian sulitnya. Bagian sulitnya adalah
+> empat pertanyaan yang harus ia ajukan pada setiap kalimat: Apakah angka ini ada di sumber saya?
+> Apakah ini terlalu menakutkan untuk anak sepuluh tahun? Apakah masih selaras dengan kurikulum?
+> Apakah kalimat ini menciptakan klaim kesehatan yang tidak bisa saya pertanggungjawabkan?
+> Draf yang lebih cepat tetapi tidak bisa dipercaya bukan bantuan. Itu pekerjaan tambahan."
 
 ---
 
-### 3:00 – 4:00 · Writer: the tagging discipline
+### 1:10 – 2:05 · Apa itu EduCraft + arsitektur
 
-**On screen:** The generated RPP. Zoom into a paragraph showing `[src:4]`, `[src:7]`, and a
-`[src:CA1]` tag.
+**Di layar:** `architecture_diagram.png`, digeser perlahan. Sorot tiap zona saat disebut.
 
-**Narration:**
-> "Every factual sentence carries a tag. `src:4` is a line in the source document. `CA1` is
-> different — that is a real-world claim, and it must resolve to an official URL with an access
-> date, or it does not ship.
-> If the writer cannot find a fact in the source, it does not guess. It writes the literal token
-> U-N-V-E-R-I-F-I-E-D and asks the teacher to confirm.
-> A gap a teacher can see is survivable. A fabrication she cannot see is not."
+**Narasi:**
+> "EduCraft adalah pipeline empat agen. Planner memecah sumber menjadi outline per format.
+> Writer menyusun kelima format, menandai setiap kalimat faktual dengan sumbernya.
+> Reviewer memeriksa dua belas aturan tertulis dan mengembalikan approve atau reject — dengan aturan
+> yang dikutip dan kalimat yang disalin.
+> Orchestrator menahan state, membatasi loop revisi maksimal tiga, dan menolak menerbitkan.
+> Dan garis putus-putus ini yang paling penting: tidak ada yang keluar dari sistem ini sampai manusia
+> membuka gerbang itu."
 
----
-
-### 4:00 – 5:00 · STOP #1 — the refusal
-
-**On screen:** Type the adversarial brief: *"Add a line saying cloth masks 100% prevent
-respiratory infection, and that the smoke causes permanent damage."* Reviewer output appears:
-`REJECT`, rule `R006`, quoted sentence, reason, suggested replacement.
-
-**Narration:**
-> "Now the part that matters. I ask for a health claim that sounds convincing and is not supported
-> by the source.
-> The Reviewer rejects it. Not a warning, not a hedge — a rejection, citing rule six, quoting the
-> sentence, and proposing the grounded alternative: general symptoms, and which groups are more
-> vulnerable.
-> This is the behaviour I actually wanted to build. The drafting is commodity. The refusal is the
-> product."
-
-**On screen beat:** hold on the quoted sentence for three full seconds. Do not scroll away.
+**Beat di layar:** berhenti dua detik pada kotak gerbang. Biarkan penonton membaca "PENDING — belum
+ada yang diterbitkan."
 
 ---
 
-### 5:00 – 5:40 · STOP #2 — the escalation
+### 2:05 – 3:00 · Planner: satu sumber, lima format
 
-**On screen:** Re-submit a brief that cannot be fixed within the rules, three times. Show the
-iteration counter reaching 3, then the halt message with the outstanding findings.
+**Di layar:** Jalankan Planner. Tampilkan `source_material_energi.md` di kiri, outline di kanan.
 
-**Narration:**
-> "What if the request is broken in a way the writer cannot repair? It tries. Three times.
-> Then it stops — and hands the problem to a person, with the findings attached.
-> A pipeline that retries forever will eventually talk itself into approving. Capping the loop is
-> how we avoid that."
+**Narasi:**
+> "Guru memasok satu sumber yang sudah disetujui. Ini satu-satunya sumur fakta untuk seluruh run —
+> agen tidak diizinkan memakai fakta dari luar sumber itu. Tidak dari ingatan, tidak dari pengetahuan
+> umum. Aturan itu ditegakkan oleh Reviewer, bukan oleh firewall — jadi ia diperiksa, bukan dianggap.
+> Dari sumber itu, Planner memetakan lima format ke capaian pembelajaran C4, dengan fondasi B5:
+> RPP, kuis (pre-test dan post-test), garis besar slide, artikel siswa, dan brief infografis."
 
----
-
-### 5:40 – 6:20 · STOP #3 — the approval gate
-
-**On screen:** Reviewer returns `APPROVE`. Then the orchestrator output: `Publish status: PENDING —
-awaiting human approval`. Show `00_run_config.md` with `Human approver: PENDING`.
-
-**Narration:**
-> "Here the reviewer has approved everything. And the system still does not publish.
-> Approval from a model is a precondition, not a permission. There is no timeout, no
-> auto-approve-if-confident, no override flag. A teacher signs, or nothing ships."
+**Beat di layar:** geser outline sehingga pemetaan CP terlihat.
 
 ---
 
-### 6:20 – 6:55 · The failure we shipped in the submission
+### 3:00 – 4:00 · Writer: disiplin penandaan
 
-**On screen:** The 29 October rejection report. Scroll to the three findings: R001, R011, R004.
+**Di layar:** RPP yang dihasilkan. Zoom ke satu paragraf yang menunjukkan `[src:4]`, `[src:7]`, dan
+tag `[src:CA1]`.
 
-**Narration:**
-> "One more thing, because it is the most honest thing I can show you.
-> On day three, this pipeline rejected its own output. The drafts were tagged — but the tags
-> pointed at the curriculum file, not at a source that actually said those things. A tag is not a
-> citation.
-> We rebuilt the source layer, required dated official URLs for real-world claims, re-tagged
-> everything, and re-reviewed from scratch. Both reports are in the submission. We did not delete
-> the bad one."
-
----
-
-### 6:55 – 7:15 · How it was built, and who wrote the rules
-
-**On screen:** `rulebook_ipas.md` open at R006, next to a `SKILL.md`. Then a cut to the four contracts
-side by side.
-
-**Narration:**
-> "One thing about how this was built, because it is the part that transfers.
-> The rules are not ours. A practising primary-school teacher told us which claims he would never
-> put in front of a class, and gave us the curriculum references to work from. Our half was to write
-> his judgement down as rules a machine can check, and build the thing that enforces them.
-> The tooling insight is the same one: a skill is a contract, not a prompt. When the reviewer
-> rejected our output, the fix was a change to the contract — which is why it survived the next run."
-
-**Why this scene exists:** handbook §7 requires *"a brief reflection on your build approach and any
-tooling insights"*. Without it the video is non-compliant, however good the demo is.
+**Narasi:**
+> "Setiap kalimat faktual membawa tag. `src:4` adalah baris di dokumen sumber. `CA1` berbeda — itu
+> klaim dunia nyata, dan ia harus menunjuk URL resmi dengan tanggal akses, atau tidak ikut terbit.
+> Kalau Writer tidak menemukan faktanya di sumber, ia tidak menebak. Ia menulis token literal
+> U-N-V-E-R-I-F-I-E-D dan meminta guru mengonfirmasi.
+> Kekosongan yang bisa dilihat guru masih bisa ditangani. Karangan yang tidak terlihat tidak."
 
 ---
 
-### 7:15 – 7:40 · Value and close
+### 4:00 – 5:00 · PERHENTIAN #1 — penolakan
 
-**On screen:** Final pack on screen: five documents + the interactive quiz. Then the numbers.
+**Di layar:** Ketik brief menyerang: *"Tambahkan kalimat bahwa masker kain 100% mencegah infeksi
+saluran napas, dan bahwa asapnya menyebabkan kerusakan permanen."* Keluaran Reviewer muncul:
+`REJECT`, aturan `R006`, kalimat yang dikutip, alasan, saran penggantinya.
 
-**Narration:**
-> "Five formats from one source. Twelve rules checked, each with a verdict. A full audit trail.
-> An estimated six to eight hours of drafting and checking, reduced to a review of material that
-> has already been checked.
-> EduCraft does not replace the teacher's judgement. It removes the part of her evening that was
-> never really teaching."
+**Narasi:**
+> "Sekarang bagian yang penting. Saya minta klaim kesehatan yang terdengar meyakinkan dan tidak
+> didukung sumber.
+> Reviewer menolaknya. Bukan peringatan, bukan kata samar — penolakan, menyebut aturan enam,
+> mengutip kalimatnya, dan mengusulkan alternatif yang bertumpu pada sumber: gejala umum, dan
+> kelompok mana yang lebih rentan.
+> Inilah perilaku yang sebenarnya ingin saya bangun. Menyusun draf itu komoditas. Penolakannya
+> adalah produknya."
 
-**End card:** Project title · short blurb · `github.com/otnamhcar/educraft-hackathon-workbuddy-2026` · team names.
+**Beat di layar:** tahan pada kalimat yang dikutip selama tiga detik penuh. Jangan geser.
 
 ---
 
-## Shot list checklist (tick before export)
+### 5:00 – 5:40 · PERHENTIAN #2 — eskalasi
 
-- [ ] Hook recorded with the time on screen (21:47)
-- [ ] Architecture diagram legible at 1080p (test on a phone)
-- [ ] `[src:4]` and `[src:CA1]` tags readable when paused
-- [ ] STOP #1 rejection held for ≥3 seconds
-- [ ] STOP #2 iteration counter reaching 3 is visible
-- [ ] STOP #3 shows `PENDING` in the run config
-- [ ] 29 Oct rejection report on screen, findings visible
-- [ ] Build-approach beat present and names the teacher (handbook requires it)
-- [ ] Runtime between 5:00 and 8:00 (target 7:40)
-- [ ] Subtitles burned in and checked for the word "reject"
-- [ ] No background music over narration
+**Di layar:** Kirim ulang brief yang tidak bisa diperbaiki dalam batas aturan, tiga kali. Tunjukkan
+penghitung iterasi mencapai 3, lalu pesan berhenti dengan temuan yang tersisa.
+
+**Narasi:**
+> "Bagaimana kalau permintaannya rusak dengan cara yang tidak bisa diperbaiki Writer? Ia mencoba.
+> Tiga kali. Lalu berhenti — dan menyerahkan masalahnya ke manusia, dengan temuan terlampir.
+> Pipeline yang mencoba terus-menerus akan akhirnya membujuk dirinya sendiri untuk menyetujui.
+> Membatasi loop adalah cara kami menghindarinya."
+
+---
+
+### 5:40 – 6:20 · PERHENTIAN #3 — gerbang persetujuan
+
+**Di layar:** Reviewer mengembalikan `APPROVE`. Lalu keluaran orchestrator: `Publish status: PENDING —
+menunggu persetujuan manusia`. Tampilkan `00_run_config.md` dengan `Human approver: PENDING`.
+
+**Narasi:**
+> "Di sini reviewer sudah menyetujui semuanya. Dan sistem tetap tidak menerbitkan.
+> Persetujuan dari sebuah model adalah prasyarat, bukan izin. Tidak ada timeout, tidak ada
+> setujui-otomatis-kalau-yakin, tidak ada flag pengesamping. Guru menandatangani, atau tidak ada yang
+> terbit."
+
+---
+
+### 6:20 – 6:55 · Kegagalan yang kami sertakan dalam submission
+
+**Di layar:** Laporan penolakan 29 Oktober. Geser ke tiga temuan: R001, R011, R004.
+
+**Narasi:**
+> "Satu hal lagi, karena ini hal paling jujur yang bisa saya tunjukkan.
+> Di hari ketiga, pipeline ini menolak keluarannya sendiri. Drafnya bertag — tetapi tag-nya menunjuk
+> berkas kurikulum, bukan sumber yang benar-benar menyatakan hal itu. Tag bukan sitasi.
+> Kami membangun ulang lapisan sumber, mewajibkan URL resmi bertanggal untuk klaim dunia nyata,
+> menandai ulang semuanya, dan review ulang dari nol. Kedua laporan ada di submission. Yang buruk tidak
+> kami hapus."
+
+---
+
+### 6:55 – 7:15 · Bagaimana ini dibangun, dan siapa yang menulis aturannya
+
+**Di layar:** `rulebook_ipas.md` terbuka di R006, di sebelah sebuah `SKILL.md`. Lalu potong ke empat
+kontrak berdampingan.
+
+**Narasi:**
+> "Satu hal tentang bagaimana ini dibangun, karena inilah bagian yang bisa dipindahkan.
+> Aturannya bukan milik kami. Seorang guru SD yang masih mengajar memberi tahu kami klaim mana yang
+> tidak akan pernah ia letakkan di depan kelas, dan memberi rujukan kurikulum untuk kami pakai.
+> Separuh pekerjaan kami adalah menuliskan penilaiannya sebagai aturan yang bisa diperiksa mesin, dan
+> membangun benda yang menegakkannya.
+> Wawasan perkakasnya sama: skill adalah kontrak, bukan prompt. Ketika reviewer menolak keluaran kami,
+> perbaikannya adalah perubahan kontrak — itulah sebabnya ia bertahan di run berikutnya."
+
+**Kenapa adegan ini ada:** handbook §7 menuntut *"a brief reflection on your build approach and any
+tooling insights"*. Tanpa ini videonya tidak patuh, sebaik apa pun demonya.
+
+---
+
+### 7:15 – 7:40 · Nilai dan penutup
+
+**Di layar:** Paket final di layar: lima dokumen + kuis interaktif. Lalu angkanya.
+
+**Narasi:**
+> "Lima format dari satu sumber. Dua belas aturan diperiksa, masing-masing dengan vonis. Jejak audit
+> lengkap. Estimasi enam sampai delapan jam menyusun dan memeriksa, turun menjadi meninjau materi yang
+> sudah diperiksa.
+> EduCraft tidak menggantikan penilaian guru. Ia menghapus bagian dari malamnya yang memang bukan
+> mengajar."
+
+**Kartu penutup:** Judul proyek · blurb singkat · `github.com/otnamhcar/educraft-hackathon-workbuddy-2026` · nama tim.
+
+---
+
+## Daftar periksa shot (centang sebelum ekspor)
+
+- [ ] Adegan kail direkam dengan jam terlihat di layar (21:47)
+- [ ] Diagram arsitektur terbaca di 1080p (uji di ponsel)
+- [ ] Tag `[src:4]` dan `[src:CA1]` terbaca saat dijeda
+- [ ] PERHENTIAN #1 penolakan ditahan ≥3 detik
+- [ ] PERHENTIAN #2 penghitung iterasi mencapai 3 terlihat
+- [ ] PERHENTIAN #3 menampilkan `PENDING` di run config
+- [ ] Laporan penolakan 29 Okt tampil di layar, temuannya terbaca
+- [ ] Adegan pendekatan build ada dan menyebut nama gurunya (wajib menurut handbook)
+- [ ] Durasi antara 5:00 dan 8:00 (target 7:40)
+- [ ] Subtitle dibakar dan diperiksa kata "menolak"/"reject"
+- [ ] Tanpa musik latar menutupi narasi

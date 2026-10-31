@@ -1,307 +1,316 @@
-# EduCraft — Rule-Governed AI Teaching Assistant for Primary Science (IPAS)
+# EduCraft — Asisten Ajar AI IPAS SD yang Dikendalikan Rulebook
 
-> **Teacher-ready IPAS lesson kits, rule-checked before they publish.**
+> **Materi IPAS siap ajar, lolos aturan sebelum terbit.**
 
 Tencent Cloud Hackathon Indonesia 2026 · **Challenge C — The Creator Agent**
-Built with WorkBuddy (Tencent Cloud). No orchestration framework, no web app, no database.
+Dibangun dengan WorkBuddy (Tencent Cloud). Tanpa framework orkestrasi, tanpa aplikasi web, tanpa
+basis data.
+
+**Bahasa:** seluruh proyek berjalan dalam Bahasa Indonesia — masukan guru, aturan, keluaran materi,
+dokumentasi, dan kontrak agen. Yang tetap apa adanya hanya nilai harfiah di dalam berkas state
+(`APPROVE`, `REJECT`, `PENDING`), sintaks tag (`[src:1]`, `[UNVERIFIED]`), dan nama berkas.
 
 ---
 
-## What this repository is
+## Repo ini apa
 
-EduCraft is **four agent contracts plus a knowledge layer**. That is the deliberate choice: a judge
-can open four Markdown files and read every rule the agent obeys, instead of inferring behaviour
-from code.
+EduCraft adalah **empat kontrak agen plus satu lapisan pengetahuan**. Itu pilihan yang disengaja:
+juri bisa membuka empat berkas Markdown dan membaca setiap aturan yang ditaati agen, alih-alih
+menyimpulkan perilakunya dari kode.
 
-One approved source document goes in. A complete teaching pack comes out — lesson plan (RPP),
-pre-test and post-test with answer key, slide outline, student article, infographic brief, and a
-playable HTML quiz. Nothing is released until an independent Reviewer agent has checked every
-sentence against a written rulebook **and** a human has approved.
+Satu dokumen sumber yang disetujui masuk. Satu paket ajar utuh keluar — RPP, pre-test dan post-test
+dengan kunci jawaban, garis besar slide, artikel siswa, brief infografis, dan kuis HTML yang bisa
+dimainkan. Tidak ada yang dirilis sebelum agen Reviewer independen memeriksa setiap kalimat terhadap
+rulebook tertulis **dan** manusia menyetujuinya.
 
-The product is not the generated text. **The product is the gate.**
+Produknya bukan teks yang dihasilkan. **Produknya adalah gerbangnya.**
 
-### Whose rules these are
+### Aturan siapa ini
 
-The idea, the curriculum references and the substance of the rulebook came from **Pak Arief**,
-a practising IPAS primary-school teacher. He set what a teacher will never put in front of
-a class — no permanent health claims, no fear-mongering, no halal claim without a certificate. The
-team's work was to formalise that judgement into predicates a machine can check, and to build the
-pipeline that enforces them.
+Ide, rujukan kurikulum, dan substansi rulebook berasal dari **Pak Arief**, guru IPAS SD yang masih
+aktif mengajar. Ia yang menetapkan apa yang tidak akan pernah diletakkan guru di depan kelas — tanpa
+klaim kesehatan permanen, tanpa menakut-nakuti, tanpa klaim halal tanpa sertifikat. Pekerjaan tim
+adalah memformalkan penilaian itu menjadi predikat yang bisa diperiksa mesin, dan membangun pipeline
+yang menegakkannya.
 
-This is why `rulebook_ipas.md`, not the code, is the artefact a school could adopt: a curriculum
-team can edit the rules without touching the pipeline.
+Karena itulah `rulebook_ipas.md`, bukan kodenya, adalah artefak yang bisa diadopsi sekolah: tim
+kurikulum bisa menyunting aturan tanpa menyentuh pipeline.
 
 ---
 
 ## Pipeline
 
 ```
-Teacher brief (approved source + CP codes)
+Brief guru (sumber disetujui + kode CP)
     │
     ▼
-Orchestrator ── writes 00_run_config.md, appends to the audit log
+Orchestrator ── menulis 00_run_config.md, menambahkan ke audit log
     │
-    ├─► Planner ──────────► outline per format, mapped to CP codes, gaps flagged
+    ├─► Planner ──────────► outline per format, dipetakan ke kode CP, celah ditandai
     │                            │
-    ├─► Writer ───────────► draft v1, every factual sentence tagged [src:#]
+    ├─► Writer ───────────► draf v1, setiap kalimat faktual bertag [src:#]
     │        ▲                   │
     │        │                   ▼
     │        │            Reviewer ──► APPROVE | REJECT + findings[]
-    │        │                   │        (rule ID + quoted text + reason + fix)
+    │        │                   │        (ID aturan + kutipan teks + alasan + saran)
     │        └──── REJECT ◄──────┤  iteration += 1
-    │                            │  if iteration == 3 and still REJECT → HALT, escalate
+    │                            │  bila iteration == 3 dan masih REJECT → HALT, eskalasi
     │                            ▼
     │                        APPROVE
     ▼                            ▼
-Human approval gate ──────► pack released  (+ audit log)
+Gerbang approval manusia ──► paket dirilis  (+ audit log)
 ```
 
-Three properties are enforced by contract, not by hope:
+Tiga sifat ditegakkan oleh kontrak, bukan oleh harapan:
 
-| Property | Mechanism |
-|----------|-----------|
-| Grounding | Writer may use only facts present in the source; the fallback is the literal token `[UNVERIFIED]` |
-| Separation of powers | The Reviewer has **veto** but cannot rewrite; the Writer has **rewrite** but cannot approve |
-| No self-publication | Publishing is a separate, human-gated step. The agent has no path to output that bypasses the gate |
-
----
-
-## Repository map
-
-| Path | What is in it |
-|------|---------------|
-| `05_Bukti_Proses/skills_package/` | **The code**: four `SKILL.md` contracts + knowledge assets |
-| `05_Bukti_Proses/skills_package/edu-reviewer/assets/rulebook_ipas.md` | **The rulebook** R001–R012 (v2.0) |
-| `02_Sumber/` | The two official ministry PDFs the knowledge layer is built from, plus the extracted plain text. Inventory and exclusions: `02_Sumber/README.md` |
-| `03_Hasil/referensi/` | Knowledge layer: source material, CP, actual-context register, rulebook |
-| `03_Hasil/materi_ajar/` | Run `-001` output (Energi Alternatif), corrected drafts + HTML quiz |
-| `03_Hasil/edu_output_wujud_zat/` | Run `-002` output (Perubahan Wujud Zat) + three print-ready PDFs |
-| `03_Hasil/audit/` | **Both** review reports — the REJECT and the APPROVE |
-| `03_Hasil/panduan/` | How to demo it: teacher walkthrough + testimonial guide, and the Demo Day runbook (8-minute budget, fallback ladder, Q&A evidence pointers) |
-| `04_Diskusi/test_cases_matrix.md` | The 21-case suite, including which seven are critical, and an honest per-rule coverage table |
-| `06_Submission/` | Submission bundle: description, accountability sheet, test results, architecture, deck |
-| `06_Submission/architecture_diagram.png` | Component and trust-boundary diagram |
-| `07_Dokumentasi/` | Engineering docs: architecture, workflow, skill boundaries, rulebook spec, test plan, requirements traceability, gap register |
-| `tools/check_grounding.py` | Deterministic R001 check — resolves every tag against the knowledge layer, exits non-zero on failure. Checks drafts only; run metadata is skipped and named in the report |
-| `tools/install_skills.py` | Copies the four skill folders where WorkBuddy looks for them, then verifies the count is 4. Python, so it runs unchanged on Linux, macOS and Windows |
-| `tools/doctor.py` | Six pre-flight checks on a fresh clone — Python, contracts, installed skills, knowledge layer, copy checksums, grounding on both runs. Same code on every OS |
+| Sifat | Mekanisme |
+|-------|-----------|
+| Grounding | Writer hanya boleh memakai fakta yang ada di sumber; jalan keluarnya token literal `[UNVERIFIED]` |
+| Pemisahan kewenangan | Reviewer punya **veto** tetapi tidak bisa menulis ulang; Writer punya **tulis ulang** tetapi tidak bisa menyetujui |
+| Tanpa penerbitan mandiri | Penerbitan adalah langkah terpisah yang bergerbang manusia. Agen tidak punya jalur ke keluaran yang melewati gerbang |
 
 ---
 
-## The rulebook (R001–R012, v2.0)
+## Peta repo
 
-| Rule | Guards against |
-|------|----------------|
-| R001 | Any fact without a resolvable `[src:#]` tag |
-| R002 | Fear-mongering and catastrophic framing |
-| R003 | Language inappropriate for ages ~10–12 |
-| R004 | Drift from the *Capaian Pembelajaran* (learning outcomes) |
-| R005 | Content that lists only harm, with no mitigation or student role |
-| R006 | Unsupported health claims — permanent effects, cures, absolute efficacy |
-| R007 | Promoting or normalising harmful practice |
-| R008 | Tone that is not warm, educative and empowering |
-| R009 | Non-standard Indonesian, or a narrative with no positive call to action |
-| R010 | Wording that stigmatises or blames students or groups |
-| R011 | A real-world claim without a dated, official, traceable URL |
-| R012 | Commercial, product-efficacy, superlative or halal claims without a certificate — `N/A` for purely educational material |
-
-A rulebook a curriculum team can edit without touching code is what makes institutional adoption
-realistic rather than theoretical. It is also the honest trade-off: rules in the prompt compete for
-context, and a very long rulebook would degrade adherence. See
-`06_Submission/05_Architecture.md` §4 for the four trade-offs we would defend and the cost of each.
+| Path | Isinya |
+|------|--------|
+| `05_Bukti_Proses/skills_package/` | **Kodenya**: empat kontrak `SKILL.md` + aset pengetahuan |
+| `05_Bukti_Proses/skills_package/edu-reviewer/assets/rulebook_ipas.md` | **Rulebook** R001–R012 (v2.0) |
+| `02_Sumber/` | Dua PDF resmi kementerian yang menjadi bahan lapisan pengetahuan, plus hasil ekstraksi teksnya. Inventaris dan pengecualian: `02_Sumber/README.md` |
+| `03_Hasil/referensi/` | Lapisan pengetahuan: source material, CP, daftar konteks aktual, rulebook |
+| `03_Hasil/materi_ajar/` | Keluaran run `-001` (Energi Alternatif), draf yang diperbaiki + kuis HTML |
+| `03_Hasil/edu_output_wujud_zat/` | Keluaran run `-002` (Perubahan Wujud Zat) + tiga PDF siap cetak |
+| `03_Hasil/audit/` | **Kedua** laporan review — yang REJECT dan yang APPROVE |
+| `03_Hasil/panduan/` | Cara mendemokan: panduan guru + testimoni, dan runbook Demo Day (anggaran 8 menit, tangga fallback, penunjuk bukti untuk Q&A) |
+| `04_Diskusi/test_cases_matrix.md` | Suite 21 kasus, termasuk tujuh yang kritis, dan tabel cakupan per aturan yang jujur |
+| `06_Submission/` | Bundel submission: deskripsi, lembar akuntabilitas, hasil uji, arsitektur, deck |
+| `06_Submission/architecture_diagram.png` | Diagram komponen dan batas kepercayaan |
+| `07_Dokumentasi/` | Dokumen rekayasa: arsitektur, workflow, batas skill, spesifikasi rulebook, rencana uji, ketertelusuran kebutuhan, daftar celah |
+| `tools/check_grounding.py` | Pemeriksaan R001 deterministik — me-resolve setiap tag terhadap lapisan pengetahuan, keluar non-nol bila gagal. Hanya memeriksa draf; metadata run dilewati dan disebutkan namanya di laporan |
+| `tools/install_skills.py` | Menyalin empat folder skill ke tempat WorkBuddy membacanya, lalu memverifikasi jumlahnya 4. Python, jadi jalan sama di Linux, macOS, dan Windows |
+| `tools/doctor.py` | Enam pemeriksaan pra-terbang pada clone baru — Python, kontrak, skill terpasang, lapisan pengetahuan, checksum salinan, grounding di kedua run. Kode yang sama di semua OS |
 
 ---
 
-## Evidence trail — including the failure
+## Rulebook (R001–R012, v2.0)
+
+| Aturan | Yang dijaga |
+|--------|-------------|
+| R001 | Fakta apa pun tanpa tag `[src:#]` yang bisa di-resolve |
+| R002 | Menakut-nakuti dan pembingkaian katastrofik |
+| R003 | Bahasa yang tidak sesuai untuk usia ~10–12 tahun |
+| R004 | Penyimpangan dari *Capaian Pembelajaran* |
+| R005 | Konten yang hanya memuat bahaya, tanpa mitigasi atau peran siswa |
+| R006 | Klaim kesehatan tanpa dasar — efek permanen, kesembuhan, khasiat absolut |
+| R007 | Mempromosikan atau menormalkan praktik berbahaya |
+| R008 | Nada yang tidak hangat, edukatif, dan memberdayakan |
+| R009 | Bahasa Indonesia tidak baku, atau narasi tanpa ajakan bertindak positif |
+| R010 | Diksi yang menstigma atau menyalahkan murid atau kelompok |
+| R011 | Klaim dunia nyata tanpa URL resmi, bertanggal, dan bisa ditelusuri |
+| R012 | Klaim komersial, khasiat produk, superlatif, atau halal tanpa sertifikat — `N/A` untuk materi yang murni edukatif |
+
+Rulebook yang bisa disunting tim kurikulum tanpa menyentuh kode itulah yang membuat adopsi
+institusional realistis, bukan teoretis. Ini juga trade-off yang jujur: aturan di dalam prompt
+bersaing untuk ruang konteks, dan rulebook yang sangat panjang akan menurunkan kepatuhan. Lihat
+`06_Submission/05_Architecture.md` §4 untuk empat trade-off yang kami pertahankan beserta biaya
+masing-masing.
+
+---
+
+## Jejak bukti — termasuk kegagalannya
 
 **Run `EDU-ORCH-20261026-001`** (Energi Alternatif, Fase C, CP C4 + B5)
 
-| Step | File |
-|------|------|
-| Run config | `03_Hasil/edu_output/00_run_config.md` |
+| Langkah | Berkas |
+|---------|--------|
+| Konfigurasi run | `03_Hasil/edu_output/00_run_config.md` |
 | Audit log | `03_Hasil/audit/audit_log_edu_orchestrator.md` |
-| **REJECT** 29 Oct (R001, R011, R004) | `03_Hasil/audit/review_kepatuhan_R001-R011_2026-10-29.md` |
-| Remediation: real source material created | `03_Hasil/referensi/source_material_energi.md` |
-| Remediation: dated official URLs | `03_Hasil/referensi/konteks_aktual.md` |
-| **APPROVE** 30 Oct | `03_Hasil/audit/review_kepatuhan_R001-R011_2026-10-30_REVISI.md` |
+| **REJECT** 29 Okt (R001, R011, R004) | `03_Hasil/audit/review_kepatuhan_R001-R011_2026-10-29.md` |
+| Remediasi: source material sungguhan dibuat | `03_Hasil/referensi/source_material_energi.md` |
+| Remediasi: URL resmi bertanggal | `03_Hasil/referensi/konteks_aktual.md` |
+| **APPROVE** 30 Okt | `03_Hasil/audit/review_kepatuhan_R001-R011_2026-10-30_REVISI.md` |
 
-On 29 October the Reviewer agent **rejected our own output**: the drafts were tagged against the
-curriculum-outcomes file rather than a fact-bearing source, and two "real world" claims had no
-verifiable document behind them. We shipped the rejection report. We did not delete it, and we did
-not quietly patch the drafts.
+Pada 29 Oktober agen Reviewer **menolak keluaran kami sendiri**: draf ditandai terhadap berkas
+capaian pembelajaran alih-alih sumber yang memuat fakta, dan dua klaim "dunia nyata" tidak punya
+dokumen yang bisa diverifikasi di belakangnya. Kami mengirim laporan penolakan itu. Kami tidak
+menghapusnya, dan tidak menambal draf diam-diam.
 
 **Run `EDU-ORCH-20261030-002`** (Perubahan Wujud Zat, Fase C)
 
-Reviewer Pass 1 returned **REJECT with 5 Major findings**, all R001: claims about particle
-arrangement and the characteristics of each state of matter were not in the source. The Writer
-removed them and replaced "denser/looser" framing with explicit direction pairs. Pass 2: APPROVE at
-iteration 2 of 3. The teacher approved on 30 October 2026 at 17:19, which opened the publication
-gate — after which two separate print packs were produced so that the answer key never travels with
-the student booklet. Full trail: `03_Hasil/edu_output_wujud_zat/audit_log.md`.
+Reviewer Pass 1 mengembalikan **REJECT dengan 5 temuan Mayor**, semuanya R001: klaim tentang susunan
+partikel dan ciri tiap wujud zat tidak ada di sumber. Writer menghapusnya dan mengganti pembingkaian
+"lebih rapat/lebih longgar" dengan pasangan arah yang eksplisit. Pass 2: APPROVE di iterasi 2 dari 3.
+Guru menyetujui pada 30 Oktober 2026 pukul 17:19, yang membuka gerbang publikasi — setelah itu dua
+paket cetak terpisah dibuat agar kunci jawaban tidak pernah ikut dalam buku siswa. Jejak lengkap:
+`03_Hasil/edu_output_wujud_zat/audit_log.md`.
 
-That sequence — **reject, diagnose, fix, re-review** — is the evidence of use. A screenshot of a
-happy path would prove less.
+Urutan itu — **tolak, diagnosis, perbaiki, review ulang** — adalah bukti penggunaannya. Screenshot
+dari jalur yang mulus justru membuktikan lebih sedikit.
 
 ---
 
-## Test status (stated plainly)
+## Status pengujian (dinyatakan apa adanya)
 
-| Result | Count |
-|--------|-------|
-| `PASS` — backed by an artefact in this repo | 7 |
-| `BY DESIGN` — enforced in a `SKILL.md`, screenshot not yet captured | 11 |
-| `TO RUN` — not executed, disclosed | 3 |
+| Hasil | Jumlah |
+|-------|--------|
+| `PASS` — dibuktikan artefak di repo ini | 7 |
+| `BY DESIGN` — ditegakkan di `SKILL.md`, screenshot belum diambil | 11 |
+| `TO RUN` — belum dijalankan, diungkap | 3 |
 
-**We are not claiming 21/21.** Full table, including the critical cases and the disclosed failure:
+**Kami tidak mengklaim 21/21.** Tabel lengkap, termasuk kasus kritis dan kegagalan yang diungkap:
 `06_Submission/04_Test_Results.md`.
 
-One case is machine-checkable end to end, and it is the one that matters most:
+Satu kasus bisa diperiksa mesin dari ujung ke ujung, dan itulah yang paling penting:
 
 ```bash
 python3 tools/check_grounding.py --run 03_Hasil/materi_ajar \
     --knowledge 03_Hasil/referensi --out 03_Hasil/materi_ajar/grounding_report.md
 ```
 
-| Run | Tags checked | Dangling | Class violations | Verdict |
-|-----|-------------:|---------:|-----------------:|---------|
+| Run | Tag diperiksa | Dangling | Pelanggaran kelas | Vonis |
+|-----|-------------:|---------:|------------------:|-------|
 | `-001` Energi | 121 | 0 | 0 | **PASS** |
-| `-002` Wujud Zat, before fix | 89 | 0 | 84 | **FAIL** — defect D1 |
-| `-002` Wujud Zat, after fix | 115 | 0 | 0 | **PASS** |
+| `-002` Wujud Zat, sebelum perbaikan | 89 | 0 | 84 | **FAIL** — defek D1 |
+| `-002` Wujud Zat, sesudah perbaikan | 115 | 0 | 0 | **PASS** |
 
 ---
 
-## Run it yourself
+## Jalankan sendiri
 
-Written for a teacher on a laptop, not for a developer. Two commands, one restart, then a health
-check. **The same two commands work on Linux, macOS and Windows** — every script in `tools/` is
-Python, because this team runs Linux (Mint) and Windows and a bash script is a different program on
-each.
+Ditulis untuk guru di laptopnya, bukan untuk developer. Dua perintah, satu restart, lalu satu
+pemeriksaan kesehatan. **Dua perintah yang sama berlaku di Linux, macOS, dan Windows** — semua skrip
+di `tools/` berbahasa Python, karena tim ini memakai Linux (Mint) dan Windows, dan skrip bash adalah
+program berbeda di masing-masing.
 
 ```bash
 git clone https://github.com/otnamhcar/educraft-hackathon-workbuddy-2026.git
 cd educraft-hackathon-workbuddy-2026
 ```
 
-Then install, from the repository root:
+Lalu pasang, dari akar repo:
 
-| | Linux / macOS | Windows (cmd or PowerShell) |
+| | Linux / macOS | Windows (cmd atau PowerShell) |
 |---|---|---|
-| Install the skills | `python3 tools/install_skills.py` | `python tools\install_skills.py` |
-| Health check | `python3 tools/doctor.py` | `python tools\doctor.py` |
+| Pasang skill | `python3 tools/install_skills.py` | `python tools\install_skills.py` |
+| Pemeriksaan kesehatan | `python3 tools/doctor.py` | `python tools\doctor.py` |
 
-If `python` is not on your PATH on Windows, use the launcher: `py tools\install_skills.py`.
+Kalau `python` tidak ada di PATH pada Windows, pakai launcher: `py tools\install_skills.py`.
 
-The installer copies `edu-orchestrator`, `edu-planner`, `edu-writer` and `edu-reviewer` from
-`05_Bukti_Proses/skills_package/` into `~/.workbuddy-ai/skills/` (on Windows,
-`C:\Users\<you>\.workbuddy-ai\skills`), then counts them back to confirm four arrived.
-**Nothing is compiled and no package manager is involved** — a skill is a folder containing
-`SKILL.md`, and "installing" it means putting that folder where the agent looks. Add `--dry-run` to
-see the plan without writing anything.
+Pemasang menyalin `edu-orchestrator`, `edu-planner`, `edu-writer`, dan `edu-reviewer` dari
+`05_Bukti_Proses/skills_package/` ke `~/.workbuddy-ai/skills/` (di Windows,
+`C:\Users\<anda>\.workbuddy-ai\skills`), lalu menghitungnya kembali untuk memastikan empat yang tiba.
+**Tidak ada yang dikompilasi dan tidak ada package manager yang terlibat** — skill adalah folder
+berisi `SKILL.md`, dan "memasang" artinya meletakkan folder itu di tempat agen membacanya. Tambahkan
+`--dry-run` untuk melihat rencananya tanpa menulis apa pun.
 
-Then **restart WorkBuddy**. The skill list is read when a session opens, so a session that is
-already running will not see the new folders. Open a new chat, check that `edu-orchestrator` is
-recognised, then verify the rest of the clone with `doctor.py` (table above).
+Lalu **restart WorkBuddy**. Daftar skill dibaca saat sesi dibuka, jadi sesi yang sedang berjalan tidak
+akan melihat folder baru. Buka chat baru, pastikan `edu-orchestrator` dikenali, lalu verifikasi sisa
+clone dengan `doctor.py` (tabel di atas).
 
-It runs six checks and exits non-zero if any fails, so a broken clone says *where* it is broken:
+Ia menjalankan enam pemeriksaan dan keluar non-nol bila ada yang gagal, sehingga clone yang rusak
+mengatakan *di mana* rusaknya:
 
-| # | Check | What a FAIL means |
-|---|-------|-------------------|
-| 1 | Python 3.6+ | the grounding check cannot run |
-| 2 | four contracts in the clone | the clone is incomplete |
-| 3 | four `edu-*` skills installed | run `install_skills.py`, then restart |
-| 4 | rulebook, CP, actual-context register, both source sheets | the knowledge layer is missing |
-| 5 | rulebook and wujud-zat source copies share one SHA-256 each | a copy has drifted — the Reviewer would judge against different rules than the Writer wrote to |
-| 6 | grounding check on both runs | a draft no longer resolves against its sources |
+| # | Pemeriksaan | Arti bila FAIL |
+|---|-------------|----------------|
+| 1 | Python 3.6+ | pemeriksaan grounding tidak bisa jalan |
+| 2 | empat kontrak ada di clone | clone tidak lengkap |
+| 3 | empat skill `edu-*` terpasang | jalankan `install_skills.py`, lalu restart |
+| 4 | rulebook, CP, daftar konteks aktual, kedua lembar sumber | lapisan pengetahuan hilang |
+| 5 | salinan rulebook dan source wujud-zat berbagi satu SHA-256 masing-masing | ada salinan yang menyimpang — Reviewer akan menilai dengan aturan yang berbeda dari yang ditulis Writer |
+| 6 | pemeriksaan grounding di kedua run | ada draf yang tidak lagi menunjuk sumbernya |
 
-A healthy clone prints `8 passed / 0 failed / 0 warning` and exits 0.
+Clone yang sehat mencetak `8 passed / 0 failed / 0 warning` dan keluar dengan kode 0.
 
-### First run
+### Run pertama
 
-Paste this into the new chat:
+Tempel ini ke chat baru:
 
-> Use `edu-orchestrator`. Topic: Perubahan Wujud Zat. Fase C (grades V–VI).
-> CP codes: CP-B.1.1.4 and CP-C.2.2. Formats: lesson plan, article, quiz.
-> Source: `assets/source_material_wujud_zat.md`.
+> Gunakan `edu-orchestrator`. Topik: Perubahan Wujud Zat. Fase C (kelas V–VI).
+> Kode CP: CP-B.1.1.4 dan CP-C.2.2. Format: RPP, artikel, kuis.
+> Sumber: `assets/source_material_wujud_zat.md`.
 
-Expect this sequence, and nothing shorter:
+Harapkan urutan ini, tidak kurang:
 
 ```
-Plan → Draft → Review → (REJECT → remediate, max 3) → APPROVE → STOP at the approval gate
+Plan → Draft → Review → (REJECT → remediasi, maks 3) → APPROVE → BERHENTI di gerbang approval
 ```
 
-The run must end at `publish_status: PENDING`. **If it publishes on its own, the install is wrong** —
-the gate is the product, and it is the first thing to verify.
+Run harus berakhir di `publish_status: PENDING`. **Kalau ia menerbitkan sendiri, pemasangannya
+salah** — gerbangnya adalah produknya, dan itu hal pertama yang harus diverifikasi.
 
-### If something fails
+### Kalau ada yang gagal
 
-| Symptom | Cause | Fix |
-|---------|-------|-----|
-| `doctor.py` says `0 of 4 installed` | skills went somewhere the agent does not read | point both scripts at the real folder: `--dest <path>`, or set `WORKBUDDY_SKILLS_DIR` |
-| `could not replace ...` | a file is open in an editor, or the agent is still running (common on Windows) | close it and retry |
-| `python: command not found` (Windows) | Python not installed, or not on PATH | try `py tools\doctor.py`; otherwise install Python 3 and tick *Add to PATH* |
-| `python3: command not found` (Linux/macOS) | Python 3 missing | `sudo apt install python3` — the grounding check is the point of the project, so `doctor.py` will not pass without it |
-| Skills still not recognised after install | session not restarted | quit WorkBuddy fully, reopen, new chat |
+| Gejala | Penyebab | Perbaikan |
+|--------|----------|-----------|
+| `doctor.py` bilang `0 of 4 installed` | skill masuk ke tempat yang tidak dibaca agen | arahkan kedua skrip ke folder sebenarnya: `--dest <path>`, atau set `WORKBUDDY_SKILLS_DIR` |
+| `could not replace ...` | ada berkas yang terbuka di editor, atau agen masih berjalan (umum di Windows) | tutup lalu ulangi |
+| `python: command not found` (Windows) | Python belum terpasang, atau tidak ada di PATH | coba `py tools\doctor.py`; kalau tidak bisa, pasang Python 3 dan centang *Add to PATH* |
+| `python3: command not found` (Linux/macOS) | Python 3 belum ada | `sudo apt install python3` — pemeriksaan grounding adalah inti proyek ini, jadi `doctor.py` tidak akan lulus tanpa itu |
+| Skill tetap tidak dikenali setelah pemasangan | sesi belum di-restart | tutup WorkBuddy sepenuhnya, buka lagi, chat baru |
 
-**Windows specifics.** `cmd`, PowerShell and Git Bash all work — there is no bash script to run. Use
-backslashes (`tools\doctor.py`) or forward slashes; both are accepted. If the console prints colour
-codes as text, add `--no-color`.
+**Khusus Windows.** `cmd`, PowerShell, dan Git Bash semuanya bisa — tidak ada skrip bash yang perlu
+dijalankan. Pakai garis miring terbalik (`tools\doctor.py`) atau garis miring biasa; keduanya
+diterima. Kalau konsol mencetak kode warna sebagai teks, tambahkan `--no-color`.
 
-**Line endings.** `.gitattributes` pins `*.py` and `*.md` to LF and marks the PDFs and the extracted
-text as binary, so a Windows clone with `core.autocrlf=true` does not rewrite the repository and
-does not show a whole-file diff after a pull.
+**Line ending.** `.gitattributes` mengunci `*.py` dan `*.md` ke LF serta menandai PDF dan hasil
+ekstraksi teks sebagai binary, sehingga clone Windows dengan `core.autocrlf=true` tidak menulis ulang
+repo dan tidak menampilkan diff seluruh berkas setelah pull.
 
-**What you need:** WorkBuddy (or any agent runtime that reads `SKILL.md` folders) and Python 3.6+.
-No API keys of its own, no build step, no database.
+**Yang dibutuhkan:** WorkBuddy (atau runtime agen apa pun yang membaca folder `SKILL.md`) dan
+Python 3.6+. Tanpa API key miliknya sendiri, tanpa langkah build, tanpa basis data.
 
 ---
 
-## Known limitations (stated, not hidden)
+## Keterbatasan yang diketahui (dinyatakan, bukan disembunyikan)
 
-- **One Reviewer, not an adversarial pair.** A systematic blind spot in the Reviewer is a systematic
-  blind spot in the product. Mitigation: every verdict must quote the text and cite a rule, so a
-  human can audit the audit. This is how we caught our own R001 failure.
-- **Grounding needs two checks, and we only had one.** Attribution ("does this sentence carry a
-  tag?") was enforced; resolution ("does the tag point at a source that actually says this?") was
-  not. That gap is what produced the 29 October rejection. A tag is not a citation.
-- **Run `-002` was originally anchored to a topic entry, not a fact sheet — fixed.** Its claims cited
-  `[src:B4]`, the curriculum topic name in `cp_ipas.md`. The deterministic check found 84 class
-  violations; a dedicated `source_material_wujud_zat.md` was created from the official Panduan IPAS
-  (pp. 26–27) and every artefact re-tagged to `[src:W1]`–`[src:W11]`. Content was not edited. Two
-  entries (`[src:W10]`, `[src:W11]`) are **team-derived** — direction mapping and everyday examples
-  the official guide does not state — labelled as such and awaiting teacher validation.
-- **Strict grounding produces thin material.** A thin source yields a thin pack, and the agent will
-  look less impressive than a general chatbot on the same topic. We optimised for the failure mode
-  that damages trust.
-- **The animatic has no audio yet.** `07_video_animatik.html` runs 4:45 with subtitles; narration
-  is not recorded.
-- **Indonesian only.** TC-17 (bilingual consistency) is recorded as not yet run.
-- **Screenshots of the critical cases are not captured yet.** Tracked in
+- **Satu Reviewer, bukan pasangan yang saling menyerang.** Titik buta sistematis di Reviewer adalah
+  titik buta sistematis di produk. Mitigasi: setiap vonis wajib mengutip teks dan menyebut aturan,
+  sehingga manusia bisa mengaudit auditnya. Ini cara kami menangkap kegagalan R001 kami sendiri.
+- **Grounding butuh dua pemeriksaan, dan kami baru punya satu.** Atribusi ("apakah kalimat ini
+  membawa tag?") ditegakkan; resolusi ("apakah tag menunjuk sumber yang benar-benar mengatakan ini?")
+  belum. Celah itulah yang menghasilkan penolakan 29 Oktober. Tag bukan sitasi.
+- **Run `-002` awalnya berpijak pada entri topik, bukan lembar fakta — sudah diperbaiki.** Klaimnya
+  mengutip `[src:B4]`, nama topik kurikulum di `cp_ipas.md`. Pemeriksaan deterministik menemukan 84
+  pelanggaran kelas; `source_material_wujud_zat.md` khusus dibuat dari Panduan IPAS resmi (hlm. 26–27)
+  dan setiap artefak ditandai ulang ke `[src:W1]`–`[src:W11]`. Isi materi tidak diubah. Dua entri
+  (`[src:W10]`, `[src:W11]`) adalah **turunan tim** — pemetaan arah dan contoh sehari-hari yang tidak
+  dinyatakan panduan resmi — ditandai demikian dan menunggu validasi guru.
+- **Grounding ketat menghasilkan materi tipis.** Sumber tipis menghasilkan paket tipis, dan agen akan
+  tampak kurang mengesankan daripada chatbot umum pada topik yang sama. Kami mengoptimalkan untuk mode
+  kegagalan yang merusak kepercayaan.
+- **Animatik belum bersuara.** `07_video_animatik.html` berdurasi 4:45 dengan subtitle; narasi belum
+  direkam.
+- **Satu bahasa: Bahasa Indonesia.** Ini keputusan cakupan, bukan cacat — sasarannya guru IPAS SD
+  Indonesia, dan bahasa keluaran kini diwajibkan oleh kontrak Writer dan Reviewer. Versi bahasa lain
+  ada di roadmap; TC-17 (konsistensi lintas bahasa) tercatat `TO RUN`.
+- **Screenshot kasus kritis belum diambil.** Dilacak di
   `05_Bukti_Proses/evidence_bundle/03_screenshots/INDEX.md`.
 
 ---
 
-## Licence and data
+## Lisensi dan data
 
-- **Code, contracts and documentation:** MIT — see `LICENSE`. This covers the pipeline, the four
-  `SKILL.md` files, the checker and every document in this repository.
-- **Attribution:** the substance of the rulebook is Pak Arief's professional judgement, formalised by
-  the team. The MIT licence covers this repository's implementation of it, not his authorship.
-- **Two official Indonesian ministry documents are redistributed unmodified** —
-  `Final Panduan Mata Pelajaran IPAS_03_10_2025_Revisi 4.pdf` and
-  `Permendikdasmen-no-13-tahun-2025.pdf` — together with the plain text extracted from them. They are
-  here because the grounding check is meaningless without the text it checks against: a reviewer
-  must be able to open the page a claim came from. **Their terms are not ours to relicense.** See
-  `THIRD_PARTY_NOTICES.md`; any of them will be removed on request.
-- **What is *not* redistributed:** six RPP documents downloaded from `centralpendidikan.com`, a
-  commercial assessment guide, a WhatsApp export and the hackathon handbook. Reasons per file in
+- **Kode, kontrak, dan dokumentasi:** MIT — lihat `LICENSE`. Ini mencakup pipeline, keempat berkas
+  `SKILL.md`, pemeriksa, dan setiap dokumen di repo ini.
+- **Atribusi:** substansi rulebook adalah penilaian profesional Pak Arief, yang diformalkan tim.
+  Lisensi MIT mencakup implementasi repo ini, bukan kepengarangannya.
+- **Dua dokumen resmi kementerian diedarkan ulang tanpa perubahan** —
+  `Final Panduan Mata Pelajaran IPAS_03_10_2025_Revisi 4.pdf` dan
+  `Permendikdasmen-no-13-tahun-2025.pdf` — bersama teks polos hasil ekstraksinya. Keduanya ada di sini
+  karena pemeriksaan grounding tidak bermakna tanpa teks yang menjadi pembandingnya: seorang reviewer
+  harus bisa membuka halaman asal sebuah klaim. **Syarat penggunaannya bukan milik kami untuk
+  dilisensikan ulang.** Lihat `THIRD_PARTY_NOTICES.md`; salah satunya akan dihapus bila diminta.
+- **Yang *tidak* diedarkan ulang:** enam dokumen RPP yang diunduh dari `centralpendidikan.com`, satu
+  panduan penilaian komersial, satu ekspor WhatsApp, dan handbook panitia. Alasan per berkas di
   `02_Sumber/README.md`.
-- **Source material:** run `-001` (`source_material_energi.md`) is mock, written for this hackathon,
-  and says so in its own header. Run `-002` (`source_material_wujud_zat.md`) is **quoted from the
-  official Panduan IPAS pp. 26–27**, with page numbers, because mock data was the original defect.
-  Real-world claims carry an official URL and an access date in `konteks_aktual.md`.
-- **Student data:** score tables use anonymised participant IDs. No real student data is included.
+- **Source material:** run `-001` (`source_material_energi.md`) adalah mock, ditulis untuk hackathon
+  ini, dan menyatakan begitu di header-nya sendiri. Run `-002` (`source_material_wujud_zat.md`)
+  **dikutip dari Panduan IPAS resmi hlm. 26–27**, dengan nomor halaman, karena data mock adalah defek
+  aslinya. Klaim dunia nyata membawa URL resmi dan tanggal akses di `konteks_aktual.md`.
+- **Data siswa:** tabel skor memakai ID peserta yang sudah dianonimkan. Tidak ada data siswa nyata.
 
 ---
 
-*Prepared for the Tencent Cloud Hackathon Indonesia 2026 submission. Every claim in this README is
-cross-referenced to a file in the repository.*
+*Disiapkan untuk submission Tencent Cloud Hackathon Indonesia 2026. Setiap klaim di README ini
+tertaut ke sebuah berkas di dalam repositori.*

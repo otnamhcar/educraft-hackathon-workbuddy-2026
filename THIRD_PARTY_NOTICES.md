@@ -1,39 +1,44 @@
-# Third-party notices
+# Pemberitahuan pihak ketiga
 
-This repository contains two categories of material. The MIT licence in [`LICENSE`](LICENSE) covers
-**only** the first.
+> Berkas ini disediakan dalam Bahasa Indonesia untuk keterbacaan. Teks lisensi yang mengikat secara
+> hukum tetap [`LICENSE`](LICENSE) (MIT, berbahasa Inggris); bila ada perbedaan penafsiran, teks
+> Inggrislah yang berlaku.
 
-## 1. Our work — MIT
+Repo ini memuat dua kategori materi. Lisensi MIT di [`LICENSE`](LICENSE) hanya mencakup **kategori
+pertama**.
 
-Agent contracts (`05_Bukti_Proses/skills_package/**/SKILL.md`), the knowledge layer we wrote
+## 1. Karya kami — MIT
+
+Kontrak agen (`05_Bukti_Proses/skills_package/**/SKILL.md`), lapisan pengetahuan yang kami tulis
 (`03_Hasil/referensi/source_material_*.md`, `konteks_aktual.md`, `cp_ipas.md`, `rulebook_ipas.md`),
-the tooling (`tools/`), the generated teaching material (`03_Hasil/…`), and the documentation.
+perkakas (`tools/`), materi ajar yang dihasilkan (`03_Hasil/…`), dan dokumentasi.
 
-## 2. Third-party documents — redistributed unmodified, not ours
+## 2. Dokumen pihak ketiga — didistribusikan ulang tanpa diubah, bukan milik kami
 
-| File | Publisher | Status |
-|------|-----------|--------|
-| `02_Sumber/Final Panduan Mata Pelajaran IPAS_03_10_2025_Revisi 4.pdf` | Badan Standar, Kurikulum, dan Asesmen Pendidikan, Kemendikdasmen (Republic of Indonesia) | Official public document, Revisi 4, 3 Oct 2025 |
-| `02_Sumber/Permendikdasmen-no-13-tahun-2025.pdf` | Ministry of Primary and Secondary Education (Republic of Indonesia) | Official public regulation, No. 13 of 2025 |
-| `02_Sumber/extracted/*.txt` | Derived from the two PDFs above | Mechanical text extraction, no editorial change |
+| Berkas | Penerbit | Status |
+|--------|----------|--------|
+| `02_Sumber/Final Panduan Mata Pelajaran IPAS_03_10_2025_Revisi 4.pdf` | Badan Standar, Kurikulum, dan Asesmen Pendidikan, Kemendikdasmen (Republik Indonesia) | Dokumen publik resmi, Revisi 4, 3 Okt 2025 |
+| `02_Sumber/Permendikdasmen-no-13-tahun-2025.pdf` | Kementerian Pendidikan Dasar dan Menengah (Republik Indonesia) | Peraturan resmi, Nomor 13 Tahun 2025 |
+| `02_Sumber/extracted/*.txt` | Diturunkan dari dua PDF di atas | Ekstraksi teks mekanis, tanpa perubahan editorial |
 
-These are included **for verification**, not as part of our entry: a reader can check every quoted
-fact against the original. They are unmodified. No authorship is claimed. They are excluded from the
-MIT grant above.
+Keduanya disertakan **untuk verifikasi**, bukan sebagai bagian dari karya lomba kami: pembaca dapat
+memeriksa setiap fakta terkutip terhadap aslinya. Keduanya tidak diubah. Tidak ada klaim kepengarangan.
+Keduanya dikecualikan dari pemberian lisensi MIT di atas.
 
-If a rights holder objects to their presence here, they will be removed on request and replaced with
-a link — no artefact depends on the PDF being *in* this repository, only on it being *quotable*.
+Bila pemegang hak keberatan atas keberadaannya di sini, keduanya akan dihapus atas permintaan dan
+diganti dengan tautan — tidak ada artefak yang bergantung pada PDF itu *berada di* repo ini, hanya pada
+kemampuannya *dikutip*.
 
-## 3. Not included
+## 3. Yang tidak disertakan
 
-- Six `centralpendidikan.com` RPP worksheets and one SMP assessment guide: third-party commercial
-  material, outside this project's domain (SD), unused by any artefact.
-- The Tencent Cloud Hackathon handbook and the committee chat export: not ours to redistribute.
-  See `.gitignore` for the full exclusion list and the reason for each entry.
+- Enam lembar RPP `centralpendidikan.com` dan satu panduan asesmen SMP: materi komersial pihak ketiga,
+  di luar domain proyek ini (SD), dan tidak dipakai artefak mana pun.
+- Handbook Tencent Cloud Hackathon dan ekspor obrolan panitia: bukan hak kami untuk mendistribusikan
+  ulang. Lihat `.gitignore` untuk daftar pengecualian lengkap beserta alasan tiap entri.
 
-## 4. Handbook §12 compliance
+## 4. Kepatuhan handbook §12
 
-Handbook §12 requires that an entry be original and not infringe third-party rights. The entry —
-contracts, knowledge layer, pipeline, generated material, documentation — is ours. The two PDFs are
-attributed, unmodified, and carved out of our licence, which is the standard way to reference a
-public document without claiming it.
+Handbook §12 mewajibkan karya lomba bersifat orisinal dan tidak melanggar hak pihak ketiga. Karya
+lomba — kontrak, lapisan pengetahuan, pipeline, materi yang dihasilkan, dokumentasi — adalah milik kami.
+Kedua PDF diatribusikan, tidak diubah, dan dikecualikan dari lisensi kami; itulah cara baku merujuk
+dokumen publik tanpa mengklaimnya.

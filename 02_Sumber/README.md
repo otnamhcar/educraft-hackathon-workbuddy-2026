@@ -1,61 +1,62 @@
-# 02_Sumber — the primary sources
+# 02_Sumber — sumber primer
 
-These are the documents every quoted fact in this project traces back to. They are published here
-**unmodified**, so that a reader can check our summaries against the original instead of trusting
-them.
+Inilah dokumen-dokumen yang menjadi asal setiap fakta terkutip di proyek ini. Semuanya dipublikasikan
+di sini **tanpa diubah**, supaya pembaca bisa memeriksa ringkasan kami terhadap aslinya alih-alih
+memercayainya begitu saja.
 
-## What is here
+## Isi folder ini
 
-| File | What it is | Pages | Published? |
-|------|------------|------:|------------|
-| `Final Panduan Mata Pelajaran IPAS_03_10_2025_Revisi 4.pdf` | *Panduan Mata Pelajaran IPAS*, Badan Standar, Kurikulum, dan Asesmen Pendidikan, Kemendikdasmen — Revisi 4, 3 October 2025 | 106 | ✅ yes |
-| `Permendikdasmen-no-13-tahun-2025.pdf` | Regulation of the Minister of Primary and Secondary Education No. 13 of 2025 | 76 | ✅ yes |
-| `extracted/panduan_ipas.txt` | Plain-text extraction of the guide, with `----- PAGE n -----` markers | 4,937 lines | ✅ yes |
-| `extracted/permendikdasmen_13_2025.txt` | Plain-text extraction of the regulation | 6,322 lines | ✅ yes |
-| `extract_pdf.py` | The script that produced both `.txt` files — re-runnable, no OCR | — | ✅ yes |
+| Berkas | Apa itu | Halaman | Dipublikasikan? |
+|--------|---------|--------:|-----------------|
+| `Final Panduan Mata Pelajaran IPAS_03_10_2025_Revisi 4.pdf` | *Panduan Mata Pelajaran IPAS*, Badan Standar, Kurikulum, dan Asesmen Pendidikan, Kemendikdasmen — Revisi 4, 3 Oktober 2025 | 106 | ✅ ya |
+| `Permendikdasmen-no-13-tahun-2025.pdf` | Peraturan Menteri Pendidikan Dasar dan Menengah Nomor 13 Tahun 2025 | 76 | ✅ ya |
+| `extracted/panduan_ipas.txt` | Ekstraksi teks polos panduan, dengan penanda `----- PAGE n -----` | 4.937 baris | ✅ ya |
+| `extracted/permendikdasmen_13_2025.txt` | Ekstraksi teks polos peraturan | 6.322 baris | ✅ ya |
+| `extract_pdf.py` | Skrip yang menghasilkan kedua berkas `.txt` — bisa dijalankan ulang, tanpa OCR | — | ✅ ya |
 
-The `.txt` files exist because the agents read text, not PDFs. Each begins with a header naming its
-source PDF and page count, so the extraction is traceable in both directions.
+Berkas `.txt` ada karena agen membaca teks, bukan PDF. Setiap berkas dimulai dengan header yang
+menyebut PDF asalnya dan jumlah halamannya, sehingga ekstraksinya bisa ditelusuri ke dua arah.
 
-## What is **not** here, and why
+## Yang **tidak** ada di sini, dan mengapa
 
-| Excluded | Reason |
-|----------|--------|
-| `centralpendidikan.com 1–6. rpp 1 lembar ipa kelas 7.docx` + the `.rar` | Third-party commercial worksheets. They cover **SMP kelas 7**, outside this project's SD domain, and **no artefact depends on them**. Redistributing them would add a third-party rights question for no benefit |
-| `1. Panduan Penilaian SMP - Cetakan Keempat 2017.pdf` | Same reason: SMP, unused |
+| Dikecualikan | Alasan |
+|--------------|--------|
+| `centralpendidikan.com 1–6. rpp 1 lembar ipa kelas 7.docx` + berkas `.rar` | Lembar kerja komersial pihak ketiga. Cakupannya **SMP kelas 7**, di luar domain SD proyek ini, dan **tidak ada artefak yang bergantung padanya**. Mendistribusikannya ulang hanya menambah pertanyaan hak pihak ketiga tanpa manfaat |
+| `1. Panduan Penilaian SMP - Cetakan Keempat 2017.pdf` | Alasan sama: SMP, tidak terpakai |
 
-Neither exclusion weakens reproducibility: every file under `03_Hasil/referensi/` derives from the
-two official documents that **are** published.
+Tidak satu pun pengecualian itu melemahkan reproduksibilitas: setiap berkas di `03_Hasil/referensi/`
+berasal dari dua dokumen resmi yang **memang** dipublikasikan.
 
-## Licence
+## Lisensi
 
-These two PDFs are official public documents issued by an Indonesian ministry. They are **not**
-covered by this project's MIT licence, and nothing here claims authorship of them. See
-[`../THIRD_PARTY_NOTICES.md`](../THIRD_PARTY_NOTICES.md).
+Kedua PDF ini adalah dokumen publik resmi yang diterbitkan kementerian Indonesia. Keduanya **tidak**
+tercakup lisensi MIT proyek ini, dan tidak ada bagian di sini yang mengklaim kepengarangan atasnya.
+Lihat [`../THIRD_PARTY_NOTICES.md`](../THIRD_PARTY_NOTICES.md).
 
-The MIT licence covers the code, the contracts and the written documentation — not these PDFs.
+Lisensi MIT mencakup kode, kontrak, dan dokumentasi tertulis — bukan kedua PDF ini.
 
-## How the chain runs
+## Bagaimana rantainya berjalan
 
 ```
 02_Sumber/*.pdf
    └─ extract_pdf.py ──▶ extracted/*.txt
-          └─ 03_Hasil/referensi/source_material_*.md   (quoted facts, [src:W1]…[src:W11])
-                 └─ 03_Hasil/…/drafts                (every sentence carries a tag)
-                        └─ tools/check_grounding.py    (resolves each tag, or fails)
+          └─ 03_Hasil/referensi/source_material_*.md   (fakta terkutip, [src:W1]…[src:W11])
+                 └─ 03_Hasil/…/drafts                (setiap kalimat membawa tag)
+                        └─ tools/check_grounding.py    (menyelesaikan tiap tag, atau gagal)
 ```
 
-A reviewer can start at any draft sentence, follow its tag to a `source_material_*.md` entry, follow
-that entry's line reference into `extracted/panduan_ipas.txt`, and land on the page of the PDF. That
-is what "grounded" means here — not that a citation exists, but that it can be walked.
+Seorang peninjau bisa mulai dari kalimat mana pun di draf, mengikuti tagnya ke entri di
+`source_material_*.md`, mengikuti rujukan baris entri itu ke `extracted/panduan_ipas.txt`, lalu mendarat
+di halaman PDF-nya. Itulah arti "ter-grounding" di sini — bukan bahwa sitasinya ada, melainkan bahwa
+sitasinya bisa ditelusuri.
 
-To re-run the extraction yourself (needs `pip install pymupdf`):
+Untuk menjalankan ulang ekstraksinya sendiri (butuh `pip install pymupdf`):
 
 ```bash
 python3 02_Sumber/extract_pdf.py        # Linux / macOS
 python 02_Sumber\extract_pdf.py         # Windows
 ```
 
-It resolves paths from its own location, so it works from any directory, and it writes CRLF on every
-OS so the output matches the committed `.txt` files byte for byte rather than producing a whole-file
-diff.
+Skrip ini menyelesaikan path dari lokasinya sendiri, jadi bisa dijalankan dari direktori mana pun, dan
+menulis CRLF di semua OS supaya keluarannya identik byte dengan berkas `.txt` yang sudah di-commit —
+bukan menghasilkan diff satu berkas penuh.
