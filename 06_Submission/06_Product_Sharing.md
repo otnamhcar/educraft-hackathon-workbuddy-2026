@@ -49,7 +49,7 @@ alih-alih menghilang ke dalam percakapan lama.
 
 ### 1.5 Di mana ia tidak membantu
 Jujur saja: konsistensi konteks panjang lintas lima format keluaran masih manual. Agen dengan senang
-hati memperbaiki satu fakta di RPP dan meninggalkan fakta yang sama basi di garis besar slide. Kami
+hati memperbaiki satu fakta di RPP dan meninggalkan fakta yang sama kedaluwarsa di garis besar slide. Kami
 menangkapnya dengan `grep` untuk string lama (`145 MWp`), bukan dengan penalaran agen. **Konsistensi
 lintas dokumen butuh gerbangnya sendiri; kami belum punya.**
 
@@ -113,4 +113,4 @@ bekerja". Handbook secara eksplisit menghargai ini; yang lebih penting, itu bena
 | Lapisan pengetahuan | Berkas Markdown dengan disiplin tag | Bisa di-grep; manusia bisa mengauditnya |
 | Artefak interaktif | Kuis HTML satu berkas | Tanpa build, terbuka offline |
 | Dokumentasi | Markdown → bundel ini | Semuanya teks, semuanya bisa ditinjau |
-| Verifikasi | `grep` untuk string basi, rekonsiliasi jumlah berkas | Murah, menangkap kesalahan nyata |
+| Verifikasi | `grep` untuk string kedaluwarsa, rekonsiliasi jumlah berkas | Murah, menangkap kesalahan nyata |

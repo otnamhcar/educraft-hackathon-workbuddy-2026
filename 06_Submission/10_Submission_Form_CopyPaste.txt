@@ -232,7 +232,7 @@ menjaga reviewer tetap jujur.
 
 Di mana WorkBuddy tidak membantu, dikatakan terus terang: konsistensi lintas
 dokumen pada lima format masih manual. Agen memperbaiki satu fakta di RPP dan
-meninggalkan fakta yang sama basi di garis besar slide. Kami menangkapnya dengan
+meninggalkan fakta yang sama kedaluwarsa di garis besar slide. Kami menangkapnya dengan
 pencarian teks, bukan dengan penalaran agen. Itu butuh gerbangnya sendiri dan kami
 belum punya.
 

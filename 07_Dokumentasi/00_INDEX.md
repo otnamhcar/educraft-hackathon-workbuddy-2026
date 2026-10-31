@@ -95,4 +95,4 @@ Peralatan pendukung: `tools/check_grounding.py` — cek R001 yang deterministik;
 | Tanggal | Perubahan |
 |---------|-----------|
 | 31 Okt 2026 | Kumpulan dokumentasi dibuat; rulebook v2.0 (berparameter + R012); `check_grounding.py` dirilis; laporan grounding dibuat untuk kedua run; adendum R012 ditulis; cacat D1/D2 dicatat |
-| 31 Okt 2026 | Seluruh dokumen diterjemahkan ke Bahasa Indonesia; angka-angka yang basi (jumlah berkas, jumlah kasus uji, durasi video) diselaraskan dengan keadaan repo |
+| 31 Okt 2026 | Seluruh dokumen diterjemahkan ke Bahasa Indonesia; angka-angka yang kedaluwarsa (jumlah berkas, jumlah kasus uji, durasi video) diselaraskan dengan keadaan repo |

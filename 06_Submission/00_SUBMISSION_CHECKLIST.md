@@ -70,7 +70,7 @@ zoom 100% di laptop 1080p. Kalau juri harus menyipitkan mata, screenshot itu tid
 Lisensi MIT · 119 berkas ter-track · di-push 31 Oktober 2026.
 
 Sengaja tidak ada hash commit di sini. Hash yang ditulis di dalam berkas yang ikut berubah akan
-selalu basi begitu berkas itu di-commit — itu sudah terjadi dua kali. Untuk memeriksa versi yang
+selalu kedaluwarsa begitu berkas itu di-commit — itu sudah terjadi dua kali. Untuk memeriksa versi yang
 sedang Anda baca: `git log -1 --format='%h %ad' --date=short`.
 
 Isi yang dipublikasikan: `README.md` (halaman depan, termasuk jalur **"Jalankan sendiri"** yang
