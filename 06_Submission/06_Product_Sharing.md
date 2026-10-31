@@ -5,6 +5,19 @@
 
 ---
 
+## 0. Where this came from
+
+The idea, the source references and the substance of the rules came from **don Jimat Akbar**, a
+practising IPAS primary-school teacher. He is not a persona in a slide: he is the person who said
+which claims he would never put in front of a class, and who supplied the curriculum material the
+pipeline draws from.
+
+Our role was the other half: turn his judgement into predicates a machine can check, and build the
+pipeline that enforces them. Everything below is about that half — the engineering — and it only
+makes sense against the first half. **A rulebook written by engineers is a guess about pedagogy.**
+
+---
+
 ## 1. Where WorkBuddy added value
 
 ### 1.1 Skills as the unit of engineering
@@ -51,9 +64,18 @@ review while being wrong. A tag is not a citation. **This is the single most tra
 from the build**, and it applies to every RAG demo that shows you a little `[1]` superscript.
 
 ### Insight 2 — A rulebook is a product artefact, not documentation
-We started with R001–R008 and found the audit log citing R009–R011 that did not exist anywhere.
-The agent was enforcing rules it had invented. Writing those rules down formally was not
-paperwork — it was the difference between a guardrail and a vibe.
+The teacher gave us the rules as judgement, not as specification: *"do not tell a child that smoke
+damage is permanent"*, *"do not frighten them into caring"*, *"do not claim a product is halal
+without a certificate"*. We wrote the first version down as R001–R008 and moved on.
+
+Then the audit log started citing R009–R011, which existed nowhere. The reviewer was enforcing rules
+that had been agreed in conversation but never written. **The gap was not invention — it was
+transcription.** Rules that live in a person's head, or in a chat, cannot be audited, and a reviewer
+citing a rule you cannot open is indistinguishable from a reviewer making one up.
+
+Writing them down formally, with a predicate and a worked example each, was not paperwork. It was
+the difference between a guardrail and a vibe — and it is also what let the teacher check our
+transcription of his own judgement.
 
 ### Insight 3 — The reviewer must not be able to fix
 Separating veto from rewrite keeps the reviewer honest. The moment a reviewer can also edit, it

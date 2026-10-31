@@ -1,6 +1,6 @@
 # Runbook Produksi Demo Video — Item 7
 
-**Target:** video 5–8 menit (skrip: 7:20), bahasa Inggris, subtitle terbakar.
+**Target:** video 5–8 menit (skrip: **7:40**), bahasa Inggris, subtitle terbakar.
 **Skrip narasi:** `06_Submission/07_Demo_Video_Script.md` — **baca itu dulu**; dokumen ini hanya
 cara memproduksinya.
 **Deadline submission:** 7 November 2026 · **target internal: 5 November 2026**.
@@ -12,7 +12,7 @@ cara memproduksinya.
 
 ## 1. Status hari ini — apa yang memblokir apa
 
-**7 dari 10 adegan bisa direkam sekarang.** Tiga sisanya butuh agen yang berjalan live.
+**8 dari 11 adegan bisa direkam sekarang.** Tiga sisanya butuh agen yang berjalan live.
 
 | # | Adegan | Waktu | Butuh | Bisa direkam 31 Okt? |
 |---|--------|-------|-------|----------------------|
@@ -25,7 +25,8 @@ cara memproduksinya.
 | 7 | **STOP #2 — eskalasi 3×** | 5:00–5:40 | agen + skill terpasang | ❌ **terblokir** |
 | 8 | STOP #3 — gerbang approval | 5:40–6:20 | `03_Hasil/edu_output/00_run_config.md` | ✅ ya |
 | 9 | Laporan penolakan 29 Okt | 6:20–6:55 | `03_Hasil/audit/review_kepatuhan_R001-R011_2026-10-29.md` | ✅ ya |
-| 10 | Penutup + paket akhir | 6:55–7:20 | PDF/PNG/HTML di `03_Hasil/` | ✅ ya |
+| 10 | **Build approach + kredit guru** | 6:55–7:15 | `03_Hasil/referensi/rulebook_ipas.md` + 4 `SKILL.md` | ✅ ya |
+| 11 | Penutup + paket akhir | 7:15–7:40 | PDF/PNG/HTML di `03_Hasil/` | ✅ ya |
 
 ### 1.1 Satu akar masalah untuk dua pekerjaan
 
@@ -42,7 +43,7 @@ jangan menunggu.
 
 ### 1.2 Yang penting: video **tidak** harus menunggu
 
-Tujuh adegan lain bisa direkam hari ini. Kalau menunggu semuanya siap, video baru mulai 4 November
+Delapan adegan lain bisa direkam hari ini. Kalau menunggu semuanya siap, video baru mulai 4 November
 dan itu terlalu mepet untuk editing + rekaman ulang. **Rekam yang tidak terblokir lebih dulu.**
 
 ---
@@ -186,7 +187,7 @@ ffprobe -v error -show_entries format=duration,size \
 
 | Yang diperiksa | Lulus kalau |
 |----------------|-------------|
-| Durasi | **300–480 detik** (5:00–8:00). Target 440 detik (7:20) |
+| Durasi | **300–480 detik** (5:00–8:00). Target 460 detik (7:40) |
 | Video | `h264`, `1920×1080` |
 | Audio | ada stream `aac`; **dengar 30 detik pertama dan 30 detik terakhir** |
 | Subtitle | terbakar, terbaca saat dijeda |

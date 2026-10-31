@@ -5,6 +5,13 @@
 > This page is designed to be read alone, by a judge, in 60 seconds.
 
 **Project:** EduCraft — Rule-Governed AI Teaching Assistant for Primary Science (IPAS)
+
+**Domain authority.** The substance of the rulebook and the source references came from
+**don Jimat Akbar**, a practising IPAS primary-school teacher — he is also the named approver of run
+`-002`. The team formalised his judgement into machine-checkable predicates; it did not originate it.
+This matters for accountability: the rules the agent enforces are a practitioner's, and the person
+who wrote them is the same person who signs the release.
+
 **Two runs exist. They are not interchangeable — each has its own status:**
 
 | Run | Topic | Human approver | Publish status |
@@ -36,7 +43,7 @@ systems, or any student personal data beyond anonymised scores.
 
 - Decomposing the source into per-format outlines mapped to curriculum outcomes (**Planner**).
 - Drafting all five formats with citation tags on every factual sentence (**Writer**).
-- Self-review against all 11 rules, returning `APPROVE` or `REJECT` with rule IDs and quoted text (**Reviewer**).
+- Self-review against all 12 rules, returning `APPROVE` or `REJECT` with rule IDs and quoted text (**Reviewer**).
 - Re-drafting after a `REJECT`, **up to 3 iterations** (**Orchestrator**).
 - Writing and appending to the audit log after every step.
 - Refusing to proceed when a source is missing, contradictory, or out of scope.

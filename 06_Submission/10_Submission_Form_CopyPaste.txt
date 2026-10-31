@@ -37,10 +37,17 @@ and a playable HTML quiz. Target users are IPAS teachers of grades III-VI
 who must audit their materials.
 
 What makes it different: the pack is produced by four cooperating agents, then
-checked sentence by sentence against a written rulebook of 11 rules, and it
+checked sentence by sentence against a written rulebook of 12 rules, and it
 cannot be published until a human approves it. Run of record:
 EDU-ORCH-20261026-001, topic "Energi Alternatif", anchored to curriculum outcome
 C4 (2.1.4) with foundation B5 (1.1.5).
+
+Where it came from: the idea, the curriculum references and the substance of the
+rules came from don Jimat Akbar, a practising IPAS primary-school teacher. He set
+which claims a teacher will never put in front of a class; our work was to
+formalise that judgement into rules a machine can check and to build the pipeline
+that enforces them. The rulebook, not the code, is the artefact a school could
+adopt - a curriculum team can edit it without touching the pipeline.
 
 
 REAL-WORLD INSIGHT
@@ -63,7 +70,7 @@ The teacher's remaining job is a judgement call on already-checked material.
 SOLUTION DESIGN
 Business layer: Orchestrator holds state and enforces limits; Planner decomposes
 the source into per-format outlines mapped to curriculum outcomes; Writer drafts
-using only tagged source facts; Reviewer checks 11 rules and returns APPROVE or
+using only tagged source facts; Reviewer checks 12 rules and returns APPROVE or
 REJECT with quoted text. A teacher or SME then opens the approval gate. The
 Reviewer can veto but cannot rewrite - an agent that can grade and fix its own
 work will eventually grade itself generously.
@@ -89,7 +96,7 @@ BUSINESS VALUE
   30-45 minutes of reviewing already-checked material. (Estimate from our own
   artefact volume; to be validated in field testing - we are not claiming a
   measured result.)
-- 11 rules checked per document, each with a pass/fail and a citation, versus
+- 12 rules checked per document, each with a pass/fail and a citation, versus
   0-2 informal checks today.
 - One real error caught before publication: on 29 October the reviewer rejected
   our own output for broken source grounding. We fixed the source layer,
@@ -115,7 +122,7 @@ student score table. No internet access during a run, no external accounts, no
 student personal data.
 
 EXECUTES AUTONOMOUSLY: decomposing the source into per-format outlines; drafting
-all five formats with citation tags; self-review against all 11 rules; re-drafting
+all five formats with citation tags; self-review against all 12 rules; re-drafting
 after a rejection up to three times; writing the audit log; refusing to proceed
 when a source is missing, contradictory or out of scope.
 
@@ -239,12 +246,13 @@ purpose, so each skill is self-contained when installed separately.
 ----------------------------------------------------------
 [FIELD] DEMO VIDEO
 ----------------------------------------------------------
-5-8 minutes. Structure: the 21:47 problem, why checking is the real cost, the
-architecture, a live run producing five formats, then three stops - a refusal
-(R006 health claim), an escalation after three failed iterations, and the
-approval gate where the system has an APPROVE and still does not publish - and
-finally the failure we disclosed and fixed. Full shot-by-shot script in
-07_Demo_Video_Script.md.
+7:40 (limit 5-8 minutes). Structure: the 21:47 problem, why checking is the real
+cost, the architecture, a live run producing five formats, then three stops - a
+refusal (R006 health claim), an escalation after three failed iterations, and the
+approval gate where the system has an APPROVE and still does not publish - then
+the failure we disclosed and fixed, then how it was built and who wrote the rules
+(the build-approach and tooling reflection the handbook asks for). Full
+shot-by-shot script in 07_Demo_Video_Script.md.
 
 ==========================================================
 END OF PASTE BLOCKS

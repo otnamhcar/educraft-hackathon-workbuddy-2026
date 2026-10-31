@@ -4,8 +4,12 @@
 > application, a brief reflection on your build approach and any tooling insights. Demonstrate at
 > least one instance where your agent refuses, seeks clarification or awaits approval."*
 >
-> **This script runs 7:20 and contains three such instances**, not one: a refusal, an escalation,
-> and an approval gate. Target runtime: **7:10–7:40**.
+> **This script runs 7:40 and contains three such instances**, not one: a refusal, an escalation,
+> and an approval gate. Target runtime: **7:30–7:50**.
+>
+> All four required elements are covered: overview (§0:00), capabilities and application
+> (§2:05–5:00), **build approach and tooling insights (§6:55–7:15)**, and three accountability
+> stops (§4:00–6:20).
 
 ---
 
@@ -163,7 +167,25 @@ awaiting human approval`. Show `00_run_config.md` with `Human approver: PENDING`
 
 ---
 
-### 6:55 – 7:20 · Value and close
+### 6:55 – 7:15 · How it was built, and who wrote the rules
+
+**On screen:** `rulebook_ipas.md` open at R006, next to a `SKILL.md`. Then a cut to the four contracts
+side by side.
+
+**Narration:**
+> "One thing about how this was built, because it is the part that transfers.
+> The rules are not ours. A practising primary-school teacher told us which claims he would never
+> put in front of a class, and gave us the curriculum references to work from. Our half was to write
+> his judgement down as rules a machine can check, and build the thing that enforces them.
+> The tooling insight is the same one: a skill is a contract, not a prompt. When the reviewer
+> rejected our output, the fix was a change to the contract — which is why it survived the next run."
+
+**Why this scene exists:** handbook §7 requires *"a brief reflection on your build approach and any
+tooling insights"*. Without it the video is non-compliant, however good the demo is.
+
+---
+
+### 7:15 – 7:40 · Value and close
 
 **On screen:** Final pack on screen: five documents + the interactive quiz. Then the numbers.
 
@@ -187,6 +209,7 @@ awaiting human approval`. Show `00_run_config.md` with `Human approver: PENDING`
 - [ ] STOP #2 iteration counter reaching 3 is visible
 - [ ] STOP #3 shows `PENDING` in the run config
 - [ ] 29 Oct rejection report on screen, findings visible
-- [ ] Runtime between 5:00 and 8:00 (target 7:20)
+- [ ] Build-approach beat present and names the teacher (handbook requires it)
+- [ ] Runtime between 5:00 and 8:00 (target 7:40)
 - [ ] Subtitles burned in and checked for the word "reject"
 - [ ] No background music over narration

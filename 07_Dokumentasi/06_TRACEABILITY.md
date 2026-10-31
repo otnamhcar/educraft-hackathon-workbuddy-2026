@@ -89,7 +89,7 @@ Anything in this list must not be stated as fact in the submission until an arte
 | U2 | Participant-defined test cases are allowed | **RESOLVED** | same file §3 — 21/10/2026 09:53: "Untuk dataset dan test case dibebaskan … gunakan data atau skenario mandiri"; reinforced 28/10/2026 13:41 |
 | U3 | Using our own domain instead of the shared dataset is acceptable | **RESOLVED** | same file §3 — the dataset is explicitly waivable. No deviation needs to be argued |
 | U4 | Run `-001` has teacher approval | UNVERIFIED | `00_run_config.md` says `PENDING`. Say "pending", never "approved" |
-| U5 | "Field testing" has happened | OVERSTATED | One teacher, one review session, one printed set. Say "single-teacher review" |
+| U5 | "Field testing" has happened | OVERSTATED — but co-design was UNDER-claimed | One teacher, one review session, one printed set; not classroom testing across a school. Say **"single-teacher co-design and review"**. The true, stronger claim is that the teacher authored the rulebook's substance and supplied the references (`04_Diskusi/rencana_persiapan_kategori_C.md` §167 places him as domain authority for both files). Do not claim a school pilot |
 | U6 | The engine is domain-parameterised | PARTIAL | True since rulebook v2.0 (no hardcoded tag numbers), but never demonstrated on a second subject |
 | U7 | How the demo video must be delivered (file, link, or platform upload) | **UNKNOWN** | Handbook §7 states the runtime and content but not the delivery form. Do both: keep `EduCraft_Demo_Video.mp4` and an unlisted link, then test the link in a private window. See `06_Submission/13_Demo_Video_Runbook.md` §7 |
 

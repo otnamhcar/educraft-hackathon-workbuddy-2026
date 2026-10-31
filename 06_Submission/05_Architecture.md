@@ -12,7 +12,7 @@
 
 | # | Component | Type | Input | Output | Authority |
 |---|-----------|------|-------|--------|-----------|
-| 1 | Teacher / SME | Human | Brief, approved source | Approval or rejection | Final. Can override anything |
+| 1 | Teacher / SME | Human | Brief, approved source; **authored the rulebook's substance and supplied the references** | Approval or rejection | Final. Can override anything |
 | 2 | Orchestrator | Agent (state machine) | Brief + run config | Task assignments, audit log | Routing, limits, escalation. **Cannot publish** |
 | 3 | Planner | Agent | Source + CP | Per-format outlines | Decomposition only |
 | 4 | Writer | Agent | Outline + source | Drafts, tagged | Drafting only |

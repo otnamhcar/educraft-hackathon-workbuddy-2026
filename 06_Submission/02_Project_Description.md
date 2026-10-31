@@ -27,6 +27,22 @@ until an independent reviewer agent has checked every sentence against a written
 **Value delivered.** One source in, five aligned formats out, each one carrying a citation tag
 on every factual claim, plus an audit trail of who decided what and why.
 
+**Origin — the rules are a teacher's, not ours.** The substance of the rulebook did not come from
+the team. It came from **don Jimat Akbar**, a practising IPAS primary-school teacher, who supplied
+both the source references this project is built on and the judgement about what a teacher will and
+will not put in front of children: no permanent health claims, no fear-mongering, nothing that
+humiliates a student, no halal or commercial claim without a certificate. The team's contribution
+was to formalise that judgement into predicates a machine can check, and to build the pipeline that
+enforces them.
+
+This distinction is the point, not a credit line. A rulebook written by engineers is a guess about
+pedagogy; this one is a practitioner's judgement, written down where it can be audited. It is also
+why the artefact a school could adopt is `rulebook_ipas.md` rather than the code — a curriculum team
+can edit the rules without touching the pipeline.
+
+*(Name as recorded in `03_Hasil/edu_output_wujud_zat/audit_log.md` §1, where he is the named
+requester and approver of run `-002`.)*
+
 **Demonstrated run.** Run `EDU-ORCH-20261026-001`, topic *Energi Alternatif dan Penghematan
 Energi*, anchored to CP **C4 (2.1.4)** with foundation **B5 (1.1.5)**. Output: RPP, pre/post
 test (7 + 20 items with key and scoring), slide outline, student article, infographic brief,
@@ -129,7 +145,7 @@ measured across a school yet — we say so plainly.
 | Formats produced from one topic | 1 at a time, re-read source each time | 5 formats + interactive quiz in one run | Run `EDU-ORCH-20261026-001` output count |
 | Teacher time per topic (draft + check) | ~6–8 hours | ~30–45 min (review an already-checked pack) | Estimated from artefact volume; to be validated in field test |
 | Fact-check coverage | Ad hoc, by memory | 100% of factual sentences carry a source tag; tag resolution checked deterministically | `tools/check_grounding.py`: run `-001` **121 tags → PASS**; run `-002` **115 tags → PASS** (0 dangling, 0 class violations on each). Before the fix, `-002` failed with 84 class violations — defect D1, disclosed in `04_Test_Results.md` §4b |
-| Rule compliance checks per document | 0–2 informal | 11 rules, each with pass/fail and citation | `review_kepatuhan_R001-R011_2026-10-30_REVISI.md` |
+| Rule compliance checks per document | 0–2 informal | 12 rules, each with pass/fail and citation | `review_kepatuhan_R001-R011_2026-10-30_REVISI.md` |
 | Errors prevented | Discovered in class, or never | Caught pre-publication (1 real catch on 29 Oct) | Disclosed rejection in `04_Test_Results.md` |
 | Audit trail | None | Full: inputs, decisions, revisions v1→v2, sources | `audit_log_edu_orchestrator.md` |
 

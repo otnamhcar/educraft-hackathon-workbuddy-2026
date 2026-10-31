@@ -20,6 +20,17 @@ sentence against a written rulebook **and** a human has approved.
 
 The product is not the generated text. **The product is the gate.**
 
+### Whose rules these are
+
+The idea, the curriculum references and the substance of the rulebook came from **don Jimat
+Akbar**, a practising IPAS primary-school teacher. He set what a teacher will never put in front of
+a class — no permanent health claims, no fear-mongering, no halal claim without a certificate. The
+team's work was to formalise that judgement into predicates a machine can check, and to build the
+pipeline that enforces them.
+
+This is why `rulebook_ipas.md`, not the code, is the artefact a school could adopt: a curriculum
+team can edit the rules without touching the pipeline.
+
 ---
 
 ## Pipeline
