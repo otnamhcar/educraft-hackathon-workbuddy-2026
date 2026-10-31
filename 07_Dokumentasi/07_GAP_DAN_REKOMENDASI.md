@@ -39,7 +39,7 @@
 | **G12** | No live project link (bonus) | Bonus points; also a 90-second demo surface | Publish the quiz + animatic as a static page |
 | **G13** | No bilingual output (TC-17) | Bonus in Challenge C | One EN version + cross-language fact check |
 | **G14** | No adversarial second Reviewer | Stated limitation; roadmap item | Only if time remains after P0 |
-| **G15** | Surprise test never rehearsed | 90 seconds is unforgiving | Two timed dry runs with an unseen case |
+| **G15** | Surprise test never rehearsed | 90 seconds is unforgiving. **31 Oct:** no Demo Day runbook existed either — the 8-minute format (presentation + 90 s test + Q&A, handbook p. 15) had no time budget, no live/recorded split and no fallback ladder | **Runbook DONE 31 Oct** — `03_Hasil/panduan/Runbook_Demo_Day.md`. **Still open:** two timed rehearsals with an unseen case, logged in its §8 |
 
 ---
 
@@ -54,7 +54,7 @@ Deadline is confirmed **7 November 2026** (`BUKTI_KOMITE_2026-10-31.md` §2). In
 | **1 Nov** | G3 — capture the 5 critical screenshots (TC-08, 10, 14, 15, 18) + TC-02. **First install the four skills** (runbook §1.0) | Critical evidence 1/6 → 5/6; unblocks the Responsible AI cap |
 | **2 Nov** | G4 — record the 5–8 min video from the existing script | Largest single dimension gain (3 → 8) |
 | **3 Nov** | *Buffer* — G6–G8 are already done. Use the day for a second capture pass (S3/S4) or G10 | Absorbs the overrun that capture sessions always produce |
-| **4 Nov** | G10 + G15 — one R012 test case, two timed surprise-test rehearsals | Demo Day readiness; cheap |
+| **4 Nov** | G10 + G15 — one R012 test case, two timed rehearsals using `Runbook_Demo_Day.md` §8 | Demo Day readiness; cheap. Demo Day is 27 Nov and only applies if selected on 10 Nov, so this is the first thing to drop |
 | **5 Nov** | Final reconciliation: test counts, checksums, links, ZIP, submit + screenshot the confirmation | The mechanical points that are free |
 
 If any day slips, drop in this order: G10 → G9 → G15. Never drop G1 or G3.

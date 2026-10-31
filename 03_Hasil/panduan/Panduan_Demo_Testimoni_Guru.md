@@ -9,7 +9,10 @@
 **Jawabannya: CUKUP PANGGIL `edu-orchestrator`.**
 
 - Guru **hanya berinteraksi dengan satu pintu masuk**: `edu-orchestrator`.
-- `edu-planner`, `edu-writer`, `edu-reviewer`, `edu-quiz`, `edu-assessor`, `edu-infographic`, `edu-video` adalah **agent internal** — orchestrator yang mendelegasikan pekerjaan ke mereka di balik layar.
+- `edu-planner`, `edu-writer`, `edu-reviewer` adalah **agent internal** — orchestrator yang mendelegasikan pekerjaan ke mereka di balik layar.
+- **Hanya ada empat skill** di `05_Bukti_Proses/skills_package/`: `edu-orchestrator`, `edu-planner`, `edu-writer`, `edu-reviewer`.
+  Pembuatan infografis, video, dan kuis interaktif adalah **fase aset di dalam `edu-writer`**, bukan agen terpisah
+  (lihat `07_Dokumentasi/01_ARSITEKTUR.md` §3.1). Jangan menyebut tujuh agen — kontraknya empat.
 - Guru **tidak perlu** dan **tidak disarankan** memanggil agent-agent tersebut satu per satu. Itu justru menyembunyikan nilai "asisten" (guru ingin kemudahan, bukan mengatur pipeline).
 
 > **Catatan jujur soal mekanisme (untuk tim, bukan guru):**
@@ -27,9 +30,9 @@
                 │
                 ├─▶ edu-planner      (buat outline)
                 ├─▶ edu-writer       (draf artikel/kuis/naskah)
-                ├─▶ edu-reviewer     (cek aturan R001–R010)
+                ├─▶ edu-reviewer     (cek aturan R001–R012)
                 │       └─ bila REJECT → kembali ke writer (maks 3x) → escalate
-                ├─▶ edu-quiz / edu-infographic / edu-video (generator)
+                ├─▶ fase aset edu-writer: kuis interaktif / infografis / storyboard video
                 │
                 └─▶ ⛔ GATE PERSETUJUAN GURU (HITL) ◀── Guru melihat & menyetujui
                         │
@@ -41,16 +44,16 @@ Guru **hanya diminta ikut campur di dua titik**: (1) memberi topik/sumber di awa
 
 ## 3. Runbook Demo (langkah demi langkah)
 
-1. **Buka chat baru** di WorkBuddy (agar 8 skill termuat di menu).
+1. **Buka chat baru** di WorkBuddy (agar 4 skill `edu-*` termuat di menu — verifikasi dengan `ls ~/.workbuddy-ai/skills/ | grep '^edu-'`).
 2. **Panggil orchestrator**, contoh prompt:
-   > "Gunakan edu-orchestrator untuk membuat materi IPAS tentang *sistem organ tubuh manusia* untuk kelas 5: artikel singkat + infografis + pre-test (7 soal) & post-test (20 soal), patuhi rulebook R001–R010."
+   > "Gunakan edu-orchestrator untuk membuat materi IPAS tentang *sistem organ tubuh manusia* untuk kelas 5: artikel singkat + infografis + pre-test (7 soal) & post-test (20 soal), patuhi rulebook R001–R012."
 3. **Orchestrator berjalan** di balik layar (planner→writer→reviewer→generator). Guru menunggu.
 4. **Sistem berhenti & minta approval**: guru melihat draf + kunci jawaban + (opsional) `quiz_interaktif.html`. Guru bisa:
    - Setuju → lanjut.
    - Minta revisi → orchestrator perbaiki (loop remediation).
 5. **Setelah approval**, hasil diserahkan ke siswa.
 6. **Siswa kerjakan pre-test → materi → post-test**.
-7. **Guru input jawaban** → orchestrator (`edu-assessor`) mengisi **tabel nilai** + ringkasan ketercapaian per siswa.
+7. **Guru input jawaban** → `edu-writer` mengisi **tabel nilai** + ringkasan ketercapaian per siswa. *(Tidak ada skill `edu-assessor`; tabel nilai adalah bagian dari paket guru.)*
 8. **`audit_log.md` otomatis tercatat** sebagai bukti akuntabilitas (MUST-HAVE #7).
 
 ---
@@ -75,6 +78,7 @@ Agar testimoni **otentik**, guru sungguhan harus mencoba alur di atas (langkah 2
 
 ## 5. Catatan untuk Submission
 
-- **Bukti TC-12/TC-13**: `evidence_demo_karhutla.md` + `audit_log.md` (sudah dibuat, berupa simulasi ber-grounding). Untuk bukti *nyata*, jalankan Runbook di atas di chat baru lalu simpan screenshot/rekaman.
+- **Bukti TC-12/TC-13**: `03_Hasil/audit/review_kepatuhan_R001-R011_2026-10-29.md` (REJECT) → `..._2026-10-30_REVISI.md` (APPROVE) + `03_Hasil/audit/audit_log_edu_orchestrator.md` §7. Untuk bukti *nyata*, jalankan Runbook di atas di chat baru lalu simpan screenshot/rekaman.
+- **Demo Day (27 Nov)**: lihat `03_Hasil/panduan/Runbook_Demo_Day.md` — dokumen ini hanya untuk demo ke guru & testimoni.
 - **Upgrade opsional**: ubah orchestrator ke mode **(b) sub-agent nyata** agar multi-agent-ness terlihat eksplisit di demo.
 - **Jangan** suruh guru memanggil agent sub-agent — cukup orchestrator.

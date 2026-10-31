@@ -65,6 +65,7 @@ Three properties are enforced by contract, not by hope:
 | `03_Hasil/materi_ajar/` | Run `-001` output (Energi Alternatif), corrected drafts + HTML quiz |
 | `03_Hasil/edu_output_wujud_zat/` | Run `-002` output (Perubahan Wujud Zat) + three print-ready PDFs |
 | `03_Hasil/audit/` | **Both** review reports — the REJECT and the APPROVE |
+| `03_Hasil/panduan/` | How to demo it: teacher walkthrough + testimonial guide, and the Demo Day runbook (8-minute budget, fallback ladder, Q&A evidence pointers) |
 | `04_Diskusi/test_cases_matrix.md` | The 20-case suite, including which six are critical |
 | `06_Submission/` | Submission bundle: description, accountability sheet, test results, architecture, deck |
 | `06_Submission/architecture_diagram.png` | Component and trust-boundary diagram |
