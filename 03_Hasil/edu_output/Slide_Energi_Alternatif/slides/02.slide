@@ -1,0 +1,44 @@
+<Slide style={{ width: '1280px', height: '720px', background: '#F0FDF4', padding: '60px 80px', flexDirection: 'column' }}>
+  <Box style={{ flexDirection: 'column', gap: 8, marginBottom: 24 }}>
+    <Text style={{ fontSize: 36, color: '#14532D', fontWeight: 'bold' }}>Apa itu Energi?</Text>
+    <Box style={{ width: 80, height: 4, background: '#15803D', borderRadius: 2 }} />
+  </Box>
+  <Box style={{ flexDirection: 'row', gap: 32, flex: 1 }}>
+    <Box style={{ flex: 3, flexDirection: 'column', gap: 20 }}>
+      <Box style={{ background: '#FFFFFF', borderRadius: 12, padding: 24, border: '1px solid #D1FAE5' }}>
+        <Text style={{ fontSize: 22, color: '#15803D', fontWeight: 'bold', marginBottom: 12 }}>Bentuk-Bentuk Energi</Text>
+        <Box style={{ flexDirection: 'row', gap: 12, flexWrap: 'wrap' }}>
+          <Box style={{ background: '#ECFDF5', borderRadius: 8, padding: '10px 16px' }}><Text style={{ fontSize: 18, color: '#166534' }}>Gerak</Text></Box>
+          <Box style={{ background: '#FEF3C7', borderRadius: 8, padding: '10px 16px' }}><Text style={{ fontSize: 18, color: '#92400E' }}>Panas</Text></Box>
+          <Box style={{ background: '#FEF9C3', borderRadius: 8, padding: '10px 16px' }}><Text style={{ fontSize: 18, color: '#854D0E' }}>Cahaya</Text></Box>
+          <Box style={{ background: '#DBEAFE', borderRadius: 8, padding: '10px 16px' }}><Text style={{ fontSize: 18, color: '#1E40AF' }}>Listrik</Text></Box>
+          <Box style={{ background: '#F3E8FF', borderRadius: 8, padding: '10px 16px' }}><Text style={{ fontSize: 18, color: '#6B21A8' }}>Kimia</Text></Box>
+          <Box style={{ background: '#FCE7F3', borderRadius: 8, padding: '10px 16px' }}><Text style={{ fontSize: 18, color: '#9D174D' }}>Bunyi</Text></Box>
+        </Box>
+      </Box>
+      <Box style={{ background: '#FFFFFF', borderRadius: 12, padding: 24, border: '1px solid #D1FAE5' }}>
+        <Text style={{ fontSize: 22, color: '#15803D', fontWeight: 'bold', marginBottom: 12 }}>Contoh di Kelas</Text>
+        <Box style={{ flexDirection: 'column', gap: 10 }}>
+          <Box style={{ flexDirection: 'row', gap: 12, alignItems: 'center' }}>
+            <FAIcon name='lightbulb' style={{ fill: '#F59E0B', width: 28, height: 28 }} />
+            <Text style={{ fontSize: 19, color: '#1C1917' }}>Lampu: listrik &rarr; cahaya &amp; panas</Text>
+          </Box>
+          <Box style={{ flexDirection: 'row', gap: 12, alignItems: 'center' }}>
+            <FAIcon name='fan' style={{ fill: '#3B82F6', width: 28, height: 28 }} />
+            <Text style={{ fontSize: 19, color: '#1C1917' }}>Kipas: listrik &rarr; gerak</Text>
+          </Box>
+        </Box>
+      </Box>
+    </Box>
+    <Box style={{ flex: 2, background: '#15803D', borderRadius: 16, padding: 28, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: 16 }}>
+      <FAIcon name='bolt' style={{ fill: '#FBBF24', width: 80, height: 80 }} />
+      <Text style={{ fontSize: 20, color: '#D1FAE5', textAlign: 'center', lineHeight: 1.5 }}>
+        Energi ada di mana-mana!<br />Setiap benda punya atau<br />menggunakan energi.
+      </Text>
+      <Text style={{ fontSize: 14, color: '#86EFAC', marginTop: 8 }}>Sumber: Panduan IPAS Revisi 4, Kemendikdasmen</Text>
+    </Box>
+  </Box>
+  <Box style={{ marginTop: 16, flexDirection: 'row', justifyContent: 'flex-end' }}>
+    <Text style={{ fontSize: 14, color: '#9CA3AF' }}>Slide 2 &middot; IPAS &middot; Energi Alternatif</Text>
+  </Box>
+</Slide>

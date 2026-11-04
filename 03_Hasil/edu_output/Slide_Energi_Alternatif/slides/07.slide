@@ -1,0 +1,54 @@
+<Slide style={{ width: '1280px', height: '720px', background: '#F0FDF4', padding: '60px 80px', flexDirection: 'column' }}>
+  <Box style={{ flexDirection: 'column', gap: 8, marginBottom: 24 }}>
+    <Text style={{ fontSize: 36, color: '#14532D', fontWeight: 'bold' }}>Jaga Bumi &mdash; Mitigasi Perubahan Iklim</Text>
+    <Box style={{ width: 80, height: 4, background: '#15803D', borderRadius: 2 }} />
+  </Box>
+  <Box style={{ flexDirection: 'row', gap: 24, flex: 1 }}>
+    <Box style={{ flex: 1, flexDirection: 'column', gap: 16 }}>
+      <Text style={{ fontSize: 20, color: '#14532D', fontWeight: 'bold' }}>Sumber Daya Alam untuk Generasi Mendatang:</Text>
+      <Box style={{ flexDirection: 'row', gap: 12 }}>
+        <Box style={{ flex: 1, background: '#DBEAFE', borderRadius: 10, padding: 16, alignItems: 'center', gap: 8 }}>
+          <FAIcon name='tint' style={{ fill: '#0EA5E9', width: 32, height: 32 }} />
+          <Text style={{ fontSize: 18, color: '#1E40AF', fontWeight: 'bold' }}>Air</Text>
+        </Box>
+        <Box style={{ flex: 1, background: '#DCFCE7', borderRadius: 10, padding: 16, alignItems: 'center', gap: 8 }}>
+          <FAIcon name='mountain' style={{ fill: '#15803D', width: 32, height: 32 }} />
+          <Text style={{ fontSize: 18, color: '#14532D', fontWeight: 'bold' }}>Tanah</Text>
+        </Box>
+        <Box style={{ flex: 1, background: '#DCFCE7', borderRadius: 10, padding: 16, alignItems: 'center', gap: 8 }}>
+          <FAIcon name='tree' style={{ fill: '#166534', width: 32, height: 32 }} />
+          <Text style={{ fontSize: 18, color: '#14532D', fontWeight: 'bold' }}>Hutan</Text>
+        </Box>
+        <Box style={{ flex: 1, background: '#E0E7FF', borderRadius: 10, padding: 16, alignItems: 'center', gap: 8 }}>
+          <FAIcon name='wind' style={{ fill: '#3B82F6', width: 32, height: 32 }} />
+          <Text style={{ fontSize: 18, color: '#3730A3', fontWeight: 'bold' }}>Udara</Text>
+        </Box>
+      </Box>
+      <Box style={{ background: '#FFFFFF', borderRadius: 12, padding: 24, border: '1px solid #D1FAE5' }}>
+        <Text style={{ fontSize: 20, color: '#15803D', fontWeight: 'bold', marginBottom: 14 }}>Upaya Murid:</Text>
+        <Box style={{ flexDirection: 'column', gap: 10 }}>
+          <Box style={{ flexDirection: 'row', gap: 12, alignItems: 'center' }}>
+            <FAIcon name='recycle' style={{ fill: '#15803D', width: 24, height: 24 }} />
+            <Text style={{ fontSize: 18, color: '#1C1917' }}>Reduce, Reuse, Recycle</Text>
+          </Box>
+          <Box style={{ flexDirection: 'row', gap: 12, alignItems: 'center' }}>
+            <FAIcon name='tree' style={{ fill: '#166534', width: 24, height: 24 }} />
+            <Text style={{ fontSize: 18, color: '#1C1917' }}>Menanam pohon</Text>
+          </Box>
+          <Box style={{ flexDirection: 'row', gap: 12, alignItems: 'center' }}>
+            <FAIcon name='bolt' style={{ fill: '#F59E0B', width: 24, height: 24 }} />
+            <Text style={{ fontSize: 18, color: '#1C1917' }}>Menghemat energi</Text>
+          </Box>
+          <Box style={{ flexDirection: 'row', gap: 12, alignItems: 'center' }}>
+            <FAIcon name='bus' style={{ fill: '#3B82F6', width: 24, height: 24 }} />
+            <Text style={{ fontSize: 18, color: '#1C1917' }}>Transportasi ramah lingkungan</Text>
+          </Box>
+        </Box>
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{ marginTop: 12, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#15803D' }}>Sumber: Panduan IPAS Revisi 4, Kemendikdasmen</Text>
+    <Text style={{ fontSize: 14, color: '#9CA3AF' }}>Slide 7 &middot; IPAS &middot; Energi Alternatif</Text>
+  </Box>
+</Slide>

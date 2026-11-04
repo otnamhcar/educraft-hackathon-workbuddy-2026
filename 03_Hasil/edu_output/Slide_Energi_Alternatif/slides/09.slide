@@ -1,0 +1,42 @@
+<Slide style={{ width: '1280px', height: '720px', background: '#F0FDF4', padding: '60px 80px', flexDirection: 'column' }}>
+  <Box style={{ flexDirection: 'column', gap: 8, marginBottom: 20 }}>
+    <Text style={{ fontSize: 36, color: '#14532D', fontWeight: 'bold' }}>Indonesia Net Sink 2030 &amp; Net Zero 2060</Text>
+    <Box style={{ width: 80, height: 4, background: '#15803D', borderRadius: 2 }} />
+  </Box>
+  <Box style={{ flexDirection: 'row', gap: 24, flex: 1 }}>
+    <Box style={{ flex: 1, background: '#15803D', borderRadius: 20, padding: 32, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: 16 }}>
+      <Text style={{ fontSize: 56, color: '#FBBF24', fontWeight: 'bold' }}>2030</Text>
+      <Box style={{ width: 60, height: 3, background: '#86EFAC', borderRadius: 2 }} />
+      <Text style={{ fontSize: 22, color: '#FFFFFF', fontWeight: 'bold', textAlign: 'center' }}>Net Sink</Text>
+      <Text style={{ fontSize: 17, color: '#D1FAE5', textAlign: 'center', lineHeight: 1.5 }}>
+        Sektor kehutanan &amp;<br/>lahan menjadi<br/>penyerap karbon
+      </Text>
+    </Box>
+    <Box style={{ flex: 1, background: '#166534', borderRadius: 20, padding: 32, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: 16 }}>
+      <Text style={{ fontSize: 56, color: '#FBBF24', fontWeight: 'bold' }}>2060</Text>
+      <Box style={{ width: 60, height: 3, background: '#86EFAC', borderRadius: 2 }} />
+      <Text style={{ fontSize: 22, color: '#FFFFFF', fontWeight: 'bold', textAlign: 'center' }}>Net Zero</Text>
+      <Text style={{ fontSize: 17, color: '#D1FAE5', textAlign: 'center', lineHeight: 1.5 }}>
+        Net zero emisi<br/>melalui penghijauan<br/>&amp; kurangi sampah energi
+      </Text>
+    </Box>
+    <Box style={{ flex: 1, flexDirection: 'column', gap: 16, justifyContent: 'center' }}>
+      <Box style={{ background: '#FFFFFF', borderRadius: 12, padding: 20, border: '1px solid #D1FAE5', flexDirection: 'row', gap: 16, alignItems: 'center' }}>
+        <FAIcon name='tree' style={{ fill: '#166534', width: 36, height: 36 }} />
+        <Box><Text style={{ fontSize: 18, color: '#14532D', fontWeight: 'bold' }}>Penghijauan</Text><Text style={{ fontSize: 15, color: '#6B7280' }}>Tanam pohon</Text></Box>
+      </Box>
+      <Box style={{ background: '#FFFFFF', borderRadius: 12, padding: 20, border: '1px solid #D1FAE5', flexDirection: 'row', gap: 16, alignItems: 'center' }}>
+        <FAIcon name='recycle' style={{ fill: '#15803D', width: 36, height: 36 }} />
+        <Box><Text style={{ fontSize: 18, color: '#14532D', fontWeight: 'bold' }}>Kurangi Sampah</Text><Text style={{ fontSize: 15, color: '#6B7280' }}>Reduce &amp; reuse</Text></Box>
+      </Box>
+      <Box style={{ background: '#FEF3C7', borderRadius: 12, padding: 20, border: '1px solid #FDE68A', flexDirection: 'row', gap: 12, alignItems: 'center' }}>
+        <FAIcon name='info-circle' style={{ fill: '#B45309', width: 28, height: 28 }} />
+        <Text style={{ fontSize: 15, color: '#92400E' }}>Sumber: Kementerian LHK</Text>
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{ marginTop: 12, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#15803D' }}>Sumber: Kementerian LHK; Republic of Indonesia, Bank Indonesia, Mar 2022</Text>
+    <Text style={{ fontSize: 14, color: '#9CA3AF' }}>Slide 9 &middot; IPAS &middot; Energi Alternatif</Text>
+  </Box>
+</Slide>

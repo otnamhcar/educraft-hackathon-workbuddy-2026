@@ -1,0 +1,37 @@
+<Slide style={{ width: '1280px', height: '720px', background: '#F0FDF4', padding: '60px 80px', flexDirection: 'column' }}>
+  <Box style={{ flexDirection: 'column', gap: 8, marginBottom: 24 }}>
+    <Text style={{ fontSize: 36, color: '#14532D', fontWeight: 'bold' }}>Energi Tidak Hilang, Hanya Berubah Bentuk</Text>
+    <Box style={{ width: 80, height: 4, background: '#15803D', borderRadius: 2 }} />
+  </Box>
+  <Box style={{ flexDirection: 'row', gap: 24, flex: 1, alignItems: 'center' }}>
+    <Box style={{ flex: 1, flexDirection: 'column', gap: 20 }}>
+      <Box style={{ background: '#FFFFFF', borderRadius: 16, padding: 28, border: '1px solid #D1FAE5', alignItems: 'center', gap: 16 }}>
+        <FAIcon name='utensils' style={{ fill: '#7C3AED', width: 48, height: 48 }} />
+        <Text style={{ fontSize: 22, color: '#14532D', fontWeight: 'bold' }}>Makanan</Text>
+        <Text style={{ fontSize: 18, color: '#6B7280' }}>Energi Kimia</Text>
+      </Box>
+      <Box style={{ alignItems: 'center' }}>
+        <FAIcon name='arrow-down' style={{ fill: '#15803D', width: 48, height: 48 }} />
+        <Text style={{ fontSize: 16, color: '#15803D', fontWeight: 'bold', marginTop: 4 }}>berubah menjadi</Text>
+      </Box>
+      <Box style={{ background: '#15803D', borderRadius: 16, padding: 28, alignItems: 'center', gap: 16 }}>
+        <FAIcon name='running' style={{ fill: '#FBBF24', width: 48, height: 48 }} />
+        <Text style={{ fontSize: 22, color: '#FFFFFF', fontWeight: 'bold' }}>Gerak Tubuh</Text>
+        <Text style={{ fontSize: 18, color: '#D1FAE5' }}>Energi Gerak</Text>
+      </Box>
+    </Box>
+    <Box style={{ flex: 1, background: '#166534', borderRadius: 20, padding: 36, flexDirection: 'column', justifyContent: 'center', gap: 20 }}>
+      <Text style={{ fontSize: 48, color: '#86EFAC', fontWeight: 'bold', textAlign: 'center', lineHeight: 1.2 }}>
+        Energi tidak<br />diciptakan atau<br />dimusnahkan
+      </Text>
+      <Box style={{ width: 60, height: 3, background: '#86EFAC', borderRadius: 2, alignSelf: 'center' }} />
+      <Text style={{ fontSize: 22, color: '#D1FAE5', textAlign: 'center', lineHeight: 1.5 }}>
+        Hanya diubah<br />bentuknya
+      </Text>
+      <Text style={{ fontSize: 14, color: '#86EFAC', textAlign: 'center', marginTop: 8 }}>Sumber: Panduan IPAS Revisi 4, Kemendikdasmen</Text>
+    </Box>
+  </Box>
+  <Box style={{ marginTop: 12, flexDirection: 'row', justifyContent: 'flex-end' }}>
+    <Text style={{ fontSize: 14, color: '#9CA3AF' }}>Slide 4 &middot; IPAS &middot; Energi Alternatif</Text>
+  </Box>
+</Slide>

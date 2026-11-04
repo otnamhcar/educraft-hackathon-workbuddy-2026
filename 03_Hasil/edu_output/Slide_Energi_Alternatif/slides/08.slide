@@ -1,0 +1,50 @@
+<Slide style={{ width: '1280px', height: '720px', background: '#F0FDF4', padding: '60px 80px', flexDirection: 'column' }}>
+  <Box style={{ flexDirection: 'column', gap: 8, marginBottom: 20 }}>
+    <Text style={{ fontSize: 36, color: '#14532D', fontWeight: 'bold' }}>PLTS Terapung Cirata</Text>
+    <Box style={{ width: 80, height: 4, background: '#15803D', borderRadius: 2 }} />
+  </Box>
+  <Box style={{ flexDirection: 'row', gap: 24, flex: 1 }}>
+    <Box style={{ flex: 3, flexDirection: 'column', gap: 20 }}>
+      <Box style={{ background: '#15803D', borderRadius: 16, padding: 32, flexDirection: 'column', gap: 16 }}>
+        <Box style={{ flexDirection: 'row', gap: 24, alignItems: 'baseline' }}>
+          <Text style={{ fontSize: 72, color: '#FBBF24', fontWeight: 'bold' }}>145</Text>
+          <Text style={{ fontSize: 28, color: '#86EFAC', fontWeight: 'bold' }}>MWac (192 MWp)</Text>
+        </Box>
+        <Text style={{ fontSize: 20, color: '#FFFFFF', lineHeight: 1.5 }}>
+          Kapasitas terbesar di Asia Tenggara untuk pembangkit listrik tenaga surya apung
+        </Text>
+      </Box>
+      <Box style={{ flexDirection: 'row', gap: 16 }}>
+        <Box style={{ flex: 1, background: '#FFFFFF', borderRadius: 12, padding: 20, border: '1px solid #D1FAE5', flexDirection: 'column', gap: 8 }}>
+          <FAIcon name='map-marker-alt' style={{ fill: '#DC2626', width: 32, height: 32 }} />
+          <Text style={{ fontSize: 18, color: '#14532D', fontWeight: 'bold' }}>Lokasi</Text>
+          <Text style={{ fontSize: 16, color: '#6B7280' }}>Waduk Cirata,<br/>Jawa Barat</Text>
+        </Box>
+        <Box style={{ flex: 1, background: '#FFFFFF', borderRadius: 12, padding: 20, border: '1px solid #D1FAE5', flexDirection: 'column', gap: 8 }}>
+          <FAIcon name='calendar' style={{ fill: '#3B82F6', width: 32, height: 32 }} />
+          <Text style={{ fontSize: 18, color: '#14532D', fontWeight: 'bold' }}>Beroperasi</Text>
+          <Text style={{ fontSize: 16, color: '#6B7280' }}>Tahun 2023</Text>
+        </Box>
+        <Box style={{ flex: 1, background: '#FFFFFF', borderRadius: 12, padding: 20, border: '1px solid #D1FAE5', flexDirection: 'column', gap: 8 }}>
+          <FAIcon name='trophy' style={{ fill: '#CA8A04', width: 32, height: 32 }} />
+          <Text style={{ fontSize: 18, color: '#14532D', fontWeight: 'bold' }}>Pencapaian</Text>
+          <Text style={{ fontSize: 16, color: '#6B7280' }}>Terbesar di<br/>Asia Tenggara</Text>
+        </Box>
+      </Box>
+    </Box>
+    <Box style={{ flex: 2, background: '#166534', borderRadius: 20, padding: 28, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: 20 }}>
+      <FAIcon name='solar-panel' style={{ fill: '#FBBF24', width: 72, height: 72 }} />
+      <Text style={{ fontSize: 20, color: '#FFFFFF', textAlign: 'center', lineHeight: 1.5, fontWeight: 'bold' }}>
+        Bukti energi alternatif<br/>nyata di Indonesia
+      </Text>
+      <Box style={{ width: 40, height: 2, background: '#86EFAC' }} />
+      <Text style={{ fontSize: 16, color: '#D1FAE5', textAlign: 'center', lineHeight: 1.5 }}>
+        Panel surya dipasang<br/>di atas permukaan air<br/>Waduk Cirata
+      </Text>
+      <Text style={{ fontSize: 14, color: '#86EFAC' }}>Sumber: PT PLN Nusantara Renewables; PV Tech, Nov 2023</Text>
+    </Box>
+  </Box>
+  <Box style={{ marginTop: 12, flexDirection: 'row', justifyContent: 'flex-end' }}>
+    <Text style={{ fontSize: 14, color: '#9CA3AF' }}>Slide 8 &middot; IPAS &middot; Energi Alternatif</Text>
+  </Box>
+</Slide>

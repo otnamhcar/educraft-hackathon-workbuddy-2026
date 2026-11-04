@@ -1,0 +1,54 @@
+<Slide style={{ width: '1280px', height: '720px', background: '#F0FDF4', padding: '60px 80px', flexDirection: 'column' }}>
+  <Box style={{ flexDirection: 'column', gap: 8, marginBottom: 24 }}>
+    <Text style={{ fontSize: 36, color: '#14532D', fontWeight: 'bold' }}>Energi Alternatif</Text>
+    <Box style={{ width: 80, height: 4, background: '#15803D', borderRadius: 2 }} />
+  </Box>
+  <Box style={{ flexDirection: 'row', gap: 20, flex: 1 }}>
+    <Box style={{ flex: 3, flexDirection: 'column', gap: 16 }}>
+      <Box style={{ flexDirection: 'row', gap: 16 }}>
+        <Box style={{ flex: 1, background: '#FFFFFF', borderRadius: 12, padding: 20, border: '1px solid #D1FAE5', flexDirection: 'column', gap: 10, alignItems: 'center' }}>
+          <FAIcon name='sun' style={{ fill: '#F59E0B', width: 44, height: 44 }} />
+          <Text style={{ fontSize: 20, color: '#14532D', fontWeight: 'bold' }}>Surya</Text>
+          <Text style={{ fontSize: 16, color: '#6B7280', textAlign: 'center' }}>Matahari</Text>
+        </Box>
+        <Box style={{ flex: 1, background: '#FFFFFF', borderRadius: 12, padding: 20, border: '1px solid #D1FAE5', flexDirection: 'column', gap: 10, alignItems: 'center' }}>
+          <FAIcon name='wind' style={{ fill: '#3B82F6', width: 44, height: 44 }} />
+          <Text style={{ fontSize: 20, color: '#14532D', fontWeight: 'bold' }}>Angin</Text>
+          <Text style={{ fontSize: 16, color: '#6B7280', textAlign: 'center' }}>Gerak angin</Text>
+        </Box>
+        <Box style={{ flex: 1, background: '#FFFFFF', borderRadius: 12, padding: 20, border: '1px solid #D1FAE5', flexDirection: 'column', gap: 10, alignItems: 'center' }}>
+          <FAIcon name='tint' style={{ fill: '#0EA5E9', width: 44, height: 44 }} />
+          <Text style={{ fontSize: 20, color: '#14532D', fontWeight: 'bold' }}>Air</Text>
+          <Text style={{ fontSize: 16, color: '#6B7280', textAlign: 'center' }}>Aliran air</Text>
+        </Box>
+        <Box style={{ flex: 1, background: '#FFFFFF', borderRadius: 12, padding: 20, border: '1px solid #D1FAE5', flexDirection: 'column', gap: 10, alignItems: 'center' }}>
+          <FAIcon name='fire' style={{ fill: '#DC2626', width: 44, height: 44 }} />
+          <Text style={{ fontSize: 20, color: '#14532D', fontWeight: 'bold' }}>Biogas</Text>
+          <Text style={{ fontSize: 16, color: '#6B7280', textAlign: 'center' }}>Sampah organik</Text>
+        </Box>
+      </Box>
+      <Box style={{ background: '#DCFCE7', borderRadius: 12, padding: 24, flexDirection: 'column', gap: 10 }}>
+        <Box style={{ flexDirection: 'row', gap: 12, alignItems: 'center' }}>
+          <FAIcon name='check-circle' style={{ fill: '#15803D', width: 28, height: 28 }} />
+          <Text style={{ fontSize: 19, color: '#14532D', fontWeight: 'bold' }}>Dapat diperbarui</Text>
+        </Box>
+        <Box style={{ flexDirection: 'row', gap: 12, alignItems: 'center' }}>
+          <FAIcon name='check-circle' style={{ fill: '#15803D', width: 28, height: 28 }} />
+          <Text style={{ fontSize: 19, color: '#14532D', fontWeight: 'bold' }}>Ramah lingkungan</Text>
+        </Box>
+      </Box>
+      <Box style={{ background: '#FEF3C7', borderRadius: 12, padding: 20, flexDirection: 'row', gap: 12, alignItems: 'center' }}>
+        <FAIcon name='exclamation-circle' style={{ fill: '#B45309', width: 28, height: 28 }} />
+        <Text style={{ fontSize: 18, color: '#92400E' }}>Aktivitas: bandingkan dengan bahan bakar (minyak/batu bara) yang tidak dapat diperbarui!</Text>
+      </Box>
+    </Box>
+    <Box style={{ flex: 1, background: '#15803D', borderRadius: 16, padding: 24, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: 16 }}>
+      <FAIcon name='leaf' style={{ fill: '#86EFAC', width: 64, height: 64 }} />
+      <Text style={{ fontSize: 20, color: '#FFFFFF', textAlign: 'center', lineHeight: 1.5, fontWeight: 'bold' }}>Energi yang<br/>dapat diperbarui<br/>&amp; ramah lingkungan</Text>
+      <Text style={{ fontSize: 14, color: '#86EFAC' }}>Sumber: Panduan IPAS Revisi 4, Kemendikdasmen</Text>
+    </Box>
+  </Box>
+  <Box style={{ marginTop: 12, flexDirection: 'row', justifyContent: 'flex-end' }}>
+    <Text style={{ fontSize: 14, color: '#9CA3AF' }}>Slide 5 &middot; IPAS &middot; Energi Alternatif</Text>
+  </Box>
+</Slide>

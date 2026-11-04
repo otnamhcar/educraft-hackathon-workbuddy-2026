@@ -1,0 +1,28 @@
+<Slide style={{ width: '1280px', height: '720px', background: 'linear-gradient(135deg, #15803D 0%, #166534 40%, #14532D 100%)', padding: '60px 80px', flexDirection: 'column', justifyContent: 'center', position: 'relative' }}>
+  <Box style={{ position: 'absolute', top: 0, right: 0, width: 400, height: 400, background: 'radial-gradient(circle, rgba(134,239,172,0.15) 0%, transparent 70%)' }} />
+  <Box style={{ flexDirection: 'column', gap: 20, zIndex: 1 }}>
+    <Box style={{ flexDirection: 'row', gap: 16, alignItems: 'center' }}>
+      <Box style={{ width: 8, height: 60, background: '#86EFAC', borderRadius: 4 }} />
+      <Text style={{ fontSize: 22, color: '#86EFAC', fontWeight: 'bold', letterSpacing: 2 }}>IPAS &middot; FASE C &middot; KELAS V&ndash;VI</Text>
+    </Box>
+    <Text style={{ fontSize: 68, color: '#FFFFFF', fontWeight: 'bold', lineHeight: 1.15, textShadow: '2px 2px 12px rgba(0,0,0,0.3)' }}>
+      Energi Alternatif<br />dan Penghematan Energi
+    </Text>
+    <Box style={{ width: 120, height: 4, background: '#86EFAC', borderRadius: 2, margin: '12px 0' }} />
+    <Text style={{ fontSize: 26, color: '#BBF7D0', lineHeight: 1.4 }}>
+      Mari menjaga bumi dengan energi bersih
+    </Text>
+    <Box style={{ flexDirection: 'row', gap: 12, marginTop: 24 }}>
+      <Box style={{ background: 'rgba(134,239,172,0.2)', borderRadius: 20, padding: '8px 20px' }}>
+        <Text style={{ fontSize: 16, color: '#86EFAC' }}>Kurikulum Merdeka</Text>
+      </Box>
+      <Box style={{ background: 'rgba(134,239,172,0.2)', borderRadius: 20, padding: '8px 20px' }}>
+        <Text style={{ fontSize: 16, color: '#86EFAC' }}>Mitigasi Perubahan Iklim</Text>
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{ position: 'absolute', bottom: 40, left: 80, flexDirection: 'row', gap: 24, alignItems: 'center' }}>
+    <FAIcon name='leaf' style={{ fill: '#86EFAC', width: 28, height: 28 }} />
+    <Text style={{ fontSize: 16, color: '#86EFAC', opacity: 0.8 }}>EduCraft &middot; IPAS Pembelajaran Berbasis Proses</Text>
+  </Box>
+</Slide>
