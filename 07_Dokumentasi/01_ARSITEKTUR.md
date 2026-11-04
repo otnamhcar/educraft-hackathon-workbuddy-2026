@@ -141,6 +141,9 @@ S4  Review        Reviewer → APPROVE | REJECT + findings[]
                   REJECT → kembali ke S2, iteration += 1; di iterasi 3 → S6
 S5  Approve       Manusia membaca paket, memutuskan
 S6  Release       Hanya setelah persetujuan eksplisit. Bila tidak, berhenti dengan temuan.
+S6b Format        Orchestrator → RPP .docx, slide .pptx, kuis .html
+    Rendering     Prasyarat: approved_at terisi. Kontrak: format_rendering_spec.md (FR-01…FR-08).
+                  Isi tidak berubah — hanya bentuk. Cacat isi kembali ke S2 sebagai iterasi baru.
 ```
 
 **S3 adalah langkah yang selama ini hilang dari proyek ini.** Langkah ini dispesifikasikan di sini, dan

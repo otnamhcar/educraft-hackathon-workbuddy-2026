@@ -18,6 +18,12 @@
 | S4b Limit | Orchestrator | penghitung iterasi | entri audit log | `iteration < 3` | Di angka 3 → S6 (eskalasi, jangan terbitkan) |
 | S5 Approve | Manusia | seluruh paket | baris persetujuan di `00_run_config.md` | Persetujuan eksplisit, nama + stempel waktu | Tanpa persetujuan → berhenti |
 | S6 Release | Orchestrator | paket yang disetujui | paket cetak, kuis HTML, penutupan audit | Persetujuan tercatat sebelum distribusi apa pun | Menolak |
+| S6b Format Rendering | Orchestrator | paket yang disetujui + `format_rendering_spec.md` | `RPP_*.docx`, `Slide_*/`, `quiz_*.html` | Checklist verifikasi 10 butir lulus; Source Resolution Map tercatat | Kembali ke S6b; tidak menyerahkan artefak yang gagal verifikasi |
+
+**Status S6b:** ditetapkan 4 Nov 2026 sebagai Stage 6 pada `edu-orchestrator/SKILL.md` (pipeline menjadi
+7 langkah). Kontrak operasionalnya `edu-orchestrator/assets/format_rendering_spec.md` — aturan FR-01…FR-08
+dan checklist §5. Langkah ini **tidak menggantikan** S0–S6; ia berjalan hanya setelah persetujuan manusia
+tercatat, dan mengubah paket yang disetujui menjadi artefak siap pakai.
 
 **Status S3:** pemeriksanya sudah ada (`tools/check_grounding.py`); menjadikannya gerbang wajib masih
 **GAP** — kontrak orchestrator belum mewajibkannya. Lihat `07_GAP_DAN_REKOMENDASI.md` G1.
@@ -27,11 +33,15 @@
 ## 2. State dan transisi
 
 ```
-S0 ──► S1 ──► S2 ──► S3 ──► S4 ──APPROVE──► S5 ──disetujui──► S6
+S0 ──► S1 ──► S2 ──► S3 ──► S4 ──APPROVE──► S5 ──disetujui──► S6 ──► S6b ──► RELEASED
                     ▲         │
                     └──REJECT─┤
                               └──iteration==3──► S6-ESCALATE (tanpa penerbitan)
 ```
+
+**S6b hanya boleh dijalankan bila `approved_at` terisi.** Artefak hasil S6b tidak pernah menjadi
+masukan bagi S2–S4: format berubah, isi tidak. Bila verifikasi S6b menemukan cacat isi, jalur yang
+benar adalah kembali ke S2 dengan iterasi baru — bukan menambal artefak.
 
 | Transisi | Syarat | Dicatat di mana |
 |----------|--------|-----------------|
@@ -41,6 +51,8 @@ S0 ──► S1 ──► S2 ──► S3 ──► S4 ──APPROVE──► S5
 | S4→S2 | `REJECT` | daftar temuan + kenaikan iterasi |
 | S4→S5 | `APPROVE` | vonis JSON |
 | S5→S6 | persetujuan manusia yang eksplisit | `approver`, `approved_at` |
+| S6→S6b | paket disetujui tersedia dan `format_rendering_spec.md` terbaca | audit log §Format Rendering |
+| S6b→RELEASED | checklist 10 butir lulus; 0 tag internal tersisa | tabel verifikasi di audit log |
 | S4→S6 | `REJECT` ketiga | entri eskalasi dengan temuan yang belum tertangani |
 
 **State terminal:** `RELEASED` (disetujui dan didistribusikan) dan `ESCALATED` (berhenti dengan
