@@ -129,9 +129,30 @@ Yang wajib dipastikan sebelum masuk S1 Plan:
 | Butir | Bila belum ada |
 |---|---|
 | Kode bab + fase | sudah terjawab oleh menu |
-| Format yang diminta | tawarkan bawaan: RPP + kuis + slide (minimal 2 format) |
+| Format yang diminta | pakai **bawaan §4.1** — jangan bertanya lagi bila guru tidak menyebut format |
 | Sumber fakta | bila PERLU SUMBER → minta dokumen, jangan lanjut |
 | Kelas | hanya perlu bila memengaruhi kedalaman materi |
+
+### 4.1 Bawaan format (disetujui 5 Nov 2026)
+
+Bila guru tidak menyebut format, jangan bertanya — langsung pakai bawaan:
+
+| Kondisi | Format yang dipakai | Alasan |
+|---|---|---|
+| Format tidak disebut | **RPP + kuis + slide** (3 format) | RPP memberi alur mengajar, kuis memberi alat ukur, slide memberi tayangan |
+| Menyebut 2–3 format | ikuti permintaan | guru tahu kebutuhannya |
+| Menyebut 1 format | tawarkan **satu** tambahan, utamakan kuis | kontrak menuntut minimal 2 format per run |
+| Menyebut lebih dari 3 | ikuti; format sisanya dapat menjadi run lanjutan | jangan memaksa satu run memuat semuanya |
+| "Terserah" / "lengkap" | bawaan 3 format | sama dengan tidak menyebut |
+
+**Urutan produksi:** `lesson_plan` → `quiz` → `slide_outline`. RPP lebih dulu karena menjadi
+rujukan isi bagi dua lainnya; slide terakhir karena bergantung pada kepadatan materi yang sudah
+dipadatkan.
+
+**Bila guru tetap hanya menginginkan satu format** setelah ditawari tambahan: jalankan sesuai
+permintaannya, tetapi catat `format_override: <alasan>` pada `00_run_config.md` dan jangan sebut
+hasilnya sebagai "paket ajar lengkap". Bawaan boleh dilampaui oleh keputusan manusia yang tercatat —
+bukan oleh kelalaian yang senyap.
 
 Setelah itu tulis `00_run_config.md` dan lanjut ke S1 Plan. Menu **tidak** diulang pada run yang sama.
 

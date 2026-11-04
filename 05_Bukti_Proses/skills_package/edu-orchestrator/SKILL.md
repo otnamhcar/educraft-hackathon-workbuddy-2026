@@ -23,7 +23,9 @@ Seluruh keluaran yang dibaca manusia — draf, temuan, laporan, pesan eskalasi �
    per pertanyaan). Jangan menebak, jangan memilihkan, jangan menayangkan 20 bab sekaligus.
    Bila topik sudah disebut, **jangan** tayangkan menu — petakan ke kode bab, konfirmasi satu baris,
    lanjut. Bila bab berstatus `PERLU SUMBER`, minta dokumen sumber sebelum melangkah; **dilarang**
-   mengarang bab atau fakta. Langkah ini berakhir saat kode bab, fase, format, dan sumber sudah pasti,
+   mengarang bab atau fakta. **Bila guru tidak menyebut format, pakai bawaan `lesson_plan` + `quiz` +
+   `slide_outline`** (lihat `intake_menu_ipas.md` §4.1) — jangan bertanya lagi; minimal dua format per
+   run. Langkah ini berakhir saat kode bab, fase, format, dan sumber sudah pasti,
    lalu `00_run_config.md` ditulis.
 1. **Plan:** panggil `edu-planner` dengan sumber → terima kerangka terstruktur untuk setiap format yang diminta. Daftar format kanonik: `lesson_plan`, `quiz`, `slide_outline`, `short_article`, `infographic_brief`, `video_script`. Satu run boleh meminta subset apa pun, tetapi minimal dua.
 2. **Draft:** untuk setiap format, panggil `edu-writer` dengan kerangka + sumber.

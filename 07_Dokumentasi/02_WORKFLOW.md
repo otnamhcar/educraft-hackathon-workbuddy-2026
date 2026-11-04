@@ -31,6 +31,9 @@ tanpa topik ("bantu saya", "tolong buatkan materi"), Orchestrator **wajib menaya
 4 opsi per pertanyaan. Tujuannya menutup kegagalan yang paling sering terjadi di ruang guru: niat sudah
 ada, nomor bab tidak diingat. Bab berstatus `PERLU SUMBER` menghentikan S0 sampai guru memasok dokumen —
 mengarang bab atau fakta dilarang. Bila topik sudah disebut, menu **tidak** ditayangkan.
+Bila format tidak disebut, bawaan yang dipakai adalah **RPP + kuis + slide** dengan urutan produksi
+`lesson_plan` → `quiz` → `slide_outline`, dan minimal dua format per run (disetujui 5 Nov 2026;
+rincian di `intake_menu_ipas.md` §4.1).
 
 **Status S3:** pemeriksanya sudah ada (`tools/check_grounding.py`); menjadikannya gerbang wajib masih
 **GAP** — kontrak orchestrator belum mewajibkannya. Lihat `07_GAP_DAN_REKOMENDASI.md` G1.
