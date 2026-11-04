@@ -5,12 +5,13 @@ Paket ini adalah **orkestrasi multi-agent** untuk Kategori C (*The Creator Agent
 ## Struktur
 ```
 skills_package/
-├── edu-orchestrator/        # Master: state, routing, loop max 3, HITL, audit
+├── edu-orchestrator/        # Master: state, routing, loop max 3, HITL, audit, Format Rendering
 │   ├── SKILL.md
 │   └── assets/
 │       ├── rulebook_ipas.md
 │       ├── cp_ipas.md
 │       ├── konteks_aktual.md
+│       ├── format_rendering_spec.md
 │       ├── source_material_ipas.md
 │       └── source_material_energi.md
 ├── edu-planner/             # Planner: dekomposisi topik → outline
@@ -43,10 +44,38 @@ bukan dirujuk lintas folder. Dua set sumber ada karena proyek memakai dua topik 
 | `source_material_ipas.md` | Fakta topik **karhutla Kalimantan** `[src:1]`–`[src:8]` | run pra-remediasi 29 Okt |
 | `source_material_energi.md` | Fakta topik **energi alternatif** `[src:1]`–`[src:9]` | run `EDU-ORCH-20261026-001` |
 | `konteks_aktual.md` | Klaim dunia nyata `[src:CA1]`, `[src:CA6]` + URL resmi & tanggal akses | run `-001` (R011) |
+| `format_rendering_spec.md` | Spesifikasi Stage 6: peta deliverable, aturan FR-01…FR-08, checklist verifikasi | semua run yang menghasilkan artefak siap pakai |
 
 > **Catatan jujur:** run `EDU-ORCH-20261030-002` (Perubahan Wujud Zat) bertumpu pada
 > anchor topik `[src:B4]` di `cp_ipas.md`, bukan pada lembar fakta tersendiri. Lembar
 > fakta untuk topik itu belum ada di paket ini — lihat `Known limitations` di README repo.
+
+## Stage 6 — Format Rendering (pasca-approval)
+
+Setelah Reviewer APPROVE dan manusia menyetujui, orchestrator menjalankan fase **Format
+Rendering** untuk mengubah draf Markdown menjadi artefak siap pakai. Spesifikasi lengkap ada di
+`edu-orchestrator/assets/format_rendering_spec.md`.
+
+| Format kanonik | Artefak | Alat |
+|---|---|---|
+| `lesson_plan` | `.docx` | `workbuddy-docx` (html-to-doc) |
+| `slide_outline` | `.pptx` | `workbuddy-pptx` (`slidep`) |
+| `quiz` | `.html` interaktif mandiri | enhancement inline |
+
+**Aturan inti yang ditegakkan:**
+
+- **FR-01** Artefak guru/siswa tidak memuat tag internal (`[src:#]`, `[UNVERIFIED]`, dll).
+- **FR-02** Penghapusan tag wajib disertai **Source Resolution Map** di audit log.
+- **FR-03** Tanpa dependensi CDN untuk fungsi inti — artefak harus berfungsi offline.
+- **FR-04** Angka dan satuan identik lintas artefak (mis. `145 MWac (192 MWp)`).
+- **FR-05** Kontrak kuis: keadaan awal hanya **Periksa Jawaban**; setelah diperiksa muncul
+  **Ulangi Kuis**, **Export PDF**, **Cetak / Save PDF**. Ekspor & cetak memuat soal, jawaban
+  siswa, dan kunci — dengan highlight hijau (benar), merah (salah), abu-abu (kosong).
+- **FR-06** Catatan internal (mis. kepatuhan reviewer) tidak tampil di artefak.
+- **FR-07** Satuan mengikuti sumber; dilarang menormalkan tanpa dasar.
+- **FR-08** Checklist verifikasi wajib lulus sebelum serah terima.
+
+Referensi implementasi lengkap: run `EDU-ORCH-20261026-001` (lihat `audit_log.md` §3.7).
 
 ## Cara Impor ke WorkBuddy
 
