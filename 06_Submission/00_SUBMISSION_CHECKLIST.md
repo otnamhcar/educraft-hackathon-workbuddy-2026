@@ -23,10 +23,12 @@ Keterangan status: `SIAP` = artefaknya sudah ada di bundel ini · `BELUM` = haru
 | 8 | Product sharing | WAJIB | **SIAP** | `06_Product_Sharing.md` |
 | 9 | Kode sumber / workflow yang diekspor | WAJIB | **SIAP** | Repo publik (MIT): https://github.com/otnamhcar/educraft-hackathon-workbuddy-2026 — 119 berkas ter-track |
 | 10 | Gambar sampul (opsional, 16:9) | OPSIONAL | **SIAP** | `cover_image_380x216.png` + `cover_image_1280x720.png` |
-| 11 | Tautan proyek (bonus) | BONUS | **BELUM** | URL demo langsung, sifatnya opsional |
+| 11 | Tautan proyek (bonus) | BONUS | **DRAF LOKAL** | Halaman statis siap di `06_Submission/demo_site/` (lihat `README.md` di sana). **Belum diunggah, belum ada URL publik.** Jangan tulis tautan apa pun di formulir sebelum benar-benar hidup |
 
-**Skor: 8 siap · 1 sebagian · 2 belum.** Sisa yang masih "sebagian" adalah bukti pengujian —
+**Skor: 8 siap · 1 sebagian · 1 draf lokal · 1 belum.** Sisa yang masih "sebagian" adalah bukti pengujian —
 bagian yang paling berat dinilai juri — jadi jangan submit hanya dengan alasan jumlah dokumen sudah banyak.
+"Draf lokal" berarti berkasnya ada dan bisa diperiksa, tetapi belum punya URL, jadi belum bisa ditempel
+ke formulir.
 
 ---
 
