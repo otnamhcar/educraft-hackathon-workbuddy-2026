@@ -221,6 +221,40 @@ hanya muncul setelah pemeriksaan jawaban.
 - **Escalation:** Tidak ada (loop ≤ 3, APPROVE di iterasi 1 untuk Core & Flow C).
 - **Evidence bundle:** Deliverable disalin ke `05_Bukti_Proses/evidence_bundle/02_results/` untuk audit eksternal.
 
+#### 3.7.10 S0 Intake: Menu Bab dan Bawaan Format (5 Nov 2026, 06:52 GMT+7)
+Persetujuan guru/operator: dua penambahan pada **kontrak skill**, bukan pada isi artefak run ini.
+
+**Konteks.** Guru dapat memulai percakapan hanya dengan niat — "bantu saya", "tolong buatkan materi" —
+tanpa menyebut bab. Sebelumnya orchestrator harus menebak topik atau bertanya tanpa panduan, sehingga
+risikonya adalah salah bab atau percakapan berhenti.
+
+**Artefak yang ditambahkan/diperbarui:**
+1. **`edu-orchestrator/assets/intake_menu_ipas.md`** (baru) — katalog **20 bab** (11 Fase B + 9 Fase C)
+   yang diturunkan dari `cp_ipas.md`, dengan kode kerja `B1–B11`/`C1–C9`, kode CP, rumpun, dan
+   **status sumber per bab**: `SIAP` (B3, B4, B5, C4) atau `PERLU SUMBER` (17 bab). Menu ditayangkan
+   bertahap L1 fase → L2 rumpun → L3 bab karena mekanisme pilihan membatasi **4 opsi per pertanyaan**;
+   tidak ada rumpun yang melebihi 3 bab sehingga batas itu tidak dilanggar.
+2. **`edu-orchestrator/SKILL.md`** — **langkah 0 Intake** ditambahkan sebelum Plan (penomoran 1–7 tidak
+   bergeser), satu Aturan Keras baru ("jangan mulai menulis sebelum bab pasti"), dan deskripsi skill
+   menyebut menu agar terpicu pada perintah ambigu.
+3. **Bawaan format** (`intake_menu_ipas.md` §4.1) — bila guru tidak menyebut format: **RPP + kuis +
+   slide**, urutan produksi `lesson_plan` → `quiz` → `slide_outline`, minimal dua format per run.
+   Bila guru tetap memilih satu format, dicatat `format_override` + alasan dan hasilnya tidak disebut
+   "paket ajar lengkap".
+4. **Dokumen kanonik diselaraskan pada commit yang sama:** `02_WORKFLOW.md` (baris S0 + Status S0),
+   `01_ARSITEKTUR.md` §6, `03_SKILLS.md` §6 (daftar aset), `00_INDEX.md` (riwayat).
+
+**Supersesi yang perlu dicatat.** §3.7.9 menyebut pipeline "7 langkah". Sejak langkah 0 ditambahkan,
+jumlahnya menjadi **8 langkah (0–7)**. Entri §3.7.9 **tidak disunting** — sesuai aturan bahwa audit log
+historis tidak ditulis ulang; koreksi ditambahkan sebagai pass baru, yaitu entri ini.
+
+**Dampak pada run ini: tidak ada.** Topik sudah disebut di brief dan format sudah ditetapkan (lima
+format), sehingga menu tidak ditayangkan. Penambahan ini berlaku untuk run berikutnya.
+
+**Verifikasi checksum kanonik vs paket (identik):**
+- `SKILL.md` → `e3a9ddbdf128c3d8638fc0b6327e68b90463d052ea978e21476af90c292bb355`
+- `intake_menu_ipas.md` → `adbce17086bcfbcd83fb6f12c38b5ad48ef4510f2732d90ad70e41fcbf5dfff0`
+
 ## 6. NEXT ACTION (Required)
 1. ~~Guru/SME meninjau ketiga artefak + kunci jawaban quiz.~~ ✅ Selesai
 2. ~~Guru memberikan persetujuan eksplisit → Orchestrator melakukan publish.~~ ✅ Selesai

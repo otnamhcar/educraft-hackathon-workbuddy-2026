@@ -133,6 +133,8 @@ Status: IMPLEMENTED — skema ini dipakai apa adanya di `03_Hasil/edu_output_wuj
 
 ```
 S0  Intake        Guru memasok sumber + topik + fase
+                  Topik belum disebut → menu bab (intake_menu_ipas.md): L1 fase → L2 rumpun → L3 bab
+                  Format belum disebut → bawaan RPP + kuis + slide (minimal dua format)
                   → menulis 00_run_config.md (publish_status: PENDING)
 S1  Plan          Planner → kerangka per format, pemetaan CP, celah ditandai
 S2  Draft         Writer  → draf v1, setiap kalimat faktual diberi tag

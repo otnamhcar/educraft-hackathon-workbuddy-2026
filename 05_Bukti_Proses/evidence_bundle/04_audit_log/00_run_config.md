@@ -6,7 +6,7 @@
 | **Tanggal/Waktu** | 2026-10-26 18:35 GMT+7 |
 | **Orchestrator** | EduCraft Orchestrator (Master) |
 | **Domain Pack** | SD–IPAS, Kurikulum Merdeka (Fase B & C) |
-| **Flow** | Core pipeline: Plan → Draft → Review → Approve → Publish → Format Rendering |
+| **Flow** | Core pipeline: Intake → Plan → Draft → Review → Approve → Publish → Format Rendering |
 | **Topik** | Energi Alternatif dan Penghematan Energi (lintas Fase B → Fase C) |
 | **Fase Sasaran** | Fase C (kelas V–VI), dengan fondasi Fase B |
 | **CP Sasaran** | C4 (2.1.4): "Menghasilkan upaya penghematan energi, serta pemanfaatan sumber energi alternatif dari sumber daya sekitar sebagai mitigasi perubahan iklim" |
@@ -16,6 +16,7 @@
 | **CP reference** | `assets/cp_ipas.md` |
 | **Rulebook** | `assets/rulebook_ipas.md` (R001–R012, v2.0) |
 | **Format Rendering** | `assets/format_rendering_spec.md` (Stage 6, FR-01…FR-08) — wajib untuk artefak siap pakai |
+| **Intake menu** | `assets/intake_menu_ipas.md` (S0, 20 bab + status sumber). Run ini tidak memerlukannya karena topik sudah disebut di brief; berlaku untuk run berikutnya. Bawaan format: RPP + kuis + slide (minimal 2). |
 | **Iteration** | `1` of max `3` — **one rejection** recorded (29 Oct 2026); draft v2 approved 30 Oct 2026. *Review passes: 2 (pass 1 REJECT, pass 2 APPROVE) — see §7 of `audit_log_edu_orchestrator.md`.* |
 | **Human approver** | ✅ APPROVED — Don Jimat Akbar (4 Nov 2026, 14:49 GMT+7) |
 | **Publish status** | ✅ PUBLISHED — materi dirilis ke format siap pakai |
