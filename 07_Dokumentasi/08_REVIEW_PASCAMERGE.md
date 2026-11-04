@@ -102,6 +102,8 @@ berbeda, spesifikasi yang menang dan dokumen ini yang harus diperbaiki.
 | ID | Temuan | Bukti | Tindakan | Status |
 |----|--------|-------|----------|--------|
 | K1 | `02_WORKFLOW.md` — dokumen kanonik alur kerja — tidak memuat Format Rendering, sementara `SKILL.md` sudah 7 langkah. Melanggar aturan rumah §2 (`00_INDEX.md`): turunan bertentangan dengan kanonik. | `grep -ni "format rendering" 07_Dokumentasi/02_WORKFLOW.md` → 0 hasil pada `af9e1f3` | Menambahkan baris `S6b` pada `02_WORKFLOW.md` §1, transisi `S6→S6b→RELEASED` pada §2, catatan prasyarat `approved_at`, dan entri `S6b` pada daftar pipeline `01_ARSITEKTUR.md` §6 | **DITUTUP** 5 Nov 2026 |
+| K2 | `03_SKILLS.md` §6 — daftar aset orchestrator tidak memuat tiga aset yang benar-benar ada di folder: `format_rendering_spec.md`, `source_material_wujud_zat.md`, `intake_menu_ipas.md` | `ls edu-orchestrator/assets/` → 8 berkas; baris §6 hanya menyebut 5 | Memperbarui pohon tata letak instalasi agar seluruh aset tercantum beserta perannya | **DITUTUP** 5 Nov 2026 |
+| K3 | `skills_package/README.md` — catatan menyatakan lembar fakta Perubahan Wujud Zat "belum ada di paket ini", padahal berkasnya ada sejak 31 Okt | `ls assets/` → `source_material_wujud_zat.md` ada; `grep -o "\[src:W[0-9]*\]"` → 11 tag unik (W1–W11) | Mengganti catatan kedaluwarsa dengan status sebenarnya: 4 bab berlembar fakta, 17 berstatus `PERLU SUMBER` | **DITUTUP** 5 Nov 2026 |
 
 **Cara membaca tabel ini:** temuan yang hanya disebut di percakapan tidak dihitung. Setiap baris wajib
 memuat perintah yang dapat dijalankan ulang untuk membuktikannya.

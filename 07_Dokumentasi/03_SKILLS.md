@@ -117,7 +117,9 @@ Lihat `01_ARSITEKTUR.md` §5.2. Batasan tambahan:
 skills_package/
 ├── edu-orchestrator/
 │   ├── SKILL.md
-│   └── assets/   rulebook · cp_ipas · konteks_aktual · source_material_ipas · source_material_energi
+│   └── assets/   rulebook · cp_ipas · konteks_aktual
+│                 source_material_ipas · source_material_energi · source_material_wujud_zat
+│                 format_rendering_spec (kontrak S6b) · intake_menu_ipas (kontrak S0)
 ├── edu-planner/
 │   ├── SKILL.md
 │   └── assets/   cp_ipas

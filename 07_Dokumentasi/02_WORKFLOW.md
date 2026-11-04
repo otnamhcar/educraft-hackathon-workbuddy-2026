@@ -10,7 +10,7 @@
 
 | Langkah | Pelaku | Masukan | Artefak yang ditulis (path) | Penjaga sebelum lanjut | Bila gagal |
 |---------|--------|---------|------------------------------|------------------------|------------|
-| S0 Intake | Orchestrator | brief guru | `00_run_config.md` | Berkas sumber ada dan bisa dibaca | Berhenti; minta sumber |
+| S0 Intake | Orchestrator | brief guru + `intake_menu_ipas.md` | `00_run_config.md` | Berkas sumber ada dan bisa dibaca; kode bab + fase + format + sumber sudah pasti | Berhenti; minta sumber |
 | S1 Plan | Planner | sumber + CP | `00_plan.md` | Setiap format terpetakan ke kode CP, atau `PERLU KONFIRMASI GURU` | Tandai celah, lanjut dengan peringatan |
 | S2 Draft | Writer | rencana + sumber | `01_artikel.md`, `02_*brief.md`, `03_*storyboard.md`, `04_kuis*.md` | Setiap kalimat faktual membawa tag | Keluarkan `[UNVERIFIED]`, jangan mengarang |
 | S3 Ground | Orchestrator | draf + sumber | `grounding_report.md` | 0 tag menggantung, 0 ketidakcocokan kelas | Kembali ke S2 dengan laporan |
@@ -24,6 +24,13 @@
 7 langkah). Kontrak operasionalnya `edu-orchestrator/assets/format_rendering_spec.md` — aturan FR-01…FR-08
 dan checklist §5. Langkah ini **tidak menggantikan** S0–S6; ia berjalan hanya setelah persetujuan manusia
 tercatat, dan mengubah paket yang disetujui menjadi artefak siap pakai.
+
+**Status S0:** sejak 5 Nov 2026, S0 tidak lagi sekadar menerima brief. Bila brief hanya memuat niat
+tanpa topik ("bantu saya", "tolong buatkan materi"), Orchestrator **wajib menayangkan menu bab** dari
+`edu-orchestrator/assets/intake_menu_ipas.md` secara bertahap: L1 fase → L2 rumpun → L3 bab, maksimal
+4 opsi per pertanyaan. Tujuannya menutup kegagalan yang paling sering terjadi di ruang guru: niat sudah
+ada, nomor bab tidak diingat. Bab berstatus `PERLU SUMBER` menghentikan S0 sampai guru memasok dokumen —
+mengarang bab atau fakta dilarang. Bila topik sudah disebut, menu **tidak** ditayangkan.
 
 **Status S3:** pemeriksanya sudah ada (`tools/check_grounding.py`); menjadikannya gerbang wajib masih
 **GAP** — kontrak orchestrator belum mewajibkannya. Lihat `07_GAP_DAN_REKOMENDASI.md` G1.
