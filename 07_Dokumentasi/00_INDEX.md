@@ -36,6 +36,7 @@ Satu berkas kanonik per topik. Sisanya turunan dan **tidak boleh menambah klaim 
 | Pengujian | `05_TEST_PLAN.md` | `04_Diskusi/test_cases_matrix.md` (warisan), `04_Test_Results.md` (hasil), `03_screenshots/INDEX.md` (pelacak tangkap layar) |
 | Pemenuhan persyaratan | `06_TRACEABILITY.md` | `06_Submission/00_SUBMISSION_CHECKLIST.md` |
 | Kekurangan yang diketahui | `07_GAP_DAN_REKOMENDASI.md` | — |
+| Tata cara telaah pascamerge | `08_REVIEW_PASCAMERGE.md` | — |
 
 **Kenapa ini penting:** sebelumnya arsitektur dijelaskan di empat tempat dan rulebook di tiga tempat,
 dengan rumusan yang berbeda-beda. Begitulah inkonsistensi "empat agen vs lima format" bisa bertahan
@@ -54,6 +55,7 @@ berhari-hari.
 | `05_TEST_PLAN.md` | Apa persisnya yang diuji, dengan parameter apa, terhadap kriteria lulus apa, dibuktikan oleh berkas mana? |
 | `06_TRACEABILITY.md` | Untuk setiap persyaratan handbook dan dimensi penilaian, di mana buktinya? |
 | `07_GAP_DAN_REKOMENDASI.md` | Apa yang kurang, dalam urutan apa diperbaiki, dan seperti apa bentuk "selesai"? |
+| `08_REVIEW_PASCAMERGE.md` | Perubahan yang sudah masuk `main` ditelaah bagaimana, oleh siapa, dengan bukti apa — dan bagaimana mencabutnya? |
 
 Peralatan pendukung: `tools/check_grounding.py` — cek R001 yang deterministik; menulis
 `grounding_report.md` per run dan keluar dengan kode non-nol bila gagal.
@@ -96,3 +98,4 @@ Peralatan pendukung: `tools/check_grounding.py` — cek R001 yang deterministik;
 |---------|-----------|
 | 31 Okt 2026 | Kumpulan dokumentasi dibuat; rulebook v2.0 (berparameter + R012); `check_grounding.py` dirilis; laporan grounding dibuat untuk kedua run; adendum R012 ditulis; cacat D1/D2 dicatat |
 | 31 Okt 2026 | Seluruh dokumen diterjemahkan ke Bahasa Indonesia; angka-angka yang kedaluwarsa (jumlah berkas, jumlah kasus uji, durasi video) diselaraskan dengan keadaan repo |
+| 5 Nov 2026 | `08_REVIEW_PASCAMERGE.md` dibuat setelah `main` dipublikasikan tanpa PR (tidak ada `gh`/token API). `02_WORKFLOW.md` §1–§2 diselaraskan dengan `SKILL.md` 7 langkah: ditambahkan `S6b Format Rendering` dan transisinya (temuan K1) |
