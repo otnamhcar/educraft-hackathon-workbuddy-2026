@@ -38,6 +38,14 @@ PROJECT.md
 *.zip
 *.rar
 
+# ── Local build / tool cache ─────────────────────────────────────
+# .cache/  : cache ikon & font dari konverter slide
+# .slidep/ : state kerja CLI slidep
+# output/  : HTML antara yang dipakai untuk menghasilkan .docx
+.cache/
+.slidep/
+output/
+
 # ── OS noise ─────────────────────────────────────────────────────
 .DS_Store
 Thumbs.db
