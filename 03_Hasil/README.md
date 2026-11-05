@@ -1,15 +1,14 @@
 # 03_Hasil — apa yang ada di sini
 
-Folder ini adalah **keluaran**: hasil run dan bukti auditnya. Lapisan pengetahuan tidak lagi di sini —
-sejak 5 November 2026 ia berada di `08_Referensi/` (lihat `03_Hasil/referensi/README.md`).
+Folder ini adalah **keluaran**: hasil run dan bukti auditnya. Dua hal yang bukan keluaran sudah
+dipindah keluar — lapisan pengetahuan ke `08_Referensi/`, dokumen operasional ke
+`06_Submission/panduan/`.
 
 | Isi | Sifat | Boleh diubah? |
 |-----|-------|---------------|
 | `edu_output*/`, `materi_ajar/` | **Hasil run** — draf, vonis, audit log, artefak ter-render | Draf digantikan, bukan disunting. Audit log **append-only** |
-| `audit/` | **Bukti audit lintas-run** — log orchestration `-001`, laporan kepatuhan R001–R011 | Tidak — arsip |
-| `panduan/` | Runbook demo dan panduan operasional | Ya, dokumen hidup |
-
-`sumber fakta, rulebook, CP, konteks aktual` → **`08_Referensi/`**. Jangan menulis ke sana.
+| `audit/` | **Bukti audit `-001`** — log orchestration, dua laporan kepatuhan, adendum R012 | Tidak — arsip |
+| `referensi/` | **Hanya penunjuk.** Berkasnya sudah pindah ke `08_Referensi/` | Hanya `README.md` di dalamnya |
 
 ## Empat run dan foldernya
 
@@ -22,16 +21,15 @@ sejak 5 November 2026 ia berada di `08_Referensi/` (lihat `03_Hasil/referensi/RE
 
 Angka pada ID adalah **urutan**, bukan tanggal. Tanggalnya ada di delapan digit sebelumnya.
 
-## Sisa percampuran yang diketahui
+## Kenapa `audit/` masih di sini
 
-Dua hal di sini belum murni hasil run:
+`audit/audit_log_edu_orchestrator.md` adalah log run `-001` yang tinggal di luar folder run `-001`.
+Idealnya ia berada di dalam `edu_output/`, dan dua laporan kepatuhan di sebelahnya adalah bukti yang
+seharusnya ikut run tersebut.
 
-- `panduan/` berisi dokumen operasional, bukan keluaran agen. Secara semantik ia milik
-  `07_Dokumentasi/`, tetapi dipakai langsung saat demo — memindahkannya sekarang berarti menyunting
-  11 rujukan tepat sebelum perekaman video.
-- `audit/` berisi bukti audit `-001`, tetapi disimpan di luar folder run yang bersangkutan. Idealnya
-  ia berada di dalam `edu_output/` atau di `05_Bukti_Proses/`.
+Ia **tidak dipindah** karena log itu merujuk foldernya sendiri di baris 113
+(`03_Hasil/audit/addendum_R012_2026-10-31.md`). Memindahkan foldernya akan memutus rujukan itu, dan
+memperbaikinya berarti menyunting log **append-only** — memalsukan jejak. Antara struktur yang rapi
+dan jejak yang utuh, jejak yang menang.
 
-Keduanya dicatat sebagai **G20** di `07_Dokumentasi/07_GAP_DAN_REKOMENDASI.md`, ditunda sampai
-setelah submission dengan alasan yang sama seperti G19: memperbaiki struktur tidak boleh memutus
-tautan bukti yang sedang dipakai.
+Dicatat sebagai **G20** di `07_Dokumentasi/07_GAP_DAN_REKOMENDASI.md`.

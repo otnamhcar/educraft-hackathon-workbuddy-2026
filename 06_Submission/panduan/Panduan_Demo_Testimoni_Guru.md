@@ -79,6 +79,6 @@ Agar testimoni **otentik**, guru sungguhan harus mencoba alur di atas (langkah 2
 ## 5. Catatan untuk Submission
 
 - **Bukti TC-12/TC-13**: `03_Hasil/audit/review_kepatuhan_R001-R011_2026-10-29.md` (REJECT) → `..._2026-10-30_REVISI.md` (APPROVE) + `03_Hasil/audit/audit_log_edu_orchestrator.md` §7. Untuk bukti *nyata*, jalankan Runbook di atas di chat baru lalu simpan screenshot/rekaman.
-- **Demo Day (27 Nov)**: lihat `03_Hasil/panduan/Runbook_Demo_Day.md` — dokumen ini hanya untuk demo ke guru & testimoni.
+- **Demo Day (27 Nov)**: lihat `06_Submission/panduan/Runbook_Demo_Day.md` — dokumen ini hanya untuk demo ke guru & testimoni.
 - **Upgrade opsional**: ubah orchestrator ke mode **(b) sub-agent nyata** agar multi-agent-ness terlihat eksplisit di demo.
 - **Jangan** suruh guru memanggil agent sub-agent — cukup orchestrator.

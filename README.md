@@ -93,7 +93,7 @@ Tiga sifat ditegakkan oleh kontrak, bukan oleh harapan:
 | `03_Hasil/materi_ajar/` | Salinan artefak run `-001` untuk bundel (draf yang diperbaiki + kuis HTML). **Bukan run kelima** — tidak punya `00_run_config.md` sendiri |
 | `03_Hasil/edu_output_wujud_zat/` | Keluaran run `-002` (Perubahan Wujud Zat) + tiga PDF siap cetak |
 | `03_Hasil/audit/` | **Kedua** laporan review — yang REJECT dan yang APPROVE |
-| `03_Hasil/panduan/` | Cara mendemokan: panduan guru + testimoni, dan runbook Demo Day (anggaran 8 menit, tangga fallback, penunjuk bukti untuk Q&A) |
+| `06_Submission/panduan/` | Cara mendemokan: panduan guru + testimoni, dan runbook Demo Day (anggaran 8 menit, tangga fallback, penunjuk bukti untuk Q&A) |
 | `04_Diskusi/test_cases_matrix.md` | Suite 23 kasus, termasuk delapan yang kritis, dan tabel cakupan per aturan yang jujur |
 | `06_Submission/` | Bundel submission: deskripsi, lembar akuntabilitas, hasil uji, arsitektur, deck |
 | `06_Submission/architecture_diagram.png` | Diagram komponen dan batas kepercayaan |

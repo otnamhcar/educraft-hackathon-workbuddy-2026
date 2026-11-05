@@ -240,7 +240,7 @@ Setiap jawaban punya penunjuk file. Kalau juri menekan, buka filenya; jangan men
 | Dimensi | Pertanyaan yang mungkin | Jawaban + bukti |
 |---------|--------------------------|------------------|
 | Impact & Relevance | "Guru sungguhan memakainya?" | Satu guru, satu run nyata: `03_Hasil/edu_output_wujud_zat/audit_log.md` §3.7 (approval 30 Okt 17:19) |
-| Human-Centered Design | "Kenapa guru tidak perlu tahu pipeline?" | `03_Hasil/panduan/Panduan_Demo_Testimoni_Guru.md` §1 — satu pintu masuk |
+| Human-Centered Design | "Kenapa guru tidak perlu tahu pipeline?" | `06_Submission/panduan/Panduan_Demo_Testimoni_Guru.md` §1 — satu pintu masuk |
 | AI Interaction | "Ini cuma satu prompt?" | Empat kontrak terpisah + RACI satu `R` per artefak: `07_Dokumentasi/03_SKILLS.md` |
 | Technical Execution | "Berapa test case lulus?" | `04_Test_Results.md` §1 — angka saat itu, jangan dibulatkan |
 | Feasibility | "Bisa dipakai sekolah lain?" | Rulebook dapat diedit tanpa menyentuh kode: `04_RULEBOOK.md` §1 |

@@ -180,6 +180,7 @@ Submission saat ini tidak mengklaim penerbitan apa pun — pertahankan begitu sa
 ├── 13_Demo_Video_Runbook.md          <- cara memproduksi video
 ├── 14_Lembar_Sesi_Tangkap.md         <- lembar kerja: 6 berkas sisa, dua blok sesi
 ├── video_kit/                        <- item 7 (kartu judul, concat_video.py, CUE_SHEET.md)
+├── panduan/                          <- runbook Demo Day + panduan testimoni guru (pindah dari 03_Hasil/panduan 5 Nov 2026)
 ├── cover_image.svg                   <- item 10 (sumber)
 ├── cover_image_1280x720.png          <- item 10 (deck/media sosial)
 └── cover_image_380x216.png           <- item 10 (unggah ke formulir)
