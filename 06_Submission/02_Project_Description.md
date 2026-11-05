@@ -150,7 +150,7 @@ diukur lintas sekolah — kami katakan apa adanya.
 |---------|------------------|-----------------|-------|
 | Format yang dihasilkan dari satu topik | 1 per kali, sumber dibaca ulang tiap kali | 5 format + kuis interaktif dalam satu run | Jumlah keluaran run `EDU-ORCH-20261026-001` |
 | Waktu guru per topik (menyusun + memeriksa) | ~6–8 jam | ~30–45 menit (meninjau paket yang sudah diperiksa) | Estimasi dari volume artefak; akan divalidasi di uji lapangan |
-| Cakupan pemeriksaan fakta | Ad hoc, mengandalkan ingatan | 100% kalimat faktual membawa tag sumber; resolusi tag diperiksa deterministik | `tools/check_grounding.py`: run `-001` **121 tag → PASS**; run `-002` **115 tag → PASS** (0 dangling, 0 pelanggaran kelas di keduanya). Sebelum perbaikan, `-002` gagal dengan 84 pelanggaran kelas — defek D1, diungkap di `04_Test_Results.md` §4b |
+| Cakupan pemeriksaan fakta | Ad hoc, mengandalkan ingatan | 100% kalimat faktual membawa tag sumber; resolusi tag diperiksa deterministik | `tools/check_grounding.py`: run `-001` **121 tag → PASS**; run `-002` **115 tag → PASS**; run `-003` **113 tag → PASS** (total 349 tag, 0 dangling, 0 pelanggaran kelas di ketiganya). Sebelum perbaikan, `-002` gagal dengan 84 pelanggaran kelas — defek D1, diungkap di `04_Test_Results.md` §4b |
 | Pemeriksaan kepatuhan aturan per dokumen | 0–2 informal | 12 aturan, masing-masing dengan lulus/gagal dan kutipan | `review_kepatuhan_R001-R011_2026-10-30_REVISI.md` |
 | Kesalahan yang dicegah | Ditemukan di kelas, atau tidak pernah | Tertangkap sebelum publikasi (1 tangkapan nyata pada 29 Okt) | Penolakan yang diungkap di `04_Test_Results.md` |
 | Jejak audit | Tidak ada | Lengkap: input, keputusan, revisi v1→v2, sumber | `audit_log_edu_orchestrator.md` |

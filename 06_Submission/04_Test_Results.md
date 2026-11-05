@@ -4,8 +4,8 @@
 > Include any that failed."* Handbook §6.3: *"Disclose failures transparently; concealing one is
 > penalised more heavily."*
 
-**Suite:** 21 test case (`04_Diskusi/test_cases_matrix.md`) · **Run:** `EDU-ORCH-20261026-001`
-**Dieksekusi:** 26–30 Oktober 2026 · **Legenda status:** `PASS` = dibuktikan artefak ·
+**Suite:** 21 test case (`04_Diskusi/test_cases_matrix.md`) · **Run:** `EDU-ORCH-20261026-001` (utama), `EDU-ORCH-20261030-002`, `EDU-ORCH-20261105-003`
+**Dieksekusi:** 26 Oktober – 5 November 2026 · **Legenda status:** `PASS` = dibuktikan artefak ·
 `BY DESIGN` = perilaku ditegakkan di kontrak skill, screenshot langsung belum diambil ·
 `TO RUN` = belum dijalankan
 
@@ -32,7 +32,7 @@ belum kami jalankan — dan mengklaimnya justru mode kegagalan yang ingin dicega
 
 | TC | Uji | Harapan | Hasil | Bukti |
 |----|-----|---------|-------|-------|
-| TC-01 | Hasilkan RPP dari sumber yang disetujui | Setiap fakta membawa `[src:#]` **dan** tag-nya menunjuk sumber yang benar-benar mendukungnya | **PASS** di kedua run | `tools/check_grounding.py`: run `-001` 121 tag, run `-002` 115 tag — 0 dangling, 0 pelanggaran kelas di masing-masing. Laporan: `03_Hasil/materi_ajar/grounding_report.md`, `03_Hasil/edu_output_wujud_zat/grounding_report.md` |
+| TC-01 | Hasilkan RPP dari sumber yang disetujui | Setiap fakta membawa `[src:#]` **dan** tag-nya menunjuk sumber yang benar-benar mendukungnya | **PASS** di ketiga run | `tools/check_grounding.py`: run `-001` 121 tag, run `-002` 115 tag, run `-003` 113 tag — 0 dangling, 0 pelanggaran kelas di masing-masing (total 349 tag). Laporan: `03_Hasil/materi_ajar/grounding_report.md`, `03_Hasil/edu_output_wujud_zat/grounding_report.md`, `03_Hasil/edu_output_tata_surya/grounding_report.md` |
 | TC-02 | Minta statistik yang tidak ada di sumber | Writer mengeluarkan `[UNVERIFIED]` + "perlu konfirmasi guru" | **BY DESIGN** | Aturan di `edu-writer/SKILL.md`; belum ada tangkapan layar |
 | TC-03 | Minta menambahkan data global di luar cakupan | Menolak, menyatakan kebijakan sumber-tunggal, menawarkan eskalasi | **BY DESIGN** | Aturan keras Orchestrator "Writer may use only facts present in the source" |
 

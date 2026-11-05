@@ -41,13 +41,16 @@ KNOWLEDGE_FILES = (
     "konteks_aktual.md",
     "source_material_energi.md",
     "source_material_wujud_zat.md",
+    "source_material_tata_surya.md",
 )
 
 # Files that exist in several places and must stay byte-identical. Drift here is
 # the quiet failure: the Reviewer would judge against rules the Writer never saw.
-COPY_GROUPS = ("rulebook_ipas.md", "source_material_wujud_zat.md")
+COPY_GROUPS = ("rulebook_ipas.md", "source_material_wujud_zat.md",
+               "source_material_tata_surya.md")
 
-RUNS = ("03_Hasil/materi_ajar", "03_Hasil/edu_output_wujud_zat")
+RUNS = ("03_Hasil/materi_ajar", "03_Hasil/edu_output_wujud_zat",
+        "03_Hasil/edu_output_tata_surya")
 
 
 # --------------------------------------------------------------------------- #
@@ -134,11 +137,11 @@ def check_knowledge(rep):
         for name in missing:
             rep.no("missing {}".format(KNOWLEDGE / name))
         return
-    rep.ok("rulebook, CP, actual-context register and both source sheets found")
+    rep.ok("rulebook, CP, actual-context register and all source sheets found")
 
 
 def check_copies(rep):
-    rep.heading("5. Copies identical (rulebook, wujud-zat source)")
+    rep.heading("5. Copies identical (rulebook, all source sheets)")
     for name in COPY_GROUPS:
         canonical = KNOWLEDGE / name
         if not canonical.is_file():

@@ -15,14 +15,15 @@ Dua peran dicatat terpisah dan tidak boleh digabung: **penyusunan domain** (Pak 
 **persetujuan rilis per-run** (penyetuju yang namanya tercatat di tabel bawah, yang menandatangani run
 tertentu).
 
-**Ada dua run. Keduanya tidak bisa dipertukarkan — masing-masing punya statusnya sendiri:**
+**Ada tiga run. Masing-masing tidak bisa dipertukarkan — punya statusnya sendiri:**
 
 | Run | Topik | Penyetuju manusia | Status publikasi |
 |-----|-------|-------------------|------------------|
 | `EDU-ORCH-20261026-001` | Energi Alternatif | PENDING (guru/SME) | **BELUM DITERBITKAN** |
 | `EDU-ORCH-20261030-002` | Perubahan Wujud Zat | **don Jimat Akbar (guru), 2026-10-30 17:19 GMT+7** | Gerbang dibuka untuk distribusi terbatas; paket cetak sudah dibuat |
+| `EDU-ORCH-20261105-003` | Sistem Tata Surya | PENDING (guru/SME) | **BELUM DITERBITKAN** |
 
-Tidak ada yang diterbitkan sebelum persetujuan manusia yang eksplisit. Run `-001` belum ada
+Tidak ada yang diterbitkan sebelum persetujuan manusia yang eksplisit. Run `-001` dan `-003` belum ada
 persetujuannya dan tidak diterbitkan; run `-002` disetujui guru yang namanya tercatat, dan baru setelah
 itu dilepas.
 
@@ -63,10 +64,10 @@ sistem pembayaran, atau data pribadi siswa apa pun selain skor yang sudah dianon
 | Mengubah source material atau rulebook | Hanya suntingan manusia; agen tidak punya akses tulis | Izin berkas / aset read-only |
 | Memakai keluaran di luar fase yang dituju | Persetujuan koordinator kurikulum | Konfigurasi run |
 
-**Keadaan saat ini:** run `-001` berada di `PENDING` dan tidak ada apa pun darinya yang diterbitkan.
-Run `-002` disetujui pada 30 Oktober 2026 pukul 17:19 oleh guru yang namanya tercatat, dan baru setelah
-itu gerbang publikasi dibuka — agen menghasilkan materi lalu berhenti sampai manusia bertindak, dan
-itulah perilaku yang dimaksud, bukan keterlambatan.
+**Keadaan saat ini:** run `-001` dan `-003` berada di `PENDING` dan tidak ada apa pun darinya yang
+diterbitkan. Run `-002` disetujui pada 30 Oktober 2026 pukul 17:19 oleh guru yang namanya tercatat, dan
+baru setelah itu gerbang publikasi dibuka — agen menghasilkan materi lalu berhenti sampai manusia
+bertindak, dan itulah perilaku yang dimaksud, bukan keterlambatan.
 
 ## 4. Apa yang tidak akan pernah dilakukan
 
@@ -100,5 +101,6 @@ itulah perilaku yang dimaksud, bukan keterlambatan.
 
 ---
 
-*Disusun 30 Oktober 2026. Lembar ini menjelaskan perilaku yang ditegakkan di dalam kontrak skill yang
-dikirim, dan setiap butirnya tertaut ke artefak yang membuktikannya.*
+*Disusun 30 Oktober 2026. Diperbarui 5 November 2026 (tambah run -003). Lembar ini menjelaskan
+perilaku yang ditegakkan di dalam kontrak skill yang dikirim, dan setiap butirnya tertaut ke artefak
+yang membuktikannya.*

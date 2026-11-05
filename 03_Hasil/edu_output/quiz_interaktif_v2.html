@@ -299,6 +299,8 @@
     <div id="preQuestions"></div>
     <div class="btn-row">
       <button class="btn" onclick="grade('pre')">&#9989; Periksa Jawaban</button>
+      <button class="btn ghost" onclick="gradeAndExport('pre')">&#128190; Export PDF</button>
+      <button class="btn ghost" onclick="gradeAndPrint('pre')">&#128424; Cetak / Save PDF</button>
     </div>
     <div id="preResult" class="hidden"></div>
   </section>
@@ -308,6 +310,8 @@
     <div id="postQuestions"></div>
     <div class="btn-row">
       <button class="btn" onclick="grade('post')">&#9989; Periksa Jawaban</button>
+      <button class="btn ghost" onclick="gradeAndExport('post')">&#128190; Export PDF</button>
+      <button class="btn ghost" onclick="gradeAndPrint('post')">&#128424; Cetak / Save PDF</button>
     </div>
     <div id="postResult" class="hidden"></div>
   </section>
@@ -548,6 +552,17 @@ function grade(which) {
       '</div>' +
     '</div>';
   r.scrollIntoView({ behavior: 'smooth' });
+}
+
+// === GRADE + EXPORT/PRINT (dipanggil dari tombol selalu terlihat) ===
+function gradeAndExport(which) {
+  grade(which);
+  setTimeout(function() { exportResults(which); }, 300);
+}
+
+function gradeAndPrint(which) {
+  grade(which);
+  setTimeout(function() { printResults(which); }, 300);
 }
 
 // === RESET ===

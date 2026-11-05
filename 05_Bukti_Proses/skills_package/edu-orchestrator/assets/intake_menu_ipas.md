@@ -57,7 +57,7 @@ penomoran bagian `cp_ipas.md` (§1.1 Fase B, §2.1 Fase C).
 | C2 | Hubungan komponen biotik–abiotik dan pengaruhnya terhadap ekosistem | Makhluk hidup | CP-C.2.1.2 | PERLU SUMBER |
 | C3 | Fenomena gelombang bunyi dan cahaya sehari-hari | Zat & energi | CP-C.2.1.3 | PERLU SUMBER |
 | C4 | Penghematan energi dan energi alternatif sebagai mitigasi iklim | Zat & energi | CP-C.2.1.4 | SIAP — `source_material_energi.md` + `konteks_aktual.md` |
-| C5 | Sistem tata surya, kaitannya dengan rotasi dan revolusi bumi | Bumi & antariksa | CP-C.2.1.5 | PERLU SUMBER |
+| C5 | Sistem tata surya, kaitannya dengan rotasi dan revolusi bumi | Bumi & antariksa | CP-C.2.1.5 | SIAP — `source_material_tata_surya.md` |
 | C6 | Letak dan kondisi geografis Indonesia melalui peta | Bumi & antariksa | CP-C.2.1.6 | PERLU SUMBER |
 | C7 | Sejarah perjuangan pahlawan di lingkungan sekitar | Sosial & ekonomi | CP-C.2.1.7 | PERLU SUMBER |
 | C8 | Keragaman budaya nasional dan kearifan lokal | Sosial & ekonomi | CP-C.2.1.8 | PERLU SUMBER |

@@ -24,7 +24,10 @@ itulah artefak yang tepat untuk challenge ini: juri bisa membaca setiap aturan y
 │   │       ├── cp_ipas.md
 │   │       ├── konteks_aktual.md
 │   │       ├── source_material_ipas.md
-│   │       └── source_material_energi.md
+│   │       ├── source_material_energi.md
+│   │       ├── source_material_wujud_zat.md
+│   │       ├── source_material_tata_surya.md
+│   │       └── intake_menu_ipas.md      # katalog 20 bab, status sumber
 │   ├── edu-planner/
 │   │   ├── SKILL.md                     # kontrak pemecahan
 │   │   └── assets/cp_ipas.md
@@ -32,7 +35,9 @@ itulah artefak yang tepat untuk challenge ini: juri bisa membaca setiap aturan y
 │   │   ├── SKILL.md                     # kontrak penulisan draf, disiplin tag
 │   │   └── assets/
 │   │       ├── source_material_ipas.md
-│   │       └── source_material_energi.md
+│   │       ├── source_material_energi.md
+│   │       ├── source_material_wujud_zat.md
+│   │       └── source_material_tata_surya.md
 │   └── edu-reviewer/
 │       ├── SKILL.md                     # kontrak vonis, wajib menyebut aturan + mengutip teks
 │       └── assets/
@@ -40,16 +45,19 @@ itulah artefak yang tepat untuk challenge ini: juri bisa membaca setiap aturan y
 │           ├── cp_ipas.md
 │           ├── konteks_aktual.md
 │           ├── source_material_ipas.md
-│           └── source_material_energi.md
+│           ├── source_material_energi.md
+│           ├── source_material_wujud_zat.md
+│           └── source_material_tata_surya.md
 └── evidence_bundle/                     # jejak run, slot screenshot, salinan audit
 ```
 
 Repo publik mencerminkan bundel ini, dengan `README.md` sebagai halaman depan:
 https://github.com/otnamhcar/educraft-hackathon-workbuddy-2026
 
-**Catatan soal rulebook yang terduplikasi:** rulebook ikut dikirim di dalam `edu-orchestrator/assets/`
-dan `edu-reviewer/assets/` supaya tiap skill mandiri saat dipasang. Kedua salinan identik byte
-(diverifikasi dengan checksum); bila suatu saat berbeda, salinan milik Reviewer yang berlaku.
+**Catatan soal berkas yang terduplikasi:** rulebook dan source material ikut dikirim di dalam
+`edu-orchestrator/assets/`, `edu-writer/assets/`, dan `edu-reviewer/assets/` supaya tiap skill mandiri
+saat dipasang. Semua salinan identik byte (diverifikasi dengan checksum oleh `tools/doctor.py` —
+10 passed / 0 failed); bila suatu saat berbeda, salinan milik Reviewer yang berlaku.
 
 ## 2. Bukti penggunaan (jejak run)
 
@@ -96,19 +104,22 @@ per-OS: README → "Run it yourself".
 | **Repo publik** | Handbook menerima repo publik *atau* workflow yang diekspor beserta buktinya. | ✅ **SELESAI** — https://github.com/otnamhcar/educraft-hackathon-workbuddy-2026 (publik, MIT). Opsi (a) dipilih. |
 | **Screenshot** | Diwajibkan §7 untuk hasil pengujian | ⏳ Ambil sesuai `04_Test_Results.md` §3; simpan di `05_Bukti_Proses/evidence_bundle/03_screenshots/` |
 | **Video demo** | Wajib, 5–8 menit | ⏳ Skripnya siap: `07_Demo_Video_Script.md` |
-| **Persetujuan manusia** | Gerbang etik, bukan formalitas | ✅ Run `-002` disetujui guru 30 Okt 2026 17:19; run `-001` masih PENDING |
+| **Persetujuan manusia** | Gerbang etik, bukan formalitas | ✅ Run `-002` disetujui guru 30 Okt 2026 17:19; run `-001` dan `-003` masih PENDING |
 
 ## 5. Catatan lisensi dan data
 
 - **Kode/kontrak:** **MIT** — `LICENSE` di akar repo; cakupannya dijelaskan di README §
   "Licence and data".
-- **Source material — dua dasar berbeda, dinyatakan terpisah:**
+- **Source material — tiga dasar berbeda, dinyatakan terpisah:**
   - Run `-001` (`source_material_energi.md`) adalah dokumen **mock/ilustratif** yang ditulis untuk
     hackathon ini. Handbook §10 mengizinkan data mock (*"Mock data is acceptable"*). Pengecualiannya
     klaim dunia nyata, yang mengutip URL resmi di `konteks_aktual.md`.
   - Run `-002` (`source_material_wujud_zat.md`) **dikutip dari Panduan IPAS resmi, hlm. 26–27**, dengan
     rujukan baris. Sembilan entri adalah kutipan; dua (`[src:W10]`, `[src:W11]`) turunan tim dan
     ditandai demikian.
+  - Run `-003` (`source_material_tata_surya.md`) **dikutip dari Panduan IPAS resmi, hlm. 45–47**, dengan
+    rujukan baris. Sembilan entri (`[src:TS1]`–`[src:TS9]`) adalah kutipan; dua (`[src:TS10]`,
+    `[src:TS11]`) turunan tim (daftar nama planet, definisi rotasi/revolusi) dan ditandai demikian.
 - **Data siswa:** tabel skor memakai ID peserta yang sudah dianonimkan. Tidak ada data siswa nyata.
 - **Dokumen kurikulum pihak ketiga IKUT diedarkan ulang**, tanpa perubahan dan dengan atribusi, di
   `02_Sumber/`: *Panduan Mata Pelajaran IPAS* resmi (Revisi 4) dan *Permendikdasmen No. 13/2025*, plus
