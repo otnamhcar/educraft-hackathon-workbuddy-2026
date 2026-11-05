@@ -103,7 +103,7 @@ Lihat `01_ARSITEKTUR.md` §5.2. Batasan tambahan:
 
 | Tumpang tindih | Mengapa bermasalah | Perbaikan | Status |
 |----------------|--------------------|-----------|--------|
-| Rulebook dikirim 2× (aset orchestrator + reviewer) | Dua salinan bisa melenceng; lalu "aturan mana yang berlaku?" tak terjawab | Simpan satu berkas kanonik, hasilkan salinan, verifikasi lewat checksum | Kanonik: `03_Hasil/referensi/rulebook_ipas.md`. Salinan identik byte hari ini (terverifikasi). Cek checksum sudah otomatis di `tools/doctor.py` |
+| Rulebook dikirim 2× (aset orchestrator + reviewer) | Dua salinan bisa melenceng; lalu "aturan mana yang berlaku?" tak terjawab | Simpan satu berkas kanonik, hasilkan salinan, verifikasi lewat checksum | Kanonik: `08_Referensi/rulebook_ipas.md`. Salinan identik byte hari ini (terverifikasi). Cek checksum sudah otomatis di `tools/doctor.py` |
 | Daftar format berbeda antar dokumen | Kontrak menyebut 3 format; submission mengklaim 5 + kuis | Satu daftar hidup di `01_ARSITEKTUR.md` §3 dan skema Planner; kontrak diperbarui agar cocok | **DITUTUP 31 Okt** — keempat kontrak kini memakai enam format kanonik dengan aturan "subset apa pun, minimal dua" |
 | "Run yang jadi acuan" ambigu | Dua run, status berbeda | Selalu sebut ID run; `02_WORKFLOW.md` §7 menetapkan tujuan tiap run | **DITUTUP 31 Okt** — `03_Accountability_Sheet.md` dan `04_Test_Results.md` kini menyebut run di setiap pernyataan |
 | Arsitektur dijelaskan di 4 tempat | Melenceng | `01_ARSITEKTUR.md` kanonik; yang lain turunan dan tidak boleh menambah klaim | Tercatat di `00_INDEX.md` |

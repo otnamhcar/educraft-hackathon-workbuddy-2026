@@ -88,7 +88,7 @@ Tiga sifat ditegakkan oleh kontrak, bukan oleh harapan:
 | `05_Bukti_Proses/skills_package/` | **Kodenya**: empat kontrak `SKILL.md` + aset pengetahuan |
 | `05_Bukti_Proses/skills_package/edu-reviewer/assets/rulebook_ipas.md` | **Rulebook** R001–R012 (v2.0) |
 | `02_Sumber/` | Dua PDF resmi kementerian yang menjadi bahan lapisan pengetahuan, plus hasil ekstraksi teksnya. Inventaris dan pengecualian: `02_Sumber/README.md` |
-| `03_Hasil/referensi/` | Lapisan pengetahuan: source material, CP, daftar konteks aktual, rulebook |
+| `08_Referensi/` | Lapisan pengetahuan: source material, CP, daftar konteks aktual, rulebook |
 | `03_Hasil/edu_output/` | Folder run `-001` (Energi Alternatif): `00_run_config.md`, `audit_log.md`, dan `01_lesson_plan.md` |
 | `03_Hasil/materi_ajar/` | Salinan artefak run `-001` untuk bundel (draf yang diperbaiki + kuis HTML). **Bukan run kelima** — tidak punya `00_run_config.md` sendiri |
 | `03_Hasil/edu_output_wujud_zat/` | Keluaran run `-002` (Perubahan Wujud Zat) + tiga PDF siap cetak |
@@ -141,8 +141,8 @@ masing-masing.
 | Konfigurasi run | `03_Hasil/edu_output/00_run_config.md` |
 | Audit log | `03_Hasil/audit/audit_log_edu_orchestrator.md` |
 | **REJECT** 29 Okt (R001, R011, R004) | `03_Hasil/audit/review_kepatuhan_R001-R011_2026-10-29.md` |
-| Remediasi: source material sungguhan dibuat | `03_Hasil/referensi/source_material_energi.md` |
-| Remediasi: URL resmi bertanggal | `03_Hasil/referensi/konteks_aktual.md` |
+| Remediasi: source material sungguhan dibuat | `08_Referensi/source_material_energi.md` |
+| Remediasi: URL resmi bertanggal | `08_Referensi/konteks_aktual.md` |
 | **APPROVE** 30 Okt | `03_Hasil/audit/review_kepatuhan_R001-R011_2026-10-30_REVISI.md` |
 
 Pada 29 Oktober agen Reviewer **menolak keluaran kami sendiri**: draf ditandai terhadap berkas
@@ -185,7 +185,7 @@ Satu kasus bisa diperiksa mesin dari ujung ke ujung, dan itulah yang paling pent
 
 ```bash
 python3 tools/check_grounding.py --run 03_Hasil/materi_ajar \
-    --knowledge 03_Hasil/referensi --out 03_Hasil/materi_ajar/grounding_report.md
+    --knowledge 08_Referensi --out 03_Hasil/materi_ajar/grounding_report.md
 ```
 
 | Run | Tag diperiksa | Dangling | Pelanggaran kelas | Vonis |

@@ -32,7 +32,7 @@ from _report import Reporter, harden_console, use_color  # noqa: E402
 SKILLS = ("edu-orchestrator", "edu-planner", "edu-writer", "edu-reviewer")
 REPO_ROOT = Path(__file__).resolve().parent.parent
 PKG = REPO_ROOT / "05_Bukti_Proses" / "skills_package"
-KNOWLEDGE = REPO_ROOT / "03_Hasil" / "referensi"
+KNOWLEDGE = REPO_ROOT / "08_Referensi"
 CHECKER = REPO_ROOT / "tools" / "check_grounding.py"
 
 KNOWLEDGE_FILES = (

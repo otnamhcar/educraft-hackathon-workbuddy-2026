@@ -1,6 +1,6 @@
 # 04 — Spesifikasi rulebook (penunjuk kanonik)
 
-> **Rulebook-nya sendiri ada di** `03_Hasil/referensi/rulebook_ipas.md` (v2.0).
+> **Rulebook-nya sendiri ada di** `08_Referensi/rulebook_ipas.md` (v2.0).
 > Berkas ini tidak mengulang aturannya — berkas ini menetapkan bagaimana rulebook dikelola, bagaimana
 > tiap aturan ditegakkan, dan bukti apa yang ada untuk penegakan itu. Menyalin teks aturan ke sini
 > akan menciptakan sumber kebenaran kedua, dan itu persis mode kegagalan yang ingin dihapus oleh
@@ -12,7 +12,7 @@
 
 | Sifat | Aturan |
 |-------|--------|
-| Berkas kanonik | `03_Hasil/referensi/rulebook_ipas.md` |
+| Berkas kanonik | `08_Referensi/rulebook_ipas.md` |
 | Salinan | `skills_package/edu-orchestrator/assets/`, `skills_package/edu-reviewer/assets/` |
 | Integritas salinan | Identik byte; diverifikasi dengan checksum sebelum setiap submission |
 | Kendali perubahan | Hanya disunting manusia. Agen boleh mengusulkan aturan, tidak pernah menetapkannya |
@@ -22,7 +22,7 @@
 **Bukti checksum (31 Okt 2026, v2.0):**
 
 ```
-9fe6336872159a65  03_Hasil/referensi/rulebook_ipas.md
+9fe6336872159a65  08_Referensi/rulebook_ipas.md
 9fe6336872159a65  05_Bukti_Proses/skills_package/edu-orchestrator/assets/rulebook_ipas.md
 9fe6336872159a65  05_Bukti_Proses/skills_package/edu-reviewer/assets/rulebook_ipas.md
 ```
@@ -30,7 +30,7 @@
 Jalankan ulang dengan:
 ```bash
 python3 -c "import hashlib,sys,pathlib; [print(hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest()[:16], p) for p in sys.argv[1:]]" \
-  03_Hasil/referensi/rulebook_ipas.md \
+  08_Referensi/rulebook_ipas.md \
   05_Bukti_Proses/skills_package/*/assets/rulebook_ipas.md
 ```
 

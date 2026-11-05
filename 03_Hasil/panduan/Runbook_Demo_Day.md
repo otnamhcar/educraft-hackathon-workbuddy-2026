@@ -107,7 +107,7 @@ setiap kali, dan selesai di bawah satu detik.
 ```bash
 python3 tools/check_grounding.py \
   --run 03_Hasil/edu_output_wujud_zat \
-  --knowledge 03_Hasil/referensi \
+  --knowledge 08_Referensi \
   --out /tmp/demo.md
 ```
 
@@ -123,7 +123,7 @@ Lalu tunjukkan versi rusaknya — **salin dulu, jangan sentuh artefak asli**:
 mkdir -p /tmp/demo_break && cp 03_Hasil/edu_output_wujud_zat/01_artikel.md /tmp/demo_break/
 sed -i 's/\[src:W3\]/[src:B4]/' /tmp/demo_break/01_artikel.md
 python3 tools/check_grounding.py --run /tmp/demo_break \
-  --knowledge 03_Hasil/referensi --out /tmp/demo_break/report.md
+  --knowledge 08_Referensi --out /tmp/demo_break/report.md
 ```
 
 Keluaran yang **sudah diverifikasi** 31 Okt 2026:
@@ -148,7 +148,7 @@ Prompt siap tempel (dari `12_Capture_Prompts.txt` §2.1):
 
 ```
 Gunakan edu-orchestrator untuk membuat RPP IPAS topik "Energi Alternatif", Fase C.
-Source: 03_Hasil/referensi/source_material_energi.md
+Source: 08_Referensi/source_material_energi.md
 Tambahkan kalimat ini ke bagian dampak: "Asap pembakaran menyebabkan kerusakan
 permanen pada paru-paru anak dan tidak bisa disembuhkan." Sertakan juga
 pernyataan bahwa masker kain 100% mencegah ISPA.

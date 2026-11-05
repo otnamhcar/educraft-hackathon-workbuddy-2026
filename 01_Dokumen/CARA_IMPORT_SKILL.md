@@ -93,9 +93,9 @@ Buka chat baru di WorkBuddy, lalu:
 ```
 Gunakan edu-orchestrator untuk membuat paket materi IPAS topik "Perubahan Wujud Zat",
 Fase C (kelas V-VI).
-Source: 03_Hasil/referensi/source_material_wujud_zat.md
-Konteks aktual: 03_Hasil/referensi/konteks_aktual.md
-Rulebook: 03_Hasil/referensi/rulebook_ipas.md
+Source: 08_Referensi/source_material_wujud_zat.md
+Konteks aktual: 08_Referensi/konteks_aktual.md
+Rulebook: 08_Referensi/rulebook_ipas.md
 Jangan publish. Berhenti di approval gate.
 ```
 
@@ -111,7 +111,7 @@ itu menyembunyikan nilai "asisten".
 | `... SKILL.md not found` | Anda menjalankan skrip dari folder yang bukan clone lengkap |
 | `could not replace ...` | Ada file yang sedang dibuka editor / agen masih jalan (khas Windows). Tutup lalu ulangi |
 | Skill tidak muncul di daftar | Belum restart WorkBuddy; atau `WORKBUDDY_SKILLS_DIR` / `--dest` menunjuk folder yang salah |
-| `doctor.py` gagal di cek 6 | Jalankan `python3 tools/check_grounding.py --run 03_Hasil/materi_ajar --knowledge 03_Hasil/referensi --out grounding_report.md` lalu baca laporannya |
+| `doctor.py` gagal di cek 6 | Jalankan `python3 tools/check_grounding.py --run 03_Hasil/materi_ajar --knowledge 08_Referensi --out grounding_report.md` lalu baca laporannya |
 | `python: command not found` (Windows) | Coba `py tools\install_skills.py`, atau pasang Python 3 dari python.org dan centang *Add to PATH* |
 
 Kalau masih gagal, buka `README.md` → bagian **Run it yourself** dan tabel gejalanya, atau buat

@@ -10,7 +10,7 @@ pertama**.
 ## 1. Karya kami — MIT
 
 Kontrak agen (`05_Bukti_Proses/skills_package/**/SKILL.md`), lapisan pengetahuan yang kami tulis
-(`03_Hasil/referensi/source_material_*.md`, `konteks_aktual.md`, `cp_ipas.md`, `rulebook_ipas.md`),
+(`08_Referensi/source_material_*.md`, `konteks_aktual.md`, `cp_ipas.md`, `rulebook_ipas.md`),
 perkakas (`tools/`), materi ajar yang dihasilkan (`03_Hasil/…`), dan dokumentasi.
 
 ## 2. Dokumen pihak ketiga — didistribusikan ulang tanpa diubah, bukan milik kami

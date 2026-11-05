@@ -22,16 +22,18 @@ Ini bukan aplikasi web. Ini adalah:
 | Lapisan | Apa itu | Di mana |
 |---------|---------|---------|
 | Kontrak | 4 spesifikasi agen (`SKILL.md`) | `05_Bukti_Proses/skills_package/` |
-| Pengetahuan | fakta read-only, capaian kurikulum, rulebook, register konteks aktual | `03_Hasil/referensi/` — lihat catatan di bawah |
+| Pengetahuan | fakta read-only, capaian kurikulum, rulebook, register konteks aktual | `08_Referensi/` |
 | State | konfigurasi run + audit log append-only | `03_Hasil/edu_output*/` |
 | Keluaran | draf Markdown, kuis/animatik HTML, infografis PNG, PDF cetak | `03_Hasil/` |
 
-**Catatan penempatan (5 Nov 2026):** lapisan pengetahuan berada **di dalam** `03_Hasil/`, folder yang
-namanya berarti "hasil". Itu warisan dari saat proyek baru punya satu folder, dan secara struktural
-bertentangan dengan B1 — batas yang seharusnya ditegakkan oleh pemisahan fisik, bukan konvensi.
-Pemindahan ke `08_Referensi/` ditunda sampai setelah submission karena akan memutus 25 rujukan dan
-meninggalkan enam artefak append-only dengan path yang tidak resolve. Dicatat sebagai **G19** di
-`07_GAP_DAN_REKOMENDASI.md`. Sampai saat itu `03_Hasil/README.md` menyatakan aturannya secara eksplisit.
+**Catatan pemisahan (5 Nov 2026):** lapisan pengetahuan semula berada di dalam `03_Hasil/referensi/`,
+folder yang namanya berarti "hasil". Itu membuat batas kepercayaan **B1** — agen tidak boleh menulis
+ke lapisan pengetahuan — hanya berlaku sebagai konvensi, bukan struktur. Lapisan itu kini dipindah ke
+`08_Referensi/` di akar repo; `tools/doctor.py` dan `tools/check_grounding.py` menunjuk lokasi baru.
+Artefak **append-only** yang sudah menulis path lama (audit log `-001` dan `-004`, dua
+`grounding_report`, satu memo koreksi, satu log orchestration) sengaja tidak disunting; peta
+berkasnya ada di `03_Hasil/referensi/README.md`. Sisa percampuran yang belum ditutup — `panduan/` dan
+`audit/` — dicatat sebagai **G20** di `07_GAP_DAN_REKOMENDASI.md`.
 
 ---
 

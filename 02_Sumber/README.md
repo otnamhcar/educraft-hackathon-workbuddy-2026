@@ -24,7 +24,7 @@ menyebut PDF asalnya dan jumlah halamannya, sehingga ekstraksinya bisa ditelusur
 | `centralpendidikan.com 1–6. rpp 1 lembar ipa kelas 7.docx` + berkas `.rar` | Lembar kerja komersial pihak ketiga. Cakupannya **SMP kelas 7**, di luar domain SD proyek ini, dan **tidak ada artefak yang bergantung padanya**. Mendistribusikannya ulang hanya menambah pertanyaan hak pihak ketiga tanpa manfaat |
 | `1. Panduan Penilaian SMP - Cetakan Keempat 2017.pdf` | Alasan sama: SMP, tidak terpakai |
 
-Tidak satu pun pengecualian itu melemahkan reproduksibilitas: setiap berkas di `03_Hasil/referensi/`
+Tidak satu pun pengecualian itu melemahkan reproduksibilitas: setiap berkas di `08_Referensi/`
 berasal dari dua dokumen resmi yang **memang** dipublikasikan.
 
 ## Lisensi
@@ -40,7 +40,7 @@ Lisensi MIT mencakup kode, kontrak, dan dokumentasi tertulis — bukan kedua PDF
 ```
 02_Sumber/*.pdf
    └─ extract_pdf.py ──▶ extracted/*.txt
-          └─ 03_Hasil/referensi/source_material_*.md   (fakta terkutip, [src:W1]…[src:W11])
+          └─ 08_Referensi/source_material_*.md   (fakta terkutip, [src:W1]…[src:W11])
                  └─ 03_Hasil/…/drafts                (setiap kalimat membawa tag)
                         └─ tools/check_grounding.py    (menyelesaikan tiap tag, atau gagal)
 ```

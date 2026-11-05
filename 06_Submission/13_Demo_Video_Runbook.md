@@ -25,7 +25,7 @@ cara memproduksinya.
 | 7 | **STOP #2 — eskalasi 3×** | 5:00–5:40 | agen + skill terpasang | ❌ **terblokir** |
 | 8 | STOP #3 — gerbang approval | 5:40–6:20 | `03_Hasil/edu_output/00_run_config.md` | ✅ ya |
 | 9 | Laporan penolakan 29 Okt | 6:20–6:55 | `03_Hasil/audit/review_kepatuhan_R001-R011_2026-10-29.md` | ✅ ya |
-| 10 | **Build approach + kredit guru** | 6:55–7:15 | `03_Hasil/referensi/rulebook_ipas.md` + 4 `SKILL.md` | ✅ ya |
+| 10 | **Build approach + kredit guru** | 6:55–7:15 | `08_Referensi/rulebook_ipas.md` + 4 `SKILL.md` | ✅ ya |
 | 11 | Penutup + paket akhir | 7:15–7:40 | PDF/PNG/HTML di `03_Hasil/` | ✅ ya |
 
 ### 1.1 Satu akar masalah untuk dua pekerjaan

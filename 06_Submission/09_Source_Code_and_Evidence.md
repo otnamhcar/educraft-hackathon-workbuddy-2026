@@ -68,8 +68,8 @@ Juri bisa merekonstruksi seluruh run `EDU-ORCH-20261026-001` dari berkas-berkas 
 | 1 | `03_Hasil/edu_output/00_run_config.md` | Topik, kode CP, sumber, penyetuju, status publikasi |
 | 2 | `03_Hasil/audit/audit_log_edu_orchestrator.md` | Langkah Planner → Writer → Reviewer, riwayat revisi |
 | 3 | `03_Hasil/audit/review_kepatuhan_R001-R011_2026-10-29.md` | **REJECT** (R001, R011, R004) |
-| 4 | `03_Hasil/referensi/source_material_energi.md` | Sumber yang dibuat sebagai jawaban atas penolakan itu |
-| 5 | `03_Hasil/referensi/konteks_aktual.md` | CA1/CA6 dengan URL resmi dan tanggal akses |
+| 4 | `08_Referensi/source_material_energi.md` | Sumber yang dibuat sebagai jawaban atas penolakan itu |
+| 5 | `08_Referensi/konteks_aktual.md` | CA1/CA6 dengan URL resmi dan tanggal akses |
 | 6 | `03_Hasil/materi_ajar/` | Kelima draf yang diperbaiki + kuis HTML interaktif |
 | 7 | `03_Hasil/audit/review_kepatuhan_R001-R011_2026-10-30_REVISI.md` | **APPROVE** setelah remediasi |
 

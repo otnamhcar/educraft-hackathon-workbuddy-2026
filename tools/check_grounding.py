@@ -33,7 +33,7 @@ Usage
 -----
   python3 tools/check_grounding.py \
       --run 03_Hasil/edu_output_wujud_zat \
-      --knowledge 03_Hasil/referensi \
+      --knowledge 08_Referensi \
       --out 03_Hasil/edu_output_wujud_zat/grounding_report.md
 
 Exit codes: 0 = clean, 1 = failures found, 2 = bad input.

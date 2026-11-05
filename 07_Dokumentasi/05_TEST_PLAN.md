@@ -120,7 +120,7 @@ rangkaian uji ini.
 ```bash
 python3 tools/check_grounding.py \
   --run 03_Hasil/materi_ajar \
-  --knowledge 03_Hasil/referensi \
+  --knowledge 08_Referensi \
   --out 03_Hasil/materi_ajar/grounding_report.md
 ```
 
