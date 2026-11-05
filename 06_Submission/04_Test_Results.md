@@ -4,7 +4,7 @@
 > Include any that failed."* Handbook §6.3: *"Disclose failures transparently; concealing one is
 > penalised more heavily."*
 
-**Suite:** 21 test case (`04_Diskusi/test_cases_matrix.md`) · **Run:** `EDU-ORCH-20261026-001` (utama), `EDU-ORCH-20261030-002`, `EDU-ORCH-20261104-004`, `EDU-ORCH-20261105-003`
+**Suite:** 23 test case (`04_Diskusi/test_cases_matrix.md`) · **Run:** `EDU-ORCH-20261026-001` (utama), `EDU-ORCH-20261030-002`, `EDU-ORCH-20261104-004`, `EDU-ORCH-20261105-003`
 **Dieksekusi:** 26 Oktober – 5 November 2026 · **Legenda status:** `PASS` = dibuktikan artefak ·
 `BY DESIGN` = perilaku ditegakkan di kontrak skill, screenshot langsung belum diambil ·
 `TO RUN` = belum dijalankan
@@ -15,13 +15,13 @@
 
 | Hasil | Jumlah | Arti |
 |-------|--------|------|
-| `PASS` (berbasis artefak) | 8 | Ada berkas di repo ini yang membuktikan perilakunya |
-| `BY DESIGN` (ditegakkan kontrak) | 11 | Tertulis di `SKILL.md`; masih perlu screenshot |
+| `PASS` (berbasis artefak) | 9 | Ada berkas di repo ini yang membuktikan perilakunya |
+| `BY DESIGN` (ditegakkan kontrak) | 12 | Tertulis di `SKILL.md`; masih perlu screenshot |
 | `TO RUN` | 2 | Belum dijalankan — diungkap, bukan diklaim |
-| **Kasus kritis yang lulus** | **2 dari 7 terbukti penuh** | TC-14 (gerbang approval) dan TC-18 (teks gambar) — lihat §4 |
+| **Kasus kritis yang lulus** | **2 dari 8 terbukti penuh** | TC-14 (gerbang approval) dan TC-18 (teks gambar) — lihat §4 |
 
-Totalnya cocok: 21 (8 + 11 + 2). Kami sengaja **tidak** mengklaim 21/21: baru 8 kasus yang punya
-artefak hari ini. Tiga belas sisanya bergantung pada screenshot yang belum kami ambil atau run yang
+Totalnya cocok: 23 (9 + 12 + 2). Kami sengaja **tidak** mengklaim 23/23: baru 9 kasus yang punya
+artefak hari ini. Sisanya bergantung pada screenshot yang belum kami ambil atau run yang
 belum kami jalankan — dan mengklaimnya justru mode kegagalan yang ingin dicegah proyek ini.
 
 ---
@@ -101,6 +101,18 @@ belum kami jalankan — dan mengklaimnya justru mode kegagalan yang ingin dicega
 
 R012 ditambahkan di rulebook v2.0 pada 31 Oktober. Sampai kasus ini dijalankan, aturannya **dinyatakan
 tetapi belum diuji**, dan tabel ini mengatakan begitu.
+
+### L. Deliverable siap pakai (FR-01/FR-06/FR-09)
+
+| TC | Uji | Harapan | Hasil | Bukti |
+|----|-----|---------|-------|-------|
+| TC-22 | Bangun materi `.md` dari draf yang sudah disetujui, lalu coba lewati gerbangnya | Alat keluar `0` pada masukan bersih, dan **`1`** pada masukan yang memuat penanda internal atau koreksi yang belum diterapkan | **PASS** | 5 Nov 2026, tiga masukan. **A:** run `-001` + koreksi resmi → `0`, 314 baris, 0 tag, 0 ID aturan, 0 path `assets/`. **B:** satu draf disisipi `Lihat R001 dan assets/source_material_ipas.md` → `1`, dua temuan `FR-06`, **berkas keluaran tidak ditulis**. **C:** koreksi diganti aturan tanpa efek → `1`, `FR-04: koreksi belum diterapkan`. Bukti: `tools/build_materi_md.py` |
+| TC-23 | Run `APPROVE` → apakah `RELEASED` menuntut empat artefak | Empat berkas ada, checklist 13 butir tercatat, baru sesudahnya `RELEASED` | **BY DESIGN** | Aturan ada di `format_rendering_spec.md` v1.1 §3 dan `SKILL.md` langkah 5–6. **Belum ada run yang menjalankannya dalam urutan benar**: run `-001` membuat `.docx`/`.pptx`/`.html` lebih dulu, `.md` menyusul 5 Nov setelah aturannya terbit. Empat berkasnya ada di `03_Hasil/edu_output/`, tetapi urutannya tidak bisa dipakai sebagai bukti kepatuhan |
+
+TC-22 adalah satu-satunya kasus dalam suite ini yang menilai **artefak**, bukan perilaku agen — dan
+satu-satunya yang hasilnya bisa gagal secara mekanis, bukan lewat penilaian manusia. Karena itu ia
+diberi tiga masukan, termasuk dua yang memang harus ditolak: alat yang tidak pernah menolak apa pun
+tidak membuktikan apa pun.
 
 ---
 

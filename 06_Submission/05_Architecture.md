@@ -46,8 +46,19 @@ Orchestrator ── menulis 00_run_config.md
     │                          APPROVE
     │                              │
     ▼                              ▼
-Gerbang approval manusia ─────► paket terbit  (+ audit log)
+Gerbang approval manusia ─────► Format Rendering (wajib)
+                                Materi_Guru .md → RPP .docx → Slide .pptx → Kuis .html
+                                            │
+                                            ▼
+                                paket siap pakai  (+ audit log)
 ```
+
+**Keluaran akhir bukan draf.** Draf Markdown yang membawa tag `[src:#]` adalah bahan kerja internal;
+ia tidak pernah diserahkan ke guru. Sebuah run baru dianggap selesai setelah empat artefak siap pakai
+ada dan lulus checklist: `Materi_Guru_*.md`, `RPP_*.docx`, `Slide_*.pptx`, `quiz_*.html`. Berkas `.md`
+dibangun lebih dulu sebagai **lapisan konten teresolusi**, dan ketiga format lain diturunkan darinya —
+bukan dari draf bertag. Konsekuensinya, konsistensi angka lintas artefak menjadi sifat yang dijamin
+konstruksi, bukan hasil kedisiplinan operator: resolusi tag terjadi sekali, bukan tiga kali.
 
 **State yang dipegang Orchestrator:** `{run_id, topic, cp_codes, source_path, iteration,
 per_format_status, findings[], approver, publish_status}`. Inilah yang membuat run bisa direproduksi

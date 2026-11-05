@@ -116,6 +116,10 @@ Peran:
   (`[src:CA1]`, `[src:CA6]` dengan URL resmi dan tanggal akses).
 - **Kontrak keluaran:** `{format, status, iterations, final_content, findings[], sources[]}` plus
   audit log yang hanya bisa ditambah (append-only).
+- **Keluaran siap pakai:** empat artefak — `Materi_Guru_*.md`, `RPP_*.docx`, `Slide_*.pptx`,
+  `quiz_*.html`. Fase Format Rendering bersifat wajib dan berjalan hanya setelah persetujuan guru
+  tercatat; draf bertag tidak pernah diserahkan. `.md` adalah lapisan konten teresolusi, dan tiga
+  format lain diturunkan darinya, sehingga satu angka tidak bisa berbeda antar berkas.
 - **State:** berkas konfigurasi run (`00_run_config.md`) mencatat topik, CP, sumber, penyetuju, dan
   status publikasi, sehingga sebuah run bisa direkonstruksi di kemudian hari.
 

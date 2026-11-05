@@ -43,7 +43,7 @@ Poster tetap bisa dilihat utuh sebagai gambar, jadi yang dipublikasikan PNG-nya.
 1. **Galeri penolakan.** Lima temuan R001 dari pass 1, lengkap dengan kalimat yang dikutip
    dan alasan penolakannya, lalu hasil pass 2. Sumber: `03_Hasil/edu_output_wujud_zat/05_review.md`.
 2. **Tiga artefak** yang bisa dibuka langsung.
-3. **Angka yang bisa diperiksa.** Tag grounding 115 dan 121, status 21 kasus uji.
+3. **Angka yang bisa diperiksa.** Tag grounding 115 dan 121, status 23 kasus uji.
    Sumbernya ditulis di halaman, bukan diketik ulang dari ingatan.
 
 ## Yang sengaja tidak ditampilkan

@@ -143,9 +143,12 @@ S4  Review        Reviewer → APPROVE | REJECT + findings[]
                   REJECT → kembali ke S2, iteration += 1; di iterasi 3 → S6
 S5  Approve       Manusia membaca paket, memutuskan
 S6  Release       Hanya setelah persetujuan eksplisit. Bila tidak, berhenti dengan temuan.
-S6b Format        Orchestrator → RPP .docx, slide .pptx, kuis .html
-    Rendering     Prasyarat: approved_at terisi. Kontrak: format_rendering_spec.md (FR-01…FR-08).
+                  S6 tidak menghasilkan artefak — ia mencatat izin.
+S6b Format        WAJIB. Orchestrator → Materi_Guru .md, RPP .docx, Slide .pptx, Kuis .html
+    Rendering     Urutan tetap: .md lebih dulu, tiga lainnya diturunkan darinya (FR-09).
+                  Prasyarat: approved_at terisi. Kontrak: format_rendering_spec.md (FR-01…FR-09).
                   Isi tidak berubah — hanya bentuk. Cacat isi kembali ke S2 sebagai iterasi baru.
+                  Tanpa keempat artefak, run tidak boleh berstatus RELEASED.
 ```
 
 **S3 adalah langkah yang selama ini hilang dari proyek ini.** Langkah ini dispesifikasikan di sini, dan

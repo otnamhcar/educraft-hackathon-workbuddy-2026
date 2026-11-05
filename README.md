@@ -58,8 +58,18 @@ Orchestrator ── menulis 00_run_config.md, menambahkan ke audit log
     │                            ▼
     │                        APPROVE
     ▼                            ▼
-Gerbang approval manusia ──► paket dirilis  (+ audit log)
+Gerbang approval manusia ──► Format Rendering (WAJIB)
+                             Materi_Guru .md → RPP .docx → Slide .pptx → Kuis .html
+                                        │
+                                        ▼
+                             paket siap pakai dirilis (+ audit log)
 ```
+
+**Keluaran akhir bukan draf.** Draf Markdown yang bertag `[src:#]` adalah bahan kerja internal;
+ia tidak pernah diserahkan ke guru. Sebuah run baru dianggap selesai setelah empat artefak siap
+pakai ada dan lulus checklist: `Materi_Guru_*.md`, `RPP_*.docx`, `Slide_*.pptx`, `quiz_*.html`.
+`.md` dibangun lebih dulu sebagai lapisan konten teresolusi, dan ketiga format lain diturunkan
+darinya — sehingga satu angka tidak bisa berbeda antar berkas (FR-09).
 
 Tiga sifat ditegakkan oleh kontrak, bukan oleh harapan:
 
@@ -84,7 +94,7 @@ Tiga sifat ditegakkan oleh kontrak, bukan oleh harapan:
 | `03_Hasil/edu_output_wujud_zat/` | Keluaran run `-002` (Perubahan Wujud Zat) + tiga PDF siap cetak |
 | `03_Hasil/audit/` | **Kedua** laporan review — yang REJECT dan yang APPROVE |
 | `03_Hasil/panduan/` | Cara mendemokan: panduan guru + testimoni, dan runbook Demo Day (anggaran 8 menit, tangga fallback, penunjuk bukti untuk Q&A) |
-| `04_Diskusi/test_cases_matrix.md` | Suite 21 kasus, termasuk tujuh yang kritis, dan tabel cakupan per aturan yang jujur |
+| `04_Diskusi/test_cases_matrix.md` | Suite 23 kasus, termasuk delapan yang kritis, dan tabel cakupan per aturan yang jujur |
 | `06_Submission/` | Bundel submission: deskripsi, lembar akuntabilitas, hasil uji, arsitektur, deck |
 | `06_Submission/architecture_diagram.png` | Diagram komponen dan batas kepercayaan |
 | `07_Dokumentasi/` | Dokumen rekayasa: arsitektur, workflow, batas skill, spesifikasi rulebook, rencana uji, ketertelusuran kebutuhan, daftar celah |

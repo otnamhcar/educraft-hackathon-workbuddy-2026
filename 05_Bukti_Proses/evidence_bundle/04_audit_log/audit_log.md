@@ -255,6 +255,58 @@ format), sehingga menu tidak ditayangkan. Penambahan ini berlaku untuk run berik
 - `SKILL.md` → `e3a9ddbdf128c3d8638fc0b6327e68b90463d052ea978e21476af90c292bb355`
 - `intake_menu_ipas.md` → `adbce17086bcfbcd83fb6f12c38b5ad48ef4510f2732d90ad70e41fcbf5dfff0`
 
+### 3.8 PENAMBAHAN PASCA-RILIS — DELIVERABLE `.md` (5 Nov 2026)
+
+> **Status entri:** ditambahkan **setelah** run dinyatakan terbit. Ini bukan penyuntingan §3.7.
+> §3.7 dan §3.7.1–§3.7.10 dibiarkan apa adanya, termasuk kalimatnya yang menyebut tiga deliverable.
+
+- **Pemicu:** tinjauan alur kerja 5 Nov 2026 menemukan bahwa `RELEASED` bisa dicapai tanpa materi
+  siap pakai berformat `.md`. Draf Markdown yang ada masih membawa tag internal, sehingga tidak layak
+  diserahkan ke guru.
+- **Peran:** Orchestrator (fase Format Rendering, dijalankan ulang untuk satu format yang belum ada)
+- **Persetujuan:** sudah ada — Don Jimat Akbar, 4 Nov 2026 14:49 GMT+7. Entri ini **tidak** menambah
+  atau mengubah cakupan persetujuan.
+- **Isi yang berubah: tidak ada.** Tidak ada fakta baru, tidak ada kalimat baru. Yang dilakukan hanya
+  resolusi tag, pembuangan catatan internal, dan penerapan koreksi yang sudah disetujui pada §3.7.4.
+
+#### 3.8.1 Alat: `tools/build_materi_md.py`
+- Membangun satu berkas `.md` dari draf yang sudah disetujui.
+- Membuang bagian berjudul catatan internal dan kutipan proses penyusunan.
+- Menerapkan `koreksi_format_rendering.md` (bentuk `SEBELUM => SESUDAH`).
+- **Gagal dengan kode 1** bila masih ada tag internal, catatan internal, atau koreksi yang belum
+  diterapkan. Verifikasi FR-01/FR-06/FR-09 karena itu tidak bergantung pada pemeriksaan manual.
+
+#### 3.8.2 Keluaran
+- **Berkas:** `06_Materi_Guru_Energi_Alternatif.md` (326 baris)
+- **Sumber konten:** `01_lesson_plan.md`, `02_quiz_pretest_posttest.md`, `03_slide_outline.md`,
+  `04_artikel.md`
+- **Bagian dibuang:** `H. Catatan Kepatuhan Reviewer`, `Catatan Produksi`
+- **Koreksi diterapkan:** 5 (lihat `koreksi_format_rendering.md`)
+- **Tag internal tersisa:** 0
+
+#### 3.8.3 Temuan yang memicu FR-09
+Koreksi `145 MWp → 145 MWac (192 MWp)` pada §3.7.4 diterapkan ke `.docx` dan `.pptx`, tetapi tidak
+pernah sampai ke draf `.md`. Selama `.md` bukan deliverable, selisih itu tidak terlihat. Begitu `.md`
+diserahkan, satu run akan memuat dua angka berbeda di dua berkas — pelanggaran FR-04 yang lahir dari
+tiga resolusi tag yang berjalan terpisah.
+
+**Perbaikan struktural:** `.md` dinaikkan menjadi **lapisan konten teresolusi** (FR-09 v1.1).
+`.docx`/`.pptx`/`.html` wajib diturunkan darinya, bukan dari draf bertag. Selisih angka tidak lagi
+mungkin terjadi lewat konstruksi, bukan lewat kedisiplinan operator.
+
+#### 3.8.4 Verifikasi
+| Uji | Hasil |
+|-----|-------|
+| `grep -c "\[src:"` pada `.md` | 0 |
+| `grep -i "catatan\|R0[0-9][0-9]\|assets/\|Reviewer"` pada `.md` | 0 |
+| Angka PLTS di `.md` vs `.docx` | identik: `145 MWac (192 MWp)` |
+| Angka PLTS di `.pptx` | `145MWac (192 MWp)` — **selisih spasi**, dicatat sebagai cacat kosmetik terbuka |
+| `tools/build_materi_md.py` | keluar kode 0 |
+
+**Cacat terbuka:** `.pptx` menulis `145MWac` tanpa spasi. Tidak diperbaiki pada entri ini karena
+menyunting berkas biner dua hari sebelum tenggat berisiko lebih besar daripada manfaatnya. Dicatat
+agar tidak diklaim "konsisten sempurna".
+
 ## 6. NEXT ACTION (Required)
 1. ~~Guru/SME meninjau ketiga artefak + kunci jawaban quiz.~~ ✅ Selesai
 2. ~~Guru memberikan persetujuan eksplisit → Orchestrator melakukan publish.~~ ✅ Selesai

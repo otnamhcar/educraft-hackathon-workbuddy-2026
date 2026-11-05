@@ -17,13 +17,24 @@
 | S4 Review | Reviewer | draf + rulebook + sumber | `05_review.md` | Vonis + temuan dengan ID aturan dan teks kutipan | `REJECT` → S2, `iteration += 1` |
 | S4b Limit | Orchestrator | penghitung iterasi | entri audit log | `iteration < 3` | Di angka 3 → S6 (eskalasi, jangan terbitkan) |
 | S5 Approve | Manusia | seluruh paket | baris persetujuan di `00_run_config.md` | Persetujuan eksplisit, nama + stempel waktu | Tanpa persetujuan → berhenti |
-| S6 Release | Orchestrator | paket yang disetujui | paket cetak, kuis HTML, penutupan audit | Persetujuan tercatat sebelum distribusi apa pun | Menolak |
-| S6b Format Rendering | Orchestrator | paket yang disetujui + `format_rendering_spec.md` | `RPP_*.docx`, `Slide_*/`, `quiz_*.html` | Checklist verifikasi 10 butir lulus; Source Resolution Map tercatat | Kembali ke S6b; tidak menyerahkan artefak yang gagal verifikasi |
+| S6 Release | Orchestrator | paket yang disetujui | baris `publish_status` + entri audit | Persetujuan tercatat sebelum distribusi apa pun | Menolak |
+| S6b Format Rendering (**WAJIB**) | Orchestrator | paket yang disetujui + `format_rendering_spec.md` + `koreksi_format_rendering.md` | `Materi_Guru_*.md`, `RPP_*.docx`, `Slide_*.pptx`, `quiz_*.html` | Checklist 13 butir lulus; alat `.md` keluar kode 0; Source Resolution Map tercatat | Kembali ke S6b; tidak menyerahkan artefak yang gagal verifikasi |
 
 **Status S6b:** ditetapkan 4 Nov 2026 sebagai Stage 6 pada `edu-orchestrator/SKILL.md` (pipeline menjadi
-7 langkah). Kontrak operasionalnya `edu-orchestrator/assets/format_rendering_spec.md` — aturan FR-01…FR-08
-dan checklist §5. Langkah ini **tidak menggantikan** S0–S6; ia berjalan hanya setelah persetujuan manusia
-tercatat, dan mengubah paket yang disetujui menjadi artefak siap pakai.
+7 langkah). Kontrak operasionalnya `edu-orchestrator/assets/format_rendering_spec.md` — aturan
+FR-01…FR-09 dan checklist §5. Langkah ini **tidak menggantikan** S0–S6; ia berjalan hanya setelah
+persetujuan manusia tercatat, dan mengubah paket yang disetujui menjadi artefak siap pakai.
+
+**S6b wajib (5 Nov 2026).** Sebelumnya langkah ini opsional: `SKILL.md` menaruh *Publish* di langkah 5
+dan *Format Rendering* di langkah 6, sehingga sebuah run bisa berstatus terbit sambil tetap berupa draf
+Markdown bertag. Sejak v1.1 spesifikasi, urutannya dibalik dan statusnya dinaikkan: **`RELEASED` hanya
+sah bila keempat artefak wajib ada dan lulus checklist** — `Materi_Guru_*.md`, `RPP_*.docx`,
+`Slide_*.pptx`, `quiz_*.html`. Run yang berhenti di draf berstatus `SEBAGIAN`.
+
+`.md` bukan format tambahan yang setara; ia **lapisan konten teresolusi** (FR-09). Ia dibangun lebih
+dulu oleh `tools/build_materi_md.py`, dan `.docx`/`.pptx`/`.html` diturunkan darinya — bukan dari draf
+bertag. Koreksi yang disetujui guru ditulis ke `koreksi_format_rendering.md` sebagai `SEBELUM => SESUDAH`
+dan diterapkan alat, supaya satu angka tidak bisa berbeda antar artefak.
 
 **Status S0:** sejak 5 Nov 2026, S0 tidak lagi sekadar menerima brief. Bila brief hanya memuat niat
 tanpa topik ("bantu saya", "tolong buatkan materi"), Orchestrator **wajib menayangkan menu bab** dari
@@ -62,7 +73,7 @@ benar adalah kembali ke S2 dengan iterasi baru — bukan menambal artefak.
 | S4→S5 | `APPROVE` | vonis JSON |
 | S5→S6 | persetujuan manusia yang eksplisit | `approver`, `approved_at` |
 | S6→S6b | paket disetujui tersedia dan `format_rendering_spec.md` terbaca | audit log §Format Rendering |
-| S6b→RELEASED | checklist 10 butir lulus; 0 tag internal tersisa | tabel verifikasi di audit log |
+| S6b→RELEASED | checklist 13 butir lulus; 0 tag internal tersisa; 4 artefak wajib ada | tabel verifikasi di audit log |
 | S4→S6 | `REJECT` ketiga | entri eskalasi dengan temuan yang belum tertangani |
 
 **State terminal:** `RELEASED` (disetujui dan didistribusikan) dan `ESCALATED` (berhenti dengan
@@ -186,3 +197,6 @@ inkonsistensi paling mudah ditemukan juri (lihat `07_GAP_DAN_REKOMENDASI.md` G2)
 3. Laporan review disunting setelah kejadian, bukan dengan menambahkan pass baru.
 4. Artefak yang ditolak dihapus.
 5. Status publikasi diubah oleh apa pun selain keputusan manusia.
+6. Sebuah run disebut `RELEASED` tanpa keempat artefak siap pakai (`.md`, `.docx`, `.pptx`, `.html`).
+   Draf bertag adalah bahan kerja internal, bukan materi yang boleh sampai ke guru.
+7. `.docx`/`.pptx`/`.html` diturunkan dari draf bertag, melewati lapisan `.md` (FR-09).

@@ -1,6 +1,6 @@
 ---
 name: edu-orchestrator
-description: Orchestrator (Master) untuk pipeline konten multi-agen EduCraft. Mengoordinasikan Planner, Writer, dan Reviewer untuk menghasilkan materi ajar multi-format dalam subset apa pun dari enam format kanonik (RPP, kuis, kerangka slide, artikel singkat, brief infografis, skrip video) dari satu sumber, sambil menegakkan kepatuhan rulebook, maksimal tiga iterasi remediasi, persetujuan manusia yang wajib, dan pencatatan audit. Bila perintah awal guru belum menyebut topik ("bantu saya", "tolong buatkan materi"), menayangkan menu pilihan bab IPAS (11 Fase B + 9 Fase C) beserta status sumber fakta sebelum mulai bekerja. Setelah persetujuan, menjalankan fase Format Rendering untuk mengubah draf menjadi artefak siap pakai (.docx, .pptx, HTML kuis interaktif) dengan verifikasi terstandar. Gunakan bila diminta menghasilkan materi ajar yang akuntabel.
+description: Orchestrator (Master) untuk pipeline konten multi-agen EduCraft. Mengoordinasikan Planner, Writer, dan Reviewer untuk menghasilkan materi ajar multi-format dalam subset apa pun dari enam format kanonik (RPP, kuis, kerangka slide, artikel singkat, brief infografis, skrip video) dari satu sumber, sambil menegakkan kepatuhan rulebook, maksimal tiga iterasi remediasi, persetujuan manusia yang wajib, dan pencatatan audit. Bila perintah awal guru belum menyebut topik ("bantu saya", "tolong buatkan materi"), menayangkan menu pilihan bab IPAS (11 Fase B + 9 Fase C) beserta status sumber fakta sebelum mulai bekerja. Setelah persetujuan, menjalankan fase Format Rendering yang **wajib** untuk mengubah draf menjadi empat artefak siap pakai (.md materi guru, .docx RPP, .pptx slide, HTML kuis interaktif) dengan verifikasi terstandar. Gunakan bila diminta menghasilkan materi ajar yang akuntabel.
 ---
 
 # EduCraft Orchestrator
@@ -33,13 +33,17 @@ Seluruh keluaran yang dibaca manusia — draf, temuan, laporan, pesan eskalasi �
    - Bila **REJECT** → kembalikan temuan ke `edu-writer`, lalu tinjau ulang. **Maksimal 3 iterasi.**
    - Bila masih **REJECT** setelah iterasi ke-3 → **BERHENTI** dan eskalasi ke manusia beserta masalah yang belum tertangani.
 4. **Approve:** bila **APPROVE**, sajikan konten final kepada manusia untuk persetujuan eksplisit.
-5. **Publish:** hanya setelah persetujuan manusia yang eksplisit.
-6. **Format Rendering:** setelah approval tercatat, ubah draf menjadi artefak siap pakai
-   (`.docx`, `.pptx`, `.html` interaktif). Ikuti **`assets/format_rendering_spec.md`**
-   (aturan FR-01…FR-08 + checklist verifikasi §5). Fase ini hanya mengubah bentuk dan
-   menyelesaikan tag internal — **tidak boleh** mengubah isi yang sudah disetujui.
-   Gate: `Human approver` ≠ `PENDING` dan `Publish status` disetujui. Bila gate belum
-   terpenuhi → **BERHENTI**, jangan render "sementara".
+5. **Format Rendering (WAJIB):** setelah approval tercatat, ubah draf menjadi **empat** artefak
+   siap pakai dengan urutan produksi tetap:
+   `Materi_Guru_<topik>.md` → `RPP_<topik>.docx` → `Slide_<topik>.pptx` → `quiz_<topik>.html`.
+   Berkas `.md` dibangun lebih dulu oleh `tools/build_materi_md.py` dan menjadi **sumber** ketiga
+   artefak lain — jangan menurunkan `.docx`/`.pptx`/`.html` langsung dari draf bertag.
+   Ikuti **`assets/format_rendering_spec.md`** (FR-01…FR-09 + checklist §5). Fase ini hanya
+   mengubah bentuk dan menyelesaikan tag internal — **tidak boleh** mengubah isi yang sudah disetujui.
+   Gate: `Human approver` ≠ `PENDING` dan `Publish status` disetujui. Bila gate belum terpenuhi
+   → **BERHENTI**, jangan render "sementara".
+6. **Publish:** hanya setelah keempat artefak pada langkah 5 lulus checklist §5. Run yang belum
+   punya keempatnya **tidak boleh** berstatus `RELEASED` dan tidak boleh diserahkan ke guru.
 7. **Log:** catat setiap langkah (masukan, sumber yang diambil, keputusan, revisi) ke audit log.
    Buka run dengan **berkas state** `00_run_config.md` yang memuat baris `Iteration` dalam bentuk
    yang bisa dibaca mesin (`0` di awal). Tulis ulang baris itu pada **setiap** vonis `REJECT`,
@@ -59,15 +63,22 @@ Seluruh keluaran yang dibaca manusia — draf, temuan, laporan, pesan eskalasi �
   jangan menayangkan katalog melebihi 4 opsi dalam satu pertanyaan.
 - **Format Rendering hanya setelah approval.** Artefak siap pakai tidak boleh dibuat sebelum
   persetujuan manusia tercatat di `00_run_config.md`.
-- **Patuhi `assets/format_rendering_spec.md`.** FR-01…FR-08 dan checklist §5 bersifat wajib.
+- **Empat artefak siap pakai adalah syarat selesai, bukan pelengkap.** Run yang berhenti pada draf
+  Markdown bertag belum menghasilkan materi untuk guru. Sebelum `Materi_Guru_*.md`,
+  `RPP_*.docx`, `Slide_*.pptx`, dan `quiz_*.html` ada dan lulus checklist, run berstatus
+  `SEBAGIAN` — bukan `RELEASED`. Satu-satunya pengecualian: guru menyatakan eksplisit bahwa satu
+  format tidak dibutuhkan, dan pernyataan itu tercatat di `00_run_config.md`.
+- **Patuhi `assets/format_rendering_spec.md`.** FR-01…FR-09 dan checklist §5 bersifat wajib.
   Ringkasnya: tanpa tag internal pada artefak (FR-01), Source Resolution Map wajib (FR-02),
   tanpa CDN untuk fungsi inti (FR-03), angka konsisten lintas artefak (FR-04), kontrak interaksi
   kuis baku (FR-05), tanpa catatan internal (FR-06), satuan mengikuti sumber (FR-07),
-  verifikasi lulus sebelum serah terima (FR-08).
+  verifikasi lulus sebelum serah terima (FR-08), dan satu lapisan konten teresolusi `.md` sebagai
+  sumber `.docx`/`.pptx`/`.html` (FR-09).
 
 ## Keluaran
 Laporan terstruktur per format: `{format, status, iterations, final_content, findings[], sources[]}` ditambah audit log. Seluruh teks di dalamnya berbahasa Indonesia.
 
-Bila fase Format Rendering dijalankan, keluaran ditambah:
+Fase Format Rendering **selalu** dijalankan sebelum `RELEASED`. Keluarannya ditambah:
 `{format, artifact_path, tool, verification[], source_resolution_map[]}` — dengan `verification`
 berisi hasil checklist §5 dan `source_resolution_map` berisi peta `tag → kutipan sumber`.
+Keluaran minimum: `Materi_Guru_*.md`, `RPP_*.docx`, `Slide_*.pptx`, `quiz_*.html`.

@@ -15,7 +15,7 @@
 | 2 | Blurb singkat, <10 kata | READY | sama | 8 kata, dihitung di dalam berkas |
 | 3 | Deskripsi proyek (4 bagian) | READY | `02_Project_Description.md` | 4 bagian ada; §3.3 mencakup desain prompt sesuai ketentuan |
 | 4 | Lembar akuntabilitas, 1 halaman | READY | `03_Accountability_Sheet.md` | Memuat tabel per run: `-001` disetujui 4 Nov 14:49 lalu diserahkan ke guru, `-002` disetujui 30 Okt 17:19 lalu dicetak, `-003`/`-004` `PENDING`. **Setiap pernyataan menyebut run-nya** (G2 ditutup 31 Okt) |
-| 5 | Hasil uji + screenshot | **PARTIAL** | `04_Test_Results.md` | Tabel ada (7 PASS / 11 BY DESIGN / 3 TO RUN). **0 screenshot tertangkap.** Handbook mewajibkannya |
+| 5 | Hasil uji + screenshot | **PARTIAL** | `04_Test_Results.md` | Tabel ada (9 PASS / 12 BY DESIGN / 2 TO RUN, 23 kasus). **0 screenshot tertangkap.** Handbook mewajibkannya |
 | 6 | Diagram arsitektur | READY | `05_Architecture.md`, `architecture_diagram.png` (2720×3000), `.html` | Komponen, 4 batas kepercayaan, 4 trade-off |
 | 7 | Video demo 5–8 menit | **GAP** | `07_Demo_Video_Script.md` (7:40) + `13_Demo_Video_Runbook.md` | Baru skrip dan runbook; belum ada berkas video |
 | 8 | Product sharing | READY | `06_Product_Sharing.md` | Nilai spesifik WorkBuddy, insight |
@@ -72,7 +72,7 @@ termurah yang tersedia.
 
 | Persyaratan | Status | Catatan |
 |-------------|--------|---------|
-| ~20 kasus uji dengan perilaku yang diharapkan | READY | `05_TEST_PLAN.md` (21 kasus, parameter bernama; R001–R012 semuanya terpetakan) |
+| ~20 kasus uji dengan perilaku yang diharapkan | READY | `05_TEST_PLAN.md` (23 kasus, parameter bernama; R001–R012 semuanya terpetakan) |
 | Jalankan dan serahkan hasil beserta screenshot | GAP | 0 screenshot |
 | Sertakan kegagalan | READY | Dua cacat tercatat (D1, D2); penolakan 29 Okt disimpan |
 | Ungkapkan, jangan sembunyikan | READY | Laporan penolakan disertakan; log cacat ditambahkan |

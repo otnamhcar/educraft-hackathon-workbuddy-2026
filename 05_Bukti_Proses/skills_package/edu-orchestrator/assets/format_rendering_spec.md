@@ -1,8 +1,12 @@
 # SPESIFIKASI FORMAT RENDERING — EduCraft Stage 6
 
-> **Versi:** 1.0 · **Tanggal:** 4 November 2026 · **Status:** kanonik
+> **Versi:** 1.1 · **Tanggal:** 5 November 2026 · **Status:** kanonik
 > **Pemilik:** `edu-orchestrator` (fase pasca-approval)
 > **Rujukan implementasi:** run `EDU-ORCH-20261026-001`
+>
+> **Perubahan v1.1 (5 Nov 2026):** fase ini dinyatakan **wajib**, bukan opsional; set deliverable
+> minimum menjadi empat format termasuk `.md`; `.md` ditetapkan sebagai **lapisan konten teresolusi**
+> yang menjadi sumber ketiga format lain (FR-09).
 
 ## 1. Tujuan
 
@@ -26,16 +30,28 @@ Bila gate belum terpenuhi → **BERHENTI** dan eskalasi ke manusia. Jangan rende
 
 ## 3. Peta deliverable
 
-| Format kanonik | Artefak | Alat |
-|----------------|---------|------|
-| `lesson_plan` | `.docx` | `workbuddy-docx` (HTML terstruktur → html-to-doc) |
-| `slide_outline` | `.pptx` | `workbuddy-pptx` (`slidep create` → `upsert-dsl` → `lint`) |
-| `quiz` | `.html` interaktif mandiri | enhancement inline (tanpa build step) |
-| `short_article` | `.docx` / `.md` | opsional, mengikuti `lesson_plan` |
-| `infographic_brief` | `.png` / `.html` | opsional |
-| `video_script` | `.md` | opsional |
+Fase ini **wajib** dijalankan pada setiap run yang berstatus terbit. Set minimum yang harus ada
+sebelum sebuah run boleh disebut `RELEASED` adalah **empat artefak** di bawah. Run yang hanya
+menghasilkan draf bertag belum selesai — draf adalah bahan, bukan materi siap pakai.
 
-Satu run boleh merender subset apa pun. Format yang tidak diminta tidak menghasilkan artefak kosong.
+| # | Artefak | Format kanonik asal | Alat | Status |
+|---|---------|---------------------|------|--------|
+| 1 | `Materi_Guru_<topik>.md` | gabungan seluruh draf | `tools/build_materi_md.py` | **WAJIB** |
+| 2 | `RPP_<topik>.docx` | `lesson_plan` | `workbuddy-docx` (HTML terstruktur → html-to-doc) | **WAJIB** |
+| 3 | `Slide_<topik>.pptx` | `slide_outline` | `workbuddy-pptx` (`slidep create` → `upsert-dsl` → `lint`) | **WAJIB** |
+| 4 | `quiz_<topik>.html` | `quiz` | enhancement inline (tanpa build step) | **WAJIB** |
+| 5 | `Artikel_<topik>.docx` | `short_article` | mengikuti `lesson_plan` | opsional |
+| 6 | infografis `.png` / `.html` | `infographic_brief` | — | opsional |
+| 7 | skrip video `.md` | `video_script` | — | opsional |
+
+**Urutan produksi wajib: 1 → 2 → 3 → 4.** Artefak 1 dibangun lebih dulu karena ia lapisan
+konten teresolusi (FR-09); artefak 2–4 diturunkan darinya, bukan dari draf bertag.
+
+**Satu-satunya alasan sah untuk tidak merender salah satu dari 1–4:** guru menyatakan secara
+eksplisit bahwa format itu tidak dibutuhkan. Penolakan itu dicatat di `00_run_config.md` dengan
+nama, tanggal, dan kalimatnya. Tidak ada jalan lain — "tidak diminta" bukan alasan, karena
+keempatnya adalah bawaan.
+
 
 ## 4. Aturan keras (FR-01 … FR-08)
 
@@ -81,6 +97,23 @@ sebelum render — jangan diam-diam menormalkan.
 **FR-08 — Verifikasi wajib lulus sebelum serah terima.**
 Artefak yang gagal checklist §5 **tidak boleh** diserahkan. Perbaiki lalu ulangi.
 
+**FR-09 — Satu lapisan konten teresolusi, banyak format.**
+`Materi_Guru_<topik>.md` dibangun lebih dulu dan menjadi **satu-satunya sumber** bagi `.docx`,
+`.pptx`, dan `.html`. Larangan:
+1. `.docx`, `.pptx`, dan `.html` **tidak boleh** diturunkan langsung dari draf bertag. Draf bertag
+   adalah bahan; resolusi tag terjadi sekali, di lapisan `.md`.
+2. Koreksi pasca-render yang disetujui guru ditulis ke `koreksi_format_rendering.md` dalam bentuk
+   `SEBELUM => SESUDAH`, lalu diterapkan oleh alat — bukan disunting per artefak.
+3. Alat **gagal dengan kode 1** bila masih ada tag internal, bila ada bagian catatan internal yang
+   lolos, atau bila ada koreksi yang belum diterapkan. Kegagalan alat berarti run tidak boleh lanjut.
+
+**Kenapa aturan ini ada.** Sampai v1.0, tag diselesaikan tiga kali secara terpisah (docx lewat HTML,
+pptx lewat DSL, kuis lewat suntingan JavaScript). Tiga resolusi independen berarti tiga peluang
+berbeda untuk salah. Buktinya ada di run `-001`: koreksi `145 MWp → 145 MWac (192 MWp)` masuk ke
+`.docx` dan `.pptx`, tetapi draf `.md` tetap memuat angka lama. Selama `.md` bukan deliverable,
+selisih itu tidak terlihat; begitu `.md` diserahkan ke guru, ia menjadi kontradiksi terbuka di
+tangan pengguna. FR-09 menutupnya dengan konstruksi, bukan dengan disiplin.
+
 ## 5. Checklist verifikasi (wajib dijalankan)
 
 | # | Pemeriksaan | Cara |
@@ -95,6 +128,9 @@ Artefak yang gagal checklist §5 **tidak boleh** diserahkan. Perbaiki lalu ulang
 | 8 | Cetak menghasilkan laporan | render `@media print` memuat soal + jawaban + highlight |
 | 9 | Konsistensi angka lintas artefak | bandingkan angka kunci di DOCX, PPTX, HTML |
 | 10 | Audit log terisi | ada entri fase render + Source Resolution Map |
+| 11 | Empat artefak wajib ada | `Materi_Guru_*.md`, `RPP_*.docx`, `Slide_*.pptx`, `quiz_*.html` |
+| 12 | `.md` bebas catatan internal | `grep -i "catatan\|R0[0-9][0-9]\|assets/\|Reviewer"` → 0 |
+| 13 | `.md` dibangun oleh alat, bukan tangan | `tools/build_materi_md.py` keluar dengan kode `0` |
 
 ## 6. Penanganan kegagalan
 
@@ -127,3 +163,6 @@ Tabel: Tag | Kelas | Resolusi Sumber
   tidak tersedia, fase ini tidak dapat dijalankan dan harus dieskalasi.
 - Spesifikasi ini ditegakkan lewat prompt + checklist, bukan mesin verifikasi otomatis,
   kecuali pemeriksaan `grep`, `lint`, dan uji ekspor yang bersifat deterministik.
+- Sejak v1.1, butir 1–3 pada §5 (bebas tag, bebas catatan internal, dibangun oleh alat) **ditegakkan
+  mesin**: `tools/build_materi_md.py` menolak menulis keluaran dan keluar dengan kode 1 bila gagal.
+  Butir 4–13 masih bergantung pada pemeriksaan manual yang tercatat di tabel verifikasi audit log.

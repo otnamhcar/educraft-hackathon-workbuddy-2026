@@ -37,6 +37,12 @@
 | 1 | `RPP_Energi_Alternatif.docx` | `01_lesson_plan.md` → HTML terstruktur | `workbuddy-docx` (html-to-doc) | ✅ Selesai |
 | 2 | `Slide_Energi_Alternatif.pptx` | `03_slide_outline.md` → slide DSL | `workbuddy-pptx` (slidep CLI) | ✅ Selesai |
 | 3 | `quiz_interaktif_v2.html` | `quiz_interaktif.html` + `02_quiz_pretest_posttest.md` | Enhancement manual (dark mode, timer, CSV export) | ✅ Selesai |
+| 4 | `06_Materi_Guru_Energi_Alternatif.md` | gabungan `01`–`04` (tanpa tag) | `tools/build_materi_md.py` | ✅ Selesai — *ditambahkan 5 Nov 2026, lihat `audit_log.md` §3.8* |
+
+> **Catatan urutan (5 Nov 2026):** baris 4 ditambahkan setelah rilis. Sejak `format_rendering_spec.md`
+> v1.1, `.md` adalah **lapisan konten teresolusi** dan dibangun **lebih dulu**; `.docx`, `.pptx`, dan
+> `.html` seharusnya diturunkan darinya (FR-09). Pada run ini urutannya terbalik karena aturan itu
+> belum ada saat run berjalan. Selisih angka yang muncul akibatnya dicatat di `audit_log.md` §3.8.3.
 
 ### Revisi pasca-konversi (4 Nov 2026)
 - **Hapus Section H** (Catatan Kepatuhan Reviewer) dari RPP — permintaan guru

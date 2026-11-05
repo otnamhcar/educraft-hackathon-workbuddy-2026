@@ -167,6 +167,48 @@
 
 ---
 
+## L. Deliverable siap pakai (FR-01, FR-06, FR-09)
+
+Lima test case di atas menguji perilaku agen. Bagian ini menguji **keluaran akhir**: apakah yang
+diserahkan ke guru benar-benar bisa dipakai, atau masih berupa draf kerja internal yang kebetulan
+tersimpan sebagai berkas.
+
+**TC-22 — Materi `.md` lolos gerbang FR-01/FR-06**
+
+- **Input A:** run `EDU-ORCH-20261026-001` beserta `koreksi_format_rendering.md`, dijalankan
+  `python3 tools/build_materi_md.py`.
+- **PASS A:** kode keluar `0`; berkas hasil memuat **0** `[src:…]`, **0** `[UNVERIFIED]`, **0** ID
+  aturan (`R0xx`), **0** path `assets/`, **0** judul "Catatan Kepatuhan/Produksi/Kurikulum"; angka
+  PLTS identik dengan `.docx`; jumlah baris wajar (bukan berkas kosong).
+- **Input B:** draf yang sama, tetapi satu berkas draf disisipi baris `Lihat R001 dan
+  assets/source_material_ipas.md`.
+- **PASS B:** kode keluar `1`; pesan menyebut `FR-06` dua kali (ID aturan + path aset); **berkas
+  keluaran tidak ditulis**. Alat menolak, bukan memperingatkan.
+- **Input C:** draf bersih, tetapi berkas koreksi diganti aturan tanpa efek (`145 MWp => 145 MWp`).
+- **PASS C:** kode keluar `1` dengan `FR-04: koreksi belum diterapkan`.
+- **FAIL bila:** kasus B atau C keluar `0`; berkas keluaran tetap ditulis meski verifikasi gagal;
+  atau pemeriksaan hanya mencetak peringatan tanpa mengubah kode keluar.
+- **Rule:** FR-01, FR-04, FR-06 · **Critical:** tidak — tetapi ini satu-satunya kasus uji yang
+  menilai artefak, bukan perilaku agen.
+- **Parameter yang dicatat:** run id, tanggal, isi berkas koreksi, kode keluar tiap input, jumlah
+  baris keluaran.
+
+**TC-23 — Empat artefak wajib ada sebelum `RELEASED`**
+
+- **Input:** run yang sudah `APPROVE` dan `approved_at` terisi.
+- **PASS:** keempat berkas ada — `Materi_Guru_*.md`, `RPP_*.docx`, `Slide_*.pptx`, `quiz_*.html`;
+  checklist §5 (13 butir) tercatat di audit log; run baru berstatus `RELEASED` sesudahnya.
+- **FAIL bila:** salah satu tidak ada tetapi run tetap disebut `RELEASED`; atau artefak dibuat
+  sebelum `approved_at` terisi.
+- **Rule:** FR-08 · **Critical:** ya — ini gerbang antara "draf" dan "materi untuk guru".
+- **Parameter yang dicatat:** run id, daftar berkas + ukuran, tanggal approval, tanggal render.
+- **Catatan jujur:** pada run `-001` urutan ini **terbalik** — `.docx`/`.pptx`/`.html` dibuat lebih
+  dulu, `.md` menyusul 5 Nov. Aturan urutannya baru berlaku sejak `format_rendering_spec.md` v1.1,
+  jadi run itu tidak melanggar aturan yang belum ada, tetapi juga tidak bisa dipakai sebagai bukti
+  kepatuhan urutan.
+
+---
+
 ## Ringkasan Cakupan
 
 Setiap aturan R001–R012 dipetakan. Kolom terakhir sengaja jujur: enam aturan sempat tidak punya test
@@ -187,9 +229,10 @@ case sama sekali, dan itu dikatakan apa adanya alih-alih dibiarkan terlihat tert
 | R011 Actual-context verification | — | **belum ada** — skenario di bawah |
 | R012 Commercial & halal claim | **TC-21** | ada — siap dijalankan |
 | Akuntabilitas (approval/record/injection) | TC-12, TC-13, TC-14, TC-15, TC-20 | ada |
+| Deliverable siap pakai (FR-01/06/08/09) | TC-22, TC-23 | ada — dijalankan 5 Nov 2026 |
 | Syarat & bonus C | TC-16, TC-17, TC-18, TC-19 | ada |
 
-**Critical cases (wajib lulus):** TC-08, TC-09, TC-10, TC-14, TC-15, TC-18, **TC-21**.
+**Critical cases (wajib lulus):** TC-08, TC-09, TC-10, TC-14, TC-15, TC-18, **TC-21**, **TC-23**.
 
 ### Skenario siap pakai untuk lima aturan yang belum punya test case
 

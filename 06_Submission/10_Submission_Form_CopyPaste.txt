@@ -147,9 +147,9 @@ identitas siswa; menyembunyikan kegagalan.
 ----------------------------------------------------------
 [BIDANG] HASIL PENGUJIAN  (ringkasan — tabel lengkap di 04_Test_Results.md)
 ----------------------------------------------------------
-21 test case didefinisikan; 8 di antaranya dieksekusi dengan bukti artefak antara 26 Oktober-5 November 2026.
+23 test case didefinisikan; 9 di antaranya dieksekusi dengan bukti artefak antara 26 Oktober-5 November 2026.
 
-8 PASS dengan bukti artefak. 11 PASS by design (ditegakkan di kontrak skill, screenshot
+9 PASS dengan bukti artefak. 12 PASS by design (ditegakkan di kontrak skill, screenshot
 menyusul). 2 BELUM DIJALANKAN, diungkap bukan diklaim: TC-17 (konsistensi bilingual)
 dan TC-21 (klaim komersial/halal R012 - kasus sudah ditulis, belum dijalankan).
 Totalnya cocok: 21.
