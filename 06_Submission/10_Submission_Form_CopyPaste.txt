@@ -44,7 +44,7 @@ EDU-ORCH-20261026-001, topik "Energi Alternatif", berpijak pada capaian
 pembelajaran C4 (2.1.4) dengan fondasi B5 (1.1.5).
 
 Dari mana asalnya: ide, rujukan kurikulum, dan substansi aturannya berasal dari
-Pak Arief, guru IPAS SD yang masih aktif mengajar. Ia yang menetapkan klaim mana
+Don Jimat Akbar, guru IPAS SD yang masih aktif mengajar. Ia yang menetapkan klaim mana
 yang tidak akan pernah diletakkan guru di depan kelas; pekerjaan kami adalah
 memformalkan penilaian itu menjadi aturan yang bisa diperiksa mesin dan
 membangun pipeline yang menegakkannya. Rulebook, bukan kodenya, adalah artefak
@@ -132,8 +132,9 @@ sumber tidak ada, bertentangan, atau di luar cakupan.
 MEMERLUKAN PERSETUJUAN MANUSIA: menerbitkan atau mengedarkan paket apa pun (setiap
 kali); mengalahkan vonis REJECT; menerima klaim bertanda [UNVERIFIED]; mengubah
 source material atau rulebook; memakai keluaran di luar fase yang dituju. Status
-saat ini: run -001 PENDING dan belum ada yang diterbitkan; run -002 disetujui guru
-30 Oktober 2026 pukul 17:19, dan gerbangnya baru dibuka setelah itu.
+per run, bukan status tunggal: run -001 disetujui guru 4 November 2026 pukul 14:49, run
+-002 disetujui 30 Oktober 2026 pukul 17:19, run -003 dan run -004 masih PENDING. Dua run
+disetujui, dua belum. Tidak ada satu pun yang isinya disebarkan ke publik.
 
 TIDAK AKAN PERNAH: menerbitkan tanpa persetujuan eksplisit; mengarang fakta yang
 tidak ada di sumber; menyajikan klaim dunia nyata yang belum terverifikasi sebagai
@@ -146,15 +147,17 @@ identitas siswa; menyembunyikan kegagalan.
 ----------------------------------------------------------
 [BIDANG] HASIL PENGUJIAN  (ringkasan — tabel lengkap di 04_Test_Results.md)
 ----------------------------------------------------------
-21 test case didefinisikan; 7 di antaranya dieksekusi dengan bukti artefak antara 26-30 Oktober 2026.
+21 test case didefinisikan; 8 di antaranya dieksekusi dengan bukti artefak antara 26 Oktober-5 November 2026.
 
-7 PASS dengan bukti artefak. 11 PASS by design (ditegakkan di kontrak skill, screenshot
-menyusul). 3 BELUM DIJALANKAN, diungkap bukan diklaim: TC-17 (konsistensi bilingual),
-TC-18 (validasi teks gambar) dan TC-21 (klaim komersial/halal R012 - kasus sudah
-ditulis, belum dijalankan). Totalnya cocok: 21.
+8 PASS dengan bukti artefak. 11 PASS by design (ditegakkan di kontrak skill, screenshot
+menyusul). 2 BELUM DIJALANKAN, diungkap bukan diklaim: TC-17 (konsistensi bilingual)
+dan TC-21 (klaim komersial/halal R012 - kasus sudah ditulis, belum dijalankan).
+Totalnya cocok: 21.
 
 Kasus kritis: gerbang approval (TC-14) terverifikasi - run berakhir di
-publish_status PENDING tanpa jalur terbit. Penolakan klaim kesehatan dan praktik
+publish_status PENDING tanpa jalur terbit. Validasi teks pada gambar hasil
+generate (TC-18) terverifikasi - seluruh teks infografis dibaca dari PNG lalu
+diuji terhadap R001-R012, nol klaim terlarang. Penolakan klaim kesehatan dan praktik
 berbahaya (TC-08, TC-09, TC-10) serta pertahanan prompt injection (TC-15)
 ditegakkan di kontrak dan sedang direkam untuk video demo.
 

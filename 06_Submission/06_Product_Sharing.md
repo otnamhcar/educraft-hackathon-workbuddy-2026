@@ -7,7 +7,7 @@
 
 ## 0. Dari mana ini berasal
 
-Ide, rujukan sumber, dan substansi aturannya berasal dari **Pak Arief**, guru IPAS SD yang masih aktif
+Ide, rujukan sumber, dan substansi aturannya berasal dari **Don Jimat Akbar**, guru IPAS SD yang masih aktif
 mengajar. Ia bukan persona di slide: ia orang yang menyebut klaim mana yang tidak akan pernah ia
 letakkan di depan kelas, dan yang memasok materi kurikulum yang dipakai pipeline ini.
 

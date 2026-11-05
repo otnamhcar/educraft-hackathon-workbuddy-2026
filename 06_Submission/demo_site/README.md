@@ -48,7 +48,7 @@ Poster tetap bisa dilihat utuh sebagai gambar, jadi yang dipublikasikan PNG-nya.
 
 ## Yang sengaja tidak ditampilkan
 
-- Run `EDU-ORCH-20261026-001` (Energi Alternatif): statusnya masih `PENDING`, belum disetujui guru.
+- Run `EDU-ORCH-20261026-001` (Energi Alternatif): disetujui guru 4 Nov 2026 14:49; materi diserahkan dalam format siap pakai, tidak disebarkan ke publik.
 - Kunci jawaban sebagai tabel.
 - Nama guru, sampai ada persetujuan tertulis untuk mencantumkannya.
 - Data siswa apa pun.

@@ -27,7 +27,7 @@ Produknya bukan teks yang dihasilkan. **Produknya adalah gerbangnya.**
 
 ### Aturan siapa ini
 
-Ide, rujukan kurikulum, dan substansi rulebook berasal dari **Pak Arief**, guru IPAS SD yang masih
+Ide, rujukan kurikulum, dan substansi rulebook berasal dari **Don Jimat Akbar**, guru IPAS SD yang masih
 aktif mengajar. Ia yang menetapkan apa yang tidak akan pernah diletakkan guru di depan kelas — tanpa
 klaim kesehatan permanen, tanpa menakut-nakuti, tanpa klaim halal tanpa sertifikat. Pekerjaan tim
 adalah memformalkan penilaian itu menjadi predikat yang bisa diperiksa mesin, dan membangun pipeline
@@ -79,7 +79,8 @@ Tiga sifat ditegakkan oleh kontrak, bukan oleh harapan:
 | `05_Bukti_Proses/skills_package/edu-reviewer/assets/rulebook_ipas.md` | **Rulebook** R001–R012 (v2.0) |
 | `02_Sumber/` | Dua PDF resmi kementerian yang menjadi bahan lapisan pengetahuan, plus hasil ekstraksi teksnya. Inventaris dan pengecualian: `02_Sumber/README.md` |
 | `03_Hasil/referensi/` | Lapisan pengetahuan: source material, CP, daftar konteks aktual, rulebook |
-| `03_Hasil/materi_ajar/` | Keluaran run `-001` (Energi Alternatif), draf yang diperbaiki + kuis HTML |
+| `03_Hasil/edu_output/` | Folder run `-001` (Energi Alternatif): `00_run_config.md`, `audit_log.md`, dan `01_lesson_plan.md` |
+| `03_Hasil/materi_ajar/` | Salinan artefak run `-001` untuk bundel (draf yang diperbaiki + kuis HTML). **Bukan run kelima** — tidak punya `00_run_config.md` sendiri |
 | `03_Hasil/edu_output_wujud_zat/` | Keluaran run `-002` (Perubahan Wujud Zat) + tiga PDF siap cetak |
 | `03_Hasil/audit/` | **Kedua** laporan review — yang REJECT dan yang APPROVE |
 | `03_Hasil/panduan/` | Cara mendemokan: panduan guru + testimoni, dan runbook Demo Day (anggaran 8 menit, tangga fallback, penunjuk bukti untuk Q&A) |
@@ -91,6 +92,8 @@ Tiga sifat ditegakkan oleh kontrak, bukan oleh harapan:
 | `tools/install_skills.py` | Menyalin empat folder skill ke tempat WorkBuddy membacanya, lalu memverifikasi jumlahnya 4. Python, jadi jalan sama di Linux, macOS, dan Windows |
 | `tools/doctor.py` | Enam pemeriksaan pra-terbang pada clone baru — Python, kontrak, skill terpasang, lapisan pengetahuan, checksum salinan, grounding di keempat run. Kode yang sama di semua OS |
 | `tools/check_capture.py` | Memeriksa berkas screenshot sebelum submit: mana yang belum ada, mana yang di bawah 1600 px, mana yang bukan PNG, mana yang tidak terdaftar di tracker. Daftar berkasnya dibaca dari `INDEX.md`, bukan dari daftar kedua yang bisa melenceng |
+| `tools/render_evidence.py` | Merender berkas hasil run (outline Planner, draf bertag, vonis Reviewer, audit log) menjadi PNG 1600 px untuk bukti submission. Setiap halaman membawa banner "berkas hasil run · dirender" — ia bukti artefak, bukan tangkapan UI |
+| `06_Submission/video_kit/concat_video.py` | Menormalkan tiga rekaman, menyambung dengan dua kartu judul, meratakan suara ke −16 LUFS, dan menolak hasil di luar durasi 5:00–8:00 |
 
 ---
 
@@ -303,7 +306,7 @@ Python 3.6+. Tanpa API key miliknya sendiri, tanpa langkah build, tanpa basis da
 
 - **Kode, kontrak, dan dokumentasi:** MIT — lihat `LICENSE`. Ini mencakup pipeline, keempat berkas
   `SKILL.md`, pemeriksa, dan setiap dokumen di repo ini.
-- **Atribusi:** substansi rulebook adalah penilaian profesional Pak Arief, yang diformalkan tim.
+- **Atribusi:** substansi rulebook adalah penilaian profesional Don Jimat Akbar, yang diformalkan tim.
   Lisensi MIT mencakup implementasi repo ini, bukan kepengarangannya.
 - **Dua dokumen resmi kementerian diedarkan ulang tanpa perubahan** —
   `Final Panduan Mata Pelajaran IPAS_03_10_2025_Revisi 4.pdf` dan

@@ -6,21 +6,21 @@
 
 **Proyek:** EduCraft — Asisten Ajar AI IPAS SD yang Dikendalikan Rulebook
 
-**Kewenangan domain.** Substansi rulebook dan rujukan sumbernya berasal dari **Pak Arief**, guru IPAS
+**Kewenangan domain.** Substansi rulebook dan rujukan sumbernya berasal dari **Don Jimat Akbar**, guru IPAS
 SD yang masih aktif mengajar. Tim memformalkan penilaiannya menjadi predikat yang bisa diperiksa mesin;
 tim tidak menciptakannya. Ini penting bagi akuntabilitas: aturan yang ditegakkan agen adalah penilaian
 seorang praktisi yang dituliskan, bukan dugaan engineer tentang pedagogi.
 
-Dua peran dicatat terpisah dan tidak boleh digabung: **penyusunan domain** (Pak Arief) dan
-**persetujuan rilis per-run** (penyetuju yang namanya tercatat di tabel bawah, yang menandatangani run
-tertentu).
+Dua peran dicatat terpisah meskipun dipegang orang yang sama: **penyusunan domain** dan
+**persetujuan rilis per-run**. Yang dipisahkan adalah perannya, bukan orangnya — supaya jelas apa yang
+disetujui pada run tertentu, bukan sekadar siapa yang menyetujui.
 
 **Ada empat run. Masing-masing tidak bisa dipertukarkan — punya statusnya sendiri:**
 
 | Run | Topik | Penyetuju manusia | Status publikasi |
 |-----|-------|-------------------|------------------|
-| `EDU-ORCH-20261026-001` | Energi Alternatif | PENDING (guru/SME) | **BELUM DITERBITKAN** |
-| `EDU-ORCH-20261030-002` | Perubahan Wujud Zat | **don Jimat Akbar (guru), 2026-10-30 17:19 GMT+7** | Gerbang dibuka untuk distribusi terbatas; paket cetak sudah dibuat |
+| `EDU-ORCH-20261026-001` | Energi Alternatif | **Don Jimat Akbar (guru), 2026-11-04 14:49 GMT+7** | Diserahkan ke guru dalam format siap pakai (DOCX, PPTX, kuis); tidak disebarkan ke publik |
+| `EDU-ORCH-20261030-002` | Perubahan Wujud Zat | **Don Jimat Akbar (guru), 2026-10-30 17:19 GMT+7** | Gerbang dibuka untuk distribusi terbatas; paket cetak sudah dibuat |
 | `EDU-ORCH-20261104-004` | Perubahan Wujud Zat (Fase C) | PENDING (guru/SME) | **BELUM DITERBITKAN** |
 | `EDU-ORCH-20261105-003` | Sistem Tata Surya | PENDING (guru/SME) | **BELUM DITERBITKAN** |
 
@@ -29,9 +29,13 @@ untuk kelas III–IV), `-004` Fase C (pemantapan lintas fase, kelas V–VI). Run
 sama dengan nomor `-003`; nomornya dipindah ke `-004` pada 5 Nov agar tidak bersinggungan dengan run
 Tata Surya. Alasan lengkap ada di `audit_log.md` §11.1 run tersebut.
 
-Tidak ada yang diterbitkan sebelum persetujuan manusia yang eksplisit. Run `-001`, `-003`, dan `-004`
-belum ada persetujuannya dan tidak diterbitkan; run `-002` disetujui guru yang namanya tercatat, dan
-baru setelah itu dilepas.
+Di `03_Hasil/` ada lima folder untuk empat run: `edu_output/` dan `materi_ajar/` sama-sama berisi
+artefak run `-001` — yang kedua adalah salinan untuk bundel dan tidak punya `00_run_config.md`
+sendiri. Jumlah run tetap empat.
+
+Tidak ada yang diterbitkan sebelum persetujuan manusia yang eksplisit. Run `-003` dan `-004` belum ada
+persetujuannya dan tidak diterbitkan. Run `-001` dan `-002` disetujui guru yang namanya tercatat —
+4 November 2026 pukul 14:49 dan 30 Oktober 2026 pukul 17:19 — dan baru setelah itu gerbangnya dibuka.
 
 ---
 
@@ -70,10 +74,11 @@ sistem pembayaran, atau data pribadi siswa apa pun selain skor yang sudah dianon
 | Mengubah source material atau rulebook | Hanya suntingan manusia; agen tidak punya akses tulis | Izin berkas / aset read-only |
 | Memakai keluaran di luar fase yang dituju | Persetujuan koordinator kurikulum | Konfigurasi run |
 
-**Keadaan saat ini:** run `-001` dan `-003` berada di `PENDING` dan tidak ada apa pun darinya yang
-diterbitkan. Run `-002` disetujui pada 30 Oktober 2026 pukul 17:19 oleh guru yang namanya tercatat, dan
-baru setelah itu gerbang publikasi dibuka — agen menghasilkan materi lalu berhenti sampai manusia
-bertindak, dan itulah perilaku yang dimaksud, bukan keterlambatan.
+**Keadaan saat ini:** run `-003` dan `-004` berada di `PENDING` dan tidak ada apa pun darinya yang
+diterbitkan. Run `-001` disetujui 4 November 2026 pukul 14:49 dan run `-002` 30 Oktober 2026 pukul 17:19
+oleh guru yang namanya tercatat; baru setelah itu gerbang publikasi dibuka. Agen menghasilkan materi
+lalu berhenti sampai manusia bertindak — itu perilaku yang dimaksud, bukan keterlambatan. Tidak ada satu
+pun run yang isinya disebarkan ke publik.
 
 ## 4. Apa yang tidak akan pernah dilakukan
 

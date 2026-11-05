@@ -342,7 +342,7 @@ Aturan:
    - `TO RUN` → `PASS` dengan bukti.
    - Yang gagal → `FAIL`, tambahkan baris di §4 (Disclosed failure) dengan apa yang terjadi.
 3. **`04_Test_Results.md` §1 (scoreboard)** — hitung ulang. **Wajib rekonsiliasi ke 21.**
-   (Versi sekarang: 7 PASS + 11 BY DESIGN + 3 TO RUN = 21. Jangan biarkan angkanya tidak cocok —
+   (Versi sekarang: 8 PASS + 11 BY DESIGN + 2 TO RUN = 21. Jangan biarkan angkanya tidak cocok —
    itu sudah pernah terjadi dan harus dihindari.)
 4. **`04_Test_Results.md` §3** — tambahkan satu kalimat: *"Screenshot diambil pada <tanggal> dalam
    run verifikasi EDU-CAP-…, terpisah dari run yang disetujui."*

@@ -50,3 +50,6 @@ output/
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# state directory created by CLI probes (gh) -- not project data
+.local/

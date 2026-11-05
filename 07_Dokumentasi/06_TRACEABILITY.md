@@ -14,7 +14,7 @@
 | 1 | Judul proyek | READY | `06_Submission/01_Title_Blurb.md` | — |
 | 2 | Blurb singkat, <10 kata | READY | sama | 8 kata, dihitung di dalam berkas |
 | 3 | Deskripsi proyek (4 bagian) | READY | `02_Project_Description.md` | 4 bagian ada; §3.3 mencakup desain prompt sesuai ketentuan |
-| 4 | Lembar akuntabilitas, 1 halaman | READY | `03_Accountability_Sheet.md` | Memuat tabel per run: `-001` berstatus `PENDING` / tidak diterbitkan, `-002` disetujui guru 30 Okt 17:19 lalu dicetak. **Setiap pernyataan menyebut run-nya** (G2 ditutup 31 Okt) |
+| 4 | Lembar akuntabilitas, 1 halaman | READY | `03_Accountability_Sheet.md` | Memuat tabel per run: `-001` disetujui 4 Nov 14:49 lalu diserahkan ke guru, `-002` disetujui 30 Okt 17:19 lalu dicetak, `-003`/`-004` `PENDING`. **Setiap pernyataan menyebut run-nya** (G2 ditutup 31 Okt) |
 | 5 | Hasil uji + screenshot | **PARTIAL** | `04_Test_Results.md` | Tabel ada (7 PASS / 11 BY DESIGN / 3 TO RUN). **0 screenshot tertangkap.** Handbook mewajibkannya |
 | 6 | Diagram arsitektur | READY | `05_Architecture.md`, `architecture_diagram.png` (2720×3000), `.html` | Komponen, 4 batas kepercayaan, 4 trade-off |
 | 7 | Video demo 5–8 menit | **GAP** | `07_Demo_Video_Script.md` (7:40) + `13_Demo_Video_Runbook.md` | Baru skrip dan runbook; belum ada berkas video |
@@ -90,7 +90,7 @@ Apa pun di daftar ini tidak boleh dinyatakan sebagai fakta di submission sampai 
 | U1 | Tenggat submission **7 Nov 2026** | **SELESAI** | `01_Dokumen/BUKTI_KOMITE_2026-10-31.md` §2 — pesan panitia 27/10/2026 21:23: "diperpanjang hingga 7 November 2026 (dari jadwal awal 1 November)". Handbook hlm. 13 sudah digantikan |
 | U2 | Kasus uji dari peserta diperbolehkan | **SELESAI** | berkas sama §3 — 21/10/2026 09:53: "Untuk dataset dan test case dibebaskan … gunakan data atau skenario mandiri"; ditegaskan lagi 28/10/2026 13:41 |
 | U3 | Memakai domain sendiri alih-alih dataset bersama dapat diterima | **SELESAI** | berkas sama §3 — dataset secara eksplisit bisa diringankan. Tidak ada penyimpangan yang perlu diperdebatkan |
-| U4 | Run `-001` punya persetujuan guru | UNVERIFIED | `00_run_config.md` menyebut `PENDING`. Tulis "menunggu", jangan pernah "disetujui" |
+| U4 | Run `-001` punya persetujuan guru | VERIFIED | `03_Hasil/edu_output/00_run_config.md`: `APPROVED — Don Jimat Akbar (4 Nov 2026 14:49 GMT+7)`, dikonfirmasi `audit_log.md` §3.7 |
 | U5 | "Uji lapangan" sudah terjadi | BERLEBIH — tetapi ko-desain justru KURANG diklaim | Satu guru, satu sesi tinjauan, satu set cetak; bukan uji kelas di seluruh sekolah. Tulis **"ko-desain dan tinjauan bersama satu guru"**. Klaim yang benar dan justru lebih kuat: guru itu yang menyusun substansi rulebook dan memasok referensinya (`04_Diskusi/rencana_persiapan_kategori_C.md` §167 menempatkannya sebagai otoritas domain untuk kedua berkas). Jangan mengklaim uji coba sekolah |
 | U6 | Mesin ini berparameter domain | PARTIAL | Benar sejak rulebook v2.0 (tidak ada nomor tag keras), tetapi belum pernah didemonstrasikan pada mata pelajaran kedua |
 | U7 | Bagaimana video demo harus diserahkan (berkas, tautan, atau unggahan platform) | **BELUM DIKETAHUI** | Handbook §7 menyebut durasi dan isi, tetapi tidak bentuk penyerahannya. Lakukan keduanya: simpan `EduCraft_Demo_Video.mp4` dan tautan tak-terdaftar, lalu uji tautannya di jendela privat. Lihat `06_Submission/13_Demo_Video_Runbook.md` §7 |
@@ -103,6 +103,6 @@ Apa pun di daftar ini tidak boleh dinyatakan sebagai fakta di submission sampai 
 |---------------------------|-----------------------|
 | "100% kalimat faktual membawa tag sumber" (`02_Project_Description.md` §3.4) | Sudah dikoreksi: atribusi dan resolusi kini dinyatakan terpisah, dan keduanya lulus di kedua run setelah D1 diperbaiki. Jangan kembali ke klaim satu angka |
 | "Run yang jadi acuan adalah `-001`" | Ada dua run dengan status berbeda. Selalu sebut run dan statusnya |
-| "Belum ada yang diterbitkan" (`03_Accountability_Sheet.md` §3) | Benar untuk `-001`; paket cetak run `-002` sudah didistribusikan setelah persetujuan |
+| "Belum ada yang diterbitkan" (`03_Accountability_Sheet.md` §3) | Benar untuk `-003` dan `-004`. `-001` diserahkan ke guru dalam format siap pakai dan paket cetak `-002` didistribusikan terbatas — keduanya setelah persetujuan, tidak ada yang ke publik |
 | "Lima format dalam satu run" | Benar hanya untuk `-001` (5 dokumen + 1 kuis interaktif). Kontrak kini memuat enam format dengan aturan "subset apa pun, minimal dua" — sebutkan run dan subset yang benar-benar diminta |
 | "Aturan R001–R012 semuanya sudah diuji" | Salah. Tujuh kasus punya bukti artefak, sebelas `BY DESIGN`, tiga `TO RUN`. Lihat `04_Test_Results.md` |

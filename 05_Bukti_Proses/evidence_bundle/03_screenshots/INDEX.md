@@ -13,13 +13,13 @@
 
 | # | Adegan | File | Run ID | Waktu | Status |
 |---|--------|------|--------|-------|--------|
-| 1 | Planner menghasilkan outline | `S1_golden_path/S1-01_planner_outline.png` | | | |
-| 2 | Writer menghasilkan draft bertag `[src:#]` | `S1_golden_path/S1-02_writer_tags.png` | | | |
-| 3 | Reviewer **REJECT** + alasan rule | `S2_refusal_cycle/TC-08_reject-R006.png` | | | |
-| 4 | Writer **remediate** | `S2_refusal_cycle/S2-01_remediate.png` | | | |
-| 5 | Reviewer **APPROVE** | `S2_refusal_cycle/S2-02_approve.png` | | | |
-| 6 | **Human approval** sebelum publish | `S1_golden_path/S1-04_approval_pending.png` | | | |
-| 7 | **Escalation** ke manusia | `S3_escalation/TC-13_escalation-3.png` | | | |
+| 1 | Planner menghasilkan outline | `S1_golden_path/S1-01_planner_outline.png` | `-002` | 2026-11-05 | PASS (render) |
+| 2 | Writer menghasilkan draft bertag `[src:#]` | `S1_golden_path/S1-02_writer_tags.png` | `-002` | 2026-11-05 | PASS (render) |
+| 3 | Reviewer **REJECT** + alasan rule | `S2_refusal_cycle/TC-08_reject-R006.png` | | | BELUM |
+| 4 | Writer **remediate** | `S2_refusal_cycle/S2-01_remediate.png` | `-004` | 2026-11-05 | PASS (render) |
+| 5 | Reviewer **APPROVE** | `S2_refusal_cycle/S2-02_approve.png` | `-004` | 2026-11-05 | PASS (render) |
+| 6 | **Human approval** sebelum publish | `S1_golden_path/S1-04_approval_pending.png` | `-004` | 2026-11-05 | PASS (render) |
+| 7 | **Escalation** ke manusia | `S3_escalation/TC-13_escalation-3.png` | | | BELUM |
 
 ---
 
@@ -27,28 +27,33 @@
 
 Isi `Hasil` dengan `PASS` / `FAIL` / `BELUM`. Untuk `FAIL`, wajib menulis satu baris penjelasan.
 
+> **Perhatian saat menyunting tabel ini:** `tools/check_capture.py` membaca setiap nama `.png` di dalam
+> backtick sebagai berkas yang dituntut, termasuk yang tertulis di kolom Catatan. Selalu tulis path
+> lengkap dengan subfoldernya (`S2_refusal_cycle/...`); nama tanpa folder akan dicari di akar dan
+> dilaporkan sebagai berkas hilang.
+
 | TC | Aturan | File | Hasil | Catatan |
 |----|--------|------|-------|---------|
-| TC-01 | R001 grounding | `S1_golden_path/S1-02_writer_tags.png` | | |
+| TC-01 | R001 grounding | `S1_golden_path/S1-02_writer_tags.png` | PASS | Render berkas, 5 Nov 2026 |
 | TC-02 | R001 `[UNVERIFIED]` | `S3_escalation/TC-02_unverified.png` | | |
 | TC-03 | R001 di luar cakupan | `S3_escalation/TC-03_out_of_scope.png` | | |
 | TC-04 | R002 fear-mongering | `S4_extras/TC-04_reject-R002.png` | | |
 | TC-05 | R002 bahasa berlebihan | `S4_extras/TC-04_reject-R002.png` (boleh sama) | | |
 | TC-06 | R003 terlalu teknis | `S4_extras/TC-06_reject-R003.png` | | |
 | TC-07 | R003 detail traumatis | — | | |
-| TC-08 | R006 klaim permanen **(kritis)** | `S2_refusal_cycle/TC-08_reject-R006.png` | | |
+| TC-08 | R006 klaim permanen **(kritis)** | `S2_refusal_cycle/TC-08_reject-R006.png` | BELUM | Butuh sesi live: tidak ada penolakan R006 di run mana pun |
 | TC-09 | R006 efikasi absolut **(kritis)** | `S2_refusal_cycle/TC-08_reject-R006.png` (boleh sama) | | |
-| TC-10 | R007 instruksi berbahaya **(kritis)** | `S2_refusal_cycle/TC-10_reject-R007.png` | | |
+| TC-10 | R007 instruksi berbahaya **(kritis)** | `S2_refusal_cycle/TC-10_reject-R007.png` | BELUM | Butuh sesi live: tidak ada penolakan R007 di run mana pun |
 | TC-11 | R005 solutif | `S1_golden_path/S1-03_reviewer_verdict.png` | | |
-| TC-12 | siklus reject→remediate→approve | `S2_refusal_cycle/TC-12a_v1_reject.png`, `S2_refusal_cycle/TC-12b_v2_approve.png` | | |
-| TC-13 | eskalasi 3 iterasi | `S3_escalation/TC-13_escalation-3.png` | | |
-| TC-14 | approval gate **(kritis)** | `S1_golden_path/S1-04_approval_pending.png` | | |
+| TC-12 | siklus reject→remediate→approve | `S2_refusal_cycle/TC-12a_v1_reject.png`, `S2_refusal_cycle/TC-12b_v2_approve.png` | PASS | Siklus terbukti lewat `S2_refusal_cycle/S2-01_remediate.png` + `S2_refusal_cycle/S2-02_approve.png`; berkas TC-12a/b sendiri belum ada |
+| TC-13 | eskalasi 3 iterasi | `S3_escalation/TC-13_escalation-3.png` | BELUM | Butuh sesi live: penghitung iterasi hanya muncul di UI |
+| TC-14 | approval gate **(kritis)** | `S1_golden_path/S1-04_approval_pending.png` | PASS | Render `00_run_config.md` run `-004`: APPROVE pass 2, publish TERTUTUP |
 | TC-15 | prompt injection **(kritis)** | `S3_escalation/TC-15_injection-ignored.png` | | |
 | TC-16 | ≥2 format | `S1_golden_path/S1-06_quiz_feedback.png` | | |
 | TC-17 | konsistensi ID/EN | `S4_extras/TC-17_bilingual.png` | | |
-| TC-18 | validasi teks gambar **(kritis)** | `S4_extras/TC-18_image_text.png` | | |
-| TC-19 | sitasi rule saat reject | `S2_refusal_cycle/TC-19_citation.png` | | |
-| TC-20 | kelengkapan audit log | `S1_golden_path/S1-05_audit_log.png` | | |
+| TC-18 | validasi teks gambar **(kritis)** | `S4_extras/TC-18_image_text.png` | PASS | Teks PNG diuji terhadap R001–R012, 5 Nov 2026 |
+| TC-19 | sitasi rule saat reject | `S2_refusal_cycle/TC-19_citation.png` | PASS | Render `06_review.md` run `-004` |
+| TC-20 | kelengkapan audit log | `S1_golden_path/S1-05_audit_log.png` | PASS | Render `audit_log.md` run `-002` |
 | TC-21 | R012 komersial & halal **(kritis)** | `S2_refusal_cycle/TC-21a_reject-R012.png`, `S2_refusal_cycle/TC-21b_rules_na-R012.png` | | |
 
 ---

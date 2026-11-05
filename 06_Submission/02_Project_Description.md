@@ -27,7 +27,7 @@ tertulis (R001–R012) dan seorang manusia menyetujuinya secara eksplisit.
 sitasi pada setiap klaim faktual, plus jejak audit tentang siapa memutuskan apa dan kenapa.
 
 **Asal-usul — aturannya milik guru, bukan milik kami.** Substansi rulebook tidak datang dari tim.
-Ia datang dari **Pak Arief**, guru IPAS SD yang masih aktif mengajar, yang memasok baik rujukan sumber
+Ia datang dari **Don Jimat Akbar**, guru IPAS SD yang masih aktif mengajar, yang memasok baik rujukan sumber
 yang menjadi fondasi proyek ini maupun penilaian tentang apa yang akan dan tidak akan diletakkan
 seorang guru di depan anak-anak: tanpa klaim kesehatan permanen, tanpa menakut-nakuti, tanpa apa pun
 yang mempermalukan murid, tanpa klaim halal atau komersial tanpa sertifikat. Kontribusi tim adalah
@@ -39,7 +39,7 @@ tentang pedagogi; yang ini adalah penilaian seorang praktisi, dituliskan di temp
 Karena itu pula artefak yang bisa diadopsi sekolah adalah `rulebook_ipas.md`, bukan kodenya — tim
 kurikulum bisa menyunting aturan tanpa menyentuh pipeline.
 
-*(Pak Arief adalah sumber pain point yang disebut di §3.2, bukan persona: kebutuhan di bawah berasal
+*(Don Jimat Akbar adalah sumber pain point yang disebut di §3.2, bukan persona: kebutuhan di bawah berasal
 dari dia, dan rulebook adalah bentuk tertulis dari penilaiannya.)*
 
 **Run yang didemokan.** Run `EDU-ORCH-20261026-001`, topik *Energi Alternatif dan Penghematan Energi*,
@@ -73,7 +73,7 @@ bukan saran — ia gerbang dengan rulebook tertulis, vonis, dan kutipan aturan p
 Sisa pekerjaan guru adalah penilaian atas draf yang sudah diperiksa, bukan audit menyeluruh.
 
 **Dari mana wawasan ini berasal.** Handbook §7 meminta *sumber pain point*, bukan sekadar
-deskripsinya. Sumber kami adalah **Pak Arief**, guru IPAS SD yang masih mengajar: empat pertanyaan di
+deskripsinya. Sumber kami adalah **Don Jimat Akbar**, guru IPAS SD yang masih mengajar: empat pertanyaan di
 atas adalah yang benar-benar ia ajukan pada setiap draf, dan keempatnya menjadi R001 (grounding), R003
 (kesesuaian usia), R004 (keselarasan kurikulum), dan R006 (klaim kesehatan) di rulebook. Pain point ini
 tidak kami karang dalam sprint; kami menuliskannya dari orang yang harus mempertanggungjawabkannya di
@@ -150,7 +150,7 @@ diukur lintas sekolah — kami katakan apa adanya.
 |---------|------------------|-----------------|-------|
 | Format yang dihasilkan dari satu topik | 1 per kali, sumber dibaca ulang tiap kali | 5 format + kuis interaktif dalam satu run | Jumlah keluaran run `EDU-ORCH-20261026-001` |
 | Waktu guru per topik (menyusun + memeriksa) | ~6–8 jam | ~30–45 menit (meninjau paket yang sudah diperiksa) | Estimasi dari volume artefak; akan divalidasi di uji lapangan |
-| Cakupan pemeriksaan fakta | Ad hoc, mengandalkan ingatan | 100% kalimat faktual membawa tag sumber; resolusi tag diperiksa deterministik | `tools/check_grounding.py`: run `-001` **121 tag → PASS**; run `-002` **115 tag → PASS**; run `-003` **113 tag → PASS** (total 349 tag, 0 dangling, 0 pelanggaran kelas di ketiganya). Sebelum perbaikan, `-002` gagal dengan 84 pelanggaran kelas — defek D1, diungkap di `04_Test_Results.md` §4b |
+| Cakupan pemeriksaan fakta | Ad hoc, mengandalkan ingatan | 100% kalimat faktual membawa tag sumber; resolusi tag diperiksa deterministik | `tools/check_grounding.py`: run `-001` **121 tag → PASS**; run `-002` **115 tag → PASS**; run `-003` **113 tag → PASS**; run `-004` **176 tag → PASS** (total 525 tag, 0 dangling, 0 pelanggaran kelas di keempatnya). Sebelum perbaikan, `-002` gagal dengan 84 pelanggaran kelas — defek D1, diungkap di `04_Test_Results.md` §4b |
 | Pemeriksaan kepatuhan aturan per dokumen | 0–2 informal | 12 aturan, masing-masing dengan lulus/gagal dan kutipan | `review_kepatuhan_R001-R011_2026-10-30_REVISI.md` |
 | Kesalahan yang dicegah | Ditemukan di kelas, atau tidak pernah | Tertangkap sebelum publikasi (1 tangkapan nyata pada 29 Okt) | Penolakan yang diungkap di `04_Test_Results.md` |
 | Jejak audit | Tidak ada | Lengkap: input, keputusan, revisi v1→v2, sumber | `audit_log_edu_orchestrator.md` |

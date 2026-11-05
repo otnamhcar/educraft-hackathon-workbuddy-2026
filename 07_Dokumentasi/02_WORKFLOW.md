@@ -137,13 +137,19 @@ Dicatat sebagai, misalnya:
 - Statement: "<kalimat persetujuan, dikutip persis>"
 ```
 
-**Run `-002` memenuhi tiga dari empat bagian.** Yang ada di `00_run_config.md`: nama penyetuju ✓,
-stempel waktu ✓, cakupan ✓ (terekam lewat baris `Publish status`). Yang **belum** ada: bagian 4,
-pernyataan verbatim ✗ — berkas itu tidak memuat kalimat persis dari penyetuju. Ini tercatat sebagai
-G16 di `07_GAP_DAN_REKOMENDASI.md`; jangan menyebut catatan itu lengkap sebelum kalimatnya dikutip.
+**Run `-002` memenuhi keempat bagian**, tetapi tidak semuanya di satu berkas. `00_run_config.md` memuat
+nama penyetuju ✓, stempel waktu ✓, dan cakupan ✓ lewat baris `Publish status`. Bagian 4 — pernyataan
+verbatim — ada di `03_Hasil/edu_output_wujud_zat/audit_log.md` §3.7: **"ok saya setujui"**, dengan
+cakupan yang menyebut **kunci jawaban 27 butir** secara eksplisit.
 
-Run `-001` tidak memenuhi satu pun — statusnya masih `PENDING`, dan dokumen mana pun yang menyebut
-run `-001` sudah disetujui adalah salah.
+G16 semula ditulis dengan membaca `00_run_config.md` saja, sehingga terlihat 3/4. Setelah audit log run
+yang sama diperiksa pada 5 November 2026, celahnya bersifat dokumenter, bukan substantif, dan G16
+ditutup. Yang tetap harus disebut jujur: kutipan itu tercatat oleh tim di log run, bukan tangkapan pesan
+asli.
+
+Run `-001` disetujui 4 November 2026 pukul 14:49 GMT+7, tercatat di `03_Hasil/edu_output/00_run_config.md`
+dan `audit_log.md` §3.7. Sebelum tanggal itu, dokumen mana pun yang menyebutnya disetujui adalah salah;
+sesudahnya, dokumen yang masih menulis `PENDING` yang salah.
 
 ---
 
