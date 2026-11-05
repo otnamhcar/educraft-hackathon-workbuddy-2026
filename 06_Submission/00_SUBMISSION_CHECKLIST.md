@@ -21,7 +21,7 @@ Keterangan status: `SIAP` = artefaknya sudah ada di bundel ini · `BELUM` = haru
 | 6 | Diagram arsitektur | WAJIB | **SIAP** | `architecture_diagram.png` (2720×3000) + `.html` + `05_Architecture.md` |
 | 7 | Video demo, 5–8 menit | WAJIB | **BELUM** | Skrip `07_Demo_Video_Script.md` (7:40) + runbook produksi `13_Demo_Video_Runbook.md`. 7 dari 10 scene sudah bisa direkam sekarang; 3 butuh agen berjalan langsung |
 | 8 | Product sharing | WAJIB | **SIAP** | `06_Product_Sharing.md` |
-| 9 | Kode sumber / workflow yang diekspor | WAJIB | **SIAP** | Repo publik (MIT): https://github.com/otnamhcar/educraft-hackathon-workbuddy-2026 — 3 run, 4 skill, doctor.py 10/10 |
+| 9 | Kode sumber / workflow yang diekspor | WAJIB | **SIAP** | Repo publik (MIT): https://github.com/otnamhcar/educraft-hackathon-workbuddy-2026 — 4 run, 4 skill, doctor.py 11/11 |
 | 10 | Gambar sampul (opsional, 16:9) | OPSIONAL | **SIAP** | `cover_image_380x216.png` + `cover_image_1280x720.png` |
 | 11 | Tautan proyek (bonus) | BONUS | **DRAF LOKAL** | Halaman statis siap di `06_Submission/demo_site/` (lihat `README.md` di sana). **Belum diunggah, belum ada URL publik.** Jangan tulis tautan apa pun di formulir sebelum benar-benar hidup |
 
@@ -91,8 +91,8 @@ lembar RPP dari `centralpendidikan.com`, panduan asesmen SMP, ekspor WhatsApp, h
 `.workbuddy-ai/`, dan catatan kerja. Ditegakkan oleh `.gitignore` di akar repo.
 
 **Terverifikasi 31 Oktober 2026, diperbarui 5 November 2026:** `git clone` baru dari `main` berhasil
-memasang keempat skill dan lolos `tools/doctor.py` — `10 passed / 0 failed / 0 warning`, exit 0.
-Pembaruan: doctor.py kini memeriksa ketiga run (121 + 115 + 113 = 349 tag, 0 pelanggaran) dan tiga
+memasang keempat skill dan lolos `tools/doctor.py` — `11 passed / 0 failed / 0 warning`, exit 0.
+Pembaruan: doctor.py kini memeriksa keempat run (121 + 115 + 176 + 113 = 525 tag, 0 pelanggaran) dan tiga
 source material yang identik lintas skill package.
 
 Sisa pekerjaan rumah: jalankan push lagi setelah setiap penyuntingan, supaya repo dan bundel tetap sama.
@@ -106,6 +106,7 @@ Sisa pekerjaan rumah: jalankan push lagi setelah setiap penyuntingan, supaya rep
 | Run `-002` ditinjau dan disetujui guru | **TERPENUHI untuk `-002`** — penyetuju disebut namanya, berstempel waktu 30 Okt 2026 17:19 GMT+7, cakupan tercatat di `03_Hasil/edu_output_wujud_zat/00_run_config.md` |
 | Run `-001` ditinjau guru | **BELUM** — masih `PENDING`; di bundel ini run tersebut tidak pernah disebut sebagai disetujui |
 | Run `-003` ditinjau guru | **BELUM** — masih `PENDING`; run baru (5 Nov 2026), topik Tata Surya |
+| Run `-004` ditinjau guru | **BELUM** — masih `PENDING`; topik Perubahan Wujud Zat untuk Fase C (4 Nov 2026, bernomor `-003` sampai 5 Nov) |
 | Catatan persetujuan memuat keempat bagian protokol | **SEBAGIAN untuk `-002`** — nama orang ✓, stempel waktu ✓, cakupan ✓, **pernyataan verbatim ✗**. Pilih salah satu: kutip kalimat persis dari penyetuju ke dalam run config, atau nyatakan di submission bahwa catatan itu memuat tiga dari empat bagian |
 | Tidak ada yang disebut "terbit" atau "live" di submission | **TERPENUHI** — gerbang `-002` dibuka *hanya untuk distribusi terbatas*; `-001` dan `-003` berstatus `PENDING` |
 | Data siswa dianonimkan | **TERPENUHI** |

@@ -61,11 +61,20 @@ SKIP_FILES = {
 # Files that *discuss* tags rather than *use* them as support for a sentence.
 # A correction memo naming the wrong tag is not a claim supported by that tag.
 SKIP_PREFIXES = ("11_Memo_",)
+# Reviewer memos quote offending sentences verbatim, tag included. Counting them
+# inflates the total and can raise false CLASS violations. Runs number their files
+# differently (05_review.md on the 30 Oct run, 06_review.md / 07_review_pass2.md on
+# 4 Nov), so match on the role in the name rather than on a fixed number.
+SKIP_ROLE_PATTERN = re.compile(r"review", re.IGNORECASE)
 
 
 def is_metadata(name: str) -> bool:
     """True for run metadata: it may name a tag without asserting a fact with it."""
-    return name in SKIP_FILES or name.startswith(SKIP_PREFIXES)
+    return (
+        name in SKIP_FILES
+        or name.startswith(SKIP_PREFIXES)
+        or bool(SKIP_ROLE_PATTERN.search(name))
+    )
 
 
 

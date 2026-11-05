@@ -50,7 +50,7 @@ COPY_GROUPS = ("rulebook_ipas.md", "source_material_wujud_zat.md",
                "source_material_tata_surya.md")
 
 RUNS = ("03_Hasil/materi_ajar", "03_Hasil/edu_output_wujud_zat",
-        "03_Hasil/edu_output_tata_surya")
+        "03_Hasil/edu_output_wujud_zat_faseC", "03_Hasil/edu_output_tata_surya")
 
 
 # --------------------------------------------------------------------------- #

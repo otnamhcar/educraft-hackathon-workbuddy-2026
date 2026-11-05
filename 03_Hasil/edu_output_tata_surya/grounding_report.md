@@ -1,12 +1,12 @@
 # Grounding report — R001 tag resolution
 
 **Run folder:** `03_Hasil/edu_output_tata_surya`  
-**Knowledge layer:** `03_Hasil/referensi`  
+**Knowledge layer:** `05_Bukti_Proses/skills_package/edu-orchestrator/assets`  
 **Verdict:** **PASS** — 113 tag diperiksa, 0 dangling, 0 pelanggaran kelas tag
 
 > Dihasilkan oleh `tools/check_grounding.py`. Pemeriksaan ini deterministik dan dapat dijalankan ulang; ia memeriksa **resolusi** tag, bukan sekadar keberadaannya.
 
-**Tidak diperiksa (metadata — boleh menyebut tag tanpa mengklaim fakta dengannya):** `00_run_config.md`, `audit_log.md`
+**Tidak diperiksa (metadata — boleh menyebut tag tanpa mengklaim fakta dengannya):** `00_run_config.md`, `audit_log.md`, `grounding_report.md`
 
 ## Ringkasan per file
 
@@ -47,7 +47,7 @@
 
 | Baris | Tag | Kelas | Putusan | Menunjuk ke |
 |------:|-----|-------|---------|-------------|
-| 13 | `[src:CP]` | curriculum | **OK** | cp_ipas.md · Dokumen CP IPAS (rujukan kurikulum) |
+| 13 | `[src:CP]` | curriculum | **OK** | cp_ipas.md ·  |
 | 13 | `[src:C5]` | curriculum | **OK** | cp_ipas.md · Menjelaskan sistem tata surya, serta kaitannya dengan rotasi dan revol |
 | 17 | `[src:TS1]` | unknown | **OK** | source_material_tata_surya.md · Anggota tata surya |
 | 18 | `[src:TS2]` | unknown | **OK** | source_material_tata_surya.md · Ciri dan urutan planet |

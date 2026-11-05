@@ -4,7 +4,7 @@
 > Include any that failed."* Handbook §6.3: *"Disclose failures transparently; concealing one is
 > penalised more heavily."*
 
-**Suite:** 21 test case (`04_Diskusi/test_cases_matrix.md`) · **Run:** `EDU-ORCH-20261026-001` (utama), `EDU-ORCH-20261030-002`, `EDU-ORCH-20261105-003`
+**Suite:** 21 test case (`04_Diskusi/test_cases_matrix.md`) · **Run:** `EDU-ORCH-20261026-001` (utama), `EDU-ORCH-20261030-002`, `EDU-ORCH-20261104-004`, `EDU-ORCH-20261105-003`
 **Dieksekusi:** 26 Oktober – 5 November 2026 · **Legenda status:** `PASS` = dibuktikan artefak ·
 `BY DESIGN` = perilaku ditegakkan di kontrak skill, screenshot langsung belum diambil ·
 `TO RUN` = belum dijalankan

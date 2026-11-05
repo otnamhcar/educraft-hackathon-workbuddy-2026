@@ -15,17 +15,23 @@ Dua peran dicatat terpisah dan tidak boleh digabung: **penyusunan domain** (Pak 
 **persetujuan rilis per-run** (penyetuju yang namanya tercatat di tabel bawah, yang menandatangani run
 tertentu).
 
-**Ada tiga run. Masing-masing tidak bisa dipertukarkan — punya statusnya sendiri:**
+**Ada empat run. Masing-masing tidak bisa dipertukarkan — punya statusnya sendiri:**
 
 | Run | Topik | Penyetuju manusia | Status publikasi |
 |-----|-------|-------------------|------------------|
 | `EDU-ORCH-20261026-001` | Energi Alternatif | PENDING (guru/SME) | **BELUM DITERBITKAN** |
 | `EDU-ORCH-20261030-002` | Perubahan Wujud Zat | **don Jimat Akbar (guru), 2026-10-30 17:19 GMT+7** | Gerbang dibuka untuk distribusi terbatas; paket cetak sudah dibuat |
+| `EDU-ORCH-20261104-004` | Perubahan Wujud Zat (Fase C) | PENDING (guru/SME) | **BELUM DITERBITKAN** |
 | `EDU-ORCH-20261105-003` | Sistem Tata Surya | PENDING (guru/SME) | **BELUM DITERBITKAN** |
 
-Tidak ada yang diterbitkan sebelum persetujuan manusia yang eksplisit. Run `-001` dan `-003` belum ada
-persetujuannya dan tidak diterbitkan; run `-002` disetujui guru yang namanya tercatat, dan baru setelah
-itu dilepas.
+Run `-004` dan `-002` memakai topik yang sama dengan sasaran berbeda: `-002` Fase B (paket cetak
+untuk kelas III–IV), `-004` Fase C (pemantapan lintas fase, kelas V–VI). Run `-004` lahir di hari yang
+sama dengan nomor `-003`; nomornya dipindah ke `-004` pada 5 Nov agar tidak bersinggungan dengan run
+Tata Surya. Alasan lengkap ada di `audit_log.md` §11.1 run tersebut.
+
+Tidak ada yang diterbitkan sebelum persetujuan manusia yang eksplisit. Run `-001`, `-003`, dan `-004`
+belum ada persetujuannya dan tidak diterbitkan; run `-002` disetujui guru yang namanya tercatat, dan
+baru setelah itu dilepas.
 
 ---
 

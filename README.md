@@ -89,7 +89,7 @@ Tiga sifat ditegakkan oleh kontrak, bukan oleh harapan:
 | `07_Dokumentasi/` | Dokumen rekayasa: arsitektur, workflow, batas skill, spesifikasi rulebook, rencana uji, ketertelusuran kebutuhan, daftar celah |
 | `tools/check_grounding.py` | Pemeriksaan R001 deterministik — me-resolve setiap tag terhadap lapisan pengetahuan, keluar non-nol bila gagal. Hanya memeriksa draf; metadata run dilewati dan disebutkan namanya di laporan |
 | `tools/install_skills.py` | Menyalin empat folder skill ke tempat WorkBuddy membacanya, lalu memverifikasi jumlahnya 4. Python, jadi jalan sama di Linux, macOS, dan Windows |
-| `tools/doctor.py` | Enam pemeriksaan pra-terbang pada clone baru — Python, kontrak, skill terpasang, lapisan pengetahuan, checksum salinan, grounding di kedua run. Kode yang sama di semua OS |
+| `tools/doctor.py` | Enam pemeriksaan pra-terbang pada clone baru — Python, kontrak, skill terpasang, lapisan pengetahuan, checksum salinan, grounding di keempat run. Kode yang sama di semua OS |
 | `tools/check_capture.py` | Memeriksa berkas screenshot sebelum submit: mana yang belum ada, mana yang di bawah 1600 px, mana yang bukan PNG, mana yang tidak terdaftar di tracker. Daftar berkasnya dibaca dari `INDEX.md`, bukan dari daftar kedua yang bisa melenceng |
 
 ---
@@ -149,6 +149,12 @@ paket cetak terpisah dibuat agar kunci jawaban tidak pernah ikut dalam buku sisw
 Urutan itu — **tolak, diagnosis, perbaiki, review ulang** — adalah bukti penggunaannya. Screenshot
 dari jalur yang mulus justru membuktikan lebih sedikit.
 
+**Run `EDU-ORCH-20261104-004`** (Perubahan Wujud Zat untuk Fase C) — bukti bahwa agen berhenti ketika
+kurikulumnya tidak cocok. Topik perubahan wujud zat ada di Fase B, bukan Fase C; alih-alih mengarang
+butir CP yang tidak ada, agen menandai run sebagai **pemantapan lintas fase** dengan `PERLU KONFIRMASI
+GURU` di tiga butir terbuka. Pass 1: REJECT (3 Major, 3 Minor). Pass 2: APPROVE — tetap
+`AWAITING_APPROVAL`, publikasi terkunci. Jejak: `03_Hasil/edu_output_wujud_zat_faseC/audit_log.md`.
+
 ---
 
 ## Status pengujian (dinyatakan apa adanya)
@@ -174,6 +180,9 @@ python3 tools/check_grounding.py --run 03_Hasil/materi_ajar \
 | `-001` Energi | 121 | 0 | 0 | **PASS** |
 | `-002` Wujud Zat, sebelum perbaikan | 89 | 0 | 84 | **FAIL** — defek D1 |
 | `-002` Wujud Zat, sesudah perbaikan | 115 | 0 | 0 | **PASS** |
+| `-004` Wujud Zat Fase C | 176 | 0 | 0 | **PASS** |
+| `-003` Tata Surya | 113 | 0 | 0 | **PASS** |
+| **Total** | **525** | **0** | **0** | |
 
 ---
 

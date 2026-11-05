@@ -57,7 +57,7 @@ https://github.com/otnamhcar/educraft-hackathon-workbuddy-2026
 **Catatan soal berkas yang terduplikasi:** rulebook dan source material ikut dikirim di dalam
 `edu-orchestrator/assets/`, `edu-writer/assets/`, dan `edu-reviewer/assets/` supaya tiap skill mandiri
 saat dipasang. Semua salinan identik byte (diverifikasi dengan checksum oleh `tools/doctor.py` —
-10 passed / 0 failed); bila suatu saat berbeda, salinan milik Reviewer yang berlaku.
+11 passed / 0 failed); bila suatu saat berbeda, salinan milik Reviewer yang berlaku.
 
 ## 2. Bukti penggunaan (jejak run)
 

@@ -34,6 +34,12 @@ Pada akhir Fase B, murid mampu:
 11. Menjelaskan nilai mata uang dan fungsinya, serta cara mengelola keuangan secara bijak.
 
 ### 1.2 Keterampilan Proses (Fase B)
+#### [src:CP]
+Anchor dokumen: `[src:CP]` menunjuk **dokumen CP IPAS** secara keseluruhan, bukan satu butir.
+Dipakai untuk pernyataan kurikulum yang tidak berpasangan dengan nomor butir — terutama
+**keterampilan proses**, yang di dokumen ini disajikan sebagai narasi per fase, bukan butir bernomor.
+Kode butir (`B4`, `C5`, …) tetap dipakai bila klaimnya menunjuk satu butir pemahaman tertentu.
+
 Mampu menerapkan: **Mengamati** (mencatat hasil pengamatan sederhana); **Mempertanyakan & Memprediksi** (mengajukan pertanyaan & prediksi mandiri); **Merencanakan & Melakukan Penyelidikan** (dengan panduan, observasi alat ukur sederhana); **Memproses & Menganalisis Data** (menyajikan pola via turus/diagram gambar, bandingkan prediksi); **Mengevaluasi & Refleksi**; **Mengomunikasikan Hasil** (lisan & tertulis berbagai media).
 
 ---
