@@ -5,3 +5,9 @@ __pycache__/
 # Tooling lokal, bukan bagian submission
 .workbuddy-ai/
 .local/
+
+# Cache generator slide — dibangkitkan ulang tiap render, bukan artefak submission.
+# Pola tanpa garis miring di depan berlaku di semua kedalaman, jadi entri ini juga
+# menutup 03_Hasil/edu_output/Slide_Energi_Alternatif/.cache/ dan .slidep/.
+.cache/
+.slidep/
