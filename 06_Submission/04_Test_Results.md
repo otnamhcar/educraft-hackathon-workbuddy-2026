@@ -132,7 +132,8 @@ dibuktikan dengan cara ini adalah perilaku yang hanya muncul saat agen berjalan 
 instruksi sisipan yang diabaikan, dan penolakan yang belum pernah terjadi. Empat itu wajib dari sesi
 langsung, dan tidak kami klaim.
 
-Pembuatannya dapat diulang: `python3 tools/render_evidence.py --help`.
+Pembuatannya dapat diulang: `python tools\render_evidence.py --help` (Windows) atau
+`python3 tools/render_evidence.py --help` (Linux/macOS).
 
 | Prioritas | Kasus | Status per 5 Nov 2026 |
 |-----------|-------|-----------------------|

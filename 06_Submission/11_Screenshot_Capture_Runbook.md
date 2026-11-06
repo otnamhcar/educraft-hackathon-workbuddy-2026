@@ -28,20 +28,23 @@ bagian atas (timestamp) atau bawah (verdict).
 
 ## 1. Persiapan (sekali saja, ± 25 menit)
 
-### 1.0 Pre-flight — **jangan lewati** (diperiksa ulang 31 Okt 2026, 18:40)
+### 1.0 Pre-flight — **jangan lewati** (diperiksa ulang 6 Nov 2026)
 
 **Status: terpasang.** Keempat skill sudah ada di `~/.workbuddy-ai/skills/`, diverifikasi
-dengan `ls`, bukan diasumsikan:
+dengan perintah, bukan diasumsikan. Di Windows foldernya `%USERPROFILE%\.workbuddy-ai\skills`:
 
 ```
-$ ls -1 ~/.workbuddy-ai/skills/ | grep '^edu-'
+$ ls -1 ~/.workbuddy-ai/skills/ | grep '^edu-'        # Git Bash / Linux / macOS
+$ dir /b %USERPROFILE%\.workbuddy-ai\skills | findstr /b edu-    :: cmd
+$ Get-ChildItem $env:USERPROFILE\.workbuddy-ai\skills -Name | Select-String '^edu-'   # PowerShell
 edu-orchestrator
 edu-planner
 edu-reviewer
 edu-writer
 ```
 
-`tools/doctor.py` lulus **13 passed / 0 failed / 4 warning** (exit 0) pada keadaan ini; Sebelumnya — sampai 31 Okt pagi —
+`tools/doctor.py` lulus **13 passed / 0 failed / 4 warning** (exit 0) pada keadaan ini — diukur di
+mesin Windows, 6 Nov 2026. Sebelumnya — sampai 31 Okt pagi —
 bagian ini mencatat bahwa **tidak ada satu pun** entri `edu-*`, dan itu membuat setiap sesi gagal
 di langkah pertama. Sudah diperbaiki, tetapi **periksa lagi sebelum sesi pertama**: kalau
 WorkBuddy diperbarui atau profil direset, daftar ini bisa kosong lagi.
@@ -49,14 +52,18 @@ WorkBuddy diperbarui atau profil direset, daftar ini bisa kosong lagi.
 Kalau ternyata kosong, urutan pemulihannya:
 
 1. Pasang ulang dari paket di repo (jangan salin manual satu per satu):
+   ```bat
+   python tools\install_skills.py        :: Windows
+   ```
    ```bash
-   python3 tools/install_skills.py
+   python3 tools/install_skills.py       # Linux / macOS
    ```
 2. **Mulai ulang sesi WorkBuddy** — daftar skill dibaca saat sesi dibuka.
 3. Verifikasi, jangan diasumsikan:
-   ```bash
-   python tools/doctor.py       # harus 13 passed / 0 failed, exit 0
+   ```bat
+   python tools\doctor.py       :: harus 13 passed / 0 failed, exit 0
    ```
+   Di Linux/macOS: `python3 tools/doctor.py`. Angka yang sama, kode yang sama.
 4. Uji satu kali di chat baru: `Gunakan edu-planner untuk ...`. Kalau skill tidak terpanggil,
    **berhenti** dan perbaiki dulu — jangan lanjut ke Sesi 1.
 
@@ -131,11 +138,11 @@ bukan dari layar — berkas itu tetap sah dan tetap lolos ambang baru.
 **Jangan** memperbesar gambar hasil tangkapan supaya angka lebarnya naik. Itu memalsukan bukti dan
 hasilnya buram — persis yang dilarang §1.3 butir 3.
 
-> **`ffmpeg` sudah terpasang** 6 November 2026 (versi 9.0.2, lewat `winget install Gyan.FFmpeg`).
-> PATH diperbarui, tetapi hanya untuk proses **baru** — tutup dan buka ulang terminal sebelum
-> menjalankan `concat_video.py`, kalau tidak `ffmpeg` belum dikenali. Jalur penyambungan sudah diuji
-> ujung-ke-ujung dengan tiga klip sintetis: keluaran 1366×768 / 30 fps / AAC 48 kHz, durasi masuk
-> rentang 5:00–8:00.
+> **`ffmpeg` terpasang dan ada di PATH** — diperiksa 6 November 2026: paket 9.0.2-full_build ada dan
+> folder `bin`-nya sudah terdaftar di PATH pengguna, jadi `concat_video.py` menemukannya. Kalau sebuah
+> terminal bilang `ffmpeg` tidak dikenali, terminal itu lahir sebelum PATH diperbarui — buka terminal
+> baru. Rinciannya di `13_Demo_Video_Runbook.md` §2.1. Jalur penyambungan sudah diuji ujung-ke-ujung
+> dengan tiga klip sintetis: keluaran 1366×768 / 30 fps / AAC 48 kHz, durasi masuk rentang 5:00–8:00.
 
 ---
 
@@ -360,8 +367,11 @@ Aturan:
 
 0. **Jalankan pemeriksa dulu**, jangan menebak apa yang kurang:
 
+   ```bat
+   python tools\check_capture.py          :: Windows
+   ```
    ```bash
-   python3 tools/check_capture.py
+   python3 tools/check_capture.py         # Linux / macOS
    ```
 
    Yang dilaporkan: berkas wajib yang belum ada, yang lebarnya di bawah 1366 px, yang bukan PNG
@@ -408,7 +418,7 @@ dipertanggungjawabkan saat ditanya juri di Demo Day.
 - [ ] Folder `S1`–`S4` dibuat
 - [ ] Jendela dimaksimalkan (1366 px), font diperbesar, panel hasil terbuka
 - [ ] `INDEX.md` dibuka di editor
-- [ ] Perintah capture dikuasai: `gnome-screenshot -d 5 -a -f <nama>.png`
+- [ ] Perintah capture dikuasai: `python tools\capture.py --out <nama>.png --delay 5`
 
 **S1 — Golden path** (`EDU-CAP-…-01`)
 - [ ] `S1-01_planner_outline.png`
@@ -443,5 +453,5 @@ dipertanggungjawabkan saat ditanya juri di Demo Day.
 - [ ] Semua file lolos 4 syarat §0
 - [ ] `INDEX.md` terisi lengkap
 - [ ] `04_Test_Results.md` diperbarui & **angka rekonsiliasi ke 21**
-- [ ] `python3 tools/check_capture.py` → **0 failed**
+- [ ] `python tools\check_capture.py` (Windows) / `python3 tools/check_capture.py` → **0 failed**
 - [ ] ZIP evidence bundle dibuat ulang

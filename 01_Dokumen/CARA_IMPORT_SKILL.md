@@ -41,9 +41,11 @@ python3 tools/doctor.py                  # Linux / macOS
 python tools\doctor.py                   :: Windows
 ```
 
-Enam pemeriksaan: versi Python, kontrak skill, skill terpasang, knowledge layer, checksum salinan
-(rulebook + source material), dan cek grounding R001 pada kedua run. Keluar dengan kode 0 hanya
-kalau semuanya lolos — hasil sehat mencetak `8 passed / 0 failed / 0 warning`.
+Tujuh pemeriksaan: versi Python, kontrak skill, skill terpasang, knowledge layer, checksum salinan
+(rulebook + tiap lembar sumber), cek grounding R001 pada kelima folder run, dan konvensi sitasi pada
+dokumen yang dibaca guru. Keluar dengan kode 0 hanya kalau semuanya lolos — hasil sehat mencetak
+`13 passed / 0 failed / 4 warning` (diukur di Windows, 6 Nov 2026). Empat `warning` itu run lama yang
+dilewati dengan `SKIP` oleh pemeriksaan sitasi, bukan kegagalan.
 
 ### Kalau direktori skill Anda berbeda
 

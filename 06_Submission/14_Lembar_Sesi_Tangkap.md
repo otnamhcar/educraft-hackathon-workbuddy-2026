@@ -76,8 +76,11 @@ memberi tahu pengguna.
    sebagai berkas lain oleh `check_capture.py`.
 2. Jalankan:
 
+   ```bat
+   python tools\check_capture.py          :: Windows
+   ```
    ```bash
-   python3 tools/check_capture.py
+   python3 tools/check_capture.py         # Linux / macOS
    ```
 
    Target: **17 passed / 0 failed**. Kalau masih ada `FAIL`, jangan lanjut ke formulir.

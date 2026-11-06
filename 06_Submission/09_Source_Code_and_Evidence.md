@@ -79,14 +79,28 @@ dari jalur yang mulus justru membuktikan lebih sedikit.
 ## 3. Cara mereproduksi
 
 Dua perintah, lalu satu pemeriksaan kesehatan. Semua skrip Python, jadi Linux, macOS, dan Windows
-menjalankan kode yang sama — hanya nama interpreter-nya berbeda (`python3` di Linux/macOS, `python`
-atau `py` di Windows):
+menjalankan kode yang sama — hanya nama interpreter dan pemisah path yang berbeda:
 
-```bash
-python3 tools/install_skills.py   # 4 skill ke ~/.workbuddy-ai/skills, jumlah diverifikasi
-# restart WorkBuddy, lalu:
-python3 tools/doctor.py           # 8 passed / 0 failed / 0 warning pada clone yang sehat
+| Langkah | Linux / macOS | Windows (cmd atau PowerShell) |
+|---------|---------------|-------------------------------|
+| Pasang skill | `python3 tools/install_skills.py` | `python tools\install_skills.py` |
+| Pemeriksaan kesehatan | `python3 tools/doctor.py` | `python tools\doctor.py` |
+
+Keduanya menyalin empat skill ke `~/.workbuddy-ai/skills` (di Windows
+`C:\Users\<anda>\.workbuddy-ai\skills`), lalu menghitungnya kembali. Kalau `python` tidak ada di PATH
+pada Windows, pakai launcher `py`: `py tools\doctor.py`. Garis miring biasa (`tools/doctor.py`) juga
+diterima di Windows.
+
+Diverifikasi di mesin Windows 6 November 2026 — bukan diasumsikan:
+
 ```
+$ python tools\doctor.py
+  13 passed / 0 failed / 4 warning
+  Ready. Start with: README.md -> "Run it yourself"        (exit 0)
+```
+
+Empat `warning` itu bukan kegagalan: keempat run lama dibuat sebelum konvensi sitasi berlaku, jadi
+pemeriksaan #7 melewatinya dengan `SKIP` dan menyebut alasannya. Clone yang sehat berakhir exit 0.
 
 Lalu panggil orchestrator dengan: topik, fase (Fase C), kode CP, dan berkas sumber yang sudah ada di
 `assets/` tiap skill. Harapkan

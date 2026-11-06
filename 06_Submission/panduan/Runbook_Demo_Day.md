@@ -99,17 +99,18 @@ mengaku punya tujuh agen; kontrak yang ada empat, dan jumlah yang jujur lebih ku
 
 Ini kalimat yang harus diingat juri. Latih sampai tidak perlu membaca.
 
-### 3.4 LIVE — cek deterministik (2:00–3:00) — **status: TERUJI 31 Okt 2026**
+### 3.4 LIVE — cek deterministik (2:00–3:00) — **status: TERUJI 31 Okt 2026, dijalankan ulang di Windows 6 Nov 2026**
 
 Ini adegan paling aman untuk dijalankan live karena **tidak bergantung pada model**: hasilnya sama
-setiap kali, dan selesai di bawah satu detik.
+setiap kali, dan selesai di bawah satu detik. Kedua perintah di bawah sudah dijalankan ulang di mesin
+Windows ini dan mengeluarkan angka yang sama persis dengan yang tercatat — `PASS: 115` lalu
+`FAIL: 32 … 1 class violations`.
 
-```bash
-python3 tools/check_grounding.py \
-  --run 03_Hasil/edu_output_wujud_zat \
-  --knowledge 08_Referensi \
-  --out /tmp/demo.md
+```powershell
+python tools\check_grounding.py --run 03_Hasil\edu_output_wujud_zat --knowledge 08_Referensi --out "$env:TEMP\demo.md"
 ```
+
+> Linux/macOS: `python3 tools/check_grounding.py --run 03_Hasil/edu_output_wujud_zat --knowledge 08_Referensi --out /tmp/demo.md`. Kode dan keluarannya identik.
 
 Keluaran yang **sudah diverifikasi** 31 Okt 2026:
 
@@ -119,12 +120,19 @@ PASS: 115 tag, 0 dangling, 0 class violations
 
 Lalu tunjukkan versi rusaknya — **salin dulu, jangan sentuh artefak asli**:
 
-```bash
-mkdir -p /tmp/demo_break && cp 03_Hasil/edu_output_wujud_zat/01_artikel.md /tmp/demo_break/
-sed -i 's/\[src:W3\]/[src:B4]/' /tmp/demo_break/01_artikel.md
-python3 tools/check_grounding.py --run /tmp/demo_break \
-  --knowledge 08_Referensi --out /tmp/demo_break/report.md
+```powershell
+$t = "$env:TEMP\demo_break"
+New-Item -ItemType Directory -Force $t | Out-Null
+Copy-Item 03_Hasil\edu_output_wujud_zat\01_artikel.md $t -Force
+python -c "import pathlib,sys;p=pathlib.Path(sys.argv[1]);s=p.read_text(encoding='utf-8');p.write_text(s.replace('[src:W3]','[src:B4]',1),encoding='utf-8')" "$t\01_artikel.md"
+python tools\check_grounding.py --run $t --knowledge 08_Referensi --out "$t\report.md"
 ```
+
+`sed -i` tidak ada di Windows, jadi penggantinya satu baris Python di atas. **Ganti hanya satu
+kemunculan** (`replace(...,1)`) — sama seperti `sed` tanpa flag `g`, dan itu yang menghasilkan
+`1 class violations`. Kalau kedua kemunculan diganti, hasilnya `2 class violations`: tetap FAIL, tetapi
+angkanya berbeda dari yang tertulis di bawah. Padanan Git Bash / Linux tetap
+`sed -i 's/\[src:W3\]/[src:B4]/' /tmp/demo_break/01_artikel.md`.
 
 Keluaran yang **sudah diverifikasi** 31 Okt 2026:
 

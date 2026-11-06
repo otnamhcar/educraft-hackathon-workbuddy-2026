@@ -50,27 +50,53 @@ dan itu terlalu mepet untuk editing + rekaman ulang. **Rekam yang tidak terbloki
 
 ## 2. Alat — yang benar-benar ada di mesin ini
 
-Diperiksa 31 Okt 2026, diperbarui 6 Nov 2026 (ffmpeg/ffprobe 9.0.2 terpasang):
+Diperiksa 6 November 2026 di mesin Windows ini, bukan diasumsikan:
 
 | Alat | Ada? | Dipakai untuk |
 |------|------|---------------|
-| `obs` (`/usr/bin/obs`) | ✅ | rekam layar + mikrofon, satu file |
-| `ffmpeg` 9.0.2 | ✅ | potong, gabung, subtitle, normalisasi audio, export |
+| `ffmpeg` 9.0.2-full_build | ✅ terpasang dan ada di PATH | potong, gabung, subtitle, normalisasi audio, export |
 | `ffprobe` 9.0.2 | ✅ | **verifikasi** hasil (durasi, stream, resolusi) |
-| `audacity` (`/usr/bin/audacity`) | ✅ | rekam narasi terpisah, bersihkan noise |
-| `libx264` + `aac` + `x11grab` | ✅ | encoder & capture X11 tersedia |
-| `kdenlive`, `shotcut`, `kazam`, `simplescreenrecorder` | ❌ | tidak ada — jangan direncanakan |
+| `libx264` + `aac` + `libass` (`subtitles`) | ✅ | encoder & subtitle bakar tersedia |
+| `gdigrab` | ✅ | capture layar Windows — pengganti `x11grab` |
+| OBS Studio | ❌ tidak terpasang | kalau dipasang, setelan §3.1 berlaku |
+| Audacity | ❌ tidak terpasang | rekam narasi; alternatif: perekam suara bawaan Windows |
+| `kdenlive`, `shotcut`, `kazam`, `simplescreenrecorder` | ❌ | alat Linux — tidak ada, jangan direncanakan |
 
-Uji encode sudah dijalankan dan berhasil (`1366×768`, `h264` + `aac`). Artinya rangkaian export di
-§6 memang bisa dieksekusi di mesin ini.
+Uji encode sudah dijalankan di mesin ini dan berhasil: `1366×768`, `h264` + `aac` 48 kHz, 1 detik,
+35.545 byte. Artinya rangkaian export di §6 memang bisa dieksekusi di sini.
 
 > **Batas mesin (keputusan 6 November 2026).** Panel laptop yang dipakai merekam adalah **1366×768**,
 > bukan 1920×1080. Semua angka di §3, §5, dan §6 mengikuti 1366×768. `concat_video.py` juga memakai
 > 1366×768 sebagai bawaan (bisa ditimpa `--size 1920x1080` di mesin lain). Jangan memperbesar rekaman
 > 1366 ke 1920 — hasilnya buram dan terbaca sebagai manipulasi.
 
-> Langkah OBS di §3 berisi pengaturan GUI yang **belum** bisa saya uji dari sini. Kalau OBS tidak
-> mau bekerja sama, jalur ffmpeg di §3.3 sudah terbukti mampu.
+### 2.1 Kalau `ffmpeg` tidak dikenali — biasanya terminal lama, bukan PATH rusak
+
+Diperiksa 6 November 2026: folder `bin` paket ffmpeg **sudah ada** di PATH pengguna
+(`...\Gyan.FFmpeg_...\ffmpeg-9.0.2-full_build\bin`), dan `ffmpeg`/`ffprobe` resolve dari proses
+Python — jadi `concat_video.py` menemukannya. Kegagalan `'ffmpeg' is not recognized` yang muncul
+biasanya berasal dari terminal atau sesi yang **lahir sebelum** PATH diperbarui: PATH dibaca sekali
+saat proses dibuat, tidak ikut berubah di tengah jalan.
+
+Urutan pemeriksaan, dari yang paling murah:
+
+1. **Buka terminal baru**, lalu `ffmpeg -version`. Ini menyelesaikan hampir semua kasus.
+2. Masih gagal? Periksa apakah folder `bin` ada di PATH:
+   `$env:Path -split ';' | Select-String ffmpeg`
+3. Belum ada? Tambahkan (scope user, permanen), lalu buka terminal baru:
+   ```powershell
+   $bin = "$env:LOCALAPPDATA\Microsoft\WinGet\Packages\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\ffmpeg-9.0.2-full_build\bin"
+   [Environment]::SetEnvironmentVariable("Path",
+     [Environment]::GetEnvironmentVariable("Path","User") + ";$bin", "User")
+   ```
+
+> Catatan agar tidak salah diagnosa: winget meninggalkan alias **0 byte** di
+> `%LOCALAPPDATA%\Microsoft\WinGet\Links\ffmpeg.exe`. Folder itu **tidak** ada di PATH, jadi alias
+> rusak tersebut tidak menghalangi apa pun — jangan hapus apa pun karenanya.
+
+> Langkah OBS di §3 berisi pengaturan GUI yang **belum** bisa diuji dari sini karena OBS belum
+> terpasang. Kalau OBS tidak mau bekerja sama, jalur ffmpeg di §3.3 sudah terbukti mampu — `gdigrab`
+> terverifikasi tersedia.
 
 ---
 
@@ -80,7 +106,7 @@ Uji encode sudah dijalankan dan berhasil (`1366×768`, `h264` + `aac`). Artinya 
 
 | Setting | Nilai | Alasan |
 |---------|-------|--------|
-| Canvas & Output | 1366×768, 30 fps | Batas panel mesin perekam; 60 fps hanya memperbesar file |
+| Canvas & Output | **1366×768**, 30 fps | Batas panel mesin ini (§2, keputusan 6 Nov 2026). Jangan merekam 1920 lalu mengecilkan — teks tag jadi tidak terbaca |
 | Font aplikasi | Naikkan **satu tingkat** (16–18pt) | Menutup teks yang lebih kecil akibat resolusi 1366 |
 | Encoder | x264, CRI 20 | Kualitas baik, ukuran wajar |
 | Format rekaman | **`.mkv`** | MP4 rusak kalau OBS mati di tengah rekaman; MKV tidak |
@@ -106,16 +132,27 @@ ffmpeg -i rekaman.mkv -c copy rekaman.mp4
 
 ### 3.3 Jalur cadangan: ffmpeg tanpa OBS
 
-Butuh `DISPLAY` aktif (sesi desktop). Rekam seluruh layar:
+Di Windows, pengganti `x11grab` adalah `gdigrab`, dan `pulse` diganti `dshow`. Rekam seluruh layar
+plus mikrofon:
 
-```bash
-ffmpeg -f x11grab -video_size 1366x768 -framerate 30 -i "$DISPLAY" \
-       -f pulse -i default -c:v libx264 -preset veryfast -crf 20 -pix_fmt yuv420p \
-       -c:a aac -b:a 128k -t 60 adegan.mp4
+```bat
+ffmpeg -f gdigrab -framerate 30 -video_size 1366x768 -i desktop ^
+       -f dshow -i audio="<nama mikrofon>" -c:v libx264 -preset veryfast -crf 20 ^
+       -pix_fmt yuv420p -c:a aac -b:a 128k -t 60 adegan.mp4
 ```
 
-`-t 60` = batas 60 detik; hentikan lebih awal dengan `q`. Kalau `pulse` tidak tersedia, rekam video
-saja lalu tambahkan narasi di §4.
+Cari nama perangkat audio lebih dulu:
+
+```bat
+ffmpeg -list_devices true -f dshow -i dummy
+```
+
+`-t 60` = batas 60 detik; hentikan lebih awal dengan `q`. Kalau nama mikrofon tidak ketemu atau
+`dshow` menolak, **rekam video saja** — buang bagian `-f dshow -i audio=... -c:a aac -b:a 128k` — lalu
+tambahkan narasi di §4. Jangan menunda rekaman hanya karena audio.
+
+> Padanan Linux/macOS (kalau rekaman dikerjakan di mesin lain):
+> `ffmpeg -f x11grab -video_size 1366x768 -framerate 30 -i "$DISPLAY" -f pulse -i default ...`
 
 ---
 
@@ -142,11 +179,20 @@ kalimatnya sudah diuji panjangnya terhadap durasi.
 
 ### 5.1 Gabung per adegan
 
+```powershell
+# daftar file, satu per baris, urut adegan (PowerShell)
+@("file 'v01.mkv'","file 'v02.mkv'") | Set-Content daftar.txt -Encoding ascii
+ffmpeg -f concat -safe 0 -i daftar.txt -c copy gabungan.mp4
+```
+
 ```bash
-# daftar file, satu per baris, urut adegan
+# padanan Git Bash / Linux / macOS
 printf "file 'v01.mkv'\nfile 'v02.mkv'\n" > daftar.txt
 ffmpeg -f concat -safe 0 -i daftar.txt -c copy gabungan.mp4
 ```
+
+`Set-Content -Encoding ascii` dipakai supaya berkas tidak membawa BOM — demuxer `concat` menolak
+BOM di awal baris pertama.
 
 Kalau resolusi/fps antar-adegan berbeda, `-c copy` akan gagal — encode ulang:
 
@@ -172,6 +218,10 @@ ffmpeg -i bernarasi.mp4 -vf "subtitles=subtitle.srt:force_style='FontSize=22,Out
 ```
 
 Periksa satu hal spesifik: kata **"reject"** harus terbaca utuh, tidak terpotong di tepi layar.
+
+> **Jebakan Windows:** di dalam filter `subtitles=`, tanda titik dua memisahkan opsi — jalur absolut
+> `C:\...` akan gagal. Jalankan perintah dari folder yang memuat `subtitle.srt` dan sebut namanya
+> saja seperti di atas, atau tulis `subtitles='C\:/video/subtitle.srt'`.
 
 ---
 

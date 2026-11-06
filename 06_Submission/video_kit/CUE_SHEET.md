@@ -25,9 +25,11 @@ akhir **7:40**. Kalau salah satu segmen melar, potong di segmen itu — jangan m
 > dengan font aplikasi diperbesar satu tingkat serta narasi yang menyebut aturan secara lisan.
 > Jangan memperbesar hasil rekaman — buram dan terbaca sebagai manipulasi.
 >
-> `concat_video.py` butuh `ffmpeg` **dan** `ffprobe` di PATH. Keduanya **sudah terpasang**
-> 6 November 2026 (9.0.2). PATH hanya berlaku untuk proses baru — buka terminal baru dulu. Jalur
-> penyambungan sudah diuji dengan tiga klip sintetis: 1366×768 / 30 fps / AAC 48 kHz, durasi 5:10.
+> `concat_video.py` butuh `ffmpeg` **dan** `ffprobe` di PATH. Keduanya terpasang 6 November 2026
+> (9.0.2-full_build) dan folder `bin`-nya sudah ada di PATH pengguna. Kalau terminal lama masih bilang
+> tidak dikenali, buka terminal baru — PATH dibaca sekali saat proses lahir (§2.1
+> `13_Demo_Video_Runbook.md`). Jalur penyambungan sudah diuji dengan tiga klip sintetis:
+> 1366×768 / 30 fps / AAC 48 kHz, durasi 5:10.
 >
 > Screenshot punya batas yang sama; lihat `11_Screenshot_Capture_Runbook.md` §1.4a.
 
@@ -87,18 +89,22 @@ lalu lanjutkan ke kartu penutup. Segmen C tidak lagi tertunda — ketiga segmen 
 
 ## Menyambung
 
-```bash
-python3 06_Submission/video_kit/concat_video.py \
-  --seg-a rekaman/seg_a.mp4 \
-  --seg-b rekaman/seg_b.mp4 \
-  --seg-c rekaman/seg_c.mp4 \
-  --out 06_Submission/EduCraft_Demo.mp4
+```bat
+python 06_Submission\video_kit\concat_video.py ^
+  --seg-a rekaman\seg_a.mp4 ^
+  --seg-b rekaman\seg_b.mp4 ^
+  --seg-c rekaman\seg_c.mp4 ^
+  --out 06_Submission\EduCraft_Demo.mp4
 ```
+
+Di PowerShell, ganti `^` dengan backtick (`` ` ``). Di Linux/macOS, `python3` dan garis miring biasa.
 
 Yang dilakukan skrip, dan alasannya:
 
-1. **Menormalkan tiap segmen** ke 1920×1080 / 30 fps / AAC 48 kHz. Rekaman dari alat berbeda punya
-   parameter berbeda; menyambung tanpa menormalkan menghasilkan audio yang bergeser di sambungan.
+1. **Menormalkan tiap segmen** ke satu ukuran / 30 fps / AAC 48 kHz. Bawaannya **1366×768** — batas
+   panel mesin perekam (keputusan 6 Nov 2026); timpa dengan `--size 1920x1080` hanya bila merekam di
+   layar selebar itu. Rekaman dari alat berbeda punya parameter berbeda; menyambung tanpa menormalkan
+   menghasilkan audio yang bergeser di sambungan.
 2. **Membuat klip kartu** 5 detik tanpa suara dari dua PNG di folder ini.
 3. **Menyambung** lalu meratakan suara dengan `loudnorm` (target −16 LUFS).
 4. **Memeriksa durasi.** Di luar 5:00–8:00, skrip gagal dengan exit 1 — bukan peringatan yang bisa

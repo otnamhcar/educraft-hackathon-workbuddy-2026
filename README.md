@@ -100,7 +100,7 @@ Tiga sifat ditegakkan oleh kontrak, bukan oleh harapan:
 | `07_Dokumentasi/` | Dokumen rekayasa: arsitektur, workflow, batas skill, spesifikasi rulebook, rencana uji, ketertelusuran kebutuhan, daftar celah |
 | `tools/check_grounding.py` | Pemeriksaan R001 deterministik — me-resolve setiap tag terhadap lapisan pengetahuan, keluar non-nol bila gagal. Hanya memeriksa draf; metadata run dilewati dan disebutkan namanya di laporan |
 | `tools/install_skills.py` | Menyalin empat folder skill ke tempat WorkBuddy membacanya, lalu memverifikasi jumlahnya 4. Python, jadi jalan sama di Linux, macOS, dan Windows |
-| `tools/doctor.py` | Enam pemeriksaan pra-terbang pada clone baru — Python, kontrak, skill terpasang, lapisan pengetahuan, checksum salinan, grounding di keempat run. Kode yang sama di semua OS |
+| `tools/doctor.py` | Tujuh pemeriksaan pra-terbang pada clone baru — Python, kontrak, skill terpasang, lapisan pengetahuan, checksum salinan, grounding di kelima folder run, konvensi sitasi. Kode yang sama di semua OS |
 | `tools/check_capture.py` | Memeriksa berkas screenshot sebelum submit: mana yang belum ada, mana yang di bawah 1366 px, mana yang bukan PNG, mana yang tidak terdaftar di tracker. Daftar berkasnya dibaca dari `INDEX.md`, bukan dari daftar kedua yang bisa melenceng |
 | `tools/capture.py` | Menangkap layar di Windows: menyetel DPI-awareness lebih dulu (tanpa itu layar 1366 px terekam 1093 px pada skala 125 %), menyimpan langsung dengan nama final, dan menolak menimpa bukti yang sudah ada. Menggantikan `gnome-screenshot` yang ditulis untuk mesin Linux |
 | `tools/render_evidence.py` | Merender berkas hasil run (outline Planner, draf bertag, vonis Reviewer, audit log) menjadi PNG 1600 px untuk bukti submission. Setiap halaman membawa banner "berkas hasil run · dirender" — ia bukti artefak, bukan tangkapan UI |
@@ -246,7 +246,7 @@ Lalu **restart WorkBuddy**. Daftar skill dibaca saat sesi dibuka, jadi sesi yang
 akan melihat folder baru. Buka chat baru, pastikan `edu-orchestrator` dikenali, lalu verifikasi sisa
 clone dengan `doctor.py` (tabel di atas).
 
-Ia menjalankan enam pemeriksaan dan keluar non-nol bila ada yang gagal, sehingga clone yang rusak
+Ia menjalankan tujuh pemeriksaan dan keluar non-nol bila ada yang gagal, sehingga clone yang rusak
 mengatakan *di mana* rusaknya:
 
 | # | Pemeriksaan | Arti bila FAIL |
@@ -254,11 +254,14 @@ mengatakan *di mana* rusaknya:
 | 1 | Python 3.6+ | pemeriksaan grounding tidak bisa jalan |
 | 2 | empat kontrak ada di clone | clone tidak lengkap |
 | 3 | empat skill `edu-*` terpasang | jalankan `install_skills.py`, lalu restart |
-| 4 | rulebook, CP, daftar konteks aktual, kedua lembar sumber | lapisan pengetahuan hilang |
-| 5 | salinan rulebook dan source wujud-zat berbagi satu SHA-256 masing-masing | ada salinan yang menyimpang — Reviewer akan menilai dengan aturan yang berbeda dari yang ditulis Writer |
-| 6 | pemeriksaan grounding di kedua run | ada draf yang tidak lagi menunjuk sumbernya |
+| 4 | rulebook, CP, daftar konteks aktual, semua lembar sumber | lapisan pengetahuan hilang |
+| 5 | salinan rulebook dan tiap lembar sumber berbagi satu SHA-256 | ada salinan yang menyimpang — Reviewer akan menilai dengan aturan yang berbeda dari yang ditulis Writer |
+| 6 | pemeriksaan grounding di kelima folder run | ada draf yang tidak lagi menunjuk sumbernya |
+| 7 | konvensi sitasi pada dokumen yang dibaca guru | run `-003` memakai konvensi berbeda; run lama dilewati dengan `SKIP` dan alasannya |
 
-Clone yang sehat mencetak `8 passed / 0 failed / 0 warning` dan keluar dengan kode 0.
+Clone yang sehat mencetak `13 passed / 0 failed / 4 warning` dan keluar dengan kode 0. Diukur di
+mesin Windows 6 November 2026. Empat `warning` itu bukan kegagalan: keempat run lama dibuat sebelum
+konvensi sitasi berlaku, jadi pemeriksaan #7 melewatinya sambil menyebut alasannya.
 
 ### Run pertama
 
@@ -286,6 +289,7 @@ salah** — gerbangnya adalah produknya, dan itu hal pertama yang harus diverifi
 | `python: command not found` (Windows) | Python belum terpasang, atau tidak ada di PATH | coba `py tools\doctor.py`; kalau tidak bisa, pasang Python 3 dan centang *Add to PATH* |
 | `python3: command not found` (Linux/macOS) | Python 3 belum ada | `sudo apt install python3` — pemeriksaan grounding adalah inti proyek ini, jadi `doctor.py` tidak akan lulus tanpa itu |
 | Skill tetap tidak dikenali setelah pemasangan | sesi belum di-restart | tutup WorkBuddy sepenuhnya, buka lagi, chat baru |
+| `ffmpeg: command not found` (Windows) | terminal atau sesi itu lahir sebelum PATH diperbarui — PATH dibaca sekali saat proses dibuat | buka terminal baru. Kalau tetap gagal, periksa apakah folder `bin` paket ffmpeg ada di PATH pengguna, lalu tambahkan — lihat `06_Submission/13_Demo_Video_Runbook.md` §2.1 |
 
 **Khusus Windows.** `cmd`, PowerShell, dan Git Bash semuanya bisa — tidak ada skrip bash yang perlu
 dijalankan. Pakai garis miring terbalik (`tools\doctor.py`) atau garis miring biasa; keduanya

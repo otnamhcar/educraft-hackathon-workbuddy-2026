@@ -55,10 +55,13 @@ Poster tetap bisa dilihat utuh sebagai gambar, jadi yang dipublikasikan PNG-nya.
 
 ## Cara memeriksa sebelum dipublikasikan
 
-```bash
-cd 06_Submission/demo_site
-python3 -m http.server 8080
+```bat
+cd 06_Submission\demo_site
+python -m http.server 8080
 ```
+
+Di Linux/macOS sama, hanya `python3` dan garis miring biasa. Tanpa server pun halaman ini terbuka
+dengan klik dua kali — server hanya dipakai agar perilakunya sama dengan saat dipublikasikan.
 
 Buka `http://localhost:8080`, lalu klik keempat tautan. Yang harus benar:
 

@@ -5,11 +5,14 @@ Tim ini lintas OS (Linux Mint dan Windows), jadi alatnya Python, bukan .sh —
 aturan yang sama dengan `tools/`. Skrip ini hanya menyambung rekaman yang sudah
 ada; ia tidak merekam apa pun.
 
-    python3 06_Submission/video_kit/concat_video.py \
-        --seg-a rekaman/seg_a.mp4 \
-        --seg-b rekaman/seg_b.mp4 \
-        --seg-c rekaman/seg_c.mp4 \
+    python 06_Submission/video_kit/concat_video.py ^
+        --seg-a rekaman/seg_a.mp4 ^
+        --seg-b rekaman/seg_b.mp4 ^
+        --seg-c rekaman/seg_c.mp4 ^
         --out 06_Submission/EduCraft_Demo.mp4
+
+(Garis miring biasa diterima di Windows; di PowerShell ganti `^` dengan backtick; di Linux/macOS
+pakai `python3`.)
 
 Yang dilakukan, berurutan:
   1. Setiap segmen dinormalkan ke ukuran yang sama / 30 fps / AAC 48 kHz. Rekaman dari
@@ -24,7 +27,9 @@ Ukuran bawaan 1366x768 -- batas panel laptop yang dipakai merekam (keputusan 6 N
 2026). Di mesin dengan layar lebih lebar, timpa dengan `--size 1920x1080`; jangan
 perbesar rekaman 1366 ke 1920, hasilnya buram tanpa menambah informasi.
 
-Butuh `ffmpeg` dan `ffprobe` di PATH.
+Butuh `ffmpeg` dan `ffprobe` di PATH. Di Windows keduanya terpasang (9.0.2) dan folder `bin`-nya
+sudah ada di PATH pengguna; kalau sebuah terminal lama bilang tidak dikenali, buka terminal baru —
+PATH dibaca sekali saat proses lahir (lihat `06_Submission/13_Demo_Video_Runbook.md` §2.1).
 """
 
 import argparse

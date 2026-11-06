@@ -57,7 +57,8 @@ Buka berkas itu di samping formulir, lalu tempel bagian per bagian. Jangan difor
 3. **ID aturan dan kalimat yang dikutip terbaca pada zoom 100%** di laptop 1080p. Kalau juri harus
    menyipitkan mata, screenshot itu tidak dihitung.
 
-Verifikasi: `python3 tools/check_capture.py` → exit 0 berarti ke-12 berkas wajib sudah ada dan sah.
+Verifikasi: `python tools\check_capture.py` (Windows) atau `python3 tools/check_capture.py`
+(Linux/macOS) → exit 0 berarti ke-12 berkas wajib sudah ada dan sah.
 **Lembar kerja satu halaman untuk enam berkas yang tersisa: `14_Lembar_Sesi_Tangkap.md`.**
 
 ### Wajib — 12 berkas, tanpa ini item 5 tetap "sebagian"
