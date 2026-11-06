@@ -1,0 +1,16 @@
+# tag = label seen by the teacher/student
+# Numbers 1-9 are entries of the module source sheet (source_material_energi.md).
+1 = Sumber modul, entri 1
+2 = Sumber modul, entri 2
+3 = Sumber modul, entri 3
+4 = Sumber modul, entri 4
+5 = Sumber modul, entri 5
+6 = Sumber modul, entri 6
+7 = Sumber modul, entri 7
+8 = Sumber modul, entri 8
+9 = Sumber modul, entri 9
+CA1 = Konteks aktual CA1 (PLN Nusantara Renewables; PV Tech, 17 Nov 2023)
+CA6 = Konteks aktual CA6 (Bank Indonesia; KLHK)
+C4 = Panduan IPAS, CP-C.2.1.4
+B5 = Panduan IPAS, CP-B.1.1.5
+CP = Panduan IPAS, elemen dan keterampilan proses

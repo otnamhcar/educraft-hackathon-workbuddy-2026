@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kuis — Energi Alternatif dan Penghematan Energi</title>
+<style>
+  :root{
+    --green:#14532D; --green-mid:#2F6B45; --green-ok:#1E6B3A; --green-soft:#E8F1EA;
+    --amber:#B45F06; --amber-soft:#FBF3E6;
+    --ink:#1B2320; --muted:#5D6B63; --line:#D8E2DA; --soft:#F3F6F4;
+    --red:#A32A1F; --red-soft:#FAEAE8; --grey:#8A948E; --grey-soft:#EFF1F0;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; padding:28px 18px 64px;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-size:15px; line-height:1.6; color:var(--ink); background:#EDF1EE;
+  }
+  .app{max-width:860px; margin:0 auto}
+
+  /* ---------- kepala ---------- */
+  header.kepala{
+    background:linear-gradient(135deg,var(--green) 0%,#1E6B3A 100%);
+    color:#fff; border-radius:14px; padding:24px 26px 22px; margin-bottom:16px;
+  }
+  .kicker{
+    font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+    color:#9CBEA6; font-weight:700; margin:0 0 8px;
+  }
+  header.kepala h1{margin:0 0 6px; font-size:24px; line-height:1.25; font-weight:700}
+  header.kepala p{margin:0; color:#D7E6DB; font-size:13.5px}
+  .lencana{
+    display:inline-block; margin-top:12px; padding:4px 11px; border-radius:999px;
+    background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.28);
+    font-size:11.5px; letter-spacing:.02em;
+  }
+
+  /* ---------- tab ---------- */
+  .tabbar{display:flex; gap:6px; background:#fff; padding:6px; border-radius:12px;
+    border:1px solid var(--line); margin-bottom:16px}
+  .tabbar button{
+    flex:1; border:0; background:transparent; color:var(--muted);
+    font:inherit; font-weight:600; font-size:14px; padding:10px 8px; border-radius:8px;
+    cursor:pointer; transition:background .15s,color .15s;
+  }
+  .tabbar button:hover{background:var(--soft); color:var(--green)}
+  .tabbar button[aria-selected="true"]{background:var(--green); color:#fff}
+  .tabbar button .jml{font-weight:500; opacity:.75; font-size:12.5px}
+
+  /* ---------- soal ---------- */
+  .panel{display:none}
+  .panel[data-aktif="true"]{display:block}
+  .soal{
+    background:#fff; border:1px solid var(--line); border-radius:12px;
+    padding:16px 18px; margin-bottom:12px; border-left:4px solid var(--line);
+  }
+  .soal.benar{border-left-color:var(--green-ok); background:#FCFDFC}
+  .soal.salah{border-left-color:var(--red); background:#FEFCFC}
+  .soal.kosong{border-left-color:var(--grey); background:#FCFCFC}
+  .no{
+    display:inline-flex; align-items:center; justify-content:center;
+    min-width:24px; height:24px; padding:0 7px; border-radius:6px;
+    background:var(--green); color:#fff; font-size:12.5px; font-weight:700;
+    margin-right:9px; vertical-align:2px;
+  }
+  .soal.benar .no{background:var(--green-ok)}
+  .soal.salah .no{background:var(--red)}
+  .soal.kosong .no{background:var(--grey)}
+  .teks{display:inline; font-weight:600}
+  .opsi{margin:12px 0 0; padding:0; list-style:none; display:grid; gap:6px}
+  .opsi li{margin:0}
+  .opsi label{
+    display:flex; gap:10px; align-items:flex-start; padding:9px 12px;
+    border:1px solid transparent; border-radius:9px; cursor:pointer;
+    transition:background .12s,border-color .12s;
+  }
+  .opsi label:hover{background:var(--soft); border-color:var(--line)}
+  .opsi input{margin:3px 0 0; accent-color:var(--green); flex:0 0 auto}
+  .opsi .huruf{font-weight:700; color:var(--green); flex:0 0 auto}
+  .opsi label.dikunci{cursor:default}
+  .soal.diperiksa .opsi label:hover{background:transparent; border-color:transparent}
+  .opsi label.kunci{background:var(--green-soft); border-color:#BBD7C2}
+  .opsi label.pilih-salah{background:var(--red-soft); border-color:#EFC4BE}
+
+  .umpan{display:none; margin-top:12px; padding-top:11px; border-top:1px dashed var(--line);
+    font-size:13.5px; color:var(--muted)}
+  .soal.diperiksa .umpan{display:block}
+  .umpan b{color:var(--ink)}
+  .tag{display:inline-block; padding:2px 9px; border-radius:999px; font-size:11.5px;
+    font-weight:700; letter-spacing:.03em; margin-right:8px}
+  .tag.b{background:var(--green-soft); color:var(--green-ok)}
+  .tag.s{background:var(--red-soft); color:var(--red)}
+  .tag.k{background:var(--grey-soft); color:#5F6B64}
+
+  /* ---------- aksi ---------- */
+  .aksi{margin-top:20px; display:flex; flex-wrap:wrap; gap:10px; align-items:center}
+  button.tombol{
+    font:inherit; font-weight:600; font-size:14px; padding:11px 20px;
+    border-radius:10px; cursor:pointer; border:1px solid transparent;
+    transition:filter .15s,background .15s;
+  }
+  button.tombol:hover{filter:brightness(.95)}
+  button.utama{background:var(--green); color:#fff}
+  button.sekunder{background:#fff; color:var(--green); border-color:var(--green)}
+  button.netral{background:#fff; color:var(--muted); border-color:var(--line)}
+  button[hidden]{display:none}
+  .skor{
+    display:none; margin-top:16px; padding:16px 18px; border-radius:12px;
+    background:var(--green-soft); border:1px solid #BBD7C2;
+  }
+  .skor.tampil{display:block}
+  .skor .angka{font-size:26px; font-weight:700; color:var(--green); line-height:1.2}
+  .skor .rinci{font-size:13.5px; color:var(--muted); margin-top:4px}
+  .catatan{font-size:12.5px; color:var(--muted); margin-top:14px}
+
+  /* ---------- laporan cetak ---------- */
+  #laporan{display:none}
+
+  @media print{
+    @page{size:A4; margin:15mm}
+    html,body{background:#fff !important}
+    body{padding:0; font-size:11pt}
+    .app{display:none !important}
+    #laporan{display:block !important}
+  }
+  #laporan, #laporan *{
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
+  }
+  #laporan h1{font-size:16pt; margin:0 0 4px; color:var(--green)}
+  #laporan .meta{font-size:9.5pt; color:var(--muted); margin:0 0 3px}
+  #laporan .garis{border:0; border-top:2px solid var(--green); margin:12px 0 14px}
+  #laporan table{width:100%; border-collapse:collapse; font-size:9pt}
+  #laporan th{
+    text-align:left; background:var(--green); color:#fff; font-size:8.5pt;
+    letter-spacing:.04em; text-transform:uppercase; padding:6px 7px;
+  }
+  #laporan td{border-bottom:1px solid var(--line); padding:6px 7px; vertical-align:top}
+  #laporan tr.benar td{background:var(--green-soft)}
+  #laporan tr.salah td{background:var(--red-soft)}
+  #laporan tr.kosong td{background:var(--grey-soft)}
+  #laporan td.hasil{font-weight:700; white-space:nowrap}
+  #laporan tr.benar td.hasil{color:var(--green-ok)}
+  #laporan tr.salah td.hasil{color:var(--red)}
+  #laporan tr.kosong td.hasil{color:#5F6B64}
+  #laporan td.jwb{font-weight:600}
+  #laporan .ringkas{margin-top:14px; font-size:9.5pt; padding:8px 10px;
+    border:1px solid var(--line); border-radius:6px; background:var(--soft)}
+</style>
+</head>
+<body>
+
+<div class="app">
+  <header class="kepala">
+    <p class="kicker">IPAS · Fase C · Kelas V–VI</p>
+    <h1>Kuis Energi Alternatif dan Penghematan Energi</h1>
+    <p>17 butir pilihan ganda · 10 poin per butir · dikerjakan tanpa melihat kunci</p>
+    <span class="lencana">Draf pra-persetujuan · belum disetujui, belum dipublikasikan</span>
+  </header>
+
+  <div class="tabbar" role="tablist" aria-label="Bagian kuis">
+    <button role="tab" id="tab-pre" aria-controls="panel-pre" aria-selected="true"
+            data-tab="pre">Pre-test <span class="jml">· 5 butir · maks 50</span></button>
+    <button role="tab" id="tab-post" aria-controls="panel-post" aria-selected="false"
+            data-tab="post">Post-test <span class="jml">· 12 butir · maks 120</span></button>
+  </div>
+
+  <section class="panel" id="panel-pre" role="tabpanel" aria-labelledby="tab-pre" data-aktif="true"></section>
+  <section class="panel" id="panel-post" role="tabpanel" aria-labelledby="tab-post" data-aktif="false"></section>
+
+  <div class="skor" id="skor" role="status" aria-live="polite"></div>
+
+  <div class="aksi">
+    <button class="tombol utama" id="btnPeriksa" type="button">Periksa Jawaban</button>
+    <button class="tombol netral" id="btnUlangi" type="button" hidden>Ulangi Kuis</button>
+    <button class="tombol sekunder" id="btnEkspor" type="button" hidden>Export PDF</button>
+    <button class="tombol sekunder" id="btnCetak" type="button" hidden>Cetak / Save PDF</button>
+  </div>
+
+  <p class="catatan" id="catatanNomor"></p>
+</div>
+
+<!-- Laporan hanya tampil saat dicetak; dibangun ulang setiap kali tab aktif berubah. -->
+<div id="laporan"></div>
+
+<script>
+"use strict";
+
+/* ==========================================================================
+   Data butir. Teks soal disalin dari lembar kuis; tidak ada perubahan kata.
+   Nomor butir post-test mengikuti lembar kunci (6–17) agar sama dengan
+   versi cetak, sehingga satu nomor berarti satu butir di seluruh artefak.
+   ========================================================================== */
+const KUIS = {
+  pre: {
+    judul: "Pre-test",
+    maks: 50,
+    items: [
+      { no:1, teks:"Energi yang berasal dari sumber daya alam yang dapat diperbarui dan ramah lingkungan disebut…",
+        opsi:["Energi fosil","Energi alternatif","Energi kimia","Energi bunyi"], kunci:"B" },
+      { no:2, teks:"Berikut yang termasuk contoh energi alternatif adalah…",
+        opsi:["Minyak bumi","Batu bara","Biogas","Bensin"], kunci:"C" },
+      { no:3, teks:"Bahan bakar fosil seperti minyak dan batu bara memiliki sifat…",
+        opsi:["Dapat diperbarui dan tidak menghasilkan polusi",
+              "Tidak dapat diperbarui dan menghasilkan polusi",
+              "Dapat diperbarui dan menghasilkan polusi",
+              "Tidak dapat diperbarui dan tidak menghasilkan polusi"], kunci:"B" },
+      { no:4, teks:"Ketika lampu menyala, perubahan bentuk energi yang terjadi adalah…",
+        opsi:["listrik → cahaya + panas","cahaya → listrik","gerak → listrik","kimia → cahaya"], kunci:"A" },
+      { no:5, teks:"Kegiatan berikut yang termasuk upaya menghemat energi adalah…",
+        opsi:["Menyalakan lampu di ruangan yang kosong",
+              "Membiarkan kipas menyala saat keluar kelas",
+              "Mematikan proyektor setelah selesai digunakan",
+              "Menyalakan semua lampu pada siang hari"], kunci:"C" }
+    ]
+  },
+  post: {
+    judul: "Post-test",
+    maks: 120,
+    items: [
+      { no:6, teks:"Dalam daftar bentuk energi, energi yang berkaitan dengan benda yang bergerak disebut energi…",
+        opsi:["kimia","bunyi","gerak","panas"], kunci:"C" },
+      { no:7, teks:"Kipas angin yang dinyalakan mengubah energi listrik menjadi energi…",
+        opsi:["cahaya","gerak","kimia","bunyi"], kunci:"B" },
+      { no:8, teks:"Tubuh kita dapat bergerak karena energi kimia dari makanan berubah menjadi energi…",
+        opsi:["gerak","listrik","cahaya","bunyi"], kunci:"A" },
+      { no:9, teks:"Pernyataan yang sesuai dengan hukum kekekalan energi adalah…",
+        opsi:["Energi dapat diciptakan dari yang tidak ada",
+              "Energi dapat dimusnahkan bila dipakai terus-menerus",
+              "Energi tidak dapat diciptakan atau dimusnahkan, hanya diubah bentuknya",
+              "Energi berkurang setiap kali berubah bentuk"], kunci:"C" },
+      { no:10, teks:"Mengganti lampu di kelas dengan lampu hemat energi termasuk upaya…",
+        opsi:["menghemat energi","menambah polusi","memboroskan listrik","mengurangi cahaya"], kunci:"A" },
+      { no:11, teks:'Yang <strong>BUKAN</strong> termasuk upaya menghemat energi adalah…',
+        opsi:["Mematikan lampu yang tidak terpakai",
+              "Menggunakan lampu hemat energi",
+              "Mematikan kipas saat ruangan ditinggalkan",
+              "Menyalakan semua alat listrik sekaligus"], kunci:"D" },
+      { no:12, teks:"Kegiatan <em>reduce</em>, <em>reuse</em>, dan <em>recycle</em> termasuk upaya untuk…",
+        opsi:["menambah jumlah sampah",
+              "menjaga sumber daya alam agar tersedia bagi generasi mendatang",
+              "mempercepat perubahan iklim",
+              "mengurangi jumlah pohon"], kunci:"B" },
+      { no:13, teks:"PLTS Terapung Cirata adalah pembangkit listrik yang memanfaatkan energi…",
+        opsi:["angin","surya","biogas","batu bara"], kunci:"B" },
+      { no:14, teks:"Indonesia menargetkan Net Zero Emission (NZE) pada tahun…",
+        opsi:["2030","2045","2060 atau lebih cepat","2100"], kunci:"C" },
+      { no:15, teks:"Energi yang berasal dari sumber daya alam yang dapat diperbarui dan ramah lingkungan disebut…",
+        opsi:["Energi fosil","Energi alternatif","Energi kimia","Energi bunyi"], kunci:"B" },
+      { no:16, teks:"Berikut yang termasuk contoh energi alternatif adalah…",
+        opsi:["Minyak bumi","Batu bara","Biogas","Bensin"], kunci:"C" },
+      { no:17, teks:"Kegiatan berikut yang termasuk upaya menghemat energi adalah…",
+        opsi:["Menyalakan lampu di ruangan yang kosong",
+              "Membiarkan kipas menyala saat keluar kelas",
+              "Mematikan proyektor setelah selesai digunakan",
+              "Menyalakan semua lampu pada siang hari"], kunci:"C" }
+    ]
+  }
+};
+
+const HURUF = ["A","B","C","D"];
+const JUDUL_TOPIK = "Energi Alternatif dan Penghematan Energi";
+
+/* Satu keadaan per tab. `periksa` menyimpan salinan jawaban pada saat diperiksa,
+   supaya laporan tidak pernah membaca pilihan yang lebih baru (FR-05 butir 7). */
+const keadaan = {
+  pre:  { diperiksa:false, salinan:null, skor:0 },
+  post: { diperiksa:false, salinan:null, skor:0 }
+};
+
+let tabAktif = "pre";
+
+const el = (id) => document.getElementById(id);
+
+/* ------------------------------------------------------------------ render */
+function bangunPanel(tab){
+  const panel = el("panel-" + tab);
+  const data = KUIS[tab];
+  panel.innerHTML = data.items.map((it) => {
+    const opsi = it.opsi.map((teks, i) => {
+      const h = HURUF[i];
+      return '<li><label data-huruf="' + h + '">' +
+             '<input type="radio" name="' + tab + '-' + it.no + '" value="' + h + '" ' +
+             'id="' + tab + '-' + it.no + '-' + h + '">' +
+             '<span class="huruf">' + h + '.</span>' +
+             '<span>' + teks + '</span></label></li>';
+    }).join("");
+    return '<article class="soal" id="soal-' + tab + '-' + it.no + '">' +
+             '<span class="no">' + it.no + '</span>' +
+             '<span class="teks">' + it.teks + '</span>' +
+             '<ul class="opsi">' + opsi + '</ul>' +
+             '<div class="umpan"></div>' +
+           '</article>';
+  }).join("");
+}
+
+function jawabanSekarang(tab){
+  const hasil = {};
+  KUIS[tab].items.forEach((it) => {
+    const dipilih = document.querySelector(
+      'input[name="' + tab + '-' + it.no + '"]:checked');
+    hasil[it.no] = dipilih ? dipilih.value : null;
+  });
+  return hasil;
+}
+
+/* ---------------------------------------------------------------- periksa */
+function periksa(){
+  const tab = tabAktif;
+  const data = KUIS[tab];
+  const jawab = jawabanSekarang(tab);
+
+  let skor = 0, benar = 0, salah = 0, kosong = 0;
+
+  data.items.forEach((it) => {
+    const kartu = el("soal-" + tab + "-" + it.no);
+    const pilih = jawab[it.no];
+    const umpan = kartu.querySelector(".umpan");
+    kartu.classList.add("diperiksa");
+
+    kartu.querySelectorAll(".opsi label").forEach((lab) => {
+      lab.classList.add("dikunci");
+      const h = lab.dataset.huruf;
+      if (h === it.kunci) lab.classList.add("kunci");
+      if (h === pilih && h !== it.kunci) lab.classList.add("pilih-salah");
+    });
+    kartu.querySelectorAll("input").forEach((inp) => { inp.disabled = true; });
+
+    if (!pilih) {
+      kartu.classList.add("kosong");
+      kosong++;
+      umpan.innerHTML = '<span class="tag k">Tidak dijawab</span>' +
+        'Kunci: <b>' + it.kunci + '. ' + data.items.find(x => x.no === it.no).opsi[HURUF.indexOf(it.kunci)] + '</b>';
+    } else if (pilih === it.kunci) {
+      kartu.classList.add("benar");
+      benar++; skor += 10;
+      umpan.innerHTML = '<span class="tag b">Benar</span>' +
+        'Kunci: <b>' + it.kunci + '</b>';
+    } else {
+      kartu.classList.add("salah");
+      salah++;
+      const teksKunci = it.opsi[HURUF.indexOf(it.kunci)];
+      umpan.innerHTML = '<span class="tag s">Salah</span>' +
+        'Jawabanmu <b>' + pilih + '</b>, kunci <b>' + it.kunci + '. ' + teksKunci + '</b>';
+    }
+  });
+
+  keadaan[tab].diperiksa = true;
+  keadaan[tab].salinan = jawab;
+  keadaan[tab].skor = skor;
+
+  const kotak = el("skor");
+  kotak.classList.add("tampil");
+  kotak.innerHTML = '<div class="angka">' + skor + ' / ' + data.maks + '</div>' +
+    '<div class="rinci">' + data.judul + ' · benar ' + benar +
+    ' · salah ' + salah + ' · tidak dijawab ' + kosong + '</div>';
+
+  el("btnPeriksa").hidden = true;
+  el("btnUlangi").hidden = false;
+  el("btnEkspor").hidden = false;
+  el("btnCetak").hidden = false;
+
+  bangunLaporan(tab);
+}
+
+/* ---------------------------------------------------------------- ulangi */
+function ulangi(){
+  const tab = tabAktif;
+  KUIS[tab].items.forEach((it) => {
+    const kartu = el("soal-" + tab + "-" + it.no);
+    kartu.classList.remove("benar","salah","kosong","diperiksa");
+    kartu.querySelector(".umpan").innerHTML = "";
+    kartu.querySelectorAll(".opsi label").forEach((lab) => {
+      lab.classList.remove("kunci","pilih-salah","dikunci");
+    });
+    kartu.querySelectorAll("input").forEach((inp) => {
+      inp.disabled = false; inp.checked = false;
+    });
+  });
+  keadaan[tab] = { diperiksa:false, salinan:null, skor:0 };
+  el("skor").classList.remove("tampil");
+  el("skor").innerHTML = "";
+  el("btnPeriksa").hidden = false;
+  el("btnUlangi").hidden = true;
+  el("btnEkspor").hidden = true;
+  el("btnCetak").hidden = true;
+  el("laporan").innerHTML = "";
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+/* --------------------------------------------------------------- laporan */
+/* Laporan dibangun dari data, bukan dari DOM yang sedang tampil, agar isinya
+   selalu sesuai tab aktif dan tidak pernah memakai keadaan usang. */
+function barisLaporan(tab){
+  const data = KUIS[tab];
+  const st = keadaan[tab];
+  const jawab = st.diperiksa ? st.salinan : jawabanSekarang(tab);
+  return data.items.map((it) => {
+    const pilih = jawab[it.no];
+    const status = !pilih ? "kosong" : (pilih === it.kunci ? "benar" : "salah");
+    const teksJawab = pilih
+      ? pilih + ". " + it.opsi[HURUF.indexOf(pilih)]
+      : "— tidak dijawab";
+    const label = status === "benar" ? "Benar"
+                : status === "salah" ? "Salah" : "Tidak dijawab";
+    return { it, status, teksJawab, label };
+  });
+}
+
+function bangunLaporan(tab){
+  const data = KUIS[tab];
+  const st = keadaan[tab];
+  const baris = barisLaporan(tab);
+  const benar = baris.filter(b => b.status === "benar").length;
+  const kosong = baris.filter(b => b.status === "kosong").length;
+  const skor = benar * 10;
+  const waktu = new Date().toLocaleString("id-ID",
+    { day:"2-digit", month:"long", year:"numeric", hour:"2-digit", minute:"2-digit" });
+
+  const tr = baris.map((b) => {
+    const noTeks = b.it.teks.replace(/<[^>]+>/g, "");
+    return '<tr class="' + b.status + '">' +
+      '<td>' + b.it.no + '</td>' +
+      '<td>PG</td>' +
+      '<td>' + noTeks + '</td>' +
+      '<td class="jwb">' + b.teksJawab + '</td>' +
+      '<td>' + b.it.kunci + '. ' + b.it.opsi[HURUF.indexOf(b.it.kunci)] + '</td>' +
+      '<td class="hasil">' + b.label + '</td>' +
+    '</tr>';
+  }).join("");
+
+  el("laporan").innerHTML =
+    '<h1>Laporan Kuis — ' + JUDUL_TOPIK + '</h1>' +
+    '<p class="meta">' + data.judul + ' · IPAS Fase C (kelas V–VI) · ' + data.items.length + ' butir pilihan ganda</p>' +
+    '<p class="meta">Dicetak: ' + waktu + ' · Skor: <strong>' + skor + ' / ' + data.maks +
+      '</strong> · Benar ' + benar + ' · Tidak dijawab ' + kosong + '</p>' +
+    '<hr class="garis">' +
+    '<table><thead><tr>' +
+      '<th>No</th><th>Tipe</th><th>Soal</th><th>Jawaban siswa</th><th>Kunci</th><th>Hasil</th>' +
+    '</tr></thead><tbody>' + tr + '</tbody></table>' +
+    '<p class="ringkas">Skor dihitung 10 poin per butir benar. Butir yang tidak dijawab tidak mengurangi skor.</p>';
+
+  return { baris, skor, benar, kosong, waktu, judul: data.judul, maks: data.maks };
+}
+
+/* ------------------------------------------------------------ ekspor PDF */
+/* Penulis PDF minimal, ditanam inline supaya berkas tetap berfungsi luring
+   tanpa memuat pustaka pihak ketiga (FR-03). Menghasilkan PDF 1.4 satu-kolom
+   dengan tabel teks, bukan tangkapan layar. */
+
+const PETA_CP1252 = {
+  0x2014:0x97, 0x2013:0x96, 0x201C:0x93, 0x201D:0x94,
+  0x2018:0x91, 0x2019:0x92, 0x2026:0x85,
+  0x00B7:0xB7, 0x00B1:0xB1, 0x00D7:0xD7, 0x2022:0x95
+};
+
+function keByte(teks){
+  const keluar = [];
+  for (const ch of teks){
+    const c = ch.codePointAt(0);
+    if (c === 0x2192){ keluar.push(0x2D, 0x3E); continue; }   /* → menjadi -> */
+    if (c < 256){ keluar.push(c); continue; }
+    if (PETA_CP1252[c] !== undefined){ keluar.push(PETA_CP1252[c]); continue; }
+    keluar.push(0x3F);                                        /* tak terwakili */
+  }
+  return keluar;
+}
+
+function lolosPdf(teks){
+  return keByte(teks).map((b) => {
+    if (b === 0x28 || b === 0x29 || b === 0x5C) return "\\" + String.fromCharCode(b);
+    if (b < 32) return " ";
+    return String.fromCharCode(b);
+  }).join("");
+}
+
+function bungkus(teks, ukuran, lebar){
+  const perHuruf = ukuran * 0.52;
+  const maks = Math.max(12, Math.floor(lebar / perHuruf));
+  const kata = teks.split(/\s+/);
+  const baris = [];
+  let kini = "";
+  for (const k of kata){
+    const coba = kini ? kini + " " + k : k;
+    if (coba.length <= maks){ kini = coba; }
+    else { if (kini) baris.push(kini); kini = k; }
+  }
+  if (kini) baris.push(kini);
+  return baris.length ? baris : [""];
+}
+
+function buatPdf(baris){
+  const LEBAR = 595.28, TINGGI = 841.89, TEPI = 56;
+  const halaman = [];
+  let operasi = [];
+  let y = TINGGI - TEPI;
+
+  const tutup = () => { if (operasi.length){ halaman.push(operasi.join("\n")); operasi = []; } };
+
+  for (const b of baris){
+    const ukuran = b.ukuran || 10.5;
+    const tinggiBaris = ukuran * 1.42;
+    if (b.jeda) y -= b.jeda;
+    for (const potong of bungkus(b.teks, ukuran, LEBAR - 2 * TEPI)){
+      if (y - tinggiBaris < TEPI){ tutup(); y = TINGGI - TEPI; }
+      const font = b.tebal ? "/F2" : "/F1";
+      operasi.push("BT " + font + " " + ukuran + " Tf " + TEPI + " " +
+                   y.toFixed(2) + " Td (" + lolosPdf(potong) + ") Tj ET");
+      y -= tinggiBaris;
+    }
+  }
+  tutup();
+
+  const n = halaman.length;
+  const f1 = 3 + n * 2;
+  const f2 = f1 + 1;
+  const obj = {};
+  obj[1] = "<< /Type /Catalog /Pages 2 0 R >>";
+  obj[2] = "<< /Type /Pages /Kids [" +
+           halaman.map((_, i) => (3 + i * 2) + " 0 R").join(" ") +
+           "] /Count " + n + " >>";
+  halaman.forEach((isi, i) => {
+    obj[3 + i * 2] =
+      "<< /Type /Page /Parent 2 0 R /MediaBox [0 0 " + LEBAR + " " + TINGGI + "] " +
+      "/Resources << /Font << /F1 " + f1 + " 0 R /F2 " + f2 + " 0 R >> >> " +
+      "/Contents " + (4 + i * 2) + " 0 R >>";
+    obj[4 + i * 2] = "<< /Length " + isi.length + " >>\nstream\n" + isi + "\nendstream";
+  });
+  obj[f1] = "<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>";
+  obj[f2] = "<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>";
+
+  let keluar = "%PDF-1.4\n";
+  const posisi = {};
+  for (let i = 1; i <= f2; i++){
+    posisi[i] = keluar.length;
+    keluar += i + " 0 obj\n" + obj[i] + "\nendobj\n";
+  }
+  const xref = keluar.length;
+  keluar += "xref\n0 " + (f2 + 1) + "\n0000000000 65535 f \n";
+  for (let i = 1; i <= f2; i++){
+    keluar += String(posisi[i]).padStart(10, "0") + " 00000 n \n";
+  }
+  keluar += "trailer\n<< /Size " + (f2 + 1) + " /Root 1 0 R >>\nstartxref\n" +
+            xref + "\n%%EOF";
+  return keluar;
+}
+
+function eksporPdf(){
+  const tab = tabAktif;
+  const ringkas = bangunLaporan(tab);
+  const LEBAR = 595.28, TEPI = 56;
+  const teksMaks = LEBAR - 2 * TEPI;
+
+  const baris = [];
+  baris.push({ teks:"Laporan Kuis — " + JUDUL_TOPIK, tebal:true, ukuran:15 });
+  baris.push({ teks:ringkas.judul + " · IPAS Fase C (kelas V–VI) · " +
+                     KUIS[tab].items.length + " butir pilihan ganda", ukuran:9.5, jeda:4 });
+  baris.push({ teks:"Dicetak: " + ringkas.waktu + " · Skor: " + ringkas.skor +
+                     " / " + ringkas.maks + " · Benar " + ringkas.benar +
+                     " · Tidak dijawab " + ringkas.kosong, ukuran:9.5, jeda:2 });
+  baris.push({ teks:"", jeda:10 });
+
+  ringkas.baris.forEach((b) => {
+    const soalPolos = b.it.teks.replace(/<[^>]+>/g, "");
+    baris.push({ teks:b.it.no + ". [PG] " + soalPolos, tebal:true, ukuran:10, jeda:6 });
+    baris.push({ teks:"Jawaban siswa: " + b.teksJawab + "   [" + b.label + "]",
+                 ukuran:9.5, jeda:1 });
+    baris.push({ teks:"Kunci: " + b.it.kunci + ". " +
+                       b.it.opsi[HURUF.indexOf(b.it.kunci)], ukuran:9.5, jeda:1 });
+    baris.push({ teks:"", jeda:4 });
+  });
+
+  baris.push({ teks:"Skor dihitung 10 poin per butir benar. Butir yang tidak dijawab " +
+                     "tidak mengurangi skor.", ukuran:8.5, jeda:8 });
+
+  const pdf = buatPdf(baris);
+  const byte = new Uint8Array(pdf.length);
+  for (let i = 0; i < pdf.length; i++) byte[i] = pdf.charCodeAt(i) & 0xFF;
+  const blob = new Blob([byte], { type:"application/pdf" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  const nama = "Kuis_Energi_Alternatif_" + KUIS[tab].judul.replace(/\s+/g, "-") + ".pdf";
+  a.href = url;
+  a.download = nama;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  setTimeout(() => URL.revokeObjectURL(url), 4000);
+}
+
+/* ------------------------------------------------------------------- tab */
+function pindahTab(tab){
+  tabAktif = tab;
+  document.querySelectorAll(".tabbar button").forEach((b) => {
+    b.setAttribute("aria-selected", String(b.dataset.tab === tab));
+  });
+  document.querySelectorAll(".panel").forEach((p) => {
+    p.dataset.aktif = String(p.id === "panel-" + tab);
+  });
+
+  /* Tombol mengikuti keadaan tab yang sedang aktif, bukan tab sebelumnya. */
+  const sudah = keadaan[tab].diperiksa;
+  el("btnPeriksa").hidden = sudah;
+  el("btnUlangi").hidden = !sudah;
+  el("btnEkspor").hidden = !sudah;
+  el("btnCetak").hidden = !sudah;
+
+  const kotak = el("skor");
+  if (sudah){
+    const data = KUIS[tab];
+    const baris = barisLaporan(tab);
+    const benar = baris.filter(b => b.status === "benar").length;
+    const kosong = baris.filter(b => b.status === "kosong").length;
+    kotak.classList.add("tampil");
+    kotak.innerHTML = '<div class="angka">' + keadaan[tab].skor + ' / ' + data.maks + '</div>' +
+      '<div class="rinci">' + data.judul + ' · benar ' + benar +
+      ' · tidak dijawab ' + kosong + '</div>';
+    bangunLaporan(tab);
+  } else {
+    kotak.classList.remove("tampil");
+    kotak.innerHTML = "";
+    el("laporan").innerHTML = "";
+  }
+  el("catatanNomor").textContent = tab === "post"
+    ? "Nomor butir post-test mengikuti lembar kunci (6–17) agar sama dengan versi cetak."
+    : "";
+}
+
+/* ------------------------------------------------------------------ awal */
+bangunPanel("pre");
+bangunPanel("post");
+
+document.querySelectorAll(".tabbar button").forEach((b) => {
+  b.addEventListener("click", () => pindahTab(b.dataset.tab));
+});
+
+el("btnPeriksa").addEventListener("click", periksa);
+el("btnUlangi").addEventListener("click", ulangi);
+el("btnEkspor").addEventListener("click", eksporPdf);
+el("btnCetak").addEventListener("click", () => {
+  bangunLaporan(tabAktif);
+  window.print();
+});
+
+/* Ctrl+P langsung: laporan dibangun lebih dulu supaya hasil cetak tidak kosong. */
+window.addEventListener("beforeprint", () => {
+  bangunLaporan(tabAktif);
+});
+
+pindahTab("pre");
+</script>
+</body>
+</html>
