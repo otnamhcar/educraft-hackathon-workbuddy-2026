@@ -19,7 +19,7 @@
 | **Rulebook** | `03_Hasil/referensi/rulebook_ipas.md` (R001–R012, v2.0) |
 | **Iteration** | `1` of max `3` — **satu penolakan** (Review pass 1: 6 temuan — 3 Major R001, 3 Minor R009/R010). Pass 2: **APPROVE**. *Review passes: 2.* |
 | **Human requester** | Wawan |
-| **Human approver** | ✅ **don Jimat Akbar** — guru IPAS, menyetujui **5 Nov 2026** atas enam butir keputusan. Rincian di `08_Lembar_Persetujuan_Guru.md`. |
+| **Human approver** | ✅ **don Jimat Akbar** — guru IPAS, menyetujui **5 Nov 2026** atas enam butir keputusan; **ditambah 6 Nov 2026** validasi `[src:W11]` dan rubrik penilaian. Rincian di `08_Lembar_Persetujuan_Guru.md`. |
 | **Publish status** | 🔒 **TERTUTUP** — persetujuan guru hanya membuka pemakaian di kelas, **bukan** izin terbit. Publish menunggu permintaan eksplisit terpisah. |
 
 ## Format yang diminta
@@ -46,6 +46,9 @@ Lima format diminta; `video_script` **tidak** diminta pada run ini.
 - `[src:CP]` / `[src:B4]` / `[src:C2]` hanya boleh menopang pernyataan kurikulum, **tidak pernah**
   fakta sains (rulebook §0).
 - Sumber tidak memuat angka suhu apa pun. Angka suhu = `[UNVERIFIED]` + `PERLU KONFIRMASI GURU`.
+- Rubrik penilaian §5 `01_lesson_plan.md` adalah **usulan tim, bukan kutipan sumber**; **disetujui
+  guru 6 Nov 2026 09:08** sebagai rancangan penilaian (lembar persetujuan §2.8). Kriteria ketuntasan
+  minimal dan bobot nilai tetap wewenang guru.
 
 ## State mesin
 
@@ -67,3 +70,4 @@ Publish:    LOCKED
 | 5 Nov 2026 | Gerbang persetujuan ditutup: `AWAITING_APPROVAL` → `APPROVED_FOR_USE` | Guru menyetujui enam butir keputusan (status kurikulum, `[src:W10]`, `[src:W12]`, kuis bagian D, batas infografis, `[src:W11]` tetap tertutup). `Publish` **tetap** `LOCKED` — persetujuan pemakaian bukan izin terbit |
 | 5 Nov 2026 | Aturan pemakaian sumber diperbarui untuk `[src:W12]` | Draf kini memuat ciri-ciri tiga wujud zat yang sebelumnya dinyatakan terlarang. Larangan lama dihapus dan diganti rujukan ke sumber baru, agar berkas ini tidak lagi bertentangan dengan isi draf |
 | 6 Nov 2026 | Aturan pemakaian `[src:W11]` diperbarui: "tidak boleh menopang butir ujian" → **boleh** | Guru menyetujui entri setelah koreksi butir 3 ditinjau (5 Nov 2026 17:03). Butir ujian belum ditambahkan; penambahan mengubah skor gain sehingga diputuskan terpisah |
+| 6 Nov 2026 | Butir baru: kedudukan rubrik §5 sebagai rancangan penilaian yang **disetujui guru 09:08** | Rubrik sebelumnya tidak tercatat di berkas ini; tanpa catatan, berkas ini bisa dibaca sebagai "tanpa rubrik" — kekeliruan yang juga muncul di lembar persetujuan §3 dan `audit_log.md` §12.5 sebelum dikoreksi |

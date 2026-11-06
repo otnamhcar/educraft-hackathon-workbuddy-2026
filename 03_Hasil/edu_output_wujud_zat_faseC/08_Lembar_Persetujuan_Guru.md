@@ -11,9 +11,9 @@
 | Butir | Isi |
 |-------|-----|
 | Pemberi persetujuan | don Jimat Akbar (guru IPAS) |
-| Tanggal / waktu | 5 November 2026, 16:13 GMT+7 |
+| Tanggal / waktu | 5 November 2026, 16:13 GMT+7 — **ditambah 6 November 2026, 09:08 GMT+7** (validasi `[src:W11]` §2.7 dan rubrik §2.8) |
 | Media | Percakapan langsung (sesi kerja) |
-| Cakupan | Isi materi, kedudukan kurikulum, status entri turunan, dan sumber tambahan |
+| Cakupan | Isi materi, kedudukan kurikulum, status entri turunan, sumber tambahan, dan rubrik penilaian |
 | **Bukan** cakupan | Publikasi, distribusi, atau pencetakan |
 
 ---
@@ -74,14 +74,30 @@ yang bertumpu padanya boleh dibuat.
 validasi. Pada rilis ini butir ujiannya **belum ditambahkan** — penambahan butir mengubah skor gain
 dan diputuskan terpisah oleh guru.
 
+### 2.8 Rubrik penilaian §5 dan usulan ambang — ✅ DISETUJUI 6 November 2026
+
+**Keputusan:** ✅ **DISETUJUI** 6 November 2026, 09:08 GMT+7.
+
+Empat aspek × tiga tingkat (Berkembang 1 · Cakap 2 · Mahir 3), beserta ambang 10–12 Mahir / 7–9 Cakap /
+4–6 Berkembang dan aturan aspek belum teramati, disetujui sebagai **rancangan penilaian guru** —
+bukan kutipan sumber, karena Panduan IPAS tidak memuat rubrik.
+
+Persetujuan ini juga menutup dua kekeliruan dokumen: `08_Lembar_Persetujuan_Guru.md` §3 dan
+`audit_log.md` §12.5 sebelumnya menyatakan rubrik "belum ada", padahal rubrik itu sudah ada di
+`01_lesson_plan.md` §5 sejak run dibuat. Yang benar-benar belum ada hanyalah nomor tingkat, ambang,
+dan aturan aspek belum teramati — ketiganya kini dilengkapi.
+
+**Dampak:** rubrik boleh dipakai menilai laporan eksperimen. Kriteria ketuntasan minimal (KKM) dan
+bobot nilai tetap tidak ditetapkan — itu wewenang guru saat memakai.
+
 ---
 
-## 3. Butir yang Masih Terbuka
+## 3. Butir yang Semula Terbuka — kini seluruhnya tertutup
 
 | # | Butir | Status | Catatan |
 |---|-------|--------|---------|
 | 1 | ~~`[src:W11]` — konsep pendukung "zatnya tetap, bahannya sama"~~ | ✅ **Selesai** 6 Nov 2026 09:00 — lihat §2.7 | Entri divalidasi setelah koreksi butir 3 ditinjau. Tujuan 2 kini **boleh diujikan**; butirnya belum ditambahkan pada rilis ini karena penambahan butir mengubah skor gain |
-| 2 | Rubrik penilaian | ⚠️ **Usulan tim, belum disetujui** | Rubrik ada di `01_lesson_plan.md` §5: empat aspek × tiga tingkat, dengan usulan ambang 10–12 / 7–9 / 4–6 dan aturan aspek belum teramati. Sumber tidak memuat rubrik, jadi isinya usulan tim, bukan kutipan. KKM dan bobot nilai tetap wewenang guru |
+| 2 | ~~Rubrik penilaian~~ | ✅ **Selesai** 6 Nov 2026 09:08 — lihat §2.8 | Isi rubrik §5 dan ambangnya disetujui sebagai rancangan penilaian. Dua dokumen yang sebelumnya menyatakan rubrik "belum ada" sudah dikoreksi (lihat §2.8) |
 
 ---
 
@@ -91,13 +107,17 @@ Dengan lembar ini, paket `01_lesson_plan.md`, `02_artikel.md`, `03_slide_outline
 `04_infographic_brief.md`, dan `05_kuis.md` dinyatakan **lolos gerbang approval untuk digunakan di
 kelas** sebagai materi pemantapan lintas fase Fase C.
 
+Dua butir yang semula terbuka ditutup pada 6 November 2026: `[src:W11]` divalidasi sebagai turunan
+tim yang sah (§2.7), dan rubrik penilaian §5 disetujui sebagai **rancangan penilaian guru** (§2.8) —
+bukan kutipan sumber. Kriteria ketuntasan minimal dan bobot nilai tidak ditetapkan di sini.
+
 Publikasi, distribusi ke pihak lain, dan pencetakan massal **tetap terkunci** sampai ada permintaan
 eksplisit terpisah.
 
 | Peran | Nama | Status | Tanggal |
 |-------|------|--------|---------|
-| Guru / SME | don Jimat Akbar | ✅ Disetujui | 2026-11-05 |
-| Orchestrator | EduCraft | ✅ Dieksekusi | 2026-11-05 |
+| Guru / SME | don Jimat Akbar | ✅ Disetujui | 2026-11-05 · diperbarui 2026-11-06 |
+| Orchestrator | EduCraft | ✅ Dieksekusi | 2026-11-05 · diperbarui 2026-11-06 |
 
 ---
 
@@ -118,3 +138,7 @@ eksplisit terpisah.
 | `05_kuis.md` — **6 Nov 2026** | Catatan pemetaan tujuan 2 diperbarui: boleh diujikan sejak 6 Nov 2026, butirnya belum ditambahkan |
 | `00_run_config.md` — **6 Nov 2026** | Aturan pemakaian `[src:W11]` diperbarui; riwayat koreksi bertambah satu baris |
 | `audit_log.md` — **6 Nov 2026** | §12.5 dikoreksi (klaim "rubrik tidak ada" keliru); §14 ditambahkan |
+| `01_lesson_plan.md` — **6 Nov 2026, 09:08** | Judul rubrik → "rancangan penilaian guru — disetujui 6 Nov 2026"; catatan "belum disetujui" → disetujui; ambang diberi catatan persetujuan |
+| `08_Lembar_Persetujuan_Guru.md` — **6 Nov 2026, 09:08** | §1 waktu dan cakupan, §2.8 baru, §3 butir 2 ditutup, §4 pernyataan, §5 jejak |
+| `00_run_config.md` — **6 Nov 2026, 09:08** | Baris approver, butir aturan pemakaian rubrik, riwayat koreksi |
+| `audit_log.md` — **6 Nov 2026, 09:08** | §14.5 status diperbarui; §14.7 ditambahkan |

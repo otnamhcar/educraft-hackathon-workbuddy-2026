@@ -102,11 +102,11 @@ dan menganalisis eksperimen `[src:W9]`.
 > **Catatan untuk guru.** Sumber tidak menetapkan kriteria ketuntasan, bobot nilai, atau rubrik.
 > Ketiganya diserahkan kepada guru. Rubrik di bawah adalah **usulan**, bukan kutipan sumber.
 
-### Usulan rubrik laporan eksperimen (usulan tim — menunggu persetujuan guru)
+### Rubrik laporan eksperimen (rancangan penilaian guru — disetujui 6 Nov 2026)
 
-> **Kedudukan rubrik ini.** Disusun tim, bukan kutipan sumber, dan **belum disetujui guru**. Angka,
-> ambang, dan kategori di bawah baru berlaku setelah guru menyetujuinya. Kriteria ketuntasan (KKM)
-> dan bobot nilai tetap wewenang guru dan tidak ditetapkan di sini.
+> **Kedudukan rubrik ini.** Disusun tim, bukan kutipan sumber. **Disetujui guru 6 November 2026,
+> 09:08 GMT+7** sebagai rancangan penilaian, sehingga angka, ambang, dan kategori di bawah boleh
+> dipakai. Kriteria ketuntasan (KKM) dan bobot nilai tetap wewenang guru dan tidak ditetapkan di sini.
 
 | Aspek | Berkembang (1) | Cakap (2) | Mahir (3) |
 |-------|----------------|-----------|-----------|
@@ -138,6 +138,10 @@ sekali; tulis "belum teramati". Jumlahkan hanya aspek yang punya angka, lalu ses
 Contoh: tiga aspek bernilai 2, 3, 2 → jumlah 7 → 7 ÷ 3 × 4 = 9,3 → dibulatkan **9** → kategori
 **Cakap**. Tanpa penyesuaian ini, murid yang absen pada satu pertemuan akan tampak "Berkembang"
 hanya karena satu aspek tidak sempat dinilai.
+
+> **Catatan untuk guru.** Ambang di atas **disetujui guru 6 November 2026, 09:08 GMT+7** sebagai
+> rancangan penilaian, bukan kutipan sumber. Bila guru kelak mengubahnya, perubahan itu menggantikan
+> tabel ini dan perlu dicatat di lembar persetujuan.
 
 ## 6. Diferensiasi
 

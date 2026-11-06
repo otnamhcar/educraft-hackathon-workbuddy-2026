@@ -452,9 +452,8 @@ Guru menyetujui empat tindakan perbaikan dan mengambil dua keputusan isi:
 
 ### 14.5 Status
 
-`[src:W11]` ✅ **divalidasi**. Rubrik ⚠️ **usulan tim, menunggu persetujuan guru** — isi dan ambangnya
-belum disetujui, jadi belum boleh dipakai sebagai dasar penilaian resmi. KKM dan bobot nilai tetap
-wewenang guru. Publish tetap **LOCKED**.
+`[src:W11]` ✅ **divalidasi**. Rubrik ✅ **disetujui guru 6 Nov 2026 09:08** sebagai rancangan
+penilaian (lihat §14.7). KKM dan bobot nilai tetap wewenang guru. Publish tetap **LOCKED**.
 
 ### 14.6 Verifikasi
 
@@ -464,3 +463,25 @@ PASS: 212 tag, 0 dangling, 0 class violations
 
 `doctor.py`: 13 lulus / 0 gagal / 4 peringatan. Keempat salinan `source_material_wujud_zat.md`
 identik (checksum tunggal `e8c9433714e14818`, sebelumnya `eb23ec467f9da212`).
+
+### 14.7 Persetujuan rubrik — 6 November 2026, 09:08 GMT+7
+
+Guru menyetujui rubrik §5 `01_lesson_plan.md` beserta ambangnya sebagai **rancangan penilaian**,
+bukan kutipan sumber. Dengan ini tidak ada lagi butir terbuka pada run ini.
+
+| Butir | Isi yang disetujui |
+|-------|--------------------|
+| Empat aspek | Pertanyaan & prediksi · pencatatan data · penyajian data · kesimpulan |
+| Tiga tingkat | Berkembang (1) · Cakap (2) · Mahir (3), maksimum 12 |
+| Ambang | 10–12 Mahir · 7–9 Cakap · 4–6 Berkembang — sama dengan skema run Tata Surya |
+| Aspek belum teramati | 3 aspek → jumlah ÷ 3 × 4; 2 aspek atau kurang → tanpa kategori, "belum lengkap" |
+
+**Tidak ikut disetujui:** kriteria ketuntasan minimal (KKM) dan bobot nilai — keduanya tetap wewenang
+guru saat memakai rubrik ini.
+
+**Berkas yang diperbarui:** `01_lesson_plan.md` §5 (judul dan catatan status), `08_Lembar_Persetujuan_Guru.md`
+(§1 waktu dan cakupan, §2.8, §3 butir 2, §4 pernyataan, §5 jejak), `00_run_config.md` (baris approver,
+butir aturan pemakaian, riwayat koreksi), serta §14.5 di berkas ini.
+
+**Verifikasi:** `doctor.py` 13 lulus / 0 gagal / 4 peringatan; tag tetap 212; keempat salinan source
+material identik.
