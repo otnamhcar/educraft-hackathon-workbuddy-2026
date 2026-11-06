@@ -211,8 +211,11 @@ def check_files(rep, folder, expectations, min_width):
 def check_orphans(rep, folder, expectations):
     rep.heading("2. Files on disk that INDEX.md does not list")
     known = {item.name for item in expectations}
+    # as_posix(), bukan str(): INDEX.md menulis garis miring biasa, sedangkan str() di
+    # Windows menghasilkan garis miring terbalik. Tanpa ini setiap berkas dilaporkan
+    # sebagai "not in INDEX.md" di Windows, dan laporannya jadi tidak bisa dipercaya.
     on_disk = sorted(
-        str(p.relative_to(folder)) for p in folder.rglob("*.png")
+        p.relative_to(folder).as_posix() for p in folder.rglob("*.png")
     )
     orphans = [name for name in on_disk if name not in known]
     if not orphans:
