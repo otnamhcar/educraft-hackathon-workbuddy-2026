@@ -16,10 +16,26 @@ What it does
      - explicit anchors  -> headings like  ## [src:3]  in a source file
      - curriculum codes  -> numbered items in cp_ipas.md (B4 = Fase B item 4)
 3. Classifies each tag: fact | curriculum | actual_context
-4. Flags two failures:
+4. Flags three failures:
      DANGLING      the tag resolves to nothing
      CLASS         a curriculum tag carries a sentence that is not about curriculum
-5. Writes a Markdown report and exits non-zero if anything failed.
+     AMBIG         the tag exists in more than one source sheet and no
+                   --primary-source was named to break the tie
+
+Why AMBIG exists (6 November 2026)
+----------------------------------
+Two source sheets number their anchors from 1: `source_material_ipas.md` and
+`source_material_energi.md` both declare `## [src:1]` … `## [src:9]`. The first
+version of this script stored anchors in a flat dict, so the last file in
+alphabetical order silently overwrote the earlier one. The run
+`EDU-ORCH-20261106-005` therefore produced a "PASS" in which every `[src:2]`
+resolved to *Kelestarian Alam* instead of *Energi Alternatif* — a clean report
+that proved nothing.
+
+A tag that could mean two different sections is not a resolved tag. `AMBIG` makes
+that visible instead of letting alphabetical order decide. `--primary-source`
+states which sheet a run is actually built on; tags outside that sheet (CA#, CP
+codes) still resolve normally.
 
 Scope — drafts only
 -------------------
@@ -34,9 +50,10 @@ every report so the exclusion is visible, never silent.
 Usage
 -----
   python3 tools/check_grounding.py \
-      --run 03_Hasil/edu_output_wujud_zat \
+      --run 03_Hasil/edu_output_energi_alternatif \
       --knowledge 08_Referensi \
-      --out 03_Hasil/edu_output_wujud_zat/grounding_report.md
+      --primary-source source_material_energi.md \
+      --out 03_Hasil/edu_output_energi_alternatif/grounding_report.md
 
 Exit codes: 0 = clean, 1 = failures found, 2 = bad input.
 """
@@ -81,7 +98,6 @@ def is_metadata(name: str) -> bool:
     )
 
 
-
 def classify(tag: str) -> str:
     if tag.upper().startswith("CA"):
         return "actual_context"
@@ -93,18 +109,25 @@ def classify(tag: str) -> str:
 
 
 def load_anchors(knowledge_dir):
-    """Explicit ## [src:n] anchors across the knowledge layer."""
-    anchors = {}
+    """Explicit ## [src:n] anchors, kept per file.
+
+    Returns (anchors_by_file, tag_files):
+      anchors_by_file  {filename: {tag: {file, heading, class, lines}}}
+      tag_files        {tag: [filenames]}  -- len > 1 means the tag is ambiguous
+    """
+    anchors_by_file = {}
+    tag_files = {}
     for name in sorted(os.listdir(knowledge_dir)):
         if not name.endswith(".md"):
             continue
         path = os.path.join(knowledge_dir, name)
+        per_file = {}
         with open(path, encoding="utf-8") as fh:
             for line in fh:
                 m = ANCHOR_RE.match(line)
                 if m:
                     tag = m.group(1)
-                    anchors[tag] = {
+                    per_file[tag] = {
                         "file": name,
                         "heading": m.group(2).strip(),
                         "class": classify(tag),
@@ -119,8 +142,13 @@ def load_anchors(knowledge_dir):
                     current = m.group(1)
                     continue
                 if current and line.strip() and not line.startswith("#"):
-                    anchors[current]["lines"] += 1
-    return anchors
+                    per_file[current]["lines"] += 1
+        if not per_file:
+            continue
+        anchors_by_file[name] = per_file
+        for tag in per_file:
+            tag_files.setdefault(tag, []).append(name)
+    return anchors_by_file, tag_files
 
 
 def load_cp_codes(knowledge_dir):
@@ -160,11 +188,32 @@ def scan_draft(path):
     return hits
 
 
+def resolve(tag, anchors_by_file, tag_files, primary):
+    """Return (info, verdict, where). verdict in OK | DANGLING | AMBIG."""
+    files = tag_files.get(tag)
+    if not files:
+        return None, "DANGLING", "—"
+    if len(files) == 1:
+        info = anchors_by_file[files[0]][tag]
+        return info, "OK", "{} · {}".format(info["file"], info["heading"][:70])
+    if primary and primary in files:
+        info = anchors_by_file[primary][tag]
+        return info, "OK", "{} · {} *(primary)*".format(info["file"], info["heading"][:70])
+    info = anchors_by_file[files[-1]][tag]
+    return info, "AMBIG", "ambigu: " + ", ".join(files)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--run", required=True, help="folder holding the drafts to check")
     ap.add_argument("--knowledge", required=True, help="folder holding the knowledge layer")
     ap.add_argument("--out", required=True, help="path of the Markdown report to write")
+    ap.add_argument(
+        "--primary-source",
+        default=None,
+        help="filename of the source sheet this run is built on; breaks ties when "
+             "two sheets share a tag (e.g. source_material_energi.md)",
+    )
     ap.add_argument("--quiet", action="store_true")
     args = ap.parse_args()
 
@@ -172,8 +221,20 @@ def main():
         print("error: --run and --knowledge must be directories", file=sys.stderr)
         return 2
 
-    anchors = load_anchors(args.knowledge)
-    anchors.update(load_cp_codes(args.knowledge))
+    anchors_by_file, tag_files = load_anchors(args.knowledge)
+    cp_codes = load_cp_codes(args.knowledge)
+    if cp_codes:
+        anchors_by_file.setdefault("cp_ipas.md", {}).update(cp_codes)
+        for tag in cp_codes:
+            tag_files.setdefault(tag, ["cp_ipas.md"])
+
+    primary = args.primary_source
+    if primary and primary not in anchors_by_file:
+        print(
+            "error: --primary-source {} not found among the knowledge files".format(primary),
+            file=sys.stderr,
+        )
+        return 2
 
     all_md = [f for f in sorted(os.listdir(args.run)) if f.endswith(".md")]
     drafts = [f for f in all_md if not is_metadata(f)]
@@ -183,7 +244,7 @@ def main():
         return 2
 
     per_file = OrderedDict()
-    total_tags = dangling = class_hits = 0
+    total_tags = dangling = class_hits = ambiguous = 0
     findings = []
 
     for name in drafts:
@@ -192,18 +253,24 @@ def main():
         for line_no, sentence, tags in scan_draft(path):
             for tag in tags:
                 total_tags += 1
-                target = anchors.get(tag)
+                target, verdict, where = resolve(tag, anchors_by_file, tag_files, primary)
                 tag_class = classify(tag)
-                if target is None:
+                if verdict == "DANGLING":
                     dangling += 1
-                    verdict = "DANGLING"
-                    where = "—"
                     findings.append(
-                        f"`{name}`:{line_no} — `[src:{tag}]` tidak dapat diselesaikan "
-                        f"(tidak ada anchor `## [src:{tag}]` di knowledge layer)"
+                        "`{}`:{} — `[src:{}]` tidak dapat diselesaikan "
+                        "(tidak ada anchor `## [src:{}]` di knowledge layer)".format(
+                            name, line_no, tag, tag
+                        )
+                    )
+                elif verdict == "AMBIG":
+                    ambiguous += 1
+                    findings.append(
+                        "`{}`:{} — `[src:{}]` ambigu: anchor yang sama ada di {}. "
+                        "Jalankan ulang dengan `--primary-source` untuk menetapkan sumber "
+                        "yang berlaku".format(name, line_no, tag, " dan ".join(tag_files[tag]))
                     )
                 else:
-                    where = f"{target['file']} · {target['heading'][:70]}"
                     if target["class"] == "curriculum":
                         if CURRICULUM_WORDS.search(sentence):
                             verdict = "OK"
@@ -211,56 +278,75 @@ def main():
                             class_hits += 1
                             verdict = "CLASS"
                             findings.append(
-                                f"`{name}`:{line_no} — `[src:{tag}]` adalah tag kurikulum "
-                                f"({target['file']}) tetapi menopang kalimat non-kurikulum: "
-                                f"\"{sentence[:90]}\""
+                                "`{}`:{} — `[src:{}]` adalah tag kurikulum "
+                                "({}) tetapi menopang kalimat non-kurikulum: "
+                                "\"{}\"".format(name, line_no, tag, target["file"], sentence[:90])
                             )
                     elif target.get("lines", 1) == 0:
                         verdict = "THIN"
                         findings.append(
-                            f"`{name}`:{line_no} — `[src:{tag}]` menunjuk bagian sumber yang kosong; "
-                            f"tidak dapat menopang fakta"
+                            "`{}`:{} — `[src:{}]` menunjuk bagian sumber yang kosong; "
+                            "tidak dapat menopang fakta".format(name, line_no, tag)
                         )
-                    else:
-                        verdict = "OK"
                 rows.append((line_no, tag, tag_class, verdict, where))
         per_file[name] = rows
 
-    failed = dangling + class_hits
+    failed = dangling + class_hits + ambiguous
     status = "FAIL" if failed else "PASS"
 
     lines = []
     lines.append("# Grounding report — R001 tag resolution\n")
-    lines.append(f"**Run folder:** `{args.run}`  ")
-    lines.append(f"**Knowledge layer:** `{args.knowledge}`  ")
-    lines.append(f"**Verdict:** **{status}** — {total_tags} tag diperiksa, "
-                 f"{dangling} dangling, {class_hits} pelanggaran kelas tag\n")
-    lines.append("> Dihasilkan oleh `tools/check_grounding.py`. Pemeriksaan ini deterministik dan "
-                 "dapat dijalankan ulang; ia memeriksa **resolusi** tag, bukan sekadar keberadaannya.\n")
+    lines.append("**Run folder:** `{}`  ".format(args.run))
+    lines.append("**Knowledge layer:** `{}`  ".format(args.knowledge))
+    lines.append(
+        "**Primary source:** {}  ".format(
+            "`{}`".format(primary) if primary else "_tidak ditetapkan_"
+        )
+    )
+    lines.append(
+        "**Verdict:** **{}** — {} tag diperiksa, "
+        "{} dangling, {} pelanggaran kelas tag, {} ambigu\n".format(
+            status, total_tags, dangling, class_hits, ambiguous
+        )
+    )
+    lines.append(
+        "> Dihasilkan oleh `tools/check_grounding.py`. Pemeriksaan ini deterministik dan "
+        "dapat dijalankan ulang; ia memeriksa **resolusi** tag, bukan sekadar keberadaannya.\n"
+    )
     lines.append(
         "**Tidak diperiksa (metadata — boleh menyebut tag tanpa mengklaim fakta dengannya):** "
-        + (", ".join(f"`{s}`" for s in skipped) if skipped else "—")
+        + (", ".join("`{}`".format(s) for s in skipped) if skipped else "—")
         + "\n"
     )
+    if primary:
+        lines.append(
+            "**Cara tag ditetapkan.** Tag yang hanya ada di satu berkas diselesaikan ke berkas "
+            "itu (mis. `[src:CA1]` ke `konteks_aktual.md`, `[src:C4]` ke `cp_ipas.md`). Tag yang "
+            "ada di lebih dari satu lembar sumber diselesaikan ke `{}` karena run ini dibangun "
+            "di atas lembar itu.\n".format(primary)
+        )
 
     lines.append("## Ringkasan per file\n")
     lines.append("| File | Tag | Dangling | Pelanggaran kelas |")
     lines.append("|------|----:|---------:|------------------:|")
     for name, rows in per_file.items():
         d = sum(1 for r in rows if r[3] == "DANGLING")
-        c = sum(1 for r in rows if r[3] in ("CLASS", "THIN"))
-        lines.append(f"| `{name}` | {len(rows)} | {d} | {c} |")
+        c = sum(1 for r in rows if r[3] in ("CLASS", "THIN", "AMBIG"))
+        lines.append("| `{}` | {} | {} | {} |".format(name, len(rows), d, c))
 
     lines.append("\n## Temuan\n")
     if findings:
         for f in findings:
-            lines.append(f"- {f}")
+            lines.append("- " + f)
     else:
-        lines.append("- Tidak ada temuan. Setiap tag menunjuk anchor yang ada dan kelasnya sesuai.")
+        lines.append(
+            "- Tidak ada temuan. Setiap tag menunjuk anchor yang ada, tidak ambigu, "
+            "dan kelasnya sesuai."
+        )
 
     lines.append("\n## Rincian tag\n")
     for name, rows in per_file.items():
-        lines.append(f"### `{name}`\n")
+        lines.append("### `{}`\n".format(name))
         lines.append("| Baris | Tag | Kelas | Putusan | Menunjuk ke |")
         lines.append("|------:|-----|-------|---------|-------------|")
         seen = set()
@@ -268,15 +354,28 @@ def main():
             key = (tag, verdict)
             mark = "" if key not in seen else " (ulang)"
             seen.add(key)
-            lines.append(f"| {line_no} | `[src:{tag}]` | {tag_class} | **{verdict}**{mark} | {where} |")
+            lines.append(
+                "| {} | `[src:{}]` | {} | **{}**{} | {} |".format(
+                    line_no, tag, tag_class, verdict, mark, where
+                )
+            )
         lines.append("")
 
     lines.append("## Batas pemeriksaan ini\n")
-    lines.append("- Ia memeriksa **resolusi tag dan kelas tag**, bukan kebenaran isi kalimat. "
-                 "Kalimat yang salah tetapi bertag benar tetap lolos; itu tugas Reviewer (R001–R012).")
-    lines.append("- Deteksi kelas memakai penanda kata kurikulum (CP, capaian, fase, kurikulum, "
-                 "elemen, tujuan pembelajaran). Kalimat ambigu ditandai untuk ditinjau, bukan "
-                 "dihukum otomatis.")
+    lines.append(
+        "- Ia memeriksa **resolusi tag dan kelas tag**, bukan kebenaran isi kalimat. "
+        "Kalimat yang salah tetapi bertag benar tetap lolos; itu tugas Reviewer (R001–R012)."
+    )
+    lines.append(
+        "- Deteksi kelas memakai penanda kata kurikulum (CP, capaian, fase, kurikulum, "
+        "elemen, tujuan pembelajaran). Kalimat ambigu ditandai untuk ditinjau, bukan "
+        "dihukum otomatis."
+    )
+    lines.append(
+        "- Bila beberapa lembar sumber memakai penomoran tag yang sama, `--primary-source` "
+        "wajib disebut. Tanpa itu tag ditandai `AMBIG` dan run dianggap gagal — lebih baik "
+        "gagal terang-terangan daripada lulus karena urutan abjad."
+    )
 
     os.makedirs(os.path.dirname(os.path.abspath(args.out)), exist_ok=True)
     # newline="\n" so a report generated on Windows is byte-identical to one
@@ -285,8 +384,12 @@ def main():
         fh.write("\n".join(lines) + "\n")
 
     if not args.quiet:
-        print(f"{status}: {total_tags} tag, {dangling} dangling, {class_hits} class violations")
-        print(f"report -> {args.out}")
+        print(
+            "{}: {} tag, {} dangling, {} class violations, {} ambiguous".format(
+                status, total_tags, dangling, class_hits, ambiguous
+            )
+        )
+        print("report -> " + args.out)
     return 0 if failed == 0 else 1
 
 

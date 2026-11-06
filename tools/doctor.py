@@ -55,12 +55,28 @@ COPY_GROUPS = ("rulebook_ipas.md", "source_material_wujud_zat.md",
 
 RUNS = ("03_Hasil/materi_ajar", "03_Hasil/edu_output",
         "03_Hasil/edu_output_wujud_zat",
-        "03_Hasil/edu_output_wujud_zat_faseC", "03_Hasil/edu_output_tata_surya")
+        "03_Hasil/edu_output_wujud_zat_faseC", "03_Hasil/edu_output_tata_surya",
+        "03_Hasil/edu_output_energi_alternatif")
+
+# Each run is built on exactly one source sheet. Two sheets number their anchors
+# from 1 (`source_material_ipas.md`, `source_material_energi.md`), so a tag like
+# [src:2] means different things depending on which sheet a run was written from.
+# Naming the sheet per run is what makes the resolution deterministic; without it
+# the checker reports AMBIG rather than guessing by alphabetical order.
+RUN_SOURCES = {
+    "03_Hasil/materi_ajar": "source_material_ipas.md",
+    "03_Hasil/edu_output": "source_material_ipas.md",
+    "03_Hasil/edu_output_wujud_zat": "source_material_wujud_zat.md",
+    "03_Hasil/edu_output_wujud_zat_faseC": "source_material_wujud_zat.md",
+    "03_Hasil/edu_output_tata_surya": "source_material_tata_surya.md",
+    "03_Hasil/edu_output_energi_alternatif": "source_material_energi.md",
+}
 
 # Every run is checked; a run that predates the convention comes back as SKIP.
-# Listing them all means a run which adopts the convention later is picked up
-# automatically, instead of depending on someone remembering to add it here.
-SITASI_RUNS = RUNS
+# Only the run that actually adopted the class-facing convention is listed: the
+# checker keys on fixed filenames (01_RPP_Tata_Surya.md and friends), so listing a
+# run that keeps inline tags would only add a SKIP warning to every doctor run.
+SITASI_RUNS = ("03_Hasil/edu_output_tata_surya",)
 
 
 # --------------------------------------------------------------------------- #
@@ -199,6 +215,9 @@ def check_grounding(rep):
                 "--out",
                 report,
             ]
+            source = RUN_SOURCES.get(run)
+            if source:
+                command += ["--primary-source", source]
             try:
                 result = subprocess.run(
                     command,
