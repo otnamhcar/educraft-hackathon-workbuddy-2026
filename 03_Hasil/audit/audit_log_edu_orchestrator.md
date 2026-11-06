@@ -8,8 +8,12 @@
 - **Topic:** Energi Alternatif dan Penghematan Energi (lintas Fase B → Fase C)
 - **Timestamp:** 2026-10-26 18:35 GMT+7
 - **Orchestrator:** EduCraft Orchestrator (Master)
-- **Human approver:** PENDING (guru/SME) — belum ada konfirmasi
-- **Publish status:** BELUM — menunggu approval eksplisit (Hard Rule: no publish without approval)
+- **Human approver:** ✅ **Don Jimat Akbar** (guru IPAS) — disetujui **2026-11-04 14:49 GMT+7**
+- **Publish status:** 🔒 **BELUM** — persetujuan pemakaian bukan izin terbit; tidak ada permintaan publikasi pada run ini
+
+> Catatan 5 Nov 2026: baris di atas semula berbunyi `PENDING (guru/SME) — belum ada konfirmasi` dan
+> sudah tidak benar sejak 4 Nov. Diperbarui agar berkas audit ini tidak lagi menyatakan run yang sudah
+> disetujui sebagai belum disetujui. Isi bagian lain tidak diubah.
 
 ## 2. INPUTS
 - **Source file:** `assets/source_material_ipas.md` (Panduan IPAS Revisi 4, 3 Okt 2025; Puskurjar, Kemendikdasmen)

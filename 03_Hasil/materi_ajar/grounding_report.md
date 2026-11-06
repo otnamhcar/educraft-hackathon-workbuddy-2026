@@ -1,7 +1,7 @@
 # Grounding report — R001 tag resolution
 
 **Run folder:** `03_Hasil/materi_ajar`  
-**Knowledge layer:** `03_Hasil/referensi`  
+**Knowledge layer:** `05_Bukti_Proses/skills_package/edu-orchestrator/assets`  
 **Verdict:** **PASS** — 121 tag diperiksa, 0 dangling, 0 pelanggaran kelas tag
 
 > Dihasilkan oleh `tools/check_grounding.py`. Pemeriksaan ini deterministik dan dapat dijalankan ulang; ia memeriksa **resolusi** tag, bukan sekadar keberadaannya.
@@ -33,12 +33,12 @@
 | 4 | `[src:C4]` | curriculum | **OK** | cp_ipas.md · Menghasilkan upaya penghematan energi, serta pemanfaatan sumber energi |
 | 4 | `[src:B5]` | curriculum | **OK** | cp_ipas.md · Menjelaskan sumber dan bentuk energi, serta proses perubahan bentuk en |
 | 4 | `[src:B3]` | curriculum | **OK** | cp_ipas.md · Menghasilkan solusi untuk masalah yang berkaitan dengan pelestarian su |
-| 4 | `[src:CP]` | curriculum | **OK** | cp_ipas.md · Dokumen CP IPAS (rujukan kurikulum) |
+| 4 | `[src:CP]` | curriculum | **OK** | cp_ipas.md ·  |
 | 4 | `[src:CA1]` | actual_context | **OK** | konteks_aktual.md · PLTS Terapung Cirata |
 | 4 | `[src:CA6]` | actual_context | **OK** | konteks_aktual.md · FOLU Net Sink 2030 & Net Zero Emission 2060 |
-| 15 | `[src:CP]` | curriculum | **OK** (ulang) | cp_ipas.md · Dokumen CP IPAS (rujukan kurikulum) |
+| 15 | `[src:CP]` | curriculum | **OK** (ulang) | cp_ipas.md ·  |
 | 15 | `[src:C4]` | curriculum | **OK** (ulang) | cp_ipas.md · Menghasilkan upaya penghematan energi, serta pemanfaatan sumber energi |
-| 17 | `[src:CP]` | curriculum | **OK** (ulang) | cp_ipas.md · Dokumen CP IPAS (rujukan kurikulum) |
+| 17 | `[src:CP]` | curriculum | **OK** (ulang) | cp_ipas.md ·  |
 | 17 | `[src:B5]` | curriculum | **OK** (ulang) | cp_ipas.md · Menjelaskan sumber dan bentuk energi, serta proses perubahan bentuk en |
 | 21 | `[src:2]` | fact | **OK** | source_material_ipas.md · Kelestarian Alam |
 | 22 | `[src:4]` | fact | **OK** | source_material_ipas.md · Dampak Ekonomi — Sektor Produksi |

@@ -21,21 +21,40 @@ disetujui pada run tertentu, bukan sekadar siapa yang menyetujui.
 |-----|-------|-------------------|------------------|
 | `EDU-ORCH-20261026-001` | Energi Alternatif | **Don Jimat Akbar (guru), 2026-11-04 14:49 GMT+7** | Diserahkan ke guru dalam format siap pakai (DOCX, PPTX, kuis); tidak disebarkan ke publik |
 | `EDU-ORCH-20261030-002` | Perubahan Wujud Zat | **Don Jimat Akbar (guru), 2026-10-30 17:19 GMT+7** | Gerbang dibuka untuk distribusi terbatas; paket cetak sudah dibuat |
-| `EDU-ORCH-20261104-004` | Perubahan Wujud Zat (Fase C) | PENDING (guru/SME) | **BELUM DITERBITKAN** |
-| `EDU-ORCH-20261105-003` | Sistem Tata Surya | PENDING (guru/SME) | **BELUM DITERBITKAN** |
+| `EDU-ORCH-20261104-004` | Perubahan Wujud Zat (Fase C) | **Don Jimat Akbar (guru), 2026-11-05 16:13 GMT+7** | Disetujui untuk pemakaian di kelas; **belum diterbitkan** (publikasi belum diminta) |
+| `EDU-ORCH-20261105-003` | Sistem Tata Surya | **Don Jimat Akbar (guru), 2026-11-05 15:01 GMT+7** | Disetujui untuk pemakaian di kelas; **belum diterbitkan** (publikasi belum diminta) |
 
-Run `-004` dan `-002` memakai topik yang sama dengan sasaran berbeda: `-002` Fase B (paket cetak
-untuk kelas III–IV), `-004` Fase C (pemantapan lintas fase, kelas V–VI). Run `-004` lahir di hari yang
-sama dengan nomor `-003`; nomornya dipindah ke `-004` pada 5 Nov agar tidak bersinggungan dengan run
-Tata Surya. Alasan lengkap ada di `audit_log.md` §11.1 run tersebut.
+Run `-004` dan `-002` memakai topik yang sama, dan **keduanya bersasaran Fase C (kelas V–VI) sebagai
+pemantapan lintas fase** — topiknya sendiri berada di CP Fase B. Yang membedakan keduanya adalah
+format dan kelengkapan, bukan fase: `-002` (30 Okt) menghasilkan paket cetak siswa–guru, infografis,
+video, dan kuis 27 butir; `-004` (4 Nov) dijalankan ulang dengan lima format berbeda, tujuan
+pembelajaran yang diperluas, dan konvensi penulisan sumber yang lebih ketat. Run `-004` lahir di hari
+yang sama dengan nomor `-003`; nomornya dipindah ke `-004` pada 5 Nov agar tidak bersinggungan dengan
+run Tata Surya. Alasan lengkap ada di `audit_log.md` §11.1 run tersebut.
+
+> **Koreksi 5 Nov 2026.** Kalimat sebelumnya di sini menyebut `-002` sebagai "Fase B (paket cetak untuk
+> kelas III–IV)". Itu keliru: `00_run_config.md`, `00_plan.md`, `05_review.md`, dan `audit_log.md` run
+> `-002` semuanya mencatat Fase C dengan penandaan pemantapan lintas fase. Kekeliruan itu berasal dari
+> butir opsional di `audit_log.md` run `-002` (baris 166) — "bila materi hendak dipakai lintas kelas,
+> jalankan run baru untuk versi Fase B murni" — yang merupakan **usulan yang tidak pernah dijalankan**,
+> bukan deskripsi run yang ada.
 
 Di `03_Hasil/` ada lima folder untuk empat run: `edu_output/` dan `materi_ajar/` sama-sama berisi
-artefak run `-001` — yang kedua adalah salinan untuk bundel dan tidak punya `00_run_config.md`
-sendiri. Jumlah run tetap empat.
+artefak run `-001`, tetapi **perannya berbeda**. `edu_output/` adalah folder produksi: draf kerja
+`01`–`05`, ditambah deliverable siap pakai (`.docx`, `.pptx`, kuis `.html`, dan
+`06_Materi_Guru_Energi_Alternatif.md` yang bersih dari tag). `materi_ajar/` memuat draf markdown
+**terkoreksi** hasil perbaikan R001 30 Oktober 2026. Keduanya kini **lulus pemeriksaan grounding dengan
+angka identik, 121 tag** — tetapi itu baru benar sejak 5 November 2026: sebelumnya draf di `edu_output`
+masih memakai tag kurikulum untuk fakta dan gagal dengan 73 pelanggaran kelas, sementara `doctor.py`
+tidak melihatnya karena hanya memeriksa `materi_ajar` (defek D3, diungkap di `04_Test_Results.md`).
+Sejak 5 November 2026 `edu_output` ikut diperiksa, dan `materi_ajar` membawa `00_run_config.md` sendiri
+yang menyatakan perannya. Jumlah run tetap empat.
 
-Tidak ada yang diterbitkan sebelum persetujuan manusia yang eksplisit. Run `-003` dan `-004` belum ada
-persetujuannya dan tidak diterbitkan. Run `-001` dan `-002` disetujui guru yang namanya tercatat —
-4 November 2026 pukul 14:49 dan 30 Oktober 2026 pukul 17:19 — dan baru setelah itu gerbangnya dibuka.
+Tidak ada yang diterbitkan sebelum persetujuan manusia yang eksplisit. **Keempat run kini sudah
+disetujui guru** untuk pemakaian di kelas: `-001` 4 November 2026 pukul 14:49, `-002` 30 Oktober 2026
+pukul 17:19, `-003` 5 November 2026 pukul 15:01, dan `-004` 5 November 2026 pukul 16:13. Tidak satu pun
+persetujuan itu mencakup publikasi — gerbang publikasi setiap run tetap tertutup, dan tidak ada
+permintaan terbit yang diajukan.
 
 ---
 
@@ -74,11 +93,12 @@ sistem pembayaran, atau data pribadi siswa apa pun selain skor yang sudah dianon
 | Mengubah source material atau rulebook | Hanya suntingan manusia; agen tidak punya akses tulis | Izin berkas / aset read-only |
 | Memakai keluaran di luar fase yang dituju | Persetujuan koordinator kurikulum | Konfigurasi run |
 
-**Keadaan saat ini:** run `-003` dan `-004` berada di `PENDING` dan tidak ada apa pun darinya yang
-diterbitkan. Run `-001` disetujui 4 November 2026 pukul 14:49 dan run `-002` 30 Oktober 2026 pukul 17:19
-oleh guru yang namanya tercatat; baru setelah itu gerbang publikasi dibuka. Agen menghasilkan materi
-lalu berhenti sampai manusia bertindak — itu perilaku yang dimaksud, bukan keterlambatan. Tidak ada satu
-pun run yang isinya disebarkan ke publik.
+**Keadaan saat ini:** keempat run sudah melewati gerbang persetujuan manusia — `-002` 30 Oktober 2026
+pukul 17:19, `-001` 4 November 2026 pukul 14:49, `-003` 5 November 2026 pukul 15:01, dan `-004`
+5 November 2026 pukul 16:13 — semuanya oleh guru yang namanya tercatat. Persetujuan itu berhenti pada
+**pemakaian di kelas**; gerbang publikasi tiap run tetap tertutup karena publikasi belum pernah diminta.
+Agen menghasilkan materi lalu berhenti sampai manusia bertindak — itu perilaku yang dimaksud, bukan
+keterlambatan. Tidak ada satu pun run yang isinya disebarkan ke publik.
 
 ## 4. Apa yang tidak akan pernah dilakukan
 

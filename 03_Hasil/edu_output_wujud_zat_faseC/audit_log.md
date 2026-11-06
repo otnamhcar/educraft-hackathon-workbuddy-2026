@@ -183,6 +183,10 @@ yang tidak ada di sumber atau keputusan akademik yang menjadi wewenang guru. Mem
 sini akan mengubah paket dari "materi yang batasnya diketahui" menjadi "materi yang batasnya
 disamarkan".
 
+> **Gerbang ini ditutup 5 Nov 2026.** Ketiga butir diputuskan guru; rincian di §12 dan di
+> `08_Lembar_Persetujuan_Guru.md`. Bagian ini dipertahankan apa adanya sebagai jejak keadaan
+> run pada saat review pass 2 selesai.
+
 ---
 
 ## 9. Rekapitulasi
@@ -194,13 +198,14 @@ disamarkan".
 | Format dihasilkan | 5 (`lesson_plan`, `quiz`, `short_article`, `slide_outline`, `infographic_brief`) |
 | Iterasi | 1 penolakan dari maksimum 3 |
 | Pass review | 2 |
-| Tag diperiksa (final) | 176 — 0 dangling, 0 pelanggaran kelas |
+| Tag diperiksa (saat review pass 2) | 176 — 0 dangling, 0 pelanggaran kelas |
+| Tag diperiksa (setelah revisi pascapersetujuan) | **206** — 0 dangling, 0 pelanggaran kelas |
 | Temuan pass 1 | 6 (3 Major, 3 Minor) |
 | Temuan pass 2 | 0 |
 | Aturan `N/A` beralasan | 4 (R006, R007, R011, R012) |
-| Aturan lulus bersyarat | 2 (R004, R005) |
-| Butir terbuka untuk manusia | 3 |
-| **Status** | `AWAITING_APPROVAL` |
+| Aturan lulus bersyarat | 2 (R004, R005) — **keduanya kini lulus penuh** setelah keputusan guru 5 Nov |
+| Butir terbuka untuk manusia | 0 (3 butir ditutup 5 Nov; `[src:W11]` tetap tertutup sebagai batas yang disengaja) |
+| **Status** | `APPROVED_FOR_USE` |
 | **Publish** | 🔒 `LOCKED` — tidak ada publikasi pada run ini |
 
 ## 10. Berkas run
@@ -209,14 +214,15 @@ disamarkan".
 |--------|-----|
 | `00_run_config.md` | State mesin: fase, iterasi, status, publish lock |
 | `00_plan.md` | Kerangka Planner + 6 gaps |
-| `01_lesson_plan.md` | Rencana pembelajaran 3 pertemuan |
+| `01_lesson_plan.md` | Rencana pembelajaran 3 pertemuan; tujuan 9 butir |
 | `02_artikel.md` | Bacaan murid + catatan guru |
 | `03_slide_outline.md` | Kerangka 8 slide |
 | `04_infographic_brief.md` | Brief 6 panel + spesifikasi desain |
-| `05_kuis.md` | 11 butir + kunci + batas butir |
+| `05_kuis.md` | 11 butir inti + bagian D (butir 12–15) + kunci + batas butir |
 | `06_review.md` | Putusan pass 1 (REJECT) |
 | `07_review_pass2.md` | Putusan pass 2 (APPROVE) |
-| `grounding_report.md` | Keluaran deterministik (PASS, 176 tag) |
+| `08_Lembar_Persetujuan_Guru.md` | Enam keputusan guru 5 Nov 2026 + butir yang masih tertutup |
+| `grounding_report.md` | Keluaran deterministik |
 | `audit_log.md` | Berkas ini |
 
 ---
@@ -258,7 +264,129 @@ juga lulus 10/10 dengan ketiga run (121 + 115 + 113 tag). Tag `[src:CP]` pada ru
 ikut berubah dari `DANGLING` menjadi `OK` di laporan Tata Surya; itu konsekuensi wajar dari
 perbaikan knowledge layer yang dipakai bersama, dan dicatat pada laporan Tata Surya.
 
-### 11.3 Status yang tidak berubah
+### 11.3 Status pada saat §11 ditulis
 
-`Status: AWAITING_APPROVAL` · `Publish: LOCKED`. Tidak ada penyetuju manusia sampai 5 Nov 2026.
-Run ini **tidak** boleh disebut disetujui atau diterbitkan di dokumen mana pun.
+`Status: AWAITING_APPROVAL` · `Publish: LOCKED`. Belum ada penyetuju manusia pada saat koreksi ini
+dicatat (5 Nov 2026, sebelum pukul 16:13). Karena itu run ini **belum** boleh disebut disetujui pada
+titik itu.
+
+> Keadaan ini berubah beberapa jam kemudian pada hari yang sama. Lihat §12 — status kini
+> `APPROVED_FOR_USE`, sedangkan `Publish` **tetap** `LOCKED`.
+
+---
+
+## 12. Penutupan gerbang persetujuan — 5 November 2026, 16:13 GMT+7
+
+Guru menyetujui enam butir keputusan. Lembar resminya di `08_Lembar_Persetujuan_Guru.md`; bagian ini
+mencatat **apa yang berubah di dalam paket** sebagai akibatnya.
+
+**State diperbarui:** `AWAITING_APPROVAL → APPROVED_FOR_USE`. `Publish` tetap `LOCKED` — persetujuan
+pemakaian di kelas bukan izin terbit, dan tidak ada permintaan terbit pada run ini.
+
+### 12.1 Enam keputusan
+
+| # | Butir | Keputusan | Akibat pada paket |
+|---|-------|-----------|-------------------|
+| 1 | Kedudukan kurikulum (R004) | Diterima sebagai pemantapan lintas fase | Catatan `⚠️ PERLU KONFIRMASI GURU` dihapus; R004 lulus penuh |
+| 2 | Mitigasi (R005) | Kekosongan diterima | §9 ditutup sebagai kekosongan yang disengaja, bukan kekurangan |
+| 3 | Arah proses `[src:W10]` | Divalidasi | Diagram panah boleh dipakai; slide 3 dan panel 2 berubah dari "tanpa panah" menjadi diagram panah |
+| 4 | Angka suhu | Tetap kosong | Termometer tanpa skala; tidak ada butir bertipe "air membeku pada suhu …" |
+| 5 | Ciri-ciri wujud | Ditambahkan dengan sumber sendiri | `[src:W12]` dibuat; masuk tujuan 3, artikel, slide 2, panel 1, butir 12–13 |
+| 6 | "Mencair" vs "melebur" | "Mencair" dipakai | Tidak ada perubahan isi; hanya penegasan istilah |
+
+### 12.2 Sumber baru `[src:W12]`
+
+Sebelum keputusan ini, `00_run_config.md` menyatakan ciri-ciri wujud **dilarang** karena tidak ada di
+sumber. Larangan itu benar pada saat ditulis, tetapi membuat paket tidak dapat menjawab pertanyaan
+"apa bedanya padat, cair, dan gas" — pertanyaan yang pasti muncul di kelas.
+
+Jalan keluarnya bukan melonggarkan larangan, melainkan **menambah sumber**. `[src:W12]` diambil dari
+Lumen Learning, *Introductory Chemistry* (SUNY Monroe Community College), bab 3.1, dengan kutipan
+verbatim:
+
+> "A **solid** is rigid and possesses a definite shape."
+> "A **liquid** flows and takes the shape of a container, except that it forms a flat or slightly
+> curved upper surface when acted upon by gravity."
+> "A **gas** takes both the shape and volume of its container."
+
+Kutipan disimpan di `source_material_wujud_zat.md` beserta tautan dan tanggal verifikasi. Larangan
+lama di `00_run_config.md` dihapus dan diganti rujukan ke entri baru — berkas konfigurasi tidak boleh
+lagi bertentangan dengan isi draf.
+
+### 12.3 `[src:W11]` tetap tertutup
+
+Keputusan 3 memvalidasi `[src:W10]`, **bukan** `[src:W11]`. Entri `[src:W11]` ("zatnya tetap, bahannya
+sama") masih berstatus turunan tim tanpa validasi. Karena itu tujuan pembelajaran 2 sengaja **tidak
+diujikan**, dan tidak ada butir kuis yang bergantung padanya. Ini batas yang dipilih, bukan yang
+terlewat.
+
+### 12.4 Verifikasi ulang setelah perubahan
+
+| Pemeriksaan | Sebelum | Sesudah |
+|-------------|---------|---------|
+| `check_grounding.py` | PASS — 176 tag | **PASS — 206 tag**, 0 dangling, 0 pelanggaran kelas |
+| `check_sitasi.py` | (belum berlaku) | SKIP — run ini tidak memakai konvensi sitasi kelas |
+| `doctor.py` | 12 lulus / 0 gagal | **12 lulus / 0 gagal / 3 peringatan** (peringatan = SKIP konvensi sitasi pada tiga run lama) |
+
+Kenaikan 30 tag berasal dari isi baru: ciri wujud (`[src:W12]`), butir 12–15, dan diagram arah proses
+(`[src:W10]`). Tidak ada tag yang berubah kelas, dan tidak ada tag dangling.
+
+### 12.5 Yang masih belum ada
+
+Rubrik penilaian rinci tetap tidak ada — sumber tidak memuatnya, dan guru belum memintanya. Paket ini
+memakai tiga bentuk asesmen (pilihan ganda, isian singkat, uraian) dengan kunci dan pedoman
+penskoran, tetapi tanpa rubrik per tingkat. Bila rubrik dibutuhkan, ia harus dibuat sebagai usulan
+guru dan ditandai demikian, mengikuti pola yang dipakai pada run Tata Surya.
+
+---
+
+## 13. Koreksi contoh wujud gas — 5 November 2026, 17:03 GMT+7
+
+### 13.1 Temuan
+
+Entri `[src:W11]` butir 1 ("zatnya tetap") benar, dan sebagian besar butir 2 juga benar. Tetapi tiga
+turunannya memakai **"uap yang mengepul dari air mendidih"** sebagai contoh wujud **gas** — dan itu
+keliru secara sains.
+
+Yang tampak sebagai asap putih di atas air mendidih bukan gas. Uap air sesungguhnya **tidak terlihat**;
+yang tampak putih adalah titik-titik air halus yang sudah mengembun kembali, sehingga wujudnya **cair**.
+
+Kekeliruan ini bertentangan dengan tujuan panel itu sendiri: membedakan wujud berdasarkan bentuk dan
+volume. Contoh gas yang sebenarnya cair akan mengajarkan miskonsepsi yang harus dipatahkan lagi di
+jenjang berikutnya.
+
+### 13.2 Keputusan guru
+
+Guru memilih **opsi B**: butir 1 disetujui, tetapi contoh gasnya diperbaiki lebih dulu sebelum entri
+`[src:W11]` divalidasi sebagai fakta yang boleh diujikan.
+
+### 13.3 Yang diubah
+
+| Berkas | Perubahan |
+|--------|-----------|
+| `08_Referensi/source_material_wujud_zat.md` (+3 salinan) | `[src:W11]` mendapat **butir 3**: uap air tidak terlihat; asap putih adalah titik air halus (cair). Catatan kejujuran diperbarui (butir 1–3) dan catatan revisi ditambahkan |
+| `01_lesson_plan.md` | Catatan untuk guru pada Pertemuan 1: koreksi disampaikan **saat diskusi, bukan sebelumnya** |
+| `02_artikel.md` | "uap yang mengepul dari air mendidih" dihapus; ditambah paragraf bahwa uap air tidak terlihat |
+| `03_slide_outline.md` | Slide 2: kotak gas digambar sebagai bidang kosong berbingkai berlabel "uap air (tidak terlihat)"; catatan produksi diperbarui |
+| `04_infographic_brief.md` | Panel 1: instruksi visual diperjelas; "Batas desain" mendapat butir 4 |
+
+### 13.4 Yang tidak berubah
+
+Butir 1 dan butir 2 `[src:W11]` tetap seperti aslinya — termasuk empat contoh penerapan yang dapat
+diamati murid. Ambang, rubrik, dan butir kuis tidak disentuh. Tidak ada butir ujian baru: tujuan
+pembelajaran 2 **tetap tidak diujikan** sampai entri ini divalidasi.
+
+### 13.5 Status
+
+**`[src:W11]` masih belum divalidasi.** Koreksi ini memperbaiki isi turunannya, bukan menyatakan entri
+itu disetujui. Guru meninjau hasil koreksi lebih dulu; keputusan validasi dicatat terpisah.
+
+### 13.6 Verifikasi
+
+```
+PASS: 212 tag, 0 dangling, 0 class violations
+```
+
+Tag naik 206 → 212 (+6) dari paragraf koreksi di artikel, slide, infografis, catatan guru di RPP, dan
+butir 3 pada entri sumber. Keempat salinan `source_material_wujud_zat.md` tetap identik (checksum
+tunggal). `doctor.py`: 13 lulus / 0 gagal / 4 peringatan.

@@ -1,7 +1,7 @@
 # Brief Infografis — "Sahabat Energi"
 ## Flow C (Ragam Materi Ajar · Infografis) — Draft dari Writer
 
-> Brief ini diserahkan ke `edu-infographic` untuk menghasilkan visual. Semua poin merujuk `[src:#]` (R001). Gaya: hangat, warna nyaman, batas jelas, teks suportif (R008).
+> Brief ini diserahkan ke `edu-infographic` untuk menghasilkan visual. Fakta merujuk `[src:1]`–`[src:9]` (R001); konteks aktual `[src:CA1]`/`[src:CA6]` (R011). Gaya: hangat, warna nyaman, batas jelas, teks suportif (R008).
 
 ---
 
@@ -13,21 +13,21 @@
 
 ### Struktur Konten (6 blok)
 1. **Judul:** "Sahabat Energi: Belajar dari Cahaya Matahari" 🌞
-2. **Energi Alternatif:** surya, angin, air, biogas — dapat diperbarui & ramah lingkungan `[src:C4]`
+2. **Energi Alternatif:** surya, angin, air, biogas — dapat diperbarui & ramah lingkungan `[src:2]`
    - Ikon: matahari, kincir angin, bendungan, biogas.
-3. **Bentuk Energi & Perubahannya:** gerak, panas, cahaya, listrik, kimia, bunyi `[src:B5]`
+3. **Bentuk Energi & Perubahannya:** gerak, panas, cahaya, listrik, kimia, bunyi `[src:4]` `[src:5]`
    - Ilustrasi: lampu (listrik→cahaya+panas), kipas (listrik→gerak), tubuh (makanan→gerak).
 4. **Hemat Energi itu Mudah:**
-   - Matikan alat tak terpakai `[src:C4]`
-   - Gunakan lampu hemat energi `[src:C4]`
-5. **Jaga Bumi (Mitigasi Iklim):** air, tanah, hutan, udara untuk generasi mendatang; reduce/reuse/recycle, tanam pohon `[src:B3]`
+   - Matikan alat tak terpakai `[src:7]`
+   - Gunakan lampu hemat energi `[src:7]`
+5. **Jaga Bumi (Mitigasi Iklim):** air, tanah, hutan, udara untuk generasi mendatang; reduce/reuse/recycle, tanam pohon `[src:8]`
 6. **Fakta Nyata Indonesia:**
-   - PLTS Terapung Cirata: ~145 MWp, beroperasi 2023, Waduk Cirata, Jabar `[src:CA1]`
+   - PLTS Terapung Cirata: **145 MWac (192 MWp)**, diresmikan 9 Nov 2023, Waduk Cirata, Jabar `[src:CA1]`
    - Net sink 2030 & Net Zero 2060 `[src:CA6]`
 
 ### CTA (Akhir)
-"Matikan bila tak dipakai · Pakai lampu hemat energi · Tanam satu pohon 🌱" `[src:C4]` `[src:B3]`
+"Matikan bila tak dipakai · Pakai lampu hemat energi · Tanam satu pohon 🌱" `[src:7]` `[src:8]`
 
 ### Catatan Produksi
 - Teks harus KBBI & tidak memojokkan (R010); hindari klaim kesehatan/permanen (R006).
-- Setelah visual jadi, lewati `edu-reviewer` (R001–R009) sebelum disetujui guru.
+- Setelah visual jadi, lewati `edu-reviewer` (R001–R012) sebelum disetujui guru.

@@ -115,9 +115,14 @@ lembar RPP dari `centralpendidikan.com`, panduan asesmen SMP, ekspor WhatsApp, h
 `.workbuddy-ai/`, dan catatan kerja. Ditegakkan oleh `.gitignore` di akar repo.
 
 **Terverifikasi 31 Oktober 2026, diperbarui 5 November 2026:** `git clone` baru dari `main` berhasil
-memasang keempat skill dan lolos `tools/doctor.py` — `11 passed / 0 failed / 0 warning`, exit 0.
-Pembaruan: doctor.py kini memeriksa keempat run (121 + 115 + 176 + 113 = 525 tag, 0 pelanggaran) dan tiga
-source material yang identik lintas skill package.
+memasang keempat skill dan lolos `tools/doctor.py` — exit 0. Keluaran sekarang **13 passed / 0 failed /
+4 warning**. Keempat peringatan itu bukan kegagalan: semuanya `SKIP` dari `tools/check_sitasi.py` untuk
+run yang dibuat sebelum konvensi sitasi kelas berlaku — run `-003` sendiri **PASS** (7 pemeriksaan).
+Doctor kini memeriksa **lima folder** untuk empat run (121 + 121 + 115 + 212 + 109 = 678 tag,
+0 pelanggaran; run `-001` muncul di dua folder sehingga dihitung sekali pada angka per run, yaitu
+**557 tag**) dan tiga source material yang identik lintas skill package. Sejak 5 November 2026
+`03_Hasil/edu_output` ikut diperiksa — folder itu sebelumnya memuat draf dengan tag kurikulum untuk
+fakta (73 pelanggaran kelas) dan kini lulus dengan 121 tag, sama dengan `materi_ajar`.
 
 Sisa pekerjaan rumah: jalankan push lagi setelah setiap penyuntingan, supaya repo dan bundel tetap sama.
 
@@ -129,10 +134,10 @@ Sisa pekerjaan rumah: jalankan push lagi setelah setiap penyuntingan, supaya rep
 |-------------|--------|
 | Run `-002` ditinjau dan disetujui guru | **TERPENUHI untuk `-002`** — penyetuju disebut namanya, berstempel waktu 30 Okt 2026 17:19 GMT+7, cakupan tercatat di `03_Hasil/edu_output_wujud_zat/00_run_config.md` |
 | Run `-001` ditinjau guru | **TERPENUHI** — disetujui 4 November 2026 pukul 14:49 GMT+7, tercatat di `03_Hasil/edu_output/00_run_config.md` dan `audit_log.md` §3.7 |
-| Run `-003` ditinjau guru | **BELUM** — masih `PENDING`; run baru (5 Nov 2026), topik Tata Surya |
-| Run `-004` ditinjau guru | **BELUM** — masih `PENDING`; topik Perubahan Wujud Zat untuk Fase C (4 Nov 2026, bernomor `-003` sampai 5 Nov) |
-| Catatan persetujuan memuat keempat bagian protokol | **TERPENUHI untuk `-001` dan `-002`** — nama ✓, waktu ✓, cakupan ✓ (untuk `-002` termasuk kunci jawaban 27 butir), pernyataan verbatim ✓ ("ok saya setujui"). Sumber kutipan: `03_Hasil/edu_output_wujud_zat/audit_log.md` §3.7, bukan dokumen bertanda tangan. G16 ditutup 5 November 2026 |
-| Tidak ada yang disebut "terbit" atau "live" di submission | **TERPENUHI** — gerbang `-001` dan `-002` dibuka *hanya untuk guru dan distribusi terbatas*; `-003` dan `-004` berstatus `PENDING`. Tidak ada yang disebut terbit ke publik |
+| Run `-003` ditinjau guru | **TERPENUHI** — disetujui 5 November 2026 pukul 15:01 GMT+7; cakupan dan butir yang disetujui tercatat di `03_Hasil/edu_output_tata_surya/04_Lembar_Persetujuan_Guru.md` |
+| Run `-004` ditinjau guru | **TERPENUHI** — disetujui 5 November 2026 pukul 16:13 GMT+7; enam keputusan tercatat di `03_Hasil/edu_output_wujud_zat_faseC/08_Lembar_Persetujuan_Guru.md` (run ini bernomor `-003` sampai 5 Nov, lalu pindah ke `-004`) |
+| Catatan persetujuan memuat keempat bagian protokol | **TERPENUHI untuk keempat run** — nama ✓, waktu ✓, cakupan ✓ (untuk `-002` termasuk kunci jawaban 27 butir; untuk `-004` termasuk status entri turunan dan sumber tambahan), pernyataan verbatim ✓ ("ok saya setujui" untuk `-001`/`-002`, "ok setuju semua" untuk `-004`). Sumber kutipan: `audit_log.md` §3.7 run `-002`, bukan dokumen bertanda tangan. G16 ditutup 5 November 2026 |
+| Tidak ada yang disebut "terbit" atau "live" di submission | **TERPENUHI** — gerbang keempat run dibuka *hanya untuk pemakaian di kelas dan distribusi terbatas ke guru*; publikasi tetap `LOCKED` di keempatnya. Tidak ada yang disebut terbit ke publik |
 | Data siswa dianonimkan | **TERPENUHI** |
 | Data mock dinyatakan sebagai mock | **TERPENUHI** — dinyatakan di `09_Source_Code_and_Evidence.md` §5 |
 

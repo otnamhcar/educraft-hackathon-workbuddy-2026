@@ -15,10 +15,10 @@
 | Rujukan CP konten | `[src:B4]` — "Menyimpulkan proses perubahan wujud zat" |
 | Rujukan CP keterampilan | `[src:CP]` — keterampilan proses Fase C |
 
-> ⚠️ **Catatan kurikulum — wajib dibaca guru.** Butir `[src:B4]` berada di **Fase B**, bukan Fase C.
-> Daftar CP Fase C tidak memuat topik perubahan wujud zat. Rencana ini karena itu berkedudukan
-> sebagai **pemantapan lintas fase**: isi dari Fase B, kedalaman keterampilan proses dinaikkan ke
-> tingkat Fase C. Rencana ini **PERLU KONFIRMASI GURU** sebelum dipakai sebagai materi Fase C.
+> ✅ **Catatan kurikulum — sudah diputuskan guru, 5 November 2026.** Butir `[src:B4]` berada di
+> **Fase B**, bukan Fase C. Daftar CP Fase C tidak memuat topik perubahan wujud zat. Guru **menerima**
+> rencana ini sebagai **pemantapan lintas fase**: isi dari Fase B, kedalaman keterampilan proses
+> dinaikkan ke tingkat Fase C. Rencana ini sah dipakai sebagai materi Fase C.
 
 ## 2. Tujuan pembelajaran
 
@@ -27,13 +27,15 @@ Pada akhir pembelajaran, murid dapat:
 1. Menyebutkan tiga wujud zat — padat, cair, dan gas `[src:W1]`.
 2. Mengenali ketiga wujud itu pada bahan di sekitar, sebagai keadaan dari bahan yang sama
    `[src:W11]` *(turunan tim — perlu validasi guru)*.
-3. Menyebutkan enam proses perubahan wujud zat beserta namanya: mencair, membeku, menguap,
+3. Menyebutkan ciri tiga wujud zat: bentuk dan volumenya `[src:W12]`.
+4. Menyebutkan enam proses perubahan wujud zat beserta namanya: mencair, membeku, menguap,
    mengembun, menyublim, dan mengkristal `[src:W2]`.
-4. Menjelaskan bahwa suhu merupakan faktor yang memengaruhi perubahan wujud zat `[src:W3]`.
-5. Merencanakan dan melakukan penyelidikan sederhana tentang perubahan wujud, dengan mencatat suhu
+5. Memetakan arah perubahan wujud — dari wujud apa ke wujud apa — untuk keenam proses itu `[src:W10]`.
+6. Menjelaskan bahwa suhu merupakan faktor yang memengaruhi perubahan wujud zat `[src:W3]`.
+7. Merencanakan dan melakukan penyelidikan sederhana tentang perubahan wujud, dengan mencatat suhu
    dan waktu yang dibutuhkan `[src:W6]` `[src:W7]`.
-6. Menyimpulkan proses perubahan wujud berdasarkan data yang dikumpulkan sendiri `[src:W9]`.
-7. Menghubungkan perubahan wujud dengan fenomena di sekitar: hujan es, hilangnya es di Puncak Jaya,
+8. Menyimpulkan proses perubahan wujud berdasarkan data yang dikumpulkan sendiri `[src:W9]`.
+9. Menghubungkan perubahan wujud dengan fenomena di sekitar: hujan es, hilangnya es di Puncak Jaya,
    serta mencairnya es kutub dan gletser `[src:W5]`.
 
 ## 3. Pemahaman bermakna
@@ -55,8 +57,14 @@ diselidiki, mengumpulkan data suhu dan waktu, lalu menyimpulkan pola dari data i
 | Pembuka | Guru menyiapkan es di ruang terbuka atau di dekat sumber panas, dan air yang dipanaskan. Murid mengamati tanpa penjelasan awal. | 10 |
 | Pemantik | Pertanyaan sumber: "Apa yang terjadi jika es dipanaskan?" `[src:W6]` Murid menuliskan prediksi masing-masing **sebelum** mengamati. | 10 |
 | Pengamatan | Murid mencairkan es dan menguapkan air, sambil mencatat apa yang berubah `[src:W6]`. | 25 |
-| Diskusi | Murid membandingkan prediksi dengan hasil pengamatan, dan menyebutkan nama wujud yang terlibat `[src:W1]`. | 15 |
+| Diskusi | Murid membandingkan prediksi dengan hasil pengamatan, menyebutkan nama wujud yang terlibat `[src:W1]`, lalu menyebutkan ciri bentuk dan volume tiap wujud yang mereka amati `[src:W12]`. | 15 |
 | Penutup | Guru memperkenalkan nama enam proses perubahan wujud `[src:W2]` sebagai **nama untuk hal yang baru saja mereka lihat**, bukan daftar hafalan. | 10 |
+
+> **Catatan untuk guru — saat air mendidih.** Murid hampir pasti menyebut asap putih di atas air
+> sebagai "gas" atau "uap". Itu keliru: uap air **tidak terlihat**, dan yang tampak putih adalah
+> titik-titik air halus yang sudah mengembun kembali — wujudnya cair. Koreksi ini sebaiknya
+> disampaikan **saat diskusi, bukan sebelumnya**, karena justru menjadi momen terbaik untuk
+> membedakan wujud berdasarkan bukti pengamatan `[src:W11]` *(turunan tim, perlu validasi guru)*.
 
 ### Pertemuan 2 — Menyelidiki dan menyimpulkan (± 70 menit)
 
@@ -73,7 +81,7 @@ diselidiki, mengumpulkan data suhu dan waktu, lalu menyimpulkan pola dari data i
 | Tahap | Kegiatan | Menit |
 |-------|----------|------:|
 | Pembuka | Guru menyajikan empat contoh sehari-hari dari sumber: es yang mencair, air yang mendidih, es mencair di cuaca panas, dan lilin yang meleleh saat dibakar `[src:W4]`. | 10 |
-| Klasifikasi | Murid memasangkan setiap contoh dengan nama proses yang sesuai. **Guru mendampingi**, karena arah pemetaan proses belum dipetakan sumber resmi (lihat §8). | 20 |
+| Klasifikasi | Murid memasangkan setiap contoh dengan nama proses yang sesuai, lalu menentukan arah perpindahan wujudnya — dari wujud apa ke wujud apa `[src:W10]`. Pemetaan arah telah divalidasi guru, sehingga guru berperan sebagai pendamping, bukan penentu jawaban. | 20 |
 | Konteks isu | Murid membaca dan mendiskusikan tiga tingkat isu: hujan es (lokal), hilangnya es di Puncak Jaya (nasional), mencairnya es di kutub dan gletser (global) `[src:W5]`. | 20 |
 | Refleksi | Murid menilai ketepatan prediksinya sendiri dan menuliskan satu saran perbaikan untuk percobaan berikutnya `[src:CP]`. | 15 |
 | Penutup | Murid menyampaikan satu hal yang ingin diselidiki lebih lanjut di rumah. | 5 |
@@ -121,22 +129,27 @@ dan menganalisis eksperimen `[src:W9]`.
 
 ## 8. Batas yang harus diketahui guru
 
-Tiga hal berikut **tidak** ada di sumber dan sengaja tidak diisi:
+Empat hal yang semula kosong telah diputuskan guru pada 5 November 2026. Tiga ditutup, satu tetap
+dibiarkan terbuka dengan alasan.
 
-1. **Tidak ada angka suhu.** Sumber tidak memuat titik lebur, titik didih, atau angka suhu apa pun.
-   Setiap tempat yang meminta angka dibiarkan terbuka. Bila guru ingin memakainya di kelas, guru
-   perlu menyediakan sumber terverifikasi sendiri. `[UNVERIFIED]` — **PERLU KONFIRMASI GURU**.
-2. **Arah proses belum dipetakan sumber.** Sumber menyebut enam nama proses, tetapi tidak
-   memetakan mana yang berpindah dari padat ke cair, dan seterusnya. Pemetaan arah adalah turunan
-   tim `[src:W10]`, bukan kutipan. Karena itu kegiatan klasifikasi di Pertemuan 3 **wajib
-   didampingi guru**, dan butir ujian tidak boleh bertumpu padanya tanpa persetujuan guru.
-3. **Ciri-ciri wujud tidak ada di sumber.** Sumber tidak memuat ciri seperti bentuk tetap,
-   mengikuti bentuk wadah, atau memenuhi ruang. Ciri-ciri itu tidak ditulis di paket ini.
-   **PERLU KONFIRMASI GURU** bila guru menganggapnya perlu.
+1. **Angka suhu — tetap kosong.** ✅ *Keputusan guru: dibiarkan kosong.* Sumber tidak memuat titik
+   lebur, titik didih, atau angka suhu apa pun, dan angka itu tidak dibutuhkan untuk melatih
+   keterampilan proses. Setiap tempat yang meminta angka dibiarkan terbuka. Bila guru kelak ingin
+   memakainya, guru perlu menyediakan sumber terverifikasi sendiri.
 
-Satu hal lagi yang perlu keputusan guru: sumber menyebut istilah **mencair**, sedangkan turunan tim
-mencantumkan padanan **melebur** `[src:W10]`. Paket ini memakai "mencair" mengikuti sumber; guru
-menetapkan apakah "melebur" perlu diperkenalkan sebagai padanan.
+2. **Arah proses — sudah dipetakan dan divalidasi.** ✅ *Keputusan guru: divalidasi 5 Nov 2026.*
+   Pemetaan arah `[src:W10]` kini sah dipakai sebagai diagram panah dan sebagai dasar butir ujian,
+   dengan syarat butir diletakkan pada bagian terpisah agar skor butir inti tetap sebanding dengan
+   run sebelumnya. Kegiatan klasifikasi di Pertemuan 3 tidak lagi wajib didampingi penuh, tetapi
+   tetap disarankan pada pertemuan pertama pemakaian.
+
+3. **Ciri-ciri wujud — sudah ditambahkan.** ✅ *Keputusan guru: ditambahkan dengan sumber tersendiri.*
+   Ciri bentuk dan volume ketiga wujud kini tersedia pada `[src:W12]`, bersumber dari buku ajar kimia
+   pengantar, bukan Panduan IPAS. Ciri itu dipakai di tujuan 3 dan kegiatan Pertemuan 1.
+
+4. **Istilah "mencair" vs "melebur" — ditetapkan.** ✅ *Keputusan guru: pakai "mencair".* Paket
+   memakai "mencair" mengikuti sumber. Padanan "melebur" disebut **sekali** sebagai keterangan agar
+   murid tidak bingung ketika membaca buku lain, dan tidak dipakai sebagai istilah utama.
 
 ## 9. Kekosongan yang disengaja: upaya penanggulangan
 
@@ -146,13 +159,17 @@ tersedia di sumber terbatas pada peran penyelidik: mengamati, memprediksi, meren
 dan menyimpulkan `[src:W6]` `[src:W9]`.
 
 Karena itu rencana ini tidak mencantumkan daftar aksi mitigasi. Menambahkannya berarti mengarang
-fakta, dan itu pelanggaran yang lebih berat daripada tidak memenuhinya. Bila guru ingin memasukkan
-aksi nyata — misalnya penghematan energi — guru perlu menyediakan sumbernya, dan bagian itu
-ditambahkan sebagai lampiran terpisah atas persetujuan guru. **PERLU KONFIRMASI GURU**.
+fakta, dan itu pelanggaran yang lebih berat daripada tidak memenuhinya.
+
+**✅ Keputusan guru, 5 November 2026: kekosongan ini diterima.** Paket tetap tanpa daftar aksi
+mitigasi. R005 dipenuhi secara **parsial dan dinyatakan terbuka** — bukan dipenuhi dengan karangan.
+Bila guru kelak menyediakan sumber mitigasi, bagian itu ditambahkan sebagai lampiran terpisah.
 
 ## Sumber yang dipakai
 
 `[src:W1]` tiga wujud zat · `[src:W2]` enam proses · `[src:W3]` suhu sebagai faktor ·
 `[src:W4]` contoh sehari-hari · `[src:W5]` konteks isu · `[src:W6]` pengalaman belajar ·
 `[src:W7]` pencatatan suhu dan waktu · `[src:W8]` bentuk asesmen · `[src:W9]` keterampilan proses ·
-`[src:W10]` pemetaan arah (**turunan**) · `[src:B4]`, `[src:CP]` pernyataan kurikulum
+`[src:W10]` pemetaan arah (**turunan, ✅ divalidasi guru**) · `[src:W11]` konsep pendukung
+(**turunan**) · `[src:W12]` ciri-ciri wujud (**referensi tambahan**) · `[src:B4]`, `[src:CP]`
+pernyataan kurikulum

@@ -15,18 +15,18 @@ adalah yang menggerakkannya.
 | Elemen | Isi |
 |--------|-----|
 | Judul panel | Tiga wujud zat |
-| Isi teks | Padat · Cair · Gas `[src:W1]` |
-| Visual | Tiga kotak sejajar, satu bahan yang sama digambarkan tiga kali (es, air, uap) `[src:W11]` *(turunan tim)* |
-| Catatan | Tanpa panah antar kotak |
+| Isi teks | Padat · Cair · Gas `[src:W1]` — dengan ciri **bentuk** dan **volume** `[src:W12]` |
+| Visual | Tiga kotak sejajar, satu bahan yang sama digambarkan tiga kali: es, air, uap air `[src:W11]` *(turunan tim)*; di bawah tiap kotak satu baris ciri: "bentuk tetap" / "bentuk ikut wadah" / "memenuhi ruang". **Kotak gas jangan digambar sebagai asap putih** — uap air tidak terlihat, jadi beri label "uap air (tidak terlihat)" atau bidang kosong berbingkai `[src:W11]` |
+| Catatan | Ciri dari buku ajar kimia pengantar `[src:W12]`, bukan Panduan IPAS |
 
-## Panel 2 — Enam nama proses
+## Panel 2 — Enam nama proses dan arahnya
 
 | Elemen | Isi |
 |--------|-----|
 | Judul panel | Enam proses perubahan wujud |
 | Isi teks | Mencair · Membeku · Menguap · Mengembun · Menyublim · Mengkristal `[src:W2]` |
-| Visual | Enam kartu nama dalam dua baris tiga kolom, **tanpa panah arah** |
-| Catatan | Lihat "Batas desain" — ini keputusan sadar, bukan kelalaian |
+| Visual | **Diagram panah** tiga kotak wujud (padat, cair, gas) dengan enam panah berlabel `[src:W10]` ✅ |
+| Catatan | Arah proses telah divalidasi guru 5 Nov 2026 — bukan lagi batas desain |
 
 ## Panel 3 — Suhu sebagai pemicu
 
@@ -65,9 +65,9 @@ adalah yang menggerakkannya.
 
 ## Catatan kaki (wajib tampil, ukuran kecil)
 
-> Nama enam proses disebut sumber. **Arah perpindahan antarwujud belum dipetakan sumber resmi** dan
-> tidak digambarkan di sini. Angka suhu tidak dicantumkan karena tidak tersedia di sumber.
-> `[UNVERIFIED]` **PERLU KONFIRMASI GURU**
+> Nama enam proses disebut sumber. Arah perpindahan antarwujud digambarkan berdasarkan pemetaan yang
+> telah **divalidasi guru 5 November 2026**. Angka suhu tidak dicantumkan karena tidak tersedia di
+> sumber dan guru memutuskan membiarkannya kosong.
 
 ## Spesifikasi desain
 
@@ -80,19 +80,24 @@ adalah yang menggerakkannya.
 | Tipografi | Satu keluarga huruf sans-serif, dua bobot (reguler dan tebal) |
 | Aksesibilitas | Kontras teks minimum 4.5:1; jangan mengandalkan warna saja untuk membedakan panel |
 
-## Batas desain — jangan diisi tanpa guru
+## Batas desain — keadaan setelah keputusan guru 5 November 2026
 
-1. **Tanpa panah arah proses.** Diagram padat→cair→gas adalah representasi paling lazim di buku
-   pelajaran, dan justru karena itu paling menggoda untuk ditambahkan. Sumber hanya menyebut enam
-   *nama* proses `[src:W2]`, tanpa memetakan arahnya. Pemetaan arah adalah turunan tim `[src:W10]`.
-   Bila guru menyetujuinya, tambahkan sebagai panel terpisah berlabel "turunan tim" — jangan
-   disatukan ke Panel 2.
-2. **Tanpa angka suhu.** Termometer di Panel 3 harus tanpa skala angka. Menambahkan "0 °C" atau
-   "100 °C" akan mengubah infografis menjadi sumber fakta karangan.
-3. **Tanpa ciri-ciri wujud.** Jangan menambahkan "bentuk tetap", "mengikuti wadah", atau "memenuhi
-   ruang". Sumber tidak memuatnya.
+1. **Panah arah proses — sudah diizinkan.** ✅ Diagram padat→cair→gas boleh dipakai di Panel 2.
+   Pemetaan `[src:W10]` telah divalidasi guru. Tetap beri keterangan kecil "divalidasi guru
+   5 November 2026" agar asal diagram terbaca.
+2. **Tanpa angka suhu — tetap berlaku.** Termometer di Panel 3 harus tanpa skala angka. Menambahkan
+   "0 °C" atau "100 °C" akan mengubah infografis menjadi sumber fakta karangan. Guru memutuskan
+   angka tetap kosong.
+3. **Ciri-ciri wujud — sudah diizinkan.** ✅ "Bentuk tetap", "mengikuti wadah", dan "memenuhi ruang"
+   boleh dipakai di Panel 1 `[src:W12]`, dengan keterangan bahwa sumbernya buku ajar kimia pengantar,
+   bukan Panduan IPAS.
+4. **Uap air jangan digambar sebagai asap — revisi 5 Nov 2026.** Kotak gas di Panel 1 harus berupa
+   bidang kosong berbingkai dengan label "uap air (tidak terlihat)". Asap putih adalah titik air halus
+   yang sudah mengembun — wujudnya **cair**, bukan gas. Menggambarnya sebagai asap akan mengajarkan
+   miskonsepsi pada panel yang justru bertujuan membedakan wujud `[src:W11]`.
 
 ## Sumber yang dipakai
 
 `[src:W1]` · `[src:W2]` · `[src:W3]` · `[src:W4]` · `[src:W5]` · `[src:W6]` · `[src:W7]` ·
-`[src:W9]` · `[src:W10]` *(turunan)* · `[src:W11]` *(turunan)*
+`[src:W9]` · `[src:W10]` *(turunan, ✅ divalidasi)* · `[src:W11]` *(turunan)* ·
+`[src:W12]` *(referensi tambahan)*

@@ -1,7 +1,7 @@
 # Grounding report — R001 tag resolution
 
 **Run folder:** `03_Hasil/edu_output_wujud_zat`  
-**Knowledge layer:** `03_Hasil/referensi`  
+**Knowledge layer:** `05_Bukti_Proses/skills_package/edu-orchestrator/assets`  
 **Verdict:** **PASS** — 115 tag diperiksa, 0 dangling, 0 pelanggaran kelas tag
 
 > Dihasilkan oleh `tools/check_grounding.py`. Pemeriksaan ini deterministik dan dapat dijalankan ulang; ia memeriksa **resolusi** tag, bukan sekadar keberadaannya.
@@ -76,10 +76,10 @@
 | 46 | `[src:W10]` | fact | **OK** (ulang) | source_material_wujud_zat.md · Pemetaan arah perubahan — **TURUNAN TIM, BUKAN KUTIPAN** |
 | 50 | `[src:W6]` | fact | **OK** (ulang) | source_material_wujud_zat.md · Pengalaman belajar yang disarankan |
 | 50 | `[src:W7]` | fact | **OK** | source_material_wujud_zat.md · Pencatatan data percobaan |
-| 52 | `[src:CP]` | curriculum | **OK** | cp_ipas.md · Dokumen CP IPAS (rujukan kurikulum) |
+| 52 | `[src:CP]` | curriculum | **OK** | cp_ipas.md ·  |
 | 58 | `[src:W1]` | fact | **OK** (ulang) | source_material_wujud_zat.md · Tiga wujud zat |
 | 58 | `[src:W11]` | fact | **OK** (ulang) | source_material_wujud_zat.md · Konsep pendukung & penerapan — **TURUNAN TIM, BUKAN KUTIPAN** |
-| 59 | `[src:CP]` | curriculum | **OK** (ulang) | cp_ipas.md · Dokumen CP IPAS (rujukan kurikulum) |
+| 59 | `[src:CP]` | curriculum | **OK** (ulang) | cp_ipas.md ·  |
 
 ### `02_infographic_brief.md`
 

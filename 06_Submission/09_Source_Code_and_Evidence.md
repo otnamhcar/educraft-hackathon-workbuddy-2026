@@ -104,7 +104,7 @@ per-OS: README → "Run it yourself".
 | **Repo publik** | Handbook menerima repo publik *atau* workflow yang diekspor beserta buktinya. | ✅ **SELESAI** — https://github.com/otnamhcar/educraft-hackathon-workbuddy-2026 (publik, MIT). Opsi (a) dipilih. |
 | **Screenshot** | Diwajibkan §7 untuk hasil pengujian | ⏳ Ambil sesuai `04_Test_Results.md` §3; simpan di `05_Bukti_Proses/evidence_bundle/03_screenshots/` |
 | **Video demo** | Wajib, 5–8 menit | ⏳ Skripnya siap: `07_Demo_Video_Script.md` |
-| **Persetujuan manusia** | Gerbang etik, bukan formalitas | ✅ Run `-001` disetujui 4 Nov 2026 14:49 dan `-002` 30 Okt 2026 17:19; run `-003` dan `-004` masih PENDING |
+| **Persetujuan manusia** | Gerbang etik, bukan formalitas | ✅ Keempat run disetujui guru: `-002` 30 Okt 2026 17:19, `-001` 4 Nov 2026 14:49, `-003` 5 Nov 2026 15:01, `-004` 5 Nov 2026 16:13. Publikasi tetap `LOCKED` di keempatnya |
 
 ## 5. Catatan lisensi dan data
 

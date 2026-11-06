@@ -11,8 +11,21 @@ berubah menjadi sesuatu yang lain?
 ### Tiga wujud zat
 
 Bahan di sekitar kita hadir dalam tiga wujud utama: **padat, cair, dan gas** `[src:W1]`. Es, air
-minum, dan uap yang mengepul dari air mendidih adalah tiga contoh wujud itu — dan ketiganya dapat
-berasal dari bahan yang sama `[src:W11]` *(turunan tim, perlu validasi guru)*.
+minum, dan uap air adalah tiga contoh wujud itu — dan ketiganya dapat berasal dari bahan yang sama
+`[src:W11]` *(turunan tim, perlu validasi guru)*.
+
+Satu hal yang sering keliru: **uap air tidak terlihat**. Yang tampak seperti asap putih di atas air
+mendidih sebenarnya titik-titik air halus yang sudah mengembun kembali — wujudnya cair, bukan gas
+`[src:W11]` *(turunan tim)*.
+
+Bagaimana caramu membedakan ketiganya? Perhatikan **bentuk** dan **volume**-nya `[src:W12]`.
+
+- **Padat** mempertahankan bentuknya sendiri. Es batu tetap berbentuk balok meski diletakkan di
+  gelas yang bulat.
+- **Cair** mengikuti bentuk wadah, tetapi jumlahnya tetap. Air yang kamu pindahkan dari gelas ke
+  botol berubah bentuk, bukan bertambah banyak.
+- **Gas** mengikuti bentuk wadah sekaligus memenuhi seluruh ruangnya. Uap air menyebar ke seluruh
+  dapur, bukan berkumpul di satu sudut.
 
 Ketika es di tanganmu menghilang, ia tidak lenyap. Ia berubah wujud.
 
@@ -82,12 +95,16 @@ sekarang kamu tahu cara membuktikannya.
 ## Catatan untuk guru
 
 **Batas bacaan ini.** Artikel tidak memuat angka suhu apa pun, dan itu disengaja: sumber tidak
-menyediakan angka `[UNVERIFIED]` **PERLU KONFIRMASI GURU**. Artikel juga tidak memuat ciri-ciri
-wujud (bentuk tetap, mengikuti wadah, memenuhi ruang), karena sumber tidak memuatnya.
+menyediakan angka. ✅ *Keputusan guru 5 Nov 2026: angka suhu tetap dibiarkan kosong.*
 
-**Arah proses tidak dipetakan.** Artikel menyebut nama enam proses `[src:W2]`, tetapi tidak
-menyatakan proses mana yang berpindah dari wujud apa ke wujud apa. Pemetaan itu adalah turunan tim
-`[src:W10]`, bukan isi Panduan IPAS, sehingga sengaja tidak dimasukkan ke bacaan murid.
+**Ciri-ciri wujud sudah ditambahkan.** ✅ *Keputusan guru 5 Nov 2026.* Bagian "Tiga wujud zat" kini
+memuat ciri bentuk dan volume ketiga wujud `[src:W12]`, bersumber dari buku ajar kimia pengantar —
+**bukan** Panduan IPAS. Panduan hanya menyebut tiga wujud tanpa merinci cirinya.
+
+**Arah proses sudah dipetakan.** ✅ *Keputusan guru 5 Nov 2026: divalidasi.* Artikel menyebut nama
+enam proses `[src:W2]`; pemetaan arahnya `[src:W10]` kini sah dan dipakai pada kegiatan klasifikasi
+di rencana pembelajaran. Artikel murid tetap tidak memuat diagram panah agar bacaannya tidak berubah
+menjadi tabel hafalan — diagram itu disajikan di slide dan infografis.
 
 **Soal kalimat "ketiganya dapat berasal dari bahan yang sama".** Kalimat itu bersandar pada
 `[src:W11]` — entri **turunan tim**, bukan kutipan sumber. Kalimat tersebut adalah pengetahuan sains

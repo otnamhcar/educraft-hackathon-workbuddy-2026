@@ -11,12 +11,12 @@
 | **Fase Sasaran** | Fase C (kelas V–VI), dengan fondasi Fase B |
 | **CP Sasaran** | C4 (2.1.4): "Menghasilkan upaya penghematan energi, serta pemanfaatan sumber energi alternatif dari sumber daya sekitar sebagai mitigasi perubahan iklim" |
 | **CP Fondasi** | B5 (1.1.5): "Menjelaskan sumber dan bentuk energi, serta proses perubahan bentuk energi dalam kehidupan sehari-hari" |
-| **Konteks Aktual** | CA1 (PLTS Terapung Cirata, 145 MWac/192 MWp, 2023), CA6 (FOLU Net Sink 2030 / Net Zero 2060) — lihat `konteks_aktual.md` |
-| **Source file** | `source_material_energi.md` (fakta [src:1–9]) + `konteks_aktual.md` (CA1/CA6) |
-| **CP reference** | `assets/cp_ipas.md` |
-| **Rulebook** | `assets/rulebook_ipas.md` (R001–R012, v2.0) |
-| **Format Rendering** | `assets/format_rendering_spec.md` (Stage 6, FR-01…FR-08) — wajib untuk artefak siap pakai |
-| **Intake menu** | `assets/intake_menu_ipas.md` (S0, 20 bab + status sumber). Run ini tidak memerlukannya karena topik sudah disebut di brief; berlaku untuk run berikutnya. Bawaan format: RPP + kuis + slide (minimal 2). |
+| **Konteks Aktual** | CA1 (PLTS Terapung Cirata, 145 MWac/192 MWp, 2023), CA6 (FOLU Net Sink 2030 / Net Zero 2060) — lihat `08_Referensi/konteks_aktual.md` |
+| **Source file** | `08_Referensi/source_material_energi.md` (fakta [src:1–9]) + `08_Referensi/konteks_aktual.md` (CA1/CA6) |
+| **CP reference** | `08_Referensi/cp_ipas.md` |
+| **Rulebook** | `08_Referensi/rulebook_ipas.md` (R001–R012, v2.0) |
+| **Format Rendering** | `05_Bukti_Proses/skills_package/edu-orchestrator/assets/format_rendering_spec.md` (Stage 6, FR-01…FR-08) — wajib untuk artefak siap pakai |
+| **Intake menu** | `05_Bukti_Proses/skills_package/edu-orchestrator/assets/intake_menu_ipas.md` (S0, 20 bab + status sumber). Run ini tidak memerlukannya karena topik sudah disebut di brief; berlaku untuk run berikutnya. Bawaan format: RPP + kuis + slide (minimal 2). |
 | **Iteration** | `1` of max `3` — **one rejection** recorded (29 Oct 2026); draft v2 approved 30 Oct 2026. *Review passes: 2 (pass 1 REJECT, pass 2 APPROVE) — see §7 of `audit_log_edu_orchestrator.md`.* |
 | **Human approver** | ✅ APPROVED — Don Jimat Akbar (4 Nov 2026, 14:49 GMT+7) |
 | **Publish status** | ✅ PUBLISHED — materi dirilis ke format siap pakai |
@@ -52,8 +52,14 @@
 - **Verifikasi:** `grep "[src:"` pada semua slide DSL → 0 hasil; semua 9 slide lulus `slidep lint` (0 diagnostics)
 
 ## Catatan kepatuhan
-- Semua klaim fakta merujuk tag `[src:#]` dari source material pada tahap Draft.
-- Klaim "konteks aktual" merujuk `[src:CA#]` yang terverifikasi pada tahap Draft.
-- Pada tahap Format Rendering, tag `[src:#]` diselesaikan (resolved) ke kutipan sumber lengkap — lihat **Source Resolution Map** di `audit_log.md` §3.7.
+- Semua klaim fakta pada draf merujuk tag `[src:1]`–`[src:9]` dari `source_material_energi.md`.
+- Klaim "konteks aktual" merujuk `[src:CA1]`/`[src:CA6]` yang terverifikasi di `konteks_aktual.md`.
+- Pernyataan kurikulum merujuk `[src:C4]`/`[src:B5]`/`[src:B3]`/`[src:CP]`. Tag kurikulum **tidak boleh**
+  menopang fakta sains (rulebook §0).
+- Pada tahap Format Rendering, tag diselesaikan (resolved) ke kutipan sumber lengkap untuk `.docx`,
+  `.pptx`, dan `.html` — lihat **Source Resolution Map** di `audit_log.md` §3.7. Draf `.md` di folder
+  ini tetap bertag karena berfungsi sebagai lapisan kerja, bukan deliverable guru.
+- Draf `01`–`05` di-re-tag ulang 5 November 2026 setelah sebelumnya masih memakai tag kurikulum untuk
+  fakta; rinciannya di `audit_log.md` §7.4.
 - Grounding R001 tetap terpenuhi: setiap klaim dapat ditelusuri ke sumber asli melalui pemetaan yang didokumentasikan.
 - Tidak ada fakta di luar source; tidak ada publish tanpa approval guru.

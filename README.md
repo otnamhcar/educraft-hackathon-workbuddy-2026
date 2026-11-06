@@ -165,8 +165,10 @@ dari jalur yang mulus justru membuktikan lebih sedikit.
 **Run `EDU-ORCH-20261104-004`** (Perubahan Wujud Zat untuk Fase C) — bukti bahwa agen berhenti ketika
 kurikulumnya tidak cocok. Topik perubahan wujud zat ada di Fase B, bukan Fase C; alih-alih mengarang
 butir CP yang tidak ada, agen menandai run sebagai **pemantapan lintas fase** dengan `PERLU KONFIRMASI
-GURU` di tiga butir terbuka. Pass 1: REJECT (3 Major, 3 Minor). Pass 2: APPROVE — tetap
-`AWAITING_APPROVAL`, publikasi terkunci. Jejak: `03_Hasil/edu_output_wujud_zat_faseC/audit_log.md`.
+GURU` di tiga butir terbuka. Pass 1: REJECT (3 Major, 3 Minor). Pass 2: APPROVE — berhenti di
+`AWAITING_APPROVAL` dengan publikasi terkunci, dan tetap berhenti sampai guru memutuskan. Guru
+memutuskan 5 Nov 2026 16:13: status naik ke `APPROVED_FOR_USE`, **publikasi tetap `LOCKED`**. Jejak:
+`03_Hasil/edu_output_wujud_zat_faseC/audit_log.md` §8 dan §12.
 
 ---
 
@@ -188,14 +190,26 @@ python3 tools/check_grounding.py --run 03_Hasil/materi_ajar \
     --knowledge 08_Referensi --out 03_Hasil/materi_ajar/grounding_report.md
 ```
 
-| Run | Tag diperiksa | Dangling | Pelanggaran kelas | Vonis |
-|-----|-------------:|---------:|------------------:|-------|
-| `-001` Energi | 121 | 0 | 0 | **PASS** |
-| `-002` Wujud Zat, sebelum perbaikan | 89 | 0 | 84 | **FAIL** — defek D1 |
-| `-002` Wujud Zat, sesudah perbaikan | 115 | 0 | 0 | **PASS** |
-| `-004` Wujud Zat Fase C | 176 | 0 | 0 | **PASS** |
-| `-003` Tata Surya | 113 | 0 | 0 | **PASS** |
-| **Total** | **525** | **0** | **0** | |
+| Folder | Run | Tag diperiksa | Dangling | Pelanggaran kelas | Vonis |
+|--------|-----|-------------:|---------:|------------------:|-------|
+| `materi_ajar` | `-001` Energi | 121 | 0 | 0 | **PASS** |
+| `edu_output` | `-001` Energi (draf produksi) | 121 | 0 | 0 | **PASS** |
+| `edu_output_wujud_zat` | `-002` Wujud Zat, sebelum perbaikan | 89 | 0 | 84 | **FAIL** — defek D1 |
+| `edu_output_wujud_zat` | `-002` Wujud Zat, sesudah perbaikan | 115 | 0 | 0 | **PASS** |
+| `edu_output_wujud_zat_faseC` | `-004` Wujud Zat Fase C | 212 | 0 | 0 | **PASS** |
+| `edu_output_tata_surya` | `-003` Tata Surya | 109 | 0 | 0 | **PASS** |
+| **Total per run** | **empat run** | **557** | **0** | **0** | |
+
+> Run `-001` diperiksa di **dua folder** karena keduanya memuat artefaknya: `materi_ajar` (draf markdown
+> terkoreksi) dan `edu_output` (folder produksi berisi `.docx`/`.pptx`/`.html` serta draf kerja).
+> Keduanya lulus dengan angka identik, **121 tag**, sehingga run `-001` dihitung **sekali** pada total.
+> Sebelum 5 November 2026 draf di `edu_output` masih memakai tag kurikulum untuk fakta dan gagal dengan
+> 73 pelanggaran kelas; perbaikannya tercatat di `03_Hasil/edu_output/audit_log.md` §7.4.
+
+> Run `-003` memakai konvensi penulisan sumber yang berbeda sejak 5 November 2026: RPP dan slide
+> menyebut nama sumber dalam kata, kuis tanpa rujukan, dan tag mesin dipindahkan ke
+> `05_Jejak_Sumber.md`. Angka 109 adalah tag di lampiran itu, bukan di badan dokumen. Konvensinya
+> diperiksa terpisah oleh `tools/check_sitasi.py`.
 
 ---
 

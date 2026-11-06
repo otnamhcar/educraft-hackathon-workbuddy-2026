@@ -1,7 +1,7 @@
 # Kuis Pre-Test & Post-Test — "Perubahan Wujud Zat"
 
 > **Flow B (Kuis Siswa).** Sumber fakta: `[src:W1]`–`[src:W11]`. Sasaran: Fase C (Kelas V–VI).
-> **Status:** 🔒 **DRAF — menunggu persetujuan guru.** Kunci jawaban dan tabel skor **tidak boleh** dibagikan ke murid sebelum guru menyetujui.
+> **Status:** ✅ **Disetujui guru 30 Oktober 2026, 17:19 GMT+7** (Don Jimat Akbar) untuk pemakaian di kelas. Kunci jawaban dan tabel skor tetap **materi guru** — tidak dibagikan ke murid, bukan karena belum disetujui, melainkan karena fungsinya memang untuk penilaian.
 > **Bahasa (R010):** tidak ambigu, sesuai KBBI, sopan, hangat, tidak memojokkan. Tidak ada soal jebakan.
 
 ---

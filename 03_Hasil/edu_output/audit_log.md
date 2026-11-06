@@ -277,7 +277,9 @@ format), sehingga menu tidak ditayangkan. Penambahan ini berlaku untuk run berik
   diterapkan. Verifikasi FR-01/FR-06/FR-09 karena itu tidak bergantung pada pemeriksaan manual.
 
 #### 3.8.2 Keluaran
-- **Berkas:** `06_Materi_Guru_Energi_Alternatif.md` (326 baris)
+- **Berkas:** `06_Materi_Guru_Energi_Alternatif.md` (314 baris)  
+  *Koreksi 5 Nov 2026: entri ini semula menulis 326 baris. Berkasnya 314 baris sejak commit satu-satunya
+  (`2b28939`), jadi angka 326 tidak pernah benar — bukan berkas yang menyusut.*
 - **Sumber konten:** `01_lesson_plan.md`, `02_quiz_pretest_posttest.md`, `03_slide_outline.md`,
   `04_artikel.md`
 - **Bagian dibuang:** `H. Catatan Kepatuhan Reviewer`, `Catatan Produksi`
@@ -293,6 +295,10 @@ tiga resolusi tag yang berjalan terpisah.
 **Perbaikan struktural:** `.md` dinaikkan menjadi **lapisan konten teresolusi** (FR-09 v1.1).
 `.docx`/`.pptx`/`.html` wajib diturunkan darinya, bukan dari draf bertag. Selisih angka tidak lagi
 mungkin terjadi lewat konstruksi, bukan lewat kedisiplinan operator.
+
+> **Ditutup 5 November 2026.** Koreksi `145 MWp → 145 MWac (192 MWp)` kini juga diterapkan ke draf
+> `01`–`05` di folder ini, bukan hanya ke `.docx`/`.pptx`. Selisih antara draf dan deliverable karena
+> itu tidak lagi ada. Lihat §7.4.
 
 #### 3.8.4 Verifikasi
 | Uji | Hasil |
@@ -312,3 +318,70 @@ agar tidak diklaim "konsisten sempurna".
 2. ~~Guru memberikan persetujuan eksplisit → Orchestrator melakukan publish.~~ ✅ Selesai
 3. Bila guru meminta topik lain / Fase lain, Orchestrator menjalankan run baru dengan run ID berikutnya.
 4. Opsional: Generate aset infografis/video dari `05_infographic_brief.md` bila diminta.
+
+---
+
+## 7. KOREKSI PASCA-RUN — penolakan 29 Oktober dan riwayat v1→v2
+
+**Ditambahkan:** 5 November 2026. **Run:** EDU-ORCH-20261026-001 (sama).
+**Jenis:** pelengkapan catatan. **Bukan** perubahan isi materi.
+
+### 7.1 Mengapa bagian ini ada di berkas ini
+
+§3.3 mencatat `APPROVE` dan §3.4 mencatat "tidak ada rejection". Keduanya ditulis pada 26 Oktober,
+sebelum tinjauan ulang. Pada 29 Oktober run yang **sama** ditolak.
+
+Berkas ini sebelumnya tidak memuat catatan itu, sedangkan
+`03_Hasil/audit/audit_log_edu_orchestrator.md` §7 sudah memuatnya sejak 31 Oktober. Akibatnya dua
+berkas audit untuk run yang sama bercerita berbeda: yang satu `APPROVE` tanpa penolakan, yang lain
+`APPROVE` **setelah** penolakan. Pembaca yang membandingkan berkas ini dengan
+`review_kepatuhan_R001-R011_2026-10-29.md` akan menemukan kontradiksinya dalam hitungan menit.
+
+Bagian ini menutup kontradiksi tersebut. Uraian lengkap ada di audit log utama §7; di sini hanya
+dicatat bagian yang menyangkut berkas dan draf di folder ini.
+
+### 7.2 Riwayat sebenarnya
+
+| Waktu | Kejadian | Bukti |
+|-------|----------|-------|
+| 2026-10-26 18:35 | Run dijalankan; Reviewer Pass 1 `APPROVE` (§3.3) | §3.1–§3.3 di atas |
+| 2026-10-29 | **Tinjauan ulang independen: `REJECT`** — R001 Critical, R011 Critical, R004 Major | `review_kepatuhan_R001-R011_2026-10-29.md` |
+| 2026-10-29→30 | Remediasi: `source_material_energi.md` dibuat, konteks aktual bertaut URL, draf di-re-tag | `08_Referensi/source_material_energi.md`, `konteks_aktual.md` |
+| 2026-10-30 | **Re-review dari nol: `APPROVE`** — 0 Critical, 0 Major | `review_kepatuhan_R001-R011_2026-10-30_REVISI.md` |
+| 2026-11-05 | Draf `01`–`05` di folder ini di-re-tag ulang (§7.4) | Entri ini |
+
+### 7.3 Apa yang ditolak, dan apa yang diperbaiki
+
+| Rule | Temuan 29 Okt | Perbaikan | Verifikasi |
+|------|---------------|-----------|------------|
+| **R001** Critical | Tag `[src:B5]`/`[src:C4]`/`[src:B3]` merujuk **CP**, bukan source material. Source material resmi justru bertopik karhutla, bukan energi | Dibuat `source_material_energi.md` dengan `[src:1]`–`[src:9]`; draf di-re-tag ke fakta | ✅ 30 Okt (lihat §7.4) |
+| **R011** Critical | CA1 (PLTS Cirata) dan CA6 (Net Zero 2060) tidak punya dokumen sumber resmi/bertanggal | Dibuat `konteks_aktual.md` dengan URL resmi + tanggal akses | ✅ |
+| **R004** Major | Topik draf (energi) tidak didukung source material (karhutla) | `00_run_config.md` dan RPP menunjuk `source_material_energi.md` | ✅ |
+| Fakta | "145 MWp" tidak tepat | Dikoreksi menjadi **145 MWac (192 MWp)**, diresmikan **9 November 2023** | ✅ |
+
+### 7.4 Draf di folder ini baru di-re-tag pada 5 November 2026
+
+Perbaikan R001 di atas dinyatakan selesai pada 30 Oktober, tetapi re-tagging hanya diterapkan pada
+satu salinan draf, yaitu `03_Hasil/materi_ajar/`. Draf di folder ini (`01`–`05`) masih memakai tag
+kurikulum untuk menopang fakta, sehingga pemeriksaan deterministik mencatat **73 pelanggaran kelas
+tag** — meskipun §3.3 dan §3.8 sudah menyatakan R001 lulus.
+
+Pada 5 November 2026 draf di folder ini diselaraskan dengan versi terkoreksi:
+
+- 58 baris di-re-tag otomatis setelah dipasangkan dengan draf di `materi_ajar/`; 8 baris sisanya
+  ditangani manual karena kalimatnya berbeda.
+- Koreksi `145 MWp → 145 MWac (192 MWp)` dan `beroperasi 2023 → diresmikan 9 November 2023` ikut
+  diterapkan ke draf `.md` — inilah selisih yang dicatat sebagai cacat terbuka di §3.8.3.
+- Klausa "melalui pengurangan sampah energi & penghijauan" pada butir CA6 dihapus: `[src:CA6]` hanya
+  memuat target *net sink* 2030 dan *net zero* 2060, tidak memuat mekanisme tersebut.
+- Header `01`–`05` diperbarui: konvensi `[src:#]` yang tidak pernah terisi diganti dengan
+  `[src:1]`–`[src:9]` (fakta) dan `[src:CA1]`/`[src:CA6]` (konteks aktual).
+
+**Hasil:** `tools/check_grounding.py` → **PASS, 121 tag, 0 dangling, 0 pelanggaran kelas** — angka yang
+sama dengan `03_Hasil/materi_ajar/`, yang berarti kedua salinan kini bertemu di versi yang sama.
+
+### 7.5 Yang tidak berubah
+
+§3.1–§3.8 dan §4–§6 dibiarkan apa adanya sebagai jejak keadaan pada saat ditulis, termasuk kalimat
+§3.3 yang menyebut `APPROVE` tanpa penolakan. Bagian itu **tidak** ditulis ulang; koreksinya ada di
+sini. Nomor iterasi pada §5 juga tidak diubah — koreksi hitungannya ada di audit log utama §7.5.

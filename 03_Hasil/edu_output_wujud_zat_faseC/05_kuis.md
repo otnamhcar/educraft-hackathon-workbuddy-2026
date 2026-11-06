@@ -123,23 +123,60 @@ terutama oleh suhu `[src:W3]`, sementara kedua peristiwa adalah perubahan wujud 
 
 ---
 
-## Batas butir — apa yang sengaja tidak ditanyakan
+## D. Butir tambahan — ciri wujud dan arah proses
 
-**Tidak ada butir arah proses.** Kuis ini tidak menanyakan "padat menjadi gas disebut apa" atau
-"mengembun adalah perubahan dari wujud apa ke wujud apa". Alasannya: sumber resmi menyebut enam
-**nama** proses, tetapi tidak memetakan arahnya. Pemetaan arah adalah turunan tim `[src:W10]`, bukan
-kutipan. Butir yang bertumpu pada turunan tidak boleh diujikan tanpa persetujuan guru.
+> ✅ *Disetujui guru 5 November 2026.* Bagian ini **terpisah** dari 11 butir pretes/postes di atas dan
+> **tidak dihitung** dalam skor gain, agar hasil pretes/postes tetap sebanding dengan run sebelumnya.
+> Guru boleh memakai seluruhnya, memilih sebagian, atau melewatinya.
 
-Bila guru menyetujui pemetaan `[src:W10]`, butir arah proses dapat ditambahkan sebagai **bagian
-terpisah berlabel** — jangan dicampur ke dalam 11 butir di atas, agar hasil pretes dan postes tetap
-dapat dibandingkan dengan run sebelumnya.
+**12.** Zat yang bentuk dan volumenya tetap adalah … `[src:W12]`
+
+- A. padat
+- B. cair
+- C. gas
+- D. uap
+
+**13.** Zat cair memiliki ciri … `[src:W12]`
+
+- A. bentuk tetap dan volume tetap
+- B. bentuk mengikuti wadah dan volume tetap
+- C. bentuk dan volume mengikuti wadah
+- D. bentuk tetap dan volume berubah
+
+**14.** Perubahan wujud dari cair menjadi gas disebut … `[src:W10]` `[src:W2]`
+
+- A. menguap
+- B. mengembun
+- C. menyublim
+- D. mengkristal
+
+**15.** Perubahan wujud dari gas langsung menjadi padat disebut … `[src:W10]` `[src:W2]`
+
+- A. mencair
+- B. membeku
+- C. menyublim
+- D. mengkristal
+
+### Kunci bagian D
+
+| No | Kunci | Dasar |
+|----|-------|-------|
+| 12 | **A** | `[src:W12]` — padat: bentuk tetap, volume tetap |
+| 13 | **B** | `[src:W12]` — cair: bentuk mengikuti wadah, volume tetap |
+| 14 | **A** | `[src:W10]` `[src:W2]` — cair → gas = menguap |
+| 15 | **D** | `[src:W10]` `[src:W2]` — gas → padat = mengkristal |
+
+---
+
+## Batas butir — apa yang tetap tidak ditanyakan
 
 **Tidak ada butir angka suhu.** Sumber tidak memuat titik lebur, titik didih, atau angka suhu apa
-pun `[UNVERIFIED]` **PERLU KONFIRMASI GURU**. Butir seperti "air membeku pada suhu …" tidak boleh
-dibuat dari paket ini.
+pun. Guru memutuskan angka tetap dibiarkan kosong, sehingga butir seperti "air membeku pada suhu …"
+tidak boleh dibuat dari paket ini.
 
-**Tidak ada butir ciri-ciri wujud.** Sumber tidak memuat ciri seperti bentuk tetap atau mengikuti
-wadah, sehingga butir "zat cair memiliki bentuk …" tidak dapat dipertanggungjawabkan dari sumber ini.
+**Arah proses dan ciri wujud — sudah boleh diujikan.** ✅ *Keputusan guru 5 Nov 2026.* Keduanya kini
+memiliki sumber yang sah — `[src:W10]` untuk arah proses (divalidasi guru) dan `[src:W12]` untuk ciri
+wujud (referensi tambahan). Butirnya diletakkan di bagian D, terpisah dari 11 butir inti.
 
 **Bukan soal, tetapi perlu keputusan guru:** butir 2 memakai kata "mengering" sebagai pengecoh.
 Kata itu diambil dari pengalaman sehari-hari murid, bukan dari sumber. Bila guru menilai pengecoh ini
@@ -153,13 +190,18 @@ membingungkan, ganti dengan kata netral yang juga tidak ada dalam daftar enam pr
 |--------------------------------|-------|
 | 1. Tiga wujud zat | 1, 7 |
 | 2. Mengenali wujud pada bahan sekitar *(turunan)* | — *(tidak diujikan; bertumpu pada `[src:W11]`)* |
-| 3. Enam nama proses | 2, 8 |
-| 4. Suhu sebagai faktor | 3, 11 |
-| 5. Mencatat suhu dan waktu | 4, 9 |
-| 6. Menyimpulkan dari data | 10 |
-| 7. Konteks isu | 5, 6 |
+| 3. Ciri tiga wujud: bentuk dan volume | 12, 13 |
+| 4. Enam nama proses | 2, 8 |
+| 5. Arah perubahan wujud | 14, 15 |
+| 6. Suhu sebagai faktor | 3, 11 |
+| 7. Mencatat suhu dan waktu | 4, 9 |
+| 8. Menyimpulkan dari data | 10 |
+| 9. Konteks isu | 5, 6 |
+
+> **Catatan.** Butir 12–15 berada di bagian D dan tidak dihitung dalam skor gain. Tujuan 2 belum
+> diujikan karena bertumpu pada `[src:W11]`, yang masih menunggu validasi guru.
 
 ## Sumber yang dipakai
 
 `[src:W1]` · `[src:W2]` · `[src:W3]` · `[src:W4]` · `[src:W5]` · `[src:W6]` · `[src:W7]` ·
-`[src:W8]` · `[src:W10]` *(turunan — dirujuk sebagai batas, bukan sebagai dasar butir)*
+`[src:W8]` · `[src:W10]` *(turunan, ✅ divalidasi)* · `[src:W12]` *(referensi tambahan)*

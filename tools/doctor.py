@@ -34,6 +34,10 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 PKG = REPO_ROOT / "05_Bukti_Proses" / "skills_package"
 KNOWLEDGE = REPO_ROOT / "08_Referensi"
 CHECKER = REPO_ROOT / "tools" / "check_grounding.py"
+SITASI = REPO_ROOT / "tools" / "check_sitasi.py"
+# Runs that use the class-facing citation convention (no [src:] codes in RPP/slide,
+# none at all in the quiz, tags kept in 05_Jejak_Sumber.md). Older runs predate it
+# and are reported as SKIP by the checker. Assigned after RUNS below.
 
 KNOWLEDGE_FILES = (
     "rulebook_ipas.md",
@@ -49,8 +53,14 @@ KNOWLEDGE_FILES = (
 COPY_GROUPS = ("rulebook_ipas.md", "source_material_wujud_zat.md",
                "source_material_tata_surya.md")
 
-RUNS = ("03_Hasil/materi_ajar", "03_Hasil/edu_output_wujud_zat",
+RUNS = ("03_Hasil/materi_ajar", "03_Hasil/edu_output",
+        "03_Hasil/edu_output_wujud_zat",
         "03_Hasil/edu_output_wujud_zat_faseC", "03_Hasil/edu_output_tata_surya")
+
+# Every run is checked; a run that predates the convention comes back as SKIP.
+# Listing them all means a run which adopts the convention later is picked up
+# automatically, instead of depending on someone remembering to add it here.
+SITASI_RUNS = RUNS
 
 
 # --------------------------------------------------------------------------- #
@@ -214,6 +224,41 @@ def check_grounding(rep):
             pass  # a leftover temp file is not worth failing the run over
 
 
+def check_sitasi(rep):
+    rep.heading("7. Citation convention (class-facing documents)")
+    if not SITASI.is_file():
+        rep.no("{} not found".format(SITASI))
+        return
+
+    def summary(output):
+        lines = [ln.strip() for ln in (output or "").splitlines() if ln.strip()]
+        for ln in reversed(lines):
+            if ln.startswith(("PASS:", "FAILED:")):
+                return ln
+        return lines[-1] if lines else "(no output)"
+
+    for run in SITASI_RUNS:
+        command = [sys.executable, str(SITASI), "--run", run]
+        try:
+            result = subprocess.run(
+                command,
+                cwd=str(REPO_ROOT),
+                stdout=subprocess.PIPE,
+                stderr=subprocess.STDOUT,
+                universal_newlines=True,
+            )
+        except OSError as exc:
+            rep.no("{} -- could not start the checker: {}".format(run, exc))
+            continue
+        line = summary(result.stdout)
+        if result.returncode != 0:
+            rep.no("{} -- {}".format(run, line))
+        elif line.startswith("SKIP"):
+            rep.warn("{} -- {}".format(run, line))
+        else:
+            rep.ok("{} -- {}".format(run, line))
+
+
 # --------------------------------------------------------------------------- #
 
 def main(argv=None):
@@ -246,6 +291,7 @@ def main(argv=None):
     check_knowledge(rep)
     check_copies(rep)
     check_grounding(rep)
+    check_sitasi(rep)
 
     print("\n" + "-" * 32)
     print("  {} passed / {} failed / {} warning".format(rep.passed, rep.failed, rep.warned))

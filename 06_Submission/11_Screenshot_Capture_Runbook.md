@@ -168,6 +168,13 @@ Frame harus memuat kata `APPROVE` (atau `REJECT` + rule) dan daftar `findings`.
 **Ambil `S1-04_approval_pending.png`** ← ini **TC-14**, bukti terpenting sesi ini.
 Frame harus memuat dua baris: `Human approver: PENDING` dan `Publish status: BELUM / PENDING`.
 
+> ⚠️ **Sejak 5 November 2026 langkah ini tidak dapat diulang pada run yang sudah ada.** Keempat run
+> sudah disetujui guru, sehingga `00_run_config.md` kini menulis `APPROVED_FOR_USE`, bukan `PENDING`.
+> Tangkapan layar `S1-04_approval_pending.png` yang ada diambil **sebelum** persetujuan dan tetap sah
+> sebagai bukti bahwa gerbang menahan penerbitan. Untuk mereproduksinya, jalankan run baru dan ambil
+> frame ini **sebelum** guru menyetujui — jangan menyunting berkas run yang sudah disetujui agar
+> tampak `PENDING`.
+
 **1.6** Buka audit log. **Ambil `S1-05_audit_log.png`**
 Frame harus memuat urutan Planner → Writer → Reviewer dan nomor iterasi.
 

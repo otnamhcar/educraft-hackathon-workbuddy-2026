@@ -24,10 +24,12 @@ What it does
 Scope — drafts only
 -------------------
 Run **metadata** is skipped: `audit_log.md`, `05_review.md`, `grounding_report.md`,
-`00_run_config.md`, and `11_Memo_*` correction memos. Those files quote tags as evidence or
-declare which tags a run uses; they do not assert a fact *with* a tag. Counting them produced
-four false CLASS violations on 31 October 2026, when a run config was first added to a run
-folder. Skipped files are named in every report so the exclusion is visible, never silent.
+`00_run_config.md`, `11_Memo_*` correction memos, and approval records (`*Persetujuan*`,
+`*Approval*`). Those files quote tags as evidence, declare which tags a run uses, or record a
+human decision; they do not assert a fact *with* a tag. Counting them produced four false CLASS
+violations on 31 October 2026, when a run config was first added to a run folder. On 5 November
+2026 an approval sheet raised the total by one for the same reason. Skipped files are named in
+every report so the exclusion is visible, never silent.
 
 Usage
 -----
@@ -65,7 +67,9 @@ SKIP_PREFIXES = ("11_Memo_",)
 # inflates the total and can raise false CLASS violations. Runs number their files
 # differently (05_review.md on the 30 Oct run, 06_review.md / 07_review_pass2.md on
 # 4 Nov), so match on the role in the name rather than on a fixed number.
-SKIP_ROLE_PATTERN = re.compile(r"review", re.IGNORECASE)
+# Approval records (04_Lembar_Persetujuan_Guru.md) name tags while recording a human
+# decision; they are governance metadata, not drafts, so they are skipped the same way.
+SKIP_ROLE_PATTERN = re.compile(r"review|persetujuan|approval", re.IGNORECASE)
 
 
 def is_metadata(name: str) -> bool:

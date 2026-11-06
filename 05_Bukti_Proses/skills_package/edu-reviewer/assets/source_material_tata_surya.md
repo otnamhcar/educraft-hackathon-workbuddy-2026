@@ -2,6 +2,9 @@
 
 > **Status:** sumber fakta untuk run `EDU-ORCH-20261105-003`.
 > **Dibuat:** 5 November 2026.
+> **Status persetujuan:** ✅ Entri `TS10` dan `TS11` **disetujui guru** (don Jimat Akbar) pada
+> 5 November 2026 sebagai fakta yang boleh dipakai dan diujikan. Berkas keputusan:
+> `03_Hasil/edu_output_tata_surya/04_Lembar_Persetujuan_Guru.md`.
 >
 > **Provenance:** seluruh entri `[src:TS1]`–`[src:TS9]` adalah **kutipan/parafrase dekat** dari
 > *Panduan Mata Pelajaran IPAS, Revisi 4, 3 Oktober 2025* (Puskurjar, Kemendikdasmen), bagian
@@ -130,6 +133,60 @@ disetujui guru.
 
 ---
 
+## [src:TS12] Ciri-ciri umum planet — **REFERENSI TAMBAHAN, BUKAN KUTIPAN PANDUAN IPAS**
+> **Sumber:** NASA Science — *About the Planets* (`science.nasa.gov/solar-system/planets/`),
+> *Venus Facts* (`science.nasa.gov/venus/venus-facts/`), *Jupiter Facts*
+> (`science.nasa.gov/jupiter/jupiter-facts/`). Diakses dan diverifikasi 5 November 2026.
+> **Dasar penambahan:** sumber utama menyebut murid mempelajari "ciri-ciri umum planet" `[src:TS2]`
+> tetapi tidak merinci satu pun. Entri ini mengisi kekosongan itu atas keputusan guru 5 November 2026.
+
+### a. Urutan dari matahari, peringkat ukuran, dan kelompok
+
+| No | Planet | Peringkat ukuran | Kelompok |
+|----|--------|-----------------|----------|
+| 1 | Merkurius | terkecil (8) | planet dalam |
+| 2 | Venus | keenam (6) | planet dalam |
+| 3 | Bumi | kelima (5) | planet dalam |
+| 4 | Mars | ketujuh (7) | planet dalam |
+| 5 | Jupiter | terbesar (1) | raksasa gas |
+| 6 | Saturnus | kedua (2) | raksasa gas |
+| 7 | Uranus | ketiga (3) | raksasa es |
+| 8 | Neptunus | keempat (4) | raksasa es |
+
+**Kutipan pendukung** (NASA, *About the Planets*):
+- "Mercury is the planet nearest to the Sun, and the smallest planet in our solar system."
+- "Venus is the second planet from the Sun, and the sixth largest planet."
+- "Earth – our home planet – is the third planet from the Sun, and the fifth largest planet."
+- "Mars is the fourth planet from the Sun, and the seventh largest planet."
+- "Jupiter is the fifth planet from the Sun, and the largest planet in our solar system."
+- "Saturn is the sixth planet from the Sun, the second largest planet in our solar system."
+- "Uranus is the seventh planet from the Sun, and the third largest planet in our solar system."
+- "Neptune is the eighth and most distant planet in our solar system. It's the fourth largest planet."
+
+### b. Pengelompokan planet
+
+- "The first four planets from the Sun are Mercury, Venus, Earth, and Mars. These inner planets also
+  are known as terrestrial planets because they have solid surfaces."
+- "The giant planets in the outer solar system don't have hard surfaces. Instead, they have swirling
+  gases above a core."
+- "Jupiter and Saturn are gas giants. Uranus and Neptune are ice giants."
+
+### c. Dua ciri khas yang mudah diingat murid
+
+- **Venus — planet terpanas.** "Its thick atmosphere traps heat in a runaway greenhouse effect,
+  making it the hottest planet in our solar system with surface temperatures hot enough to melt lead
+  — about 872 degrees Fahrenheit (467 Celsius)." Venus juga tidak memiliki bulan dan tidak memiliki
+  cincin.
+- **Jupiter — planet terbesar.** "if it were a hollow shell, 1,000 Earths could fit inside";
+  "Jupiter's iconic Great Red Spot is a giant storm bigger than Earth that has raged for hundreds of
+  years"; "One day on Jupiter takes 9.9 hours".
+
+**Catatan kejujuran:** entri ini **bukan** dari Panduan IPAS. Data diambil dari NASA dan diperiksa
+pada 5 November 2026. Bila materi akan dicetak atau disebarkan, guru disarankan memeriksa ulang
+tautan sumber di atas — alamat web dapat berubah, isi NASA dapat diperbarui.
+
+---
+
 ## Batas sumber ini
 
 - Tidak memuat nama planet satu per satu. Daftar nama planet di `[src:TS10]` adalah turunan tim.
@@ -138,5 +195,6 @@ disetujui guru.
   adalah turunan tim.
 - Tidak memuat ciri-ciri khas tiap planet (ukuran, warna, jumlah satelit). Klaim semacam itu
   harus ditandai `[UNVERIFIED]` + `PERLU KONFIRMASI GURU` atau ditambahkan ke sumber ini dengan
-  rujukan jelas.
+  rujukan jelas. **Status 5 Nov 2026:** kekosongan ini diisi oleh `[src:TS12]` (referensi tambahan
+  NASA) atas keputusan guru.
 - Tidak ada entri Konteks Aktual (`[src:CA#]`) yang relevan; R011 dinilai `N/A` beralasan.
