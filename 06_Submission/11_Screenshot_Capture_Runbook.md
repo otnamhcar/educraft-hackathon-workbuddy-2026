@@ -43,7 +43,7 @@ edu-reviewer
 edu-writer
 ```
 
-`tools/doctor.py` lulus **14 passed / 0 failed / 0 warning** (exit 0) pada keadaan ini — diukur di
+`tools/doctor.py` lulus **19 passed / 0 failed / 0 warning** (exit 0) pada keadaan ini — diukur di
 mesin Windows, 6 Nov 2026 (run `-005` sudah terdaftar; angkanya naik dari 13/0/4). Sebelumnya — sampai 31 Okt pagi —
 bagian ini mencatat bahwa **tidak ada satu pun** entri `edu-*`, dan itu membuat setiap sesi gagal
 di langkah pertama. Sudah diperbaiki, tetapi **periksa lagi sebelum sesi pertama**: kalau
@@ -61,7 +61,7 @@ Kalau ternyata kosong, urutan pemulihannya:
 2. **Mulai ulang sesi WorkBuddy** — daftar skill dibaca saat sesi dibuka.
 3. Verifikasi, jangan diasumsikan:
    ```bat
-   python tools\doctor.py       :: harus 14 passed / 0 failed, exit 0
+   python tools\doctor.py       :: harus 19 passed / 0 failed, exit 0
    ```
    Di Linux/macOS: `python3 tools/doctor.py`. Angka yang sama, kode yang sama.
 4. Uji satu kali di chat baru: `Gunakan edu-planner untuk ...`. Kalau skill tidak terpanggil,
@@ -456,7 +456,7 @@ dipertanggungjawabkan saat ditanya juri di Demo Day.
 ## 10. Checklist satu halaman (cetak / tempel di samping layar)
 
 **Persiapan**
-- [ ] **`python tools/doctor.py` → 14 passed / 0 failed, exit 0** (diperiksa 6 Nov 2026)
+- [ ] **`python tools/doctor.py` → 19 passed / 0 failed, exit 0** (diperiksa 6 Nov 2026)
 - [ ] Sesi WorkBuddy di-restart setelah pemasangan
 - [ ] Uji panggil `edu-planner` satu kali di chat baru
 - [ ] Folder `S1`–`S4` dibuat

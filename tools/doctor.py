@@ -56,7 +56,12 @@ COPY_GROUPS = ("rulebook_ipas.md", "source_material_wujud_zat.md",
 RUNS = ("03_Hasil/materi_ajar", "03_Hasil/edu_output",
         "03_Hasil/edu_output_wujud_zat",
         "03_Hasil/edu_output_wujud_zat_faseC", "03_Hasil/edu_output_tata_surya",
-        "03_Hasil/edu_output_energi_alternatif")
+        "03_Hasil/edu_output_energi_alternatif",
+        "03_Hasil/edu_output_energi_alternatif_faseC",
+        "03_Hasil/edu_output_energi_alternatif_faseC_007",
+        "03_Hasil/edu_output_energi_alternatif_faseC_008",
+        "03_Hasil/edu_output_energi_alternatif_faseC_009_versi_bersih",
+        "03_Hasil/edu_output_energi_alternatif_faseC_010")
 
 # Each run is built on exactly one source sheet. Two sheets number their anchors
 # from 1 (`source_material_ipas.md`, `source_material_energi.md`), so a tag like
@@ -70,6 +75,14 @@ RUN_SOURCES = {
     "03_Hasil/edu_output_wujud_zat_faseC": "source_material_wujud_zat.md",
     "03_Hasil/edu_output_tata_surya": "source_material_tata_surya.md",
     "03_Hasil/edu_output_energi_alternatif": "source_material_energi.md",
+    "03_Hasil/edu_output_energi_alternatif_faseC": "source_material_energi.md",
+    "03_Hasil/edu_output_energi_alternatif_faseC_007": "source_material_energi.md",
+    "03_Hasil/edu_output_energi_alternatif_faseC_008": "source_material_energi.md",
+    "03_Hasil/edu_output_energi_alternatif_faseC_009_versi_bersih": "source_material_energi.md",
+    # Run -010 dijalankan di atas berkas uji (salinan lembar ini + satu baris
+    # instruksi tertanam tanpa tag). Penomoran [src:1]-[src:9] identik, jadi
+    # resolusi tetap menunjuk lembar aslinya.
+    "03_Hasil/edu_output_energi_alternatif_faseC_010": "source_material_energi.md",
 }
 
 # Every run is checked; a run that predates the convention comes back as SKIP.
