@@ -19,7 +19,7 @@ Options:
     --delay <s>        countdown before the grab, default 5
     --region <l,t,r,b> crop to a box instead of the whole screen
     --all-screens      capture every monitor as one image
-    --min-width <px>   width the checker expects, default 1600
+    --min-width <px>   width the checker expects, default 1366
     --force            overwrite an existing file (avoid: it is evidence)
     --no-color         plain text
 
@@ -89,8 +89,8 @@ def main(argv=None):
                         help="crop box: left,top,right,bottom")
     parser.add_argument("--all-screens", action="store_true",
                         help="capture every monitor into one image")
-    parser.add_argument("--min-width", type=int, default=1600,
-                        help="width the checker expects (default 1600)")
+    parser.add_argument("--min-width", type=int, default=1366,
+                        help="width the checker expects (default 1366)")
     parser.add_argument("--force", action="store_true", help="overwrite existing file")
     parser.add_argument("--no-color", action="store_true", help="plain text")
     args = parser.parse_args(argv)

@@ -52,7 +52,8 @@ Buka berkas itu di samping formulir, lalu tempel bagian per bagian. Jangan difor
 1. **Simpan di subfolder yang tertulis**, bukan di akar `03_screenshots/`: `S1_golden_path/`,
    `S2_refusal_cycle/`, `S3_escalation/`, `S4_extras/`. Berkas di akar dianggap "stray", dan
    kebutuhan wajibnya tetap dihitung kosong.
-2. **Lebar minimal 1600 px.** Tangkap pada jendela selebar ≥1600 px; jendela 1280 px ditolak checker.
+2. **Lebar minimal 1366 px.** Itu lebar panel mesin ini (runbook §1.4a, keputusan 6 Nov 2026);
+   jendela yang diperkecil ditolak checker.
 3. **ID aturan dan kalimat yang dikutip terbaca pada zoom 100%** di laptop 1080p. Kalau juri harus
    menyipitkan mata, screenshot itu tidak dihitung.
 

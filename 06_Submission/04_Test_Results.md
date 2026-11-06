@@ -144,7 +144,7 @@ Pembuatannya dapat diulang: `python3 tools/render_evidence.py --help`.
 Daftar berkas wajib (12 berkas) ada di `00_SUBMISSION_CHECKLIST.md` §3 dan disalin dari
 `05_Bukti_Proses/evidence_bundle/03_screenshots/INDEX.md` — `INDEX.md` yang mengikat, karena
 `tools/check_capture.py` membacanya. Konvensi penamaan: `S2_refusal_cycle/TC-08_reject-R006.png` —
-**subfolder ikut ditulis**, dan lebar gambar minimal 1600 px.
+**subfolder ikut ditulis**, dan lebar gambar minimal 1366 px.
 
 ---
 

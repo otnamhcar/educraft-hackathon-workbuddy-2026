@@ -7,6 +7,11 @@
 > `EDU-ORCH-20261026-001` (yang artefaknya sudah di-APPROVE). Sebutkan hal ini di
 > `06_Submission/04_Test_Results.md` §3.
 
+> **Batas resolusi — keputusan 6 November 2026.** Layar mesin ini 1366×768, jadi ambang lebar
+> diturunkan dari 1600 px menjadi **1366 px** (`tools/check_capture.py` bawaan, runbook §1.4a).
+> Delapan berkas yang sudah ada tetap 1600 px karena dirender dari berkas hasil run, bukan dari
+> layar. Tidak ada gambar yang diperbesar untuk lolos ambang.
+
 ---
 
 ## A. Tujuh adegan wajib (`evidence_bundle/README.md`)

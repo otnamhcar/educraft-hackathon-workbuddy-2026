@@ -21,7 +21,7 @@ personal data leaked into the frame. Those need eyes. See runbook section 0.
 Options:
     --dir <path>       screenshot folder (default: the evidence bundle)
     --index <path>     tracker file (default: INDEX.md inside that folder)
-    --min-width <px>   minimum width, default 1600 (runbook standard)
+    --min-width <px>   minimum width, default 1366 (this laptop's panel)
     --no-color         plain text, also honoured via the NO_COLOR environment
 
 Exit codes: 0 = every mandatory shot present and valid, 1 = at least one problem,
@@ -38,8 +38,12 @@ from _report import Reporter, harden_console, use_color  # noqa: E402
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_DIR = REPO_ROOT / "05_Bukti_Proses" / "evidence_bundle" / "03_screenshots"
-MIN_WIDTH = 1600
-SUSPICIOUS_BYTES = 8 * 1024  # a real 1600px screenshot is far larger than this
+# 1366 = this laptop's panel width. The runbook standard was 1600 until 6 Nov
+# 2026; the screen cannot reach it, so the team lowered the bar deliberately
+# rather than upscaling captures. See runbook section 1.4a. Override with
+# --min-width on a wider machine.
+MIN_WIDTH = 1366
+SUSPICIOUS_BYTES = 8 * 1024  # a real screenshot is far larger than this
 
 PNG_SIG = b"\x89PNG\r\n\x1a\n"
 FILE_RE = re.compile(r"`([^`]+\.png)`")
