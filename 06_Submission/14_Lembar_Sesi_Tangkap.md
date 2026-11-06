@@ -4,7 +4,7 @@
 (cara) atau `12_Capture_Prompts.txt` (prompt). Halaman ini hanya menjawab: apa yang dipaste, apa yang
 harus muncul, dan berkas apa yang harus keluar — supaya tidak ada sesi yang dijalankan dua kali.
 
-**Sisa 6 berkas wajib** (per 6 Nov 2026, `check_capture.py` → 11 passed / 6 failed):
+**Sisa 6 berkas wajib** (per 6 Nov 2026, `check_capture.py` → 12 passed / 6 failed / 2 warning):
 
 | Berkas | Sesi |
 |--------|------|
@@ -83,7 +83,9 @@ memberi tahu pengguna.
    python3 tools/check_capture.py         # Linux / macOS
    ```
 
-   Target: **17 passed / 0 failed**. Kalau masih ada `FAIL`, jangan lanjut ke formulir.
+   Target: **18 passed / 0 failed**. Kalau masih ada `FAIL`, jangan lanjut ke formulir.
+   (Angka ini naik dari 17 setelah `check_capture.py` diperbaiki 6 Nov 2026: bagian "stray files"
+   kini ikut dinilai `PASS` di Windows, bukan lagi `WARN` palsu.)
 3. Perbarui `06_Submission/04_Test_Results.md`: baris TC-08, TC-10, TC-13, TC-15, TC-21 dari
    `BY DESIGN`/`TO RUN` menjadi `PASS` **hanya bila** gambarnya benar-benar menunjukkan vonisnya.
    Hitung ulang papan skor §1 supaya tetap 21.
