@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RPP IPAS - Tata Surya</title>
+<style>
+  /* Page rules - body with footer page number */
+  @page {
+    @bottom-center { content: "Halaman " counter(page); }
+    margin: 2.5cm 2cm 2.5cm 2cm;
+  }
+  /* Cover page - no header/footer */
+  @page cover {
+    @bottom-center { content: none; }
+  }
+  section[role="cover"] { page: cover; }
+
+  body {
+    font-family: "SimSun", "宋体", serif;
+    font-size: 12pt;
+    line-height: 1.8;
+    color: #1a1a1a;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Cover section */
+  .cover-container {
+    text-align: center;
+    padding-top: 120px;
+    min-height: 600px;
+  }
+  .cover-org {
+    font-size: 14pt;
+    color: #2c5282;
+    font-weight: bold;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+  }
+  .cover-title {
+    font-size: 28pt;
+    font-weight: bold;
+    color: #1a365d;
+    margin: 30px 0 10px 0;
+    padding: 0 40px;
+  }
+  .cover-subtitle {
+    font-size: 18pt;
+    color: #4a5568;
+    margin: 10px 0;
+    font-weight: normal;
+  }
+  .cover-divider {
+    width: 200px;
+    height: 3px;
+    background: #2c5282;
+    margin: 25px auto;
+    border: none;
+  }
+  .cover-info {
+    margin-top: 50px;
+    font-size: 13pt;
+    color: #4a5568;
+    line-height: 2;
+  }
+  .cover-info strong {
+    color: #1a365d;
+  }
+
+  /* Body sections */
+  section[role="body"] {
+    padding: 0;
+  }
+  section.chapter {
+    margin-bottom: 20px;
+  }
+
+  /* Headings */
+  h1 {
+    font-size: 16pt;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #2c5282;
+    padding: 8px 16px;
+    margin: 25px 0 15px 0;
+    border-radius: 3px;
+    page-break-before: auto;
+  }
+  h1:first-of-type {
+    page-break-before: auto;
+  }
+  h2 {
+    font-size: 14pt;
+    font-weight: bold;
+    color: #1a365d;
+    border-bottom: 2px solid #2c5282;
+    padding-bottom: 5px;
+    margin: 20px 0 10px 0;
+  }
+  h3 {
+    font-size: 13pt;
+    font-weight: bold;
+    color: #2c5282;
+    margin: 15px 0 8px 0;
+  }
+
+  /* Paragraphs */
+  p {
+    text-align: justify;
+    text-indent: 2em;
+    margin: 8px 0;
+    line-height: 1.8;
+  }
+  p.no-indent {
+    text-indent: 0;
+  }
+
+  /* Lists */
+  ul, ol {
+    margin: 8px 0 8px 2em;
+    padding-left: 1em;
+  }
+  li {
+    line-height: 1.8;
+    margin-bottom: 4px;
+  }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    font-size: 11pt;
+  }
+  th {
+    background-color: #2c5282;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 8px 10px;
+    border: 1px solid #2a4365;
+    text-align: center;
+  }
+  td {
+    padding: 6px 10px;
+    border: 1px solid #cbd5e0;
+    vertical-align: top;
+  }
+  tr:nth-child(even) td {
+    background-color: #f7fafc;
+  }
+
+  /* Blockquote */
+  blockquote {
+    border-left: 4px solid #2c5282;
+    background-color: #ebf4ff;
+    padding: 10px 16px;
+    margin: 10px 0;
+    font-style: italic;
+    color: #2a4365;
+    text-indent: 0;
+  }
+  blockquote p {
+    text-indent: 0;
+    margin: 4px 0;
+  }
+
+  /* HR */
+  hr.section-divider {
+    border: none;
+    border-top: 1px solid #e2e8f0;
+    margin: 20px 0;
+  }
+
+  /* Highlight boxes */
+  .info-box {
+    background-color: #f0f4f8;
+    border: 1px solid #cbd5e0;
+    border-left: 4px solid #2c5282;
+    padding: 12px 16px;
+    margin: 12px 0;
+    border-radius: 3px;
+  }
+  .info-box p {
+    text-indent: 0;
+    margin: 4px 0;
+  }
+
+  /* Footer note */
+  .footer-note {
+    font-size: 10pt;
+    color: #718096;
+    font-style: italic;
+    text-align: center;
+    margin-top: 30px;
+    text-indent: 0;
+    padding-top: 15px;
+    border-top: 1px solid #e2e8f0;
+  }
+</style>
+</head>
+<body>
+
+<!-- Cover Page -->
+<section role="cover">
+  <div class="cover-container">
+    <div class="cover-org">RENCANA PELAKSANAAN PEMBELAJARAN</div>
+    <hr class="cover-divider">
+    <div class="cover-title">TATA SURYA DAN GERAK BUMI</div>
+    <div class="cover-subtitle">Mata Pelajaran IPAS &mdash; Fase B (Kelas III-IV)</div>
+    <hr class="cover-divider">
+    <div class="cover-info">
+      <p class="no-indent"><strong>Kurikulum Merdeka</strong></p>
+      <p class="no-indent">Berdasarkan Permendikdasmen No. 13 Tahun 2025</p>
+      <p class="no-indent">&nbsp;</p>
+      <p class="no-indent"><strong>Mata Pelajaran:</strong> IPAS</p>
+      <p class="no-indent"><strong>Fase / Kelas:</strong> B / III-IV SD</p>
+      <p class="no-indent"><strong>Alokasi Waktu:</strong> 2 Pertemuan x 2 JP</p>
+    </div>
+  </div>
+</section>
+
+<!-- Body -->
+<section role="body" class="chapter" data-page-restart="1">
+
+<h1>A. IDENTITAS</h1>
+<table>
+<tr><th style="width:35%">Komponen</th><th>Keterangan</th></tr>
+<tr><td><strong>Mata Pelajaran</strong></td><td>IPAS (Ilmu Pengetahuan Alam dan Sosial)</td></tr>
+<tr><td><strong>Fase / Kelas</strong></td><td>Fase B (Kelas III-IV SD/MI)</td></tr>
+<tr><td><strong>Alokasi Waktu</strong></td><td>2 Pertemuan x 2 Jam Pelajaran (2 x 40 menit per pertemuan)</td></tr>
+<tr><td><strong>Topik</strong></td><td>Tata Surya, Susunan Planet, serta Rotasi dan Revolusi Bumi</td></tr>
+<tr><td><strong>Pendekatan</strong></td><td>Keterampilan Proses (Inkuiri Terbimbing)</td></tr>
+</table>
+
+<h1>B. CAPAIAN PEMBELAJARAN (CP)</h1>
+<p>Berdasarkan Kurikulum Merdeka (Permendikdasmen No. 13 Tahun 2025), capaian pembelajaran yang menjadi rujukan adalah:</p>
+
+<h3>Elemen Pemahaman IPAS &mdash; Fase B</h3>
+<blockquote><p>Murid mampu menjelaskan sistem tata surya, serta kaitannya dengan rotasi dan revolusi bumi.</p></blockquote>
+
+<h3>Elemen Keterampilan Proses &mdash; Fase B</h3>
+<blockquote><p>Murid mampu mengamati, mempertanyakan dan memprediksi, merencanakan dan melakukan penyelidikan, memproses dan menganalisis data, mengevaluasi dan refleksi, serta mengomunikasikan hasil.</p></blockquote>
+
+<h1>C. TUJUAN PEMBELAJARAN</h1>
+<p class="no-indent">Setelah mengikuti pembelajaran ini, murid mampu:</p>
+<ol>
+<li>Menyebutkan susunan planet-planet dalam tata surya secara berurutan (Merkurius sampai Neptunus).</li>
+<li>Menjelaskan ciri-ciri khas setiap planet dalam tata surya (ukuran, warna, dan posisi terhadap matahari).</li>
+<li>Membedakan antara rotasi bumi (berputar pada sumbunya) dan revolusi bumi (mengelilingi matahari).</li>
+<li>Mengaitkan rotasi bumi dengan peristiwa siang dan malam.</li>
+<li>Mengaitkan revolusi bumi dengan perubahan iklim dan musim di berbagai belahan bumi.</li>
+<li>Menunjukkan sikap kagum terhadap keteraturan alam semesta dan bersyukur atas penciptaan.</li>
+</ol>
+
+<h1>D. MATERI PEMBELAJARAN</h1>
+
+<h2>1. Pengertian Tata Surya</h2>
+<p>Tata surya adalah sistem yang terdiri dari matahari sebagai pusat dan planet-planet yang mengelilinginya. Matahari adalah benda langit berupa bola gas panas yang memancarkan cahaya dan panas. Delapan planet dalam tata surya bergerak mengelilingi matahari pada lintasan yang disebut orbit.</p>
+
+<h2>2. Susunan Planet dalam Tata Surya</h2>
+<p>Planet adalah benda langit yang mengelilingi matahari, tidak memancarkan cahaya sendiri, dan bergerak pada orbitnya. Delapan planet dalam tata surya disusun secara berurutan dari yang terdekat ke yang terjauh dari matahari:</p>
+<table>
+<tr><th style="width:5%">No</th><th style="width:15%">Planet</th><th>Ciri Khas</th></tr>
+<tr><td>1</td><td><strong>Merkurius</strong></td><td>Planet terkecil dan terdekat dengan matahari. Permukaannya berbatu dan penuh kawah.</td></tr>
+<tr><td>2</td><td><strong>Venus</strong></td><td>Planet terpanas karena atmosfernya yang tebal. Sering disebut bintang kejora.</td></tr>
+<tr><td>3</td><td><strong>Bumi</strong></td><td>Planet tempat kita tinggal, satu-satunya yang diketahui memiliki kehidupan. Memiliki air dan atmosfer.</td></tr>
+<tr><td>4</td><td><strong>Mars</strong></td><td>Planet berwarna kemerahan karena permukaannya kaya zat besi oksida. Sering disebut planet merah.</td></tr>
+<tr><td>5</td><td><strong>Jupiter</strong></td><td>Planet terbesar dalam tata surya. Memiliki bintik merah besar yang merupakan badai raksasa.</td></tr>
+<tr><td>6</td><td><strong>Saturnus</strong></td><td>Planet yang dikelilingi cincin indah terbuat dari es dan batu. Berwarna kekuningan.</td></tr>
+<tr><td>7</td><td><strong>Uranus</strong></td><td>Planet berwarna biru kehijauan. Berputar pada sisi sehingga tampak menggelinding.</td></tr>
+<tr><td>8</td><td><strong>Neptunus</strong></td><td>Planet terjauh dari matahari. Berwarna biru tua, memiliki angin sangat kencang.</td></tr>
+</table>
+
+<h2>3. Rotasi Bumi</h2>
+<p>Rotasi bumi adalah pergerakan bumi berputar pada sumbunya (garis imajiner dari kutub utara ke kutub selatan). Bumi melakukan rotasi dari barat ke timur dengan waktu kurang lebih 24 jam (1 hari). Akibat rotasi bumi terjadi peristiwa:</p>
+<ul>
+<li><strong>Pergantian siang dan malam</strong> &mdash; bagian bumi yang menghadap matahari mengalami siang, sedangkan bagian yang membelakangi matahari mengalami malam.</li>
+<li><strong>Gerak semu harian matahari</strong> &mdash; matahari tampak terbit di timur dan tenggelam di barat.</li>
+</ul>
+
+<h2>4. Revolusi Bumi</h2>
+<p>Revolusi bumi adalah pergerakan bumi mengelilingi matahari. Bumi melakukan revolusi dalam waktu kurang lebih 365,25 hari (1 tahun). Akibat revolusi bumi terjadi peristiwa:</p>
+<ul>
+<li><strong>Pergantian musim</strong> &mdash; belahan bumi utara dan selatan mengalami musim yang berbeda pada waktu yang sama.</li>
+<li><strong>Gerak semu tahunan matahari</strong> &mdash; posisi matahari tampak berpindah sepanjang tahun.</li>
+</ul>
+
+<h2>5. Peran dan Sikap Murid</h2>
+<p>Murid dapat mengembangkan sikap ilmiah dengan cara:</p>
+<ul>
+<li>Mengamati langit malam dan mengidentifikasi benda langit yang terlihat.</li>
+<li>Membuat model tata surya sederhana dari bahan sekitar.</li>
+<li>Menjaga rasa ingin tahu tentang fenomena alam semesta.</li>
+<li>Bersyukur atas keteraturan alam yang mendukung kehidupan di bumi.</li>
+</ul>
+
+<h1>E. KEGIATAN PEMBELAJARAN</h1>
+
+<h2>Pertemuan 1: Mengenal Tata Surya (2 x 40 menit)</h2>
+<table>
+<tr><th style="width:15%">Tahap</th><th style="width:55%">Kegiatan</th><th style="width:20%">Keterampilan Proses</th><th style="width:10%">Durasi</th></tr>
+<tr>
+<td><strong>Pendahuluan</strong></td>
+<td>1. Salam pembuka dan doa. 2. Apersepsi: "Pernahkah kalian melihat bintang di langit malam? Apa saja benda langit yang kalian ketahui?" 3. Menyampaikan tujuan pembelajaran.</td>
+<td>Mengamati, Mempertanyakan</td>
+<td>10 menit</td>
+</tr>
+<tr>
+<td><strong>Inti</strong></td>
+<td>
+<p class="no-indent"><strong>1. Mengamati:</strong> Guru menampilkan gambar/video tata surya. Murid mengamati susunan planet.</p>
+<p class="no-indent"><strong>2. Mempertanyakan &amp; Memprediksi:</strong> Murid mengajukan pertanyaan: "Mengapa planet tidak jatuh ke matahari? Mengapa bumi bisa bergerak?"</p>
+<p class="no-indent"><strong>3. Penyelidikan terbimbing:</strong> Murid berkelompok membuat model tata surya sederhana dengan kertas/bahan sekitar. Menyusun planet berurutan dari matahari.</p>
+<p class="no-indent"><strong>4. Analisis:</strong> Murid mencatat ciri khas tiap planet (ukuran, warna, jarak) dalam tabel pengamatan.</p>
+<p class="no-indent"><strong>5. Evaluasi:</strong> Membandingkan hasil kelompok, mendiskusikan perbedaan dan persamaan.</p>
+</td>
+<td>Mengamati &rarr; Mempertanyakan &amp; Memprediksi &rarr; Merencanakan &amp; Melakukan Penyelidikan &rarr; Memproses &amp; Menganalisis &rarr; Mengevaluasi &amp; Refleksi</td>
+<td>60 menit</td>
+</tr>
+<tr>
+<td><strong>Penutup</strong></td>
+<td>1. Menyimpulkan susunan tata surya. 2. Umpan balik: "Planet apa yang paling menarik menurut kalian? Mengapa?" 3. Mengajak murid mengamati langit malam di rumah.</td>
+<td>Mengomunikasikan Hasil, Refleksi</td>
+<td>10 menit</td>
+</tr>
+</table>
+
+<h2>Pertemuan 2: Rotasi dan Revolusi Bumi (2 x 40 menit)</h2>
+<table>
+<tr><th style="width:15%">Tahap</th><th style="width:55%">Kegiatan</th><th style="width:20%">Keterampilan Proses</th><th style="width:10%">Durasi</th></tr>
+<tr>
+<td><strong>Pendahuluan</strong></td>
+<td>1. Salam pembuka dan doa. 2. Mengingat kembali pertemuan sebelumnya: "Sebutkan planet tempat kita tinggal!" 3. Apersepsi: "Mengapa ada siang dan malam? Mengapa ada musim?" 4. Menyampaikan tujuan pembelajaran.</td>
+<td>Mengamati, Mempertanyakan</td>
+<td>10 menit</td>
+</tr>
+<tr>
+<td><strong>Inti</strong></td>
+<td>
+<p class="no-indent"><strong>1. Mengamati:</strong> Guru mendemonstrasikan rotasi bumi dengan bola bumi dan senter (sebagai matahari).</p>
+<p class="no-indent"><strong>2. Mempertanyakan &amp; Memprediksi:</strong> Murid memprediksi apa yang terjadi jika bumi tidak berputar.</p>
+<p class="no-indent"><strong>3. Penyelidikan terbimbing:</strong> Murid berkelompok melakukan simulasi: (a) Rotasi: satu murid memegang bola bumi dan memutarnya pada sumbu. (b) Revolusi: murid berjalan mengelilingi senter sambil memutar bola bumi.</p>
+<p class="no-indent"><strong>4. Analisis:</strong> Murid mencatat pengamatan: bagian mana yang terang (siang), bagian mana yang gelap (malam). Menjelaskan perbedaan rotasi dan revolusi.</p>
+<p class="no-indent"><strong>5. Evaluasi &amp; Refleksi:</strong> Murid menuliskan kesimpulan: rotasi menyebabkan siang-malam, revolusi menyebabkan pergantian musim.</p>
+</td>
+<td>Mengamati &rarr; Mempertanyakan &amp; Memprediksi &rarr; Merencanakan &amp; Melakukan Penyelidikan &rarr; Memproses &amp; Menganalisis &rarr; Mengevaluasi &amp; Refleksi</td>
+<td>60 menit</td>
+</tr>
+<tr>
+<td><strong>Penutup</strong></td>
+<td>1. Menyimpulkan rotasi dan revolusi bumi. 2. Umpan balik: "Bagaimana kalian merasakan keteraturan alam dari peristiwa siang-malam?" 3. Ajakan: amati waktu terbit dan tenggelamnya matahari di rumah.</td>
+<td>Mengomunikasikan Hasil, Refleksi</td>
+<td>10 menit</td>
+</tr>
+</table>
+
+<h1>F. PENILAIAN</h1>
+
+<h2>1. Penilaian Sikap</h2>
+<table>
+<tr><th>Aspek</th><th>Keterangan</th></tr>
+<tr><td><strong>Aspek dinilai</strong></td><td>Rasa ingin tahu, kerja sama, dan kepedulian terhadap alam.</td></tr>
+<tr><td><strong>Teknik</strong></td><td>Observasi selama kegiatan pembelajaran.</td></tr>
+</table>
+<table>
+<tr><th style="width:20%">Predikat</th><th style="width:10%">Skor</th><th>Deskripsi</th></tr>
+<tr><td>Sangat Baik</td><td>4</td><td>Menunjukkan rasa ingin tahu tinggi, aktif bekerja sama, peduli lingkungan.</td></tr>
+<tr><td>Baik</td><td>3</td><td>Menunjukkan rasa ingin tahu, bekerja sama dengan baik.</td></tr>
+<tr><td>Cukup</td><td>2</td><td>Rasa ingin tahu terbatas, kurang aktif dalam kerja sama.</td></tr>
+<tr><td>Perlu Bimbingan</td><td>1</td><td>Belum menunjukkan rasa ingin tahu dan kerja sama.</td></tr>
+</table>
+
+<h2>2. Penilaian Pengetahuan</h2>
+<table>
+<tr><th>Aspek</th><th>Keterangan</th></tr>
+<tr><td><strong>Teknik</strong></td><td>Tes tertulis (pre-test dan post-test).</td></tr>
+<tr><td><strong>Bentuk Soal</strong></td><td>Pilihan ganda (10 soal) dan isian singkat (5 soal).</td></tr>
+</table>
+<h3>Contoh Butir Soal:</h3>
+<table>
+<tr><th style="width:8%">No</th><th style="width:70%">Pertanyaan</th><th>Jawaban</th></tr>
+<tr><td>1</td><td>Planet terdekat dengan matahari adalah...</td><td>Merkurius</td></tr>
+<tr><td>2</td><td>Planet yang kita tinggali adalah...</td><td>Bumi</td></tr>
+<tr><td>3</td><td>Perputaran bumi pada sumbunya disebut...</td><td>Rotasi</td></tr>
+<tr><td>4</td><td>Perputaran bumi mengelilingi matahari disebut...</td><td>Revolusi</td></tr>
+<tr><td>5</td><td>Rotasi bumi menyebabkan terjadinya...</td><td>Siang dan malam</td></tr>
+<tr><td>6</td><td>Revolusi bumi menyebabkan terjadinya...</td><td>Pergantian musim</td></tr>
+<tr><td>7</td><td>Planet terbesar dalam tata surya adalah...</td><td>Jupiter</td></tr>
+<tr><td>8</td><td>Planet berwarna kemerahan adalah...</td><td>Mars</td></tr>
+<tr><td>9</td><td>Planet yang memiliki cincin adalah...</td><td>Saturnus</td></tr>
+<tr><td>10</td><td>Bumi melakukan rotasi selama... jam.</td><td>24</td></tr>
+</table>
+
+<h2>3. Penilaian Keterampilan</h2>
+<table>
+<tr><th>Aspek</th><th>Keterangan</th></tr>
+<tr><td><strong>Teknik</strong></td><td>Penilaian produk (model tata surya sederhana).</td></tr>
+</table>
+<table>
+<tr><th style="width:20%">Predikat</th><th style="width:10%">Skor</th><th>Deskripsi</th></tr>
+<tr><td>Sangat Baik</td><td>4</td><td>Model lengkap, urutan planet benar, kreatif, presentasi jelas.</td></tr>
+<tr><td>Baik</td><td>3</td><td>Model lengkap, urutan benar, presentasi cukup.</td></tr>
+<tr><td>Cukup</td><td>2</td><td>Model belum lengkap, urutan sebagian benar.</td></tr>
+<tr><td>Perlu Bimbingan</td><td>1</td><td>Model belum sesuai, urutan keliru.</td></tr>
+</table>
+
+<h1>G. SUMBER DAN MEDIA</h1>
+<ol>
+<li><strong>Panduan Mata Pelajaran IPAS</strong> (Kurikulum Merdeka, Revisi 4, Oktober 2025) &mdash; Pusat Kurikulum dan Pembelajaran, Kemendikdasmen.</li>
+<li><strong>Permendikdasmen No. 13 Tahun 2025</strong> tentang Kurikulum pada PAUD, Pendidikan Dasar, dan Pendidikan Menengah.</li>
+<li>Bola bumi atau globe.</li>
+<li>Senter (sebagai model matahari).</li>
+<li>Gambar/video tata surya.</li>
+<li>Bahan untuk membuat model tata surya (kertas warna, karton, lem, pensil warna).</li>
+<li>Proyektor dan layar untuk menampilkan media pembelajaran.</li>
+</ol>
+
+<h1>H. PENGAYAAN DAN REMEDIAL</h1>
+
+<h2>Pengayaan</h2>
+<p>Murid yang telah mencapai semua tujuan pembelajaran diberi kegiatan:</p>
+<ul>
+<li>Mencari informasi tentang planet katai (dwarf planet) seperti Pluto.</li>
+<li>Menemukan fakta menarik tentang misi luar angkasa manusia ke planet lain.</li>
+</ul>
+
+<h2>Remedial</h2>
+<p>Murid yang belum mencapai tujuan pembelajaran diberi kegiatan:</p>
+<ul>
+<li>Pengulangan materi dengan bimbingan guru melalui gambar dan model sederhana.</li>
+<li>Latihan menyusun urutan planet dengan bantuan kartu bergambar.</li>
+</ul>
+
+<h1>CATATAN GURU</h1>
+<div class="info-box">
+<ul style="margin-top: 0;">
+<li>Materi tentang tata surya disesuaikan dengan karakteristik murid Fase B (kelas III-IV). Hindari detail teknis yang berlebihan tentang mekanika orbital atau parameter fisik planet.</li>
+<li>Demonstrasikan rotasi dan revolusi dengan alat sederhana agar murid dapat memahami konsep secara konkret.</li>
+<li>Hubungkan pembelajaran dengan rasa syukur atas keteraturan alam semesta dan kedudukan bumi sebagai tempat tinggal.</li>
+<li>Berikan kesempatan murid untuk bertanya dan mengekspresikan rasa kagum mereka tentang luar angkasa.</li>
+</ul>
+</div>
+
+<p class="footer-note">Dokumen ini disusun berdasarkan Capaian Pembelajaran IPAS Kurikulum Merdeka (Permendikdasmen No. 13 Tahun 2025). Guru wajib menyesuaikan kedalaman materi dengan karakteristik murid, sekolah, dan daerah masing-masing.</p>
+
+</section>
+
+</body>
+</html>
