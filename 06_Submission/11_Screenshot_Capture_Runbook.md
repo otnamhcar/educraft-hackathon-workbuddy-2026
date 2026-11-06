@@ -131,8 +131,11 @@ bukan dari layar — berkas itu tetap sah dan tetap lolos ambang baru.
 **Jangan** memperbesar gambar hasil tangkapan supaya angka lebarnya naik. Itu memalsukan bukti dan
 hasilnya buram — persis yang dilarang §1.3 butir 3.
 
-> `ffmpeg` tidak ada di mesin ini saat pemeriksaan. `video_kit/concat_video.py` membutuhkannya;
-> pasang lebih dulu (`winget install Gyan.FFmpeg`) sebelum menyambung rekaman.
+> **`ffmpeg` sudah terpasang** 6 November 2026 (versi 9.0.2, lewat `winget install Gyan.FFmpeg`).
+> PATH diperbarui, tetapi hanya untuk proses **baru** — tutup dan buka ulang terminal sebelum
+> menjalankan `concat_video.py`, kalau tidak `ffmpeg` belum dikenali. Jalur penyambungan sudah diuji
+> ujung-ke-ujung dengan tiga klip sintetis: keluaran 1366×768 / 30 fps / AAC 48 kHz, durasi masuk
+> rentang 5:00–8:00.
 
 ---
 

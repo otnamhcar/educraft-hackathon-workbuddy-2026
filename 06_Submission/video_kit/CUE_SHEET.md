@@ -25,9 +25,9 @@ akhir **7:40**. Kalau salah satu segmen melar, potong di segmen itu — jangan m
 > dengan font aplikasi diperbesar satu tingkat serta narasi yang menyebut aturan secara lisan.
 > Jangan memperbesar hasil rekaman — buram dan terbaca sebagai manipulasi.
 >
-> `concat_video.py` butuh `ffmpeg` **dan** `ffprobe` di PATH. Pasang dulu
-> (`winget install Gyan.FFmpeg`, lalu buka terminal baru), kalau tidak, penyambungan tiga segmen
-> gagal di langkah pertama — setelah semua rekaman selesai, yang paling menyakitkan.
+> `concat_video.py` butuh `ffmpeg` **dan** `ffprobe` di PATH. Keduanya **sudah terpasang**
+> 6 November 2026 (9.0.2). PATH hanya berlaku untuk proses baru — buka terminal baru dulu. Jalur
+> penyambungan sudah diuji dengan tiga klip sintetis: 1366×768 / 30 fps / AAC 48 kHz, durasi 5:10.
 >
 > Screenshot punya batas yang sama; lihat `11_Screenshot_Capture_Runbook.md` §1.4a.
 

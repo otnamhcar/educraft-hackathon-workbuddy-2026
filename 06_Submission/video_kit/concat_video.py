@@ -12,13 +12,17 @@ ada; ia tidak merekam apa pun.
         --out 06_Submission/EduCraft_Demo.mp4
 
 Yang dilakukan, berurutan:
-  1. Setiap segmen dinormalkan ke 1920x1080 / 30 fps / AAC 48 kHz. Rekaman dari
+  1. Setiap segmen dinormalkan ke ukuran yang sama / 30 fps / AAC 48 kHz. Rekaman dari
      OBS, Teams, dan QuickTime punya parameter berbeda; menyambung tanpa
      menormalkan lebih dulu menghasilkan audio yang bergeser di sambungan.
   2. Dua kartu judul dijadikan klip 5 detik tanpa suara.
   3. Semua disambung, lalu audio diratakan dengan loudnorm (target -16 LUFS,
      standar platform video).
   4. Durasi akhir diperiksa: 5:00-8:00. Di luar itu, skrip gagal.
+
+Ukuran bawaan 1366x768 -- batas panel laptop yang dipakai merekam (keputusan 6 Nov
+2026). Di mesin dengan layar lebih lebar, timpa dengan `--size 1920x1080`; jangan
+perbesar rekaman 1366 ke 1920, hasilnya buram tanpa menambah informasi.
 
 Butuh `ffmpeg` dan `ffprobe` di PATH.
 """
@@ -33,7 +37,7 @@ HERE = Path(__file__).resolve().parent
 CARD_OPEN = HERE / "card_00_pembuka.png"
 CARD_CLOSE = HERE / "card_99_penutup.png"
 CARD_SECONDS = 5
-TARGET = (1920, 1080)
+TARGET = (1366, 768)  # batas panel mesin perekam; timpa dengan --size
 FPS = 30
 MIN_S, MAX_S = 300, 480
 
@@ -104,7 +108,18 @@ def main(argv=None):
     parser.add_argument("--seg-c", required=True, help="4:00-7:40 tiga perhentian, refleksi, penutup")
     parser.add_argument("--out", default=str(HERE.parent / "EduCraft_Demo.mp4"))
     parser.add_argument("--skip-cards", action="store_true", help="tanpa kartu judul")
+    parser.add_argument("--size", default=None,
+                        help="ukuran keluaran LEBARxTINGGI, mis. 1920x1080")
     args = parser.parse_args(argv)
+
+    global TARGET
+    if args.size:
+        try:
+            w, h = (int(part) for part in args.size.lower().split("x"))
+        except ValueError:
+            print("ERROR: --size harus berbentuk LEBARxTINGGI, mis. 1366x768", file=sys.stderr)
+            return 2
+        TARGET = (w, h)
 
     segments = [Path(args.seg_a), Path(args.seg_b), Path(args.seg_c)]
     for path in segments:
