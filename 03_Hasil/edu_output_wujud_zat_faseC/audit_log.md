@@ -338,6 +338,13 @@ memakai tiga bentuk asesmen (pilihan ganda, isian singkat, uraian) dengan kunci 
 penskoran, tetapi tanpa rubrik per tingkat. Bila rubrik dibutuhkan, ia harus dibuat sebagai usulan
 guru dan ditandai demikian, mengikuti pola yang dipakai pada run Tata Surya.
 
+> **Koreksi 6 Nov 2026 — paragraf di atas keliru.** Rubrik per tingkat **sudah ada** di
+> `01_lesson_plan.md` §5 sejak run ini dibuat: empat aspek × tiga tingkat (Berkembang/Cakap/Mahir).
+> Yang benar-benar belum ada hanyalah **ambang kategori** dan **aturan aspek belum teramati**; keduanya
+> kini ditambahkan sebagai usulan tim. Kekeliruan ini bertahan hampir dua hari karena tidak ada
+> pemeriksa otomatis untuk rubrik — `tools/doctor.py` dan `check_grounding.py` tidak membaca bagian
+> asesmen sama sekali. Rincian di §14.
+
 ---
 
 ## 13. Koreksi contoh wujud gas — 5 November 2026, 17:03 GMT+7
@@ -390,3 +397,70 @@ PASS: 212 tag, 0 dangling, 0 class violations
 Tag naik 206 → 212 (+6) dari paragraf koreksi di artikel, slide, infografis, catatan guru di RPP, dan
 butir 3 pada entri sumber. Keempat salinan `source_material_wujud_zat.md` tetap identik (checksum
 tunggal). `doctor.py`: 13 lulus / 0 gagal / 4 peringatan.
+
+---
+
+## 14. Rubrik dilengkapi & W11 divalidasi — 6 November 2026, 09:00 GMT+7
+
+### 14.1 Temuan
+
+Dua dokumen resmi run ini menyatakan rubrik penilaian **tidak ada**, padahal rubrik itu sudah ada di
+`01_lesson_plan.md` §5 sejak run dibuat:
+
+| Berkas | Baris | Pernyataan | Kenyataan |
+|--------|-------|------------|-----------|
+| `08_Lembar_Persetujuan_Guru.md` | §3 butir 2 | "Belum ada … tanpa rubrik rinci" | Rubrik empat aspek × tiga tingkat ada |
+| `audit_log.md` | §12.5 | "Rubrik penilaian rinci tetap tidak ada" | Idem |
+
+Selain klaim yang keliru, rubriknya sendiri belum lengkap dibanding run Tata Surya: tanpa nomor
+tingkat, tanpa ambang kategori, dan tanpa aturan untuk aspek yang belum teramati. Judulnya juga
+menulis "(rancangan guru)", padahal guru belum pernah meninjau rubrik itu — atribusi yang menyesatkan.
+
+**Akar masalah.** Tidak ada pemeriksa otomatis untuk bagian asesmen. `check_grounding.py` dan
+`doctor.py` tidak membaca rubrik, sehingga kontradiksi antara lembar persetujuan dan RPP tidak pernah
+tertangkap. Ini kelas defek yang sama dengan D3 (daftar periksa tidak mencakup semua tempat), tetapi
+pada dimensi yang berbeda: yang tidak diperiksa bukan salinan berkas, melainkan **konsistensi antar
+dokumen dalam satu run**.
+
+### 14.2 Keputusan guru
+
+Guru menyetujui empat tindakan perbaikan dan mengambil dua keputusan isi:
+
+1. **`[src:W11]` divalidasi** — hasil koreksi butir 3 ditinjau dan disetujui. Entri boleh dipakai dan
+   boleh menopang butir ujian.
+2. **Ambang rubrik memakai skema yang sama dengan run Tata Surya** — 10–12 Mahir, 7–9 Cakap, 4–6
+   Berkembang — karena skalanya identik (empat aspek × tiga tingkat = maksimum 12).
+
+### 14.3 Yang diubah
+
+| Berkas | Perubahan |
+|--------|-----------|
+| `08_Referensi/source_material_wujud_zat.md` (+3 salinan) | Entri `[src:W11]` mendapat baris **Status: divalidasi guru 6 Nov 2026 09:00**; catatan kejujuran diperbarui — persetujuan butir ujian kini merujuk status itu |
+| `01_lesson_plan.md` §5 | Judul → "usulan tim — menunggu persetujuan guru"; tingkat diberi nomor 1–3; ditambah usulan pengolahan skor (ambang + aturan aspek belum teramati) dan catatan bahwa KKM/bobot tetap wewenang guru |
+| `08_Lembar_Persetujuan_Guru.md` | §2.7 baru: validasi `[src:W11]`; §3 butir 1 ditutup, butir 2 dikoreksi menjadi "usulan tim, belum disetujui"; §5 jejak diperbarui |
+| `05_kuis.md` | Pemetaan tujuan 2: "tidak diujikan" → "boleh diujikan sejak 6 Nov 2026, butir belum ada" |
+| `00_run_config.md` | Aturan pemakaian `[src:W11]`: larangan menopang butir ujian dicabut; riwayat koreksi bertambah |
+| `06_review.md` | Baris status pada kutipan temuan: kalimat lama sudah dikoreksi 5 Nov 2026 |
+
+### 14.4 Yang tidak berubah
+
+- **Butir kuis tidak ditambahkan.** Tujuan 2 kini boleh diujikan, tetapi penambahan butir mengubah
+  skor gain dan skor maksimum. Itu keputusan guru yang terpisah, bukan konsekuensi otomatis validasi.
+- Ambang, aspek, dan deskriptor rubrik: isinya tetap sama dengan yang sudah tertulis sejak run dibuat;
+  yang ditambahkan hanya nomor tingkat, ambang, dan aturan penyesuaian.
+- Tidak ada tag baru. Tag tetap **212**; keempat salinan source material tetap identik.
+
+### 14.5 Status
+
+`[src:W11]` ✅ **divalidasi**. Rubrik ⚠️ **usulan tim, menunggu persetujuan guru** — isi dan ambangnya
+belum disetujui, jadi belum boleh dipakai sebagai dasar penilaian resmi. KKM dan bobot nilai tetap
+wewenang guru. Publish tetap **LOCKED**.
+
+### 14.6 Verifikasi
+
+```
+PASS: 212 tag, 0 dangling, 0 class violations
+```
+
+`doctor.py`: 13 lulus / 0 gagal / 4 peringatan. Keempat salinan `source_material_wujud_zat.md`
+identik (checksum tunggal `e8c9433714e14818`, sebelumnya `eb23ec467f9da212`).

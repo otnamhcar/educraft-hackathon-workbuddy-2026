@@ -39,6 +39,11 @@ kelas tag fakta kutipan.
 pindahkan ke paragraf yang sudah menyatakan `[src:W11]` sebagai turunan. Jangan biarkan berdiri
 sebagai kalimat fakta tanpa penanda.
 
+> **Status 6 Nov 2026.** Kalimat yang dikutip **sudah tidak ada** di `02_artikel.md`. Paragraf itu
+> ditulis ulang pada 5 Nov 2026 17:03 dan contoh wujud gasnya diperbaiki — "uap yang mengepul" bukan
+> gas, melainkan titik air yang sudah mengembun (`audit_log.md` §13). Kutipan di atas dipertahankan
+> sebagai catatan temuan pass 1, bukan gambaran draf sekarang.
+
 ---
 
 **Temuan 2 · `02_artikel.md` baris 76**

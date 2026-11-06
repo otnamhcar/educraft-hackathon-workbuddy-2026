@@ -189,7 +189,7 @@ membingungkan, ganti dengan kata netral yang juga tidak ada dalam daftar enam pr
 | Tujuan (`01_lesson_plan.md` §2) | Butir |
 |--------------------------------|-------|
 | 1. Tiga wujud zat | 1, 7 |
-| 2. Mengenali wujud pada bahan sekitar *(turunan)* | — *(tidak diujikan; bertumpu pada `[src:W11]`)* |
+| 2. Mengenali wujud pada bahan sekitar *(turunan `[src:W11]`)* | — *(boleh diujikan sejak 6 Nov 2026; butir belum ada)* |
 | 3. Ciri tiga wujud: bentuk dan volume | 12, 13 |
 | 4. Enam nama proses | 2, 8 |
 | 5. Arah perubahan wujud | 14, 15 |
@@ -198,8 +198,9 @@ membingungkan, ganti dengan kata netral yang juga tidak ada dalam daftar enam pr
 | 8. Menyimpulkan dari data | 10 |
 | 9. Konteks isu | 5, 6 |
 
-> **Catatan.** Butir 12–15 berada di bagian D dan tidak dihitung dalam skor gain. Tujuan 2 belum
-> diujikan karena bertumpu pada `[src:W11]`, yang masih menunggu validasi guru.
+> **Catatan.** Butir 12–15 berada di bagian D dan tidak dihitung dalam skor gain. Tujuan 2 **boleh
+> diujikan** sejak `[src:W11]` divalidasi guru 6 November 2026, tetapi butirnya belum ditambahkan pada
+> rilis ini — penambahan butir mengubah skor gain dan diputuskan terpisah oleh guru.
 
 ## Sumber yang dipakai
 

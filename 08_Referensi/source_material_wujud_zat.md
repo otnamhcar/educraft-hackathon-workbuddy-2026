@@ -94,7 +94,9 @@ bagian terpisah agar skor butir inti tetap sebanding dengan run sebelumnya.
 ---
 
 ## [src:W11] Konsep pendukung & penerapan — **TURUNAN TIM, BUKAN KUTIPAN**
-> **Turunan** · disusun dari `[src:W1]`, `[src:W2]`, `[src:W10]` + pengetahuan sains umum · **wajib validasi guru**
+> **Turunan** · disusun dari `[src:W1]`, `[src:W2]`, `[src:W10]` + pengetahuan sains umum
+> **Status:** ✅ **divalidasi guru 6 November 2026, 09:00 GMT+7**, setelah koreksi butir 3 ditinjau.
+> Entri ini boleh dipakai dan **boleh menopang butir ujian**.
 
 1. Saat wujud berubah, **zatnya tetap** — es, air, dan uap air dapat berasal dari bahan yang sama.
 2. Penerapan sehari-hari yang dapat diamati murid:
@@ -107,7 +109,8 @@ bagian terpisah agar skor butir inti tetap sebanding dengan run sebelumnya.
    langsung dari butir 1: uap air yang masih berupa gas tidak berwarna dan tidak terlihat.
 
 **Catatan kejujuran:** butir 1–3 adalah pengetahuan sains standar, bukan kalimat di dalam Panduan IPAS.
-Karena itu bertag tersendiri. Butir ujian yang bertumpu pada entri ini wajib disetujui guru.
+Karena itu bertag tersendiri. Butir ujian yang bertumpu pada entri ini **disetujui guru 6 November
+2026** (lihat Status di atas); bila entri ini disunting lagi, persetujuan itu perlu diperbarui.
 
 **Catatan revisi 5 Nov 2026:** butir 3 ditambahkan karena artikel, slide, dan infografis sebelumnya
 memakai "uap yang mengepul dari air mendidih" sebagai contoh wujud **gas** — keliru, karena yang

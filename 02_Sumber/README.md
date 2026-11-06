@@ -40,7 +40,7 @@ Lisensi MIT mencakup kode, kontrak, dan dokumentasi tertulis — bukan kedua PDF
 ```
 02_Sumber/*.pdf
    └─ extract_pdf.py ──▶ extracted/*.txt
-          └─ 08_Referensi/source_material_*.md   (fakta terkutip, [src:W1]…[src:W11])
+          └─ 08_Referensi/source_material_*.md   (fakta terkutip, [src:W1]…[src:W12])
                  └─ 03_Hasil/…/drafts                (setiap kalimat membawa tag)
                         └─ tools/check_grounding.py    (menyelesaikan tiap tag, atau gagal)
 ```

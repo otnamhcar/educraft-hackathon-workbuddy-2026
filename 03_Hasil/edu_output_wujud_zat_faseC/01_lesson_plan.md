@@ -102,14 +102,42 @@ dan menganalisis eksperimen `[src:W9]`.
 > **Catatan untuk guru.** Sumber tidak menetapkan kriteria ketuntasan, bobot nilai, atau rubrik.
 > Ketiganya diserahkan kepada guru. Rubrik di bawah adalah **usulan**, bukan kutipan sumber.
 
-### Usulan rubrik laporan eksperimen (rancangan guru)
+### Usulan rubrik laporan eksperimen (usulan tim — menunggu persetujuan guru)
 
-| Aspek | Berkembang | Cakap | Mahir |
-|-------|-----------|-------|-------|
+> **Kedudukan rubrik ini.** Disusun tim, bukan kutipan sumber, dan **belum disetujui guru**. Angka,
+> ambang, dan kategori di bawah baru berlaku setelah guru menyetujuinya. Kriteria ketuntasan (KKM)
+> dan bobot nilai tetap wewenang guru dan tidak ditetapkan di sini.
+
+| Aspek | Berkembang (1) | Cakap (2) | Mahir (3) |
+|-------|----------------|-----------|-----------|
 | Pertanyaan & prediksi | Prediksi belum terhubung ke pengamatan | Prediksi jelas, alasan singkat | Prediksi disertai alasan yang dapat diuji |
 | Pencatatan data | Sebagian data tidak tercatat | Suhu dan waktu tercatat lengkap `[src:W7]` | Data lengkap dan tersusun sehingga polanya terbaca |
 | Penyajian data | Hanya daftar angka | Tabel atau grafik dibuat | Tabel dan grafik, pola dijelaskan `[src:CP]` |
 | Kesimpulan | Menyebut ulang hasil | Menyimpulkan berdasarkan data | Menyimpulkan, membandingkan dengan prediksi, menyebut alasan berbasis bukti `[src:W9]` |
+
+**Cara memberi angka.** Setiap aspek diberi 1–3 sesuai tingkat yang paling cocok dengan bukti yang ada.
+Empat aspek, skor maksimum 12.
+
+#### Usulan pengolahan skor
+
+| Total empat aspek | Kategori |
+|------------------:|----------|
+| 10–12 | Mahir |
+| 7–9 | Cakap |
+| 4–6 | Berkembang |
+
+**Bila ada aspek yang belum teramati.** Jangan beri angka pada aspek yang tidak punya bukti sama
+sekali; tulis "belum teramati". Jumlahkan hanya aspek yang punya angka, lalu sesuaikan:
+
+| Aspek teramati | Cara menentukan kategori |
+|----------------|--------------------------|
+| 4 aspek | Jumlahkan langsung, cocokkan dengan tabel di atas |
+| 3 aspek | Jumlahkan ketiganya, **bagi 3, kalikan 4**, bulatkan — baru cocokkan dengan tabel |
+| 2 aspek atau kurang | **Jangan beri kategori.** Laporkan per aspek dan tulis "belum lengkap" |
+
+Contoh: tiga aspek bernilai 2, 3, 2 → jumlah 7 → 7 ÷ 3 × 4 = 9,3 → dibulatkan **9** → kategori
+**Cakap**. Tanpa penyesuaian ini, murid yang absen pada satu pertemuan akan tampak "Berkembang"
+hanya karena satu aspek tidak sempat dinilai.
 
 ## 6. Diferensiasi
 

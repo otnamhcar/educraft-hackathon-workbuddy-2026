@@ -64,14 +64,24 @@ butir 12–13 kuis.
 Paket memakai "mencair" mengikuti sumber. "Melebur" disebut sekali sebagai keterangan, bukan istilah
 utama.
 
+### 2.7 Validasi `[src:W11]` — ✅ DISETUJUI 6 November 2026
+
+Guru meninjau hasil koreksi contoh wujud gas (5 Nov 2026 17:03, `audit_log.md` §13) dan **menyetujui
+`[src:W11]` sebagai turunan tim yang sah**. Butir 1–3 entri itu kini boleh dipakai, dan butir ujian
+yang bertumpu padanya boleh dibuat.
+
+**Dampak:** tujuan pembelajaran 2 (mengenali ketiga wujud pada bahan sekitar) tidak lagi tertahan
+validasi. Pada rilis ini butir ujiannya **belum ditambahkan** — penambahan butir mengubah skor gain
+dan diputuskan terpisah oleh guru.
+
 ---
 
 ## 3. Butir yang Masih Terbuka
 
 | # | Butir | Status | Catatan |
 |---|-------|--------|---------|
-| 1 | `[src:W11]` — konsep pendukung "zatnya tetap, bahannya sama" | ⚠️ **Belum divalidasi** — turunan tim yang dipakai di tujuan 2, artikel, slide 2, dan panel 1 infografis. Tujuan 2 sengaja **tidak diujikan** sampai entri ini disetujui. **Revisi 5 Nov 2026 17:03:** guru memilih opsi B — butir 1 diterima, tetapi contoh wujud gas yang keliru ("uap yang mengepul" sebagai gas) diperbaiki lebih dulu di tiga turunan dan ditambahkan sebagai butir 3 entri. Menunggu guru meninjau hasil koreksi sebelum entri divalidasi (lihat `audit_log.md` §13) |
-| 2 | Rubrik penilaian | Belum ada | Sumber tidak memuat rubrik; paket ini memakai tiga bentuk asesmen tanpa rubrik rinci |
+| 1 | ~~`[src:W11]` — konsep pendukung "zatnya tetap, bahannya sama"~~ | ✅ **Selesai** 6 Nov 2026 09:00 — lihat §2.7 | Entri divalidasi setelah koreksi butir 3 ditinjau. Tujuan 2 kini **boleh diujikan**; butirnya belum ditambahkan pada rilis ini karena penambahan butir mengubah skor gain |
+| 2 | Rubrik penilaian | ⚠️ **Usulan tim, belum disetujui** | Rubrik ada di `01_lesson_plan.md` §5: empat aspek × tiga tingkat, dengan usulan ambang 10–12 / 7–9 / 4–6 dan aturan aspek belum teramati. Sumber tidak memuat rubrik, jadi isinya usulan tim, bukan kutipan. KKM dan bobot nilai tetap wewenang guru |
 
 ---
 
@@ -103,3 +113,8 @@ eksplisit terpisah.
 | `00_run_config.md` | `Human approver` → APPROVED; status kurikulum → diterima |
 | `audit_log.md` | §8 gerbang ditutup; bagian 12 ditambahkan |
 | `source_material_wujud_zat.md` (4 salinan) | `[src:W12]` ditambahkan; `[src:W10]` ditandai divalidasi |
+| `source_material_wujud_zat.md` (4 salinan) — **6 Nov 2026** | `[src:W11]` ditandai **✅ divalidasi guru**; catatan kejujuran diperbarui (persetujuan butir ujian) |
+| `01_lesson_plan.md` — **6 Nov 2026** | Rubrik §5 dilengkapi: nomor tingkat 1–3, usulan ambang 10–12/7–9/4–6, aturan aspek belum teramati; judul diubah menjadi "usulan tim — menunggu persetujuan guru" |
+| `05_kuis.md` — **6 Nov 2026** | Catatan pemetaan tujuan 2 diperbarui: boleh diujikan sejak 6 Nov 2026, butirnya belum ditambahkan |
+| `00_run_config.md` — **6 Nov 2026** | Aturan pemakaian `[src:W11]` diperbarui; riwayat koreksi bertambah satu baris |
+| `audit_log.md` — **6 Nov 2026** | §12.5 dikoreksi (klaim "rubrik tidak ada" keliru); §14 ditambahkan |

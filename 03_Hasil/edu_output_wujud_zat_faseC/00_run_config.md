@@ -38,8 +38,9 @@ Lima format diminta; `video_script` **tidak** diminta pada run ini.
 
 - Setiap klaim fakta wajib merujuk `[src:W#]` yang **resolvable** ke `source_material_wujud_zat.md`.
 - `[src:W10]` (pemetaan arah proses) **✅ divalidasi guru 5 Nov 2026** — boleh dipakai dan boleh menopang butir ujian.
-- `[src:W11]` adalah **TURUNAN TIM**, bukan kutipan. Boleh dipakai hanya bila ditandai eksplisit, dan
-  **tidak boleh menopang butir ujian** sampai guru memvalidasinya. Status: **belum divalidasi.**
+- `[src:W11]` adalah **TURUNAN TIM**, bukan kutipan. Boleh dipakai bila ditandai eksplisit.
+  **✅ divalidasi guru 6 Nov 2026 09:00** — boleh menopang butir ujian. Butirnya belum ditambahkan
+  pada rilis ini; penambahan butir mengubah skor gain dan diputuskan terpisah.
 - `[src:W12]` (ciri-ciri tiga wujud zat) adalah **kutipan** dari Lumen Learning, *Introductory Chemistry*
   §3.1. Boleh dipakai dan boleh menopang butir ujian.
 - `[src:CP]` / `[src:B4]` / `[src:C2]` hanya boleh menopang pernyataan kurikulum, **tidak pernah**
@@ -65,3 +66,4 @@ Publish:    LOCKED
 | 5 Nov 2026 | `grounding_report.md` dibuat ulang (PASS, 176 tag) | Laporan pertama mencatat 9 tag `[src:CP]` dangling. Penyebabnya bukan draf, tetapi knowledge layer: anchor `## [src:CP]` belum pernah ada, padahal `cp_ipas.md` §1.2 memperkenalkan tag itu sebagai rujukan dokumen CP. Anchor ditambahkan di ketiga salinan `cp_ipas.md`; keenam draf tidak diubah |
 | 5 Nov 2026 | Gerbang persetujuan ditutup: `AWAITING_APPROVAL` → `APPROVED_FOR_USE` | Guru menyetujui enam butir keputusan (status kurikulum, `[src:W10]`, `[src:W12]`, kuis bagian D, batas infografis, `[src:W11]` tetap tertutup). `Publish` **tetap** `LOCKED` — persetujuan pemakaian bukan izin terbit |
 | 5 Nov 2026 | Aturan pemakaian sumber diperbarui untuk `[src:W12]` | Draf kini memuat ciri-ciri tiga wujud zat yang sebelumnya dinyatakan terlarang. Larangan lama dihapus dan diganti rujukan ke sumber baru, agar berkas ini tidak lagi bertentangan dengan isi draf |
+| 6 Nov 2026 | Aturan pemakaian `[src:W11]` diperbarui: "tidak boleh menopang butir ujian" → **boleh** | Guru menyetujui entri setelah koreksi butir 3 ditinjau (5 Nov 2026 17:03). Butir ujian belum ditambahkan; penambahan mengubah skor gain sehingga diputuskan terpisah |

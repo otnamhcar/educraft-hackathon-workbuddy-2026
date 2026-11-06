@@ -45,7 +45,7 @@ bukan dirujuk lintas folder. Dua set sumber ada karena proyek memakai dua topik 
 | `cp_ipas.md` | Capaian Pembelajaran IPAS Fase B & C | semua run (R004) |
 | `source_material_ipas.md` | Fakta topik **karhutla Kalimantan** `[src:1]`–`[src:8]` | run pra-remediasi 29 Okt |
 | `source_material_energi.md` | Fakta topik **energi alternatif** `[src:1]`–`[src:9]` | run `EDU-ORCH-20261026-001` |
-| `source_material_wujud_zat.md` | Fakta topik **perubahan wujud zat** `[src:W1]`–`[src:W11]` | run `EDU-ORCH-20261030-002` |
+| `source_material_wujud_zat.md` | Fakta topik **perubahan wujud zat** `[src:W1]`–`[src:W12]` | run `EDU-ORCH-20261030-002` dan `-004` |
 | `konteks_aktual.md` | Klaim dunia nyata `[src:CA1]`, `[src:CA6]` + URL resmi & tanggal akses | run `-001` (R011) |
 | `format_rendering_spec.md` | Spesifikasi Stage 6: peta deliverable, aturan FR-01…FR-08, checklist verifikasi | semua run yang menghasilkan artefak siap pakai |
 | `intake_menu_ipas.md` | Spesifikasi S0 Intake: katalog 20 bab (11 Fase B + 9 Fase C), status sumber per bab, penahapan menu L1–L3 | semua run, saat perintah awal belum menyebut topik |
