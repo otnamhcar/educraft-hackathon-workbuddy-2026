@@ -27,6 +27,10 @@ class Reporter(object):
     def heading(self, text):
         print("\n" + text)
 
+    def plain(self, text):
+        """Neutral line: context, not a verdict. Does not affect the counts."""
+        print(text)
+
     def ok(self, text):
         self.passed += 1
         print("  {}  {}".format(self._paint("PASS", "32"), text))

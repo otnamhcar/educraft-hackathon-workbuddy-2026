@@ -22,6 +22,7 @@ Satu screenshot **diterima** kalau memenuhi 4 syarat:
 > Kalau harus zoom untuk membaca, juri juga harus zoom. Ulangi pengambilan.
 
 **Format:** PNG · lebar minimal 1600 px · jangan crop bagian atas (timestamp) atau bawah (verdict).
+Mesin ini layarnya 1366 px — baca **§1.4a** sebelum sesi pertama, jangan setelahnya.
 
 ---
 
@@ -40,7 +41,7 @@ edu-reviewer
 edu-writer
 ```
 
-`tools/doctor.py` juga lulus 8/8 (exit 0) pada keadaan ini. Sebelumnya — sampai 31 Okt pagi —
+`tools/doctor.py` lulus **13 passed / 0 failed / 4 warning** (exit 0) pada keadaan ini; Sebelumnya — sampai 31 Okt pagi —
 bagian ini mencatat bahwa **tidak ada satu pun** entri `edu-*`, dan itu membuat setiap sesi gagal
 di langkah pertama. Sudah diperbaiki, tetapi **periksa lagi sebelum sesi pertama**: kalau
 WorkBuddy diperbarui atau profil direset, daftar ini bisa kosong lagi.
@@ -54,7 +55,7 @@ Kalau ternyata kosong, urutan pemulihannya:
 2. **Mulai ulang sesi WorkBuddy** — daftar skill dibaca saat sesi dibuka.
 3. Verifikasi, jangan diasumsikan:
    ```bash
-   python3 tools/doctor.py      # harus 8 passed / 0 failed, exit 0
+   python tools/doctor.py       # harus 13 passed / 0 failed, exit 0
    ```
 4. Uji satu kali di chat baru: `Gunakan edu-planner untuk ...`. Kalau skill tidak terpanggil,
    **berhenti** dan perbaiki dulu — jangan lanjut ke Sesi 1.
@@ -74,7 +75,7 @@ Kalau ternyata kosong, urutan pemulihannya:
 Satu subfolder per sesi. Jangan campur — nanti bingung saat menamai.
 
 ### 1.2 Setel tampilan (sekali, penting)
-- Lebar jendela WorkBuddy **≥ 1600 px**; jangan maksimalkan di layar 1366 px.
+- Lebar jendela WorkBuddy **≥ 1600 px** — di mesin ini panelnya 1366 px, jadi **baca §1.4a dulu**.
 - Perbesar font aplikasi (Ctrl + `+`) sampai teks hasil agen nyaman dibaca.
 - Tutup tab/panel lain. Satu jendela, satu fokus.
 - Panel hasil (Results/artifact) **terbuka** di samping chat, bukan di baliknya.
@@ -90,27 +91,44 @@ Satu subfolder per sesi. Jangan campur — nanti bingung saat menamai.
    kesempurnaan palsu — dan kita sudah punya satu kegagalan yang didisclose dengan baik.
 3. Jangan mengetik ulang output agen ke dalam file lalu memfotonya. Itu bukan screenshot.
 
-### 1.4 Alat tangkap layar (Linux — mesin ini)
+### 1.4 Alat tangkap layar (Windows — mesin ini)
 
-Runbook versi sebelumnya menulis `Win + Shift + S`, yang tidak berlaku di sini. Yang tersedia di
-mesin ini (diperiksa 31 Okt 2026): **`gnome-screenshot`** dan **ImageMagick `import`**. Tidak ada
-`scrot`, `flameshot`, `spectacle`, atau `grim`.
+Runbook versi sebelumnya ditulis di mesin Linux dan menyuruh `gnome-screenshot`. **Perintah itu tidak
+ada di mesin ini.** Penggantinya: `tools/capture.py` — memakai Pillow, menyetel DPI-awareness lebih
+dulu (tanpa itu layar 1366 px terekam sebagai 1093 px pada skala 125 %), dan menyimpan langsung
+dengan nama final.
 
 | Kebutuhan | Perintah |
 |-----------|----------|
-| Pilih area (paling sering dipakai) | `gnome-screenshot -a -f TC-08_reject-R006.png` |
-| Seluruh layar | `gnome-screenshot -f S1-01_planner_outline.png` |
-| Beri jeda 5 detik (untuk membuka menu dulu) | `gnome-screenshot -d 5 -a -f TC-15_injection-ignored.png` |
-| Jendela aktif saja | `gnome-screenshot -w -f TC-14_approval_pending.png` |
-| Cadangan (ImageMagick) | `import -window root out.png` |
+| Seluruh layar | `python tools/capture.py --out <nama>.png --delay 5` |
+| Area tertentu | `python tools/capture.py --out <nama>.png --region 0,0,1366,700` |
+| Semua monitor | `python tools/capture.py --out <nama>.png --all-screens` |
 
-Cara pakai yang paling jarang gagal: jalankan `gnome-screenshot -d 5 -a -f <nama>.png` di terminal,
-**lalu** pindah ke jendela WorkBuddy dan seret area — jeda 5 detik cukup untuk berpindah jendela.
+Cara pakai: jalankan perintahnya, **lalu** pindah ke jendela WorkBuddy — jeda 5 detik cukup. Alat ini
+menolak menimpa berkas yang sudah ada (pakai `--force` hanya kalau memang ingin mengulang) dan
+langsung memberi tahu kalau lebar hasilnya di bawah standar, sebelum Anda sempat lupa.
 
-Simpan **langsung** dengan nama final (lihat §7). Jangan menumpuk `Screenshot from 2026-11-01.png`.
+Cadangan: `snippingtool` bawaan Windows.
 
-> `ffmpeg` juga tersedia di mesin ini — berguna untuk G4 (rekam narasi / render MP4), bukan untuk
-> screenshot.
+### 1.4a Batas layar mesin ini — baca sebelum sesi pertama
+
+Diperiksa 6 November 2026: layar mesin ini **1366×768 px**, sedangkan §0 dan `check_capture.py`
+menuntut **≥1600 px**. Artinya setiap tangkapan di layar ini akan ditolak checker — bukan karena
+gambarnya salah, tetapi karena panelnya lebih sempit dari standar.
+
+Tiga jalan keluar, berurut dari yang paling baik:
+
+| Jalan | Akibat |
+|-------|--------|
+| Sambungkan monitor eksternal ≥1920×1080, pindahkan jendela WorkBuddy ke sana | Standar 1600 px terpenuhi apa adanya; rekaman video pun bisa 1920×1080 |
+| Turunkan standar secara sadar: `--min-width 1366`, lalu ubah §0 dan catat alasannya di `INDEX.md` | Jujur, tetapi teks aturan lebih kecil bagi juri — pastikan masih terbaca pada zoom 100 % |
+| Tangkap di mesin lain yang layarnya lebih lebar | Paling aman untuk kualitas, butuh mesin kedua |
+
+**Jangan** memperbesar gambar hasil tangkapan supaya angka lebarnya naik. Itu memalsukan bukti dan
+hasilnya buram — persis yang dilarang §1.3 butir 3.
+
+> `ffmpeg` juga tidak ada di mesin ini. `video_kit/concat_video.py` membutuhkannya, jadi pasang
+> lebih dulu (mis. `winget install Gyan.FFmpeg`) sebelum menyambung rekaman.
 
 ---
 
@@ -375,7 +393,7 @@ dipertanggungjawabkan saat ditanya juri di Demo Day.
 ## 10. Checklist satu halaman (cetak / tempel di samping layar)
 
 **Persiapan**
-- [ ] **`python3 tools/doctor.py` → 8 passed / 0 failed, exit 0** (31 Okt: sudah terpasang, 8/8)
+- [ ] **`python tools/doctor.py` → 13 passed / 0 failed, exit 0** (diperiksa 6 Nov 2026)
 - [ ] Sesi WorkBuddy di-restart setelah pemasangan
 - [ ] Uji panggil `edu-planner` satu kali di chat baru
 - [ ] Folder `S1`–`S4` dibuat

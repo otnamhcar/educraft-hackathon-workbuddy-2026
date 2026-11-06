@@ -20,6 +20,16 @@ akhir **7:40**. Kalau salah satu segmen melar, potong di segmen itu — jangan m
 
 ## Sebelum merekam (5 menit, sekali saja)
 
+> **Batas mesin — diperiksa 6 November 2026.** Layar mesin ini **1366×768**, dan **`ffmpeg` belum
+> terpasang**. Dua konsekuensi:
+> 1. Rekaman **1920×1080 hanya mungkin lewat monitor eksternal**. Tanpa itu, rekam pada 1366×768
+>    dan catat apa adanya di kartu penutup — jangan memperbesar hasil rekaman.
+> 2. `concat_video.py` butuh `ffmpeg` **dan** `ffprobe` di PATH. Pasang dulu
+>    (`winget install Gyan.FFmpeg`, lalu buka terminal baru), kalau tidak, penyambungan tiga segmen
+>    gagal di langkah pertama — setelah semua rekaman selesai, yang paling menyakitkan.
+>
+> Screenshot punya batas yang sama; lihat `11_Screenshot_Capture_Runbook.md` §1.4a.
+
 - [ ] Jendela WorkBuddy selebar **≥1600 px** — sama dengan syarat screenshot, jadi satu sesi
       menghasilkan dua jenis bukti sekaligus
 - [ ] Rekaman pada **1920×1080, 30 fps**. Skrip penyambung menormalkan sendiri, tetapi sumber
