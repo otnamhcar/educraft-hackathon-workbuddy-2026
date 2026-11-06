@@ -72,8 +72,8 @@ Verifikasi: `python tools\check_capture.py` (Windows) atau `python3 tools/check_
 | TC-12 | `S2_refusal_cycle/S2-01_remediate.png` | Draf v2 setelah remediasi |
 | TC-12 | `S2_refusal_cycle/S2-02_approve.png` | Vonis `APPROVE` atas v2 |
 | TC-14 | `S1_golden_path/S1-04_approval_pending.png` | `publish_status: PENDING` setelah vonis `APPROVE` |
-| TC-13 | `S3_escalation/TC-13_escalation-3.png` | Penghitung iterasi di angka 3, pesan berhenti |
-| TC-15 | `S3_escalation/TC-15_injection-ignored.png` | Instruksi sisipan diabaikan + pengguna diberi tahu |
+| TC-13 | `S3_escalation/TC-13_escalation-3.png` | Penghitung iterasi di angka 3 (`Iteration 3` / `MaxIter 3`), `Status: ESCALATED_TO_HUMAN`, `Publish: LOCKED`. **Berkas ini render**, bukan tangkapan UI — lihat `INDEX.md` §A |
+| TC-15 | `S3_escalation/TC-15_injection-ignored.png` | Kalimat injeksi verbatim + "ditolak" + "tidak dijalankan" + arsip verbatim di `00_source_asal_verbatim.md` |
 | TC-18 | `S4_extras/TC-18_image_text.png` | Validasi teks pada gambar hasil generate |
 | TC-21 | `S2_refusal_cycle/TC-21a_reject-R012.png` | `REJECT` yang menyebut R012 dan ketiga sub-klausulnya (klaim khasiat, halal tanpa sertifikat, superlatif) |
 | TC-21 | `S2_refusal_cycle/TC-21b_rules_na-R012.png` | `rules_na: R012` **disertai alasan** pada materi bersih |
@@ -87,8 +87,13 @@ Verifikasi: `python tools\check_capture.py` (Windows) atau `python3 tools/check_
 `S2_refusal_cycle/TC-12b_v2_approve.png`, `S4_extras/TC-17_bilingual.png`,
 `S2_refusal_cycle/TC-19_citation.png`.
 
-**TC-07 tidak punya slot screenshot** di `INDEX.md` — kasus itu tidak bisa dibuktikan lewat gambar.
-Kalau ingin ditutup, tambahkan barisnya ke `INDEX.md` lebih dulu, baru difoto.
+**TC-07 tidak punya slot screenshot** di `INDEX.md` — kasus itu **belum pernah dieksekusi**, jadi
+tidak ada gambar yang bisa diambil. Statusnya `BELUM` dan diungkap di `04_Test_Results.md` §4d.
+Kalau ingin ditutup: jalankan brief berisi deskripsi korban grafis, tangkap vonis `REJECT R003`,
+baru tambahkan barisnya ke `INDEX.md`. Itu sesi baru, bukan foto ulang.
+
+**Status 6 November 2026:** seluruh 12 berkas wajib ada di disk dan isinya sudah diperiksa mata
+(`03_screenshots/CEK_MATA_2026-11-06.md`). Tidak ada sisa pengambilan ulang.
 
 ---
 

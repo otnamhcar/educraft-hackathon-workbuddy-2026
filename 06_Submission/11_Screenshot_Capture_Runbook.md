@@ -267,6 +267,39 @@ direvisi dalam satu tampilan (atau dua screenshot berurutan: `TC-12a_v1_reject.p
 
 **2.6** Setelah `APPROVE`, **ambil `S2-02_approve.png`** (adegan wajib: *Reviewer APPROVE*).
 
+Frame wajib memuat **lima** hal ini. Kalau salah satu tidak masuk layar, perkecil zoom antarmuka —
+jangan memotret dua kali lalu menyambung:
+
+1. **Vonisnya** — kata `APPROVE` (pada run `-006`: baris *"Putusan pass 2: `APPROVE`"*).
+2. **Penanda putaran** — `pass 2`, supaya frame ini terikat ke penolakan di langkah 2.2, bukan
+   vonis yang berdiri sendiri.
+3. **Hasil grounding** — `PASS — 134 tag, 0 dangling, 0 kelas, 0 ambigu`. Ini yang membuat
+   "APPROVE" punya isi, bukan sekadar kata.
+4. **Bukti klaim sudah dihapus** — tabel Perubahan, atau baris *"Sisa kata paru/ISPA/masker: 0"*.
+   Tanpa ini, frame tidak menunjukkan bahwa v2 berbeda dari v1.
+5. **Status publikasi masih terkunci** — `AWAITING_APPROVAL` atau `Publish: LOCKED`.
+
+> **Kenapa butir 5 wajib.** `S2-02` membuktikan Reviewer menyetujui **draf**; `TC-14` membuktikan
+> gerbang approval manusia **belum** dibuka. Kalau frame `S2-02` memuat kata "disetujui" atau
+> "published" tanpa penanda status, kedua bukti itu saling bertabrakan dan juri akan membaca
+> ketidakkonsistenan, bukan gerbang yang bekerja.
+
+> **Beda dengan `TC-12b_v2_approve.png`.** Keduanya boleh memuat vonis yang sama, tetapi `TC-12b`
+> menonjolkan **siklus** (v1 → v2), sedangkan `S2-02` menonjolkan **adegan**: momen Reviewer
+> menyatakan lulus. Geser gulir sehingga `Remediasi pass 2` dan vonis `APPROVE` terlihat bersama.
+
+> **Cara paling mudah memenuhi kelima butir dalam satu frame 1366×768.** Buka
+> `03_Hasil/edu_output_energi_alternatif_faseC/00_run_config.md` di panel hasil (runbook §1.2 memang
+> menuntut panel terbuka di samping chat), lalu gulir ke bagian **"Remediasi pass 2"**. Satu bagian
+> itu memuat kelimanya sekaligus: `APPROVE` (butir 1), `pass 2` (butir 2), `PASS — 134 tag`
+> (butir 3), tabel Perubahan (butir 4), dan `status tetap AWAITING_APPROVAL` (butir 5). Blok
+> **State mesin** di ujung berkas menambahkan `Publish: LOCKED` bila masih muat.
+
+> **Jangan paste ulang [2.1] hanya untuk memotret ulang.** Perintah itu membuat run baru; seluruh
+> rangkaian S2 (`TC-08`, `TC-12a`, `S2-01`, `TC-12b`, `S2-02`, `TC-19`) lalu berasal dari dua run
+> berbeda. Kalau percakapan lama sudah hilang, jalankan 2.1 → 2.3 sekali lagi dan **foto ulang
+> keenamnya** dari run yang baru itu.
+
 **2.7** Chat baru (run lain, `EDU-CAP-20261106-03`), uji praktik berbahaya:
 
 ```

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Poster Energi Alternatif — Kelas V</title>
+<style>
+  @page { size: A2 portrait; margin: 0; }
+
+  :root{
+    --green:#1F7A4D;
+    --green-dark:#14503A;
+    --green-deep:#0F3B2B;
+    --yellow:#F2B441;
+    --blue:#2C7FB8;
+    --cream:#FBF7EC;
+    --ink:#1B2B24;
+    --muted:#5D6F66;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+
+  html,body{ background:#20262B; font-family:"Segoe UI","Inter","Helvetica Neue",Arial,sans-serif; }
+
+  #stage{
+    display:flex; justify-content:center; align-items:flex-start;
+    padding:0;
+  }
+
+  .poster{
+    width:420mm; height:594mm; flex:none;
+    background:var(--cream);
+    padding:18mm;
+    position:relative; overflow:hidden;
+    display:flex; flex-direction:column;
+    color:var(--ink);
+    transform-origin:top center;
+  }
+
+  /* ---------- decorative field ---------- */
+  .sun-arc{
+    position:absolute; top:-120mm; right:-110mm;
+    width:330mm; height:330mm; border-radius:50%;
+    background:radial-gradient(circle at 50% 50%, rgba(242,180,65,.30) 0%, rgba(242,180,65,.14) 55%, rgba(242,180,65,0) 72%);
+    pointer-events:none;
+  }
+  .leaf-deco{
+    position:absolute; bottom:-70mm; left:-60mm;
+    width:230mm; height:230mm; border-radius:50%;
+    background:radial-gradient(circle at 50% 50%, rgba(31,122,77,.13) 0%, rgba(31,122,77,0) 70%);
+    pointer-events:none;
+  }
+
+  /* ---------- header ---------- */
+  .head{
+    display:flex; align-items:flex-start; justify-content:space-between;
+    position:relative; z-index:2;
+  }
+  .badge{
+    display:inline-block;
+    background:var(--green); color:#fff;
+    font-size:5mm; font-weight:800; letter-spacing:.16em; text-transform:uppercase;
+    padding:2.6mm 7mm; border-radius:99mm;
+  }
+
+  /* ---------- title ---------- */
+  .title{
+    position:relative; z-index:2;
+    margin-top:9mm;
+    font-size:58mm; line-height:.84; letter-spacing:-.035em;
+    font-weight:900; text-transform:uppercase; color:var(--green-deep);
+  }
+  .title em{ font-style:normal; color:var(--green); }
+  .subtitle{
+    position:relative; z-index:2;
+    margin-top:8mm; font-size:15.5mm; font-weight:600; color:var(--blue); letter-spacing:-.01em;
+  }
+
+  /* ---------- tagline ---------- */
+  .tagline{
+    position:relative; z-index:2;
+    margin-top:10mm;
+    background:var(--yellow); color:var(--green-deep);
+    border-radius:4mm; padding:6mm 9mm;
+    display:flex; align-items:center; gap:5mm;
+    font-size:10.4mm; font-weight:800; letter-spacing:-.01em;
+  }
+  .tagline svg{ width:11mm; height:11mm; flex:none; }
+
+  /* ---------- cards ---------- */
+  .cards{
+    position:relative; z-index:2;
+    margin-top:11mm; display:flex; gap:7mm;
+  }
+  .card{
+    flex:1; background:#fff; border-radius:5mm; padding:10mm 9mm 11mm; min-height:128mm;
+    box-shadow:0 2mm 7mm rgba(15,59,43,.09);
+    border-top:2.6mm solid var(--c);
+    display:flex; flex-direction:column;
+  }
+  .card .ico{ width:20mm; height:20mm; color:var(--c); margin-bottom:5mm; }
+  .card h3{
+    font-size:9mm; line-height:1.12; font-weight:800; color:var(--green-deep);
+    letter-spacing:-.015em; margin-bottom:4mm;
+  }
+  .card p{ font-size:6.6mm; line-height:1.46; color:#33443C; }
+  .card b{ color:var(--green-dark); }
+
+  /* ---------- actions ---------- */
+  .actions{ position:relative; z-index:2; margin-top:11mm; }
+  .actions h4{
+    font-size:9.4mm; font-weight:800; color:var(--green-deep); letter-spacing:-.01em;
+    margin-bottom:5.5mm;
+  }
+  .action-row{ display:flex; gap:6mm; }
+  .action{
+    flex:1; display:flex; align-items:center; gap:4mm;
+    background:rgba(255,255,255,.75); border:.5mm solid rgba(31,122,77,.18);
+    border-radius:4mm; padding:6mm 5.5mm;
+  }
+  .num{
+    width:11mm; height:11mm; border-radius:50%; flex:none;
+    background:var(--green); color:#fff; font-size:5.6mm; font-weight:800;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .action p{ font-size:6.5mm; line-height:1.3; color:#2A3B33; font-weight:600; }
+
+  /* ---------- care band ---------- */
+  .care{
+    position:relative; z-index:2; margin-top:auto;
+    background:var(--green-dark); color:#fff;
+    border-radius:5mm; padding:10mm 11mm;
+  }
+  .care-head{ display:flex; align-items:center; gap:5mm; }
+  .care-head svg{ width:15mm; height:15mm; flex:none; color:var(--yellow); }
+  .care h4{ font-size:10.4mm; font-weight:800; letter-spacing:-.015em; line-height:1.1; }
+  .care p{ font-size:6.3mm; line-height:1.45; color:#D6E7DE; margin-top:4mm; max-width:255mm; }
+  .chips{ display:grid; grid-template-columns:repeat(3,1fr); gap:3.2mm; margin-top:6mm; }
+  .chip{
+    background:rgba(255,255,255,.12); border:.4mm solid rgba(255,255,255,.26);
+    color:#fff; font-size:5.2mm; font-weight:600; padding:3mm 4mm; border-radius:99mm;
+    text-align:center; white-space:nowrap;
+  }
+
+  /* ---------- cta ---------- */
+  .cta{
+    position:relative; z-index:2; margin-top:8mm;
+    background:var(--yellow); color:var(--green-deep);
+    border-radius:4mm; padding:7mm 10mm;
+    display:flex; align-items:center; justify-content:space-between; gap:8mm;
+  }
+  .cta p{ font-size:9.8mm; font-weight:900; line-height:1.15; letter-spacing:-.015em; }
+  .cta p small{ display:block; font-size:5.6mm; font-weight:600; margin-top:1.6mm; letter-spacing:0; }
+  .cta .arrow{ width:15mm; height:15mm; flex:none; }
+
+  /* ---------- footer ---------- */
+  .foot{
+    position:relative; z-index:2; margin-top:6mm;
+    font-size:4.3mm; color:var(--muted); line-height:1.45;
+    display:flex; justify-content:space-between; gap:8mm;
+  }
+
+  /* ---------- screen chrome ---------- */
+  .toolbar{
+    position:fixed; right:22px; bottom:22px; z-index:99;
+    display:flex; gap:10px;
+  }
+  .toolbar button{
+    font:600 14px/1 "Segoe UI",Arial,sans-serif;
+    background:#F2B441; color:#0F3B2B; border:0; border-radius:10px;
+    padding:14px 20px; cursor:pointer; box-shadow:0 6px 18px rgba(0,0,0,.35);
+  }
+  .toolbar button:hover{ background:#ffc85c; }
+
+  body.export .toolbar{ display:none !important; }
+
+  @media print{
+    html,body{ background:#fff; }
+    #stage{ padding:0; }
+    .poster{ transform:none !important; }
+    .toolbar{ display:none !important; }
+    *{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  }
+</style>
+</head>
+<body>
+
+<div id="stage">
+  <main class="poster" id="poster">
+    <div class="sun-arc"></div>
+    <div class="leaf-deco"></div>
+
+    <header class="head">
+      <span class="badge">IPAS &middot; Kelas V &middot; Fase C</span>
+    </header>
+
+    <h1 class="title">Energi<br><em>Alternatif</em></h1>
+    <p class="subtitle">Energi dari Sekitar Kita</p>
+
+    <div class="tagline">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+        <circle cx="12" cy="12" r="4.2"/>
+        <path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.2 5.2l1.6 1.6M17.2 17.2l1.6 1.6M18.8 5.2l-1.6 1.6M6.8 17.2l-1.6 1.6"/>
+      </svg>
+      <span>Belajar dari matahari, angin, air, dan biogas</span>
+    </div>
+
+    <section class="cards">
+      <article class="card" style="--c:#F2B441">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 21c0-5 3-8 8-8 0 5-3 8-8 8Z"/>
+          <path d="M12 21c0-5-3-8-8-8 0 5 3 8 8 8Z"/>
+          <path d="M12 21V11"/>
+          <path d="M12 9V4"/>
+          <path d="M8.5 6.5 12 3l3.5 3.5"/>
+        </svg>
+        <h3>Apa itu energi alternatif?</h3>
+        <p>Energi alternatif berasal dari sumber daya alam yang <b>dapat diperbarui</b> dan <b>ramah lingkungan</b>. Contohnya surya (matahari), angin, air, dan biogas.</p>
+      </article>
+
+      <article class="card" style="--c:#2C7FB8">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M13 2 4.5 13.5H11l-1 8.5 8.5-11.5H12l1-8.5Z"/>
+        </svg>
+        <h3>Energi tidak dapat dimusnahkan</h3>
+        <p>Energi tidak dapat diciptakan atau dimusnahkan, hanya <b>diubah bentuknya</b>. Lampu menyala karena energi listrik berubah menjadi cahaya dan panas.</p>
+      </article>
+
+      <article class="card" style="--c:#1F7A4D">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 18h6"/>
+          <path d="M10 21h4"/>
+          <path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2h5c0-.8.4-1.5 1-2A6 6 0 0 0 12 3Z"/>
+        </svg>
+        <h3>Hemat energi mulai hari ini</h3>
+        <p>Matikan alat listrik yang tidak terpakai &mdash; lampu, kipas angin, proyektor &mdash; dan gunakan <b>lampu hemat energi</b>.</p>
+      </article>
+    </section>
+
+    <section class="actions">
+      <h4>Tiga hal yang bisa kamu lakukan</h4>
+      <div class="action-row">
+        <div class="action">
+          <span class="num">1</span>
+          <p>Menghemat energi</p>
+        </div>
+        <div class="action">
+          <span class="num">2</span>
+          <p>Menanam pohon</p>
+        </div>
+        <div class="action">
+          <span class="num">3</span>
+          <p>Menyebarkan informasi yang benar tentang lingkungan</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="care">
+      <div class="care-head">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 21c0-6 4.5-9.5 9.5-9.5C21.5 17.5 17 21 12 21Z"/>
+          <path d="M12 21C12 15 7.5 11.5 2.5 11.5 2.5 17.5 7 21 12 21Z"/>
+          <path d="M12 21V9"/>
+        </svg>
+        <h4>Sumber daya alam harus dijaga</h4>
+      </div>
+      <p>Air, tanah, hutan, dan udara perlu tetap tersedia bagi generasi mendatang.</p>
+      <div class="chips">
+        <span class="chip">Mengurangi pemakaian</span>
+        <span class="chip">Memakai ulang</span>
+        <span class="chip">Mendaur ulang</span>
+        <span class="chip">Menanam pohon</span>
+        <span class="chip">Menghemat energi</span>
+        <span class="chip">Transportasi ramah lingkungan</span>
+      </div>
+    </section>
+
+    <section class="cta">
+      <p>Matikan lampu yang tidak terpakai.
+        <small>Mulai dari rumahmu.</small>
+      </p>
+      <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 12h15"/>
+        <path d="M13.5 6.5 20 12l-6.5 5.5"/>
+      </svg>
+    </section>
+
+    <footer class="foot">
+      <span>Sumber materi: modul IPAS Energi Alternatif.</span>
+      <span>Data ilustratif untuk keperluan lomba.</span>
+    </footer>
+  </main>
+</div>
+
+<div class="toolbar">
+  <button type="button" onclick="window.print()">Cetak / Simpan PDF</button>
+</div>
+
+<script>
+  (function () {
+    if (location.search.indexOf('export') > -1) document.body.classList.add('export');
+    var poster = document.getElementById('poster');
+    function fit() {
+      var w = poster.offsetWidth;                 // lebar A2 dalam px
+      var avail = window.innerWidth;
+      var s = Math.min(1, avail / w);
+      poster.style.transform = 'scale(' + s + ')';
+      document.getElementById('stage').style.height = (poster.offsetHeight * s + 64) + 'px';
+    }
+    window.addEventListener('resize', fit);
+    window.addEventListener('beforeprint', function () {
+      poster.style.transform = 'none';
+      document.getElementById('stage').style.height = 'auto';
+    });
+    window.addEventListener('afterprint', fit);
+    fit();
+  })();
+</script>
+</body>
+</html>

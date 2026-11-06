@@ -28,15 +28,48 @@ Exit codes: 0 = png written, 1 = render failed, 2 = bad arguments.
 
 import argparse
 import html
+import os
 import re
+import shutil
 import subprocess
 import sys
 import tempfile
+from datetime import date
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-CHROME = "google-chrome"
 WIDTH = 1600
+
+
+def find_chrome():
+    """Locate a Chromium-family binary on Linux, macOS, or Windows.
+
+    Dulu nilai ini dipaku `google-chrome`, nama paket Linux. Di mesin Windows
+    proyek ini perintah itu tidak ada, sehingga setiap render gagal dengan
+    WinError 2 padahal Chrome terpasang. Kegagalannya menyesatkan: pesannya
+    "file not found", bukan "Chrome tidak ada".
+    """
+    env = os.environ.get("CHROME_BIN") or os.environ.get("CHROME_PATH")
+    if env and Path(env).exists():
+        return env
+    absolute = [
+        r"C:\Program Files\Google\Chrome\Application\chrome.exe",
+        r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe",
+        str(Path.home() / "AppData/Local/Google/Chrome/Application/chrome.exe"),
+        "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    ]
+    for candidate in absolute:
+        if Path(candidate).exists():
+            return candidate
+    for name in ("google-chrome", "google-chrome-stable", "chromium", "chromium-browser",
+                 "chrome", "msedge"):
+        found = shutil.which(name)
+        if found:
+            return found
+    return "google-chrome"
+
+
+CHROME = find_chrome()
 
 CSS = """
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -256,7 +289,13 @@ def main(argv=None):
     meta = "Berkas: <code>{}</code>".format(html.escape(rel))
     if args.run:
         meta += " · Run <strong>{}</strong>".format(html.escape(args.run))
-    meta += " · Dirender 5 November 2026"
+    # Tanggal render dulu dipaku "5 November 2026", sehingga setiap gambar yang
+    # dibuat setelah itu menyatakan tanggal yang salah pada banner buktinya.
+    # Keterangan bertanggal yang keliru lebih buruk daripada tanpa tanggal.
+    BULAN = ("Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli",
+             "Agustus", "September", "Oktober", "November", "Desember")
+    today = date.today()
+    meta += " · Dirender {} {} {}".format(today.day, BULAN[today.month - 1], today.year)
 
     page = """<!DOCTYPE html><html lang="id"><head><meta charset="utf-8">
 <title>{title}</title><style>{css}</style></head><body>
@@ -295,7 +334,14 @@ def main(argv=None):
     head = out.read_bytes()[:24]
     w = int.from_bytes(head[16:20], "big")
     h = int.from_bytes(head[20:24], "big")
-    print("{} -- {}x{} px".format(out.relative_to(REPO_ROOT).as_posix(), w, h))
+    # relative_to() melempar ValueError bila --out berada di luar repo. Dulu itu
+    # membuat render yang sudah berhasil dilaporkan sebagai kegagalan, tepat pada
+    # baris terakhir. Tampilkan jalur apa adanya bila di luar repo.
+    try:
+        shown = out.relative_to(REPO_ROOT).as_posix()
+    except ValueError:
+        shown = str(out)
+    print("{} -- {}x{} px".format(shown, w, h))
     return 0
 
 

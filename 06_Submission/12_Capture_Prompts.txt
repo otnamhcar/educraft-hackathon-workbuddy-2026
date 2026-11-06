@@ -89,6 +89,9 @@ fosil menghasilkan polusi.
   -> Screenshot: S2-01_remediate.png     (adegan wajib: Writer remediate)
   -> Screenshot: TC-12b_v2_approve.png
   -> Screenshot: S2-02_approve.png       (adegan wajib: Reviewer APPROVE)
+     Frame wajib: APPROVE + "pass 2" + "PASS — 134 tag" + bukti klaim
+     dihapus + "Publish LOCKED". Lima butir, rincian di runbook 2.6.
+     JANGAN paste ulang [2.1] hanya untuk memotret ini — itu run baru.
   -> Screenshot: TC-19_citation.png      (rule + kutipan + alasan + saran)
 
 
