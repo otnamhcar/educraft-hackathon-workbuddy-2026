@@ -17,11 +17,11 @@ Keterangan status: `SIAP` = artefaknya sudah ada di bundel ini · `BELUM` = haru
 | 2 | Blurb singkat, di bawah 10 kata | WAJIB | **SIAP** | `01_Title_Blurb.md` (8 kata, ID + EN) |
 | 3 | Deskripsi proyek (4 bagian) | WAJIB | **SIAP** | `02_Project_Description.md` |
 | 4 | Lembar akuntabilitas (satu halaman) | WAJIB | **SIAP** | `03_Accountability_Sheet.md` |
-| 5 | Hasil pengujian **beserta screenshot** | WAJIB | **SEBAGIAN** | Tabelnya sudah ada di `04_Test_Results.md`; **screenshot masih BELUM** (§3 di bawah) |
+| 5 | Hasil pengujian **beserta screenshot** | WAJIB | **SIAP** | Tabel di `04_Test_Results.md` (15 PASS / 6 BY DESIGN / 1 BELUM / 1 TO RUN) + 12 berkas wajib di `03_screenshots/`, semuanya sudah diperiksa mata (`CEK_MATA_2026-11-06.md`). Satu kasus diungkap `BELUM`: TC-07 |
 | 6 | Diagram arsitektur | WAJIB | **SIAP** | `architecture_diagram.png` (2720×3000) + `.html` + `05_Architecture.md` |
-| 7 | Video demo, 5–8 menit | WAJIB | **BELUM** | Skrip `07_Demo_Video_Script.md` (7:40) + runbook `13_Demo_Video_Runbook.md` + **kit siap pakai** di `video_kit/`: dua kartu judul, `concat_video.py` (normalkan ke **1366×768** bawaan, bisa ditimpa `--size`; sambung; `loudnorm`; jaga durasi), dan `CUE_SHEET.md` tiga segmen. Jalur sambung **sudah diuji** 6 Nov (5:10, ffmpeg 9.0.2). Yang kurang hanya rekaman layar dan narasi |
+| 7 | Video demo, 5–8 menit | WAJIB | **BAHAN LENGKAP, FINALISASI DI LUAR REPO** | Skrip `07_Demo_Video_Script.md` (7:40) + runbook `13_Demo_Video_Runbook.md` + **kit siap pakai** di `video_kit/`. Rekaman mentah sudah ada lima berkas (sesi 1, 2, 2b, 3a, 3b; 117 MB) dan **disimpan di drive bersama, tidak di dalam repo** — diunggah terpisah oleh guru. Yang belum: penyambungan final + narasi |
 | 8 | Product sharing | WAJIB | **SIAP** | `06_Product_Sharing.md` |
-| 9 | Kode sumber / workflow yang diekspor | WAJIB | **SIAP** | Repo publik (MIT): https://github.com/otnamhcar/educraft-hackathon-workbuddy-2026 — 4 run, 4 skill, doctor.py 11/11 |
+| 9 | Kode sumber / workflow yang diekspor | WAJIB | **SIAP** | Repo publik (MIT): https://github.com/otnamhcar/educraft-hackathon-workbuddy-2026 — 11 run, 4 skill, `doctor.py` **19 passed / 0 failed / 0 warning** |
 | 10 | Gambar sampul (opsional, 16:9) | OPSIONAL | **SIAP** | `cover_image_380x216.png` + `cover_image_1280x720.png` |
 | 11 | Tautan proyek (bonus) | BONUS | **DRAF LOKAL** | Halaman statis siap di `06_Submission/demo_site/` (lihat `README.md` di sana). **Belum diunggah, belum ada URL publik.** Jangan tulis tautan apa pun di formulir sebelum benar-benar hidup |
 
@@ -190,10 +190,15 @@ Submission saat ini tidak mengklaim penerbitan apa pun — pertahankan begitu sa
 ├── 11_Screenshot_Capture_Runbook.md  <- cara mengambil bukti screenshot
 ├── 12_Capture_Prompts.txt            <- prompt siap tempel untuk sesi tangkap
 ├── 13_Demo_Video_Runbook.md          <- cara memproduksi video
-├── 14_Lembar_Sesi_Tangkap.md         <- lembar kerja: 6 berkas sisa, dua blok sesi
+├── 14_Lembar_Sesi_Tangkap.md         <- lembar kerja sesi tangkap (0 berkas sisa per 6 Nov)
 ├── video_kit/                        <- item 7 (kartu judul, concat_video.py, CUE_SHEET.md)
 ├── panduan/                          <- runbook Demo Day + panduan testimoni guru (pindah dari 03_Hasil/panduan 5 Nov 2026)
 ├── cover_image.svg                   <- item 10 (sumber)
 ├── cover_image_1280x720.png          <- item 10 (deck/media sosial)
 └── cover_image_380x216.png           <- item 10 (unggah ke formulir)
 ```
+
+**Rekaman video tidak ada di repo.** Lima berkas rekaman mentah (117 MB) disimpan dan diunggah
+terpisah ke drive bersama; repo ini hanya memuat skrip, runbook, dan kit penyambungnya. Alasannya
+ukuran — menggelembungkan repo yang di-clone juri tanpa manfaat, karena video dinilai dari tautan,
+bukan dari isi git.
