@@ -50,19 +50,24 @@ dan itu terlalu mepet untuk editing + rekaman ulang. **Rekam yang tidak terbloki
 
 ## 2. Alat — yang benar-benar ada di mesin ini
 
-Diperiksa 31 Okt 2026, bukan diasumsikan:
+Diperiksa 31 Okt 2026, diperbarui 6 Nov 2026 (ffmpeg/ffprobe 9.0.2 terpasang):
 
 | Alat | Ada? | Dipakai untuk |
 |------|------|---------------|
 | `obs` (`/usr/bin/obs`) | ✅ | rekam layar + mikrofon, satu file |
-| `ffmpeg` 4.4.2 | ✅ | potong, gabung, subtitle, normalisasi audio, export |
-| `ffprobe` | ✅ | **verifikasi** hasil (durasi, stream, resolusi) |
+| `ffmpeg` 9.0.2 | ✅ | potong, gabung, subtitle, normalisasi audio, export |
+| `ffprobe` 9.0.2 | ✅ | **verifikasi** hasil (durasi, stream, resolusi) |
 | `audacity` (`/usr/bin/audacity`) | ✅ | rekam narasi terpisah, bersihkan noise |
 | `libx264` + `aac` + `x11grab` | ✅ | encoder & capture X11 tersedia |
 | `kdenlive`, `shotcut`, `kazam`, `simplescreenrecorder` | ❌ | tidak ada — jangan direncanakan |
 
-Uji encode sudah dijalankan dan berhasil (`1920×1080`, `h264` + `aac`, 1 detik, 101 KB). Artinya
-rangkaian export di §6 memang bisa dieksekusi di mesin ini.
+Uji encode sudah dijalankan dan berhasil (`1366×768`, `h264` + `aac`). Artinya rangkaian export di
+§6 memang bisa dieksekusi di mesin ini.
+
+> **Batas mesin (keputusan 6 November 2026).** Panel laptop yang dipakai merekam adalah **1366×768**,
+> bukan 1920×1080. Semua angka di §3, §5, dan §6 mengikuti 1366×768. `concat_video.py` juga memakai
+> 1366×768 sebagai bawaan (bisa ditimpa `--size 1920x1080` di mesin lain). Jangan memperbesar rekaman
+> 1366 ke 1920 — hasilnya buram dan terbaca sebagai manipulasi.
 
 > Langkah OBS di §3 berisi pengaturan GUI yang **belum** bisa saya uji dari sini. Kalau OBS tidak
 > mau bekerja sama, jalur ffmpeg di §3.3 sudah terbukti mampu.
@@ -75,7 +80,8 @@ rangkaian export di §6 memang bisa dieksekusi di mesin ini.
 
 | Setting | Nilai | Alasan |
 |---------|-------|--------|
-| Canvas & Output | 1920×1080, 30 fps | Cukup tajam untuk teks tag; 60 fps hanya memperbesar file |
+| Canvas & Output | 1366×768, 30 fps | Batas panel mesin perekam; 60 fps hanya memperbesar file |
+| Font aplikasi | Naikkan **satu tingkat** (16–18pt) | Menutup teks yang lebih kecil akibat resolusi 1366 |
 | Encoder | x264, CRI 20 | Kualitas baik, ukuran wajar |
 | Format rekaman | **`.mkv`** | MP4 rusak kalau OBS mati di tengah rekaman; MKV tidak |
 | Audio | 1 track, 48 kHz | Satu track memudahkan sinkronisasi |
@@ -103,7 +109,7 @@ ffmpeg -i rekaman.mkv -c copy rekaman.mp4
 Butuh `DISPLAY` aktif (sesi desktop). Rekam seluruh layar:
 
 ```bash
-ffmpeg -f x11grab -video_size 1920x1080 -framerate 30 -i "$DISPLAY" \
+ffmpeg -f x11grab -video_size 1366x768 -framerate 30 -i "$DISPLAY" \
        -f pulse -i default -c:v libx264 -preset veryfast -crf 20 -pix_fmt yuv420p \
        -c:a aac -b:a 128k -t 60 adegan.mp4
 ```
@@ -188,7 +194,7 @@ ffprobe -v error -show_entries format=duration,size \
 | Yang diperiksa | Lulus kalau |
 |----------------|-------------|
 | Durasi | **300–480 detik** (5:00–8:00). Target 460 detik (7:40) |
-| Video | `h264`, `1920×1080` |
+| Video | `h264`, `1366×768` (atau ukuran `--size` yang dipakai) |
 | Audio | ada stream `aac`; **dengar 30 detik pertama dan 30 detik terakhir** |
 | Subtitle | terbakar, terbaca saat dijeda |
 | Putar penuh | sekali, dari awal sampai akhir, di perangkat lain (ponsel) |

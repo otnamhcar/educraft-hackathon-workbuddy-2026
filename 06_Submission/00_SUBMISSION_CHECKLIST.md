@@ -19,7 +19,7 @@ Keterangan status: `SIAP` = artefaknya sudah ada di bundel ini · `BELUM` = haru
 | 4 | Lembar akuntabilitas (satu halaman) | WAJIB | **SIAP** | `03_Accountability_Sheet.md` |
 | 5 | Hasil pengujian **beserta screenshot** | WAJIB | **SEBAGIAN** | Tabelnya sudah ada di `04_Test_Results.md`; **screenshot masih BELUM** (§3 di bawah) |
 | 6 | Diagram arsitektur | WAJIB | **SIAP** | `architecture_diagram.png` (2720×3000) + `.html` + `05_Architecture.md` |
-| 7 | Video demo, 5–8 menit | WAJIB | **BELUM** | Skrip `07_Demo_Video_Script.md` (7:40) + runbook `13_Demo_Video_Runbook.md` + **kit siap pakai** di `video_kit/`: dua kartu judul 1920×1080, `concat_video.py` (normalkan, sambung, `loudnorm`, jaga durasi), dan `CUE_SHEET.md` tiga segmen. Yang kurang hanya rekaman layar dan narasi |
+| 7 | Video demo, 5–8 menit | WAJIB | **BELUM** | Skrip `07_Demo_Video_Script.md` (7:40) + runbook `13_Demo_Video_Runbook.md` + **kit siap pakai** di `video_kit/`: dua kartu judul, `concat_video.py` (normalkan ke **1366×768** bawaan, bisa ditimpa `--size`; sambung; `loudnorm`; jaga durasi), dan `CUE_SHEET.md` tiga segmen. Jalur sambung **sudah diuji** 6 Nov (5:10, ffmpeg 9.0.2). Yang kurang hanya rekaman layar dan narasi |
 | 8 | Product sharing | WAJIB | **SIAP** | `06_Product_Sharing.md` |
 | 9 | Kode sumber / workflow yang diekspor | WAJIB | **SIAP** | Repo publik (MIT): https://github.com/otnamhcar/educraft-hackathon-workbuddy-2026 — 4 run, 4 skill, doctor.py 11/11 |
 | 10 | Gambar sampul (opsional, 16:9) | OPSIONAL | **SIAP** | `cover_image_380x216.png` + `cover_image_1280x720.png` |
