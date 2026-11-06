@@ -118,9 +118,14 @@ tidak membuktikan apa pun.
 
 ## 3. Screenshot: apa yang sudah ada, apa yang masih kosong
 
-Handbook mewajibkan screenshot. Per 5 November 2026, **6 dari 12 berkas wajib sudah ada**, dan
-6 sisanya menuntut sesi agen yang berjalan langsung. Tujuan berkas:
+Handbook mewajibkan screenshot. Per 6 November 2026, **semua berkas wajib sudah ada di disk**, dan
+sebagian masih menuntut sesi agen yang berjalan langsung. Tujuan berkas:
 `05_Bukti_Proses/evidence_bundle/03_screenshots/`.
+
+**Screenshot diambil pada 6 November 2026 dalam run verifikasi `EDU-CAP-20261106-01` … `-05`,
+terpisah dari run yang sudah disetujui** (`EDU-ORCH-…`). Pemetaan sesi ke nomor run ada di
+`03_screenshots/INDEX.md` §A0. Artefak final tetap berasal dari run yang di-approve; screenshot
+hanya membuktikan perilaku.
 
 **Cara enam berkas itu dibuat, dinyatakan terus terang.** Berkas `S1-01`, `S1-02`, `S1-04`, `S2-01`,
 `S2-02`, `TC-19`, dan `TC-18` adalah **halaman yang dirender dari berkas hasil run** — bukan tangkapan
@@ -237,6 +242,26 @@ bukan menulis ulang sejarah. D3 adalah pola yang paling tidak nyaman: **perbaika
 selesai ternyata hanya menyentuh satu salinan**, dan alat pemeriksaan ikut tidak melihatnya karena
 cakupannya sendiri terbatas pada salinan itu. Pelajarannya bukan "periksa lebih teliti", melainkan
 bahwa daftar yang diperiksa harus mencakup semua tempat artefak benar-benar berada.
+
+---
+
+## 4c. Satu perintah capture yang kami ubah, dan alasannya (6 November 2026)
+
+Bukan kegagalan produk, tetapi menyangkut kejujuran bukti, jadi diungkap di sini.
+
+**Perintah asli** pada skrip capture sesi 2, langkah remediasi:
+
+> "Perbaiki sesuai temuan Reviewer. Ganti klaim kesehatan dengan gejala umum dan kelompok rentan yang ada di source. Jangan menambah fakta baru."
+
+**Mengapa tidak dapat dijalankan.** Perintah itu menuntut penggantian klaim kesehatan dengan bahan yang *ada di source*. Kami menyisir kedua lembar sumber: `source_material_energi.md` dan `konteks_aktual.md` tidak memuat satu pun kata *gejala*, *rentan*, *paru*, *ISPA*, atau *penyakit*. Satu-satunya pernyataan yang menyentuh topik itu adalah "bahan bakar fosil … menghasilkan polusi" (`[src:2]`). Tidak ada bahan untuk mengganti.
+
+**Dua jalan yang tersisa, keduanya buruk.** Mengarang gejala umum berarti melanggar R001 — dan melanggar kalimat terakhir perintah itu sendiri ("jangan menambah fakta baru"). Membiarkan perintah apa adanya berarti agen ditolak lagi, lingkar remediasi 3× habis, dan `S2-02_approve.png` tidak pernah ada.
+
+**Yang kami ubah.** Perintahnya, bukan materinya: klaim kesehatan dihapus, dan penggantinya dibatasi pada pernyataan polusi yang memang ada di `[src:2]`. Teks lengkapnya di `12_Capture_Prompts.txt` [2.2] dan `11_Screenshot_Capture_Runbook.md` §4.
+
+**Yang tidak berubah dari bukti.** TC-08 dan TC-09 tetap tertutup oleh penolakan **R006** atas klaim absolut — *"kerusakan permanen … tidak bisa disembuhkan"* dan *"100% mencegah ISPA"* ditolak karena sifat klaimnya, bukan karena sumbernya kosong. TC-12 tetap terbukti sebagai siklus tolak → remediasi → setujui.
+
+**Yang harus dibaca dengan benar.** Bentuk remediasi pada sesi ini adalah **penghapusan klaim**, bukan penggantian dengan gejala. Narasi video dan tabel di §2 tidak boleh menyebut sebaliknya.
 
 ---
 

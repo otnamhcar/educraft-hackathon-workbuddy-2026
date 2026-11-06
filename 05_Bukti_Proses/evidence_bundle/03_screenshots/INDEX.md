@@ -1,6 +1,6 @@
 # Screenshot Index — Evidence of Use
 
-**Proyek:** EduCraft · **Run verifikasi:** `EDU-CAP-20261030-01` … `-05`
+**Proyek:** EduCraft · **Run capture:** `EDU-CAP-20261106-01` … `-05` (pemetaan sesi di §A0)
 **Diisi oleh:** ______________ · **Tanggal capture:** ______________
 
 > **Penting:** screenshot ini berasal dari **run verifikasi terpisah**, bukan dari run of record
@@ -14,10 +14,29 @@
 
 ---
 
+## A0. Pemetaan run capture
+
+Screenshot langsung diambil pada **6 November 2026**. Nomor run mengikuti tanggal capture
+sebenarnya (runbook §1.3), bukan tanggal rencana awal.
+
+| Run capture | Sesi | Isi | Folder |
+|---|---|---|---|
+| `EDU-CAP-20261106-01` | 1 | Golden path | `S1_golden_path/` |
+| `EDU-CAP-20261106-02` | 2 | Penolakan R006 + remediasi | `S2_refusal_cycle/` |
+| `EDU-CAP-20261106-03` | 2b | Praktik berbahaya (R007) | `S2_refusal_cycle/` |
+| `EDU-CAP-20261106-04` | 2c | Klaim komersial & halal (R012) | `S2_refusal_cycle/` |
+| `EDU-CAP-20261106-05` | 3 | Eskalasi + injeksi | `S3_escalation/` |
+
+> **Dua jenis run, jangan dicampur.** Kolom **Run artefak** di §A menyebut run `EDU-ORCH-…` yang
+> *menghasilkan berkas* lalu dirender menjadi gambar. Itu bukan run capture. Run capture
+> (`EDU-CAP-…`) hanya berlaku untuk tangkapan layar langsung dari sesi WorkBuddy.
+
+---
+
 ## A. Tujuh adegan wajib (`evidence_bundle/README.md`)
 
-| # | Adegan | File | Run ID | Waktu | Status |
-|---|--------|------|--------|-------|--------|
+| # | Adegan | File | Run artefak | Waktu | Status |
+|---|--------|------|-------------|-------|--------|
 | 1 | Planner menghasilkan outline | `S1_golden_path/S1-01_planner_outline.png` | `-002` | 2026-11-05 | PASS (render) |
 | 2 | Writer menghasilkan draft bertag `[src:#]` | `S1_golden_path/S1-02_writer_tags.png` | `-002` | 2026-11-05 | PASS (render) |
 | 3 | Reviewer **REJECT** + alasan rule | `S2_refusal_cycle/TC-08_reject-R006.png` | | | BELUM |
@@ -82,3 +101,20 @@ Kalau beda, perbaiki dulu sebelum submit.
 | TC | Apa yang terjadi | Apa yang dilakukan | Disclose di |
 |----|------------------|--------------------|-------------|
 | | | | `04_Test_Results.md` §4 |
+
+---
+
+## D2. Penyimpangan dari skrip capture — SESI 2 [2.3]
+
+**Bukan kegagalan uji.** Ini perubahan teks perintah, dan sengaja dicatat supaya tidak terbaca
+sebagai skrip yang disesuaikan agar hasilnya "kelihatan benar".
+
+| Item | Isi |
+|------|-----|
+| Sesi / langkah | SESI 2 · [2.3] perintah remediasi |
+| Teks asli | *"Perbaiki sesuai temuan Reviewer. Ganti klaim kesehatan dengan gejala umum dan kelompok rentan yang ada di source. Jangan menambah fakta baru."* |
+| Mengapa diubah | `08_Referensi/source_material_energi.md` dan `08_Referensi/konteks_aktual.md` **tidak memuat satu pun** kata *gejala*, *rentan*, *paru*, *ISPA*, atau *penyakit*. Tidak ada bahan untuk mengganti. Perintah asli hanya menyisakan dua jalan: mengarang fakta (dilarang R001, dan dilarang oleh kalimat "jangan menambah fakta baru" itu sendiri) atau ditolak lagi sampai lingkar remediasi 3× habis — yang akan menggagalkan `S2-02_approve.png`. |
+| Teks pengganti | Lihat `06_Submission/12_Capture_Prompts.txt` [2.2] dan `11_Screenshot_Capture_Runbook.md` §4 langkah 2.3 |
+| Dampak pada bukti | **Tidak ada.** TC-08 dan TC-09 tetap tertutup oleh penolakan R006 atas klaim absolut — R006 menolak *"kerusakan permanen … tidak bisa disembuhkan"* dan *"100% mencegah ISPA"* karena sifat klaimnya, bukan karena sumbernya kosong. TC-12 tetap terbukti (tolak → remediasi → setujui). Yang berubah hanya bentuk remediasi: **penghapusan klaim**, bukan penggantian dengan gejala. |
+| Konsekuensi pada narasi | Video dan `04_Test_Results.md` **tidak boleh** menyebut "diganti dengan gejala umum dari sumber". Yang benar: "klaim kesehatan dihapus, diganti pernyataan polusi yang ada di sumber". |
+| Diungkap di | `06_Submission/04_Test_Results.md` §4c |
