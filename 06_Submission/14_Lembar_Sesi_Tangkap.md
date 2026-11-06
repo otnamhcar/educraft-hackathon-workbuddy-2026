@@ -23,6 +23,10 @@ harus muncul, dan berkas apa yang harus keluar — supaya tidak ada sesi yang di
 - [ ] Jalankan `python tools\capture_session.py` — skrip memandu keenam berkas satu per satu:
       nama berkas, prompt yang dipaste, dan syarat isi frame sudah terisi. Tekan Enter, lalu
       Alt+Tab ke WorkBuddy. `--list` untuk melihat rencana tanpa menangkap
+- [ ] **Perhatikan konfirmasi setelah tiap tangkapan.** Gambar terbuka otomatis dan skrip bertanya
+      apakah frame-nya menampilkan vonis. Jawab `n` kalau yang terekam jendela terminal — berkas
+      akan dipindahkan ke `evidence_bundle/_karantina/`, bukan dihapus. Ini satu-satunya penjaga
+      yang nyata: `check_capture.py` hanya memeriksa lebar dan keberadaan berkas, bukan isinya
 - [ ] `12_Capture_Prompts.txt` terbuka di layar kedua — jangan mengetik ulang prompt
 - [ ] Notifikasi mati; tidak ada jendela lain yang menutupi panel hasil
 - [ ] Terminal siap untuk perintah SESI 3.2

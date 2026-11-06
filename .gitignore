@@ -11,3 +11,7 @@ __pycache__/
 # menutup 03_Hasil/edu_output/Slide_Energi_Alternatif/.cache/ dan .slidep/.
 .cache/
 .slidep/
+
+# Tangkapan yang ditolak saat konfirmasi (mis. frame-nya jendela terminal, bukan UI agen).
+# Berkasnya sengaja disimpan sebagai jejak, tetapi tidak boleh masuk bundel bukti.
+_karantina/

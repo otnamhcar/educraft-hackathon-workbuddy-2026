@@ -13,16 +13,25 @@ logika tangkapnya, jadi perbaikan di sana ikut terpakai di sini).
 
 Alurnya per berkas: skrip menampilkan apa yang harus terlihat dan prompt mana
 yang dipaste, lalu menunggu Enter. Setelah Enter, `capture.py` menghitung mundur
-5 detik -- di situlah Anda berpindah ke jendela WorkBuddy.
+8 detik -- di situlah Anda berpindah ke jendela WorkBuddy. Setelah tersimpan,
+gambar dibuka otomatis dan skrip bertanya apakah frame-nya benar. Menjawab `n`
+memindahkan berkas ke `evidence_bundle/_karantina/`, bukan menghapusnya: berkas
+itu tetap ada sebagai jejak, tetapi tidak lagi dihitung sebagai bukti.
+
+Kenapa ada langkah konfirmasi: `check_capture.py` hanya memeriksa keberadaan,
+lebar, dan keabsahan PNG -- ia tidak bisa membaca isi gambar. Enam tangkapan
+pernah lolos 18 passed / 0 failed padahal isinya jendela terminal yang sedang
+menjalankan skrip ini, bukan UI agen. Konfirmasi manusia menutup celah itu.
 
 Pilihan:
     --list             tampilkan rencana lalu keluar (tidak menangkap apa pun)
     --dry-run          jelaskan tiap langkah tanpa menangkap
     --only <ID>        hanya berkas itu, mis. --only TC-13 (boleh diulang)
-    --delay <s>        hitungan mundur sebelum tangkap, bawaan 5
+    --delay <s>        hitungan mundur sebelum tangkap, bawaan 8
+    --no-preview       jangan buka gambar setelah menangkap
     --root <dir>       folder tujuan lain (untuk uji coba)
     --force            timpa berkas yang sudah ada (hindari: itu bukti)
-    --yes              jangan menunggu Enter (untuk menjalankan otomatis)
+    --yes              tanpa tanya jawab, untuk menjalankan otomatis
     --no-color         teks polos
 
 Exit codes: 0 = semua berkas wajib ada, 1 = masih ada yang kosong, 2 = tidak bisa mulai.
@@ -31,6 +40,7 @@ Exit codes: 0 = semua berkas wajib ada, 1 = masih ada yang kosong, 2 = tidak bis
 import argparse
 import subprocess
 import sys
+import time
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -113,6 +123,50 @@ def capture_one(shot, root, delay, force, no_color):
     return result.returncode
 
 
+def preview(path):
+    """Buka gambar supaya kesalahan terlihat sekarang, bukan sejam kemudian."""
+    try:
+        if sys.platform == "win32":
+            import os
+
+            os.startfile(str(path))  # noqa: S606 - membuka berkas untuk dilihat
+        elif sys.platform == "darwin":
+            subprocess.run(["open", str(path)], check=False)
+        else:
+            subprocess.run(["xdg-open", str(path)], check=False)
+        return True
+    except Exception:  # noqa: BLE001 - pratinjau gagal bukan alasan menghentikan sesi
+        return False
+
+
+def ask_frame_ok():
+    """True = frame benar, False = salah, None = tidak dijawab jelas."""
+    for _ in range(2):
+        try:
+            answer = input("  Frame menampilkan vonis yang diklaim? [y] ya  [n] salah > ")
+        except (EOFError, KeyboardInterrupt):
+            print("")
+            return None
+        answer = answer.strip().lower()
+        if answer in ("y", "ya", "yes"):
+            return True
+        if answer in ("n", "no", "tidak"):
+            return False
+    return None
+
+
+def quarantine(path, root):
+    """Pindahkan berkas salah ke luar folder bukti. Tidak menghapus apa pun."""
+    dest_dir = root.parent / "_karantina" / path.parent.name
+    dest_dir.mkdir(parents=True, exist_ok=True)
+    dest = dest_dir / path.name
+    if dest.exists():
+        stamp = time.strftime("%H%M%S")
+        dest = dest_dir / "{}.{}{}".format(path.stem, stamp, path.suffix)
+    path.replace(dest)
+    return dest
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(
         description="Sesi tangkap enam berkas wajib, satu per satu."
@@ -121,7 +175,9 @@ def main(argv=None):
     parser.add_argument("--dry-run", action="store_true", help="jelaskan tanpa menangkap")
     parser.add_argument("--only", action="append", default=None,
                         help="hanya ID ini (boleh diulang), mis. --only TC-13")
-    parser.add_argument("--delay", type=int, default=5, help="hitungan mundur (bawaan 5)")
+    parser.add_argument("--delay", type=int, default=8, help="hitungan mundur (bawaan 8)")
+    parser.add_argument("--no-preview", action="store_true",
+                        help="jangan buka gambar setelah menangkap")
     parser.add_argument("--root", default=None, help="folder tujuan lain")
     parser.add_argument("--force", action="store_true", help="timpa berkas yang ada")
     parser.add_argument("--yes", action="store_true", help="jangan menunggu Enter")
@@ -163,7 +219,7 @@ def main(argv=None):
         rep.summary()
         return 0
 
-    taken, skipped, failed = [], [], []
+    taken, skipped, failed, quarantined = [], [], [], []
     for index, shot in enumerate(shots, start=1):
         out = root / shot["file"]
         rep.heading("[{}/{}] {} -- {}".format(index, len(shots), shot["block"], shot["id"]))
@@ -178,6 +234,9 @@ def main(argv=None):
             continue
 
         if not args.yes:
+            rep.plain("  >>> Tekan Enter, lalu LANGSUNG Alt+Tab ke WorkBuddy.")
+            rep.plain("  >>> Hitungan mundur {} detik; jendela yang terdepan itulah yang terekam."
+                      .format(args.delay))
             try:
                 answer = input("  [Enter] tangkap   [s] lewati   [q] keluar > ").strip().lower()
             except (EOFError, KeyboardInterrupt):
@@ -209,12 +268,32 @@ def main(argv=None):
             failed.append(shot["id"])
             continue
         rep.ok("tersimpan, {:.0f} KB".format(size_kb))
-        taken.append(shot["id"])
+
+        if args.yes:
+            taken.append(shot["id"])
+            continue
+
+        if not args.no_preview:
+            if not preview(out):
+                rep.warn("tidak bisa membuka pratinjau -- periksa manual sebelum lanjut")
+        verdict = ask_frame_ok()
+        if verdict is True:
+            rep.ok("frame dikonfirmasi benar")
+            taken.append(shot["id"])
+        elif verdict is False:
+            dest = quarantine(out, root)
+            rep.no("dipindahkan ke karantina: {}".format(dest.relative_to(root.parent)))
+            rep.plain("  Berkas tidak dihapus, tetapi tidak dihitung sebagai bukti.")
+            quarantined.append(shot["id"])
+        else:
+            rep.warn("belum dikonfirmasi -- berkas dibiarkan di tempatnya, ulangi bila ragu")
+            failed.append(shot["id"])
 
     rep.heading("Ringkasan")
     rep.plain("  ditangkap : {}".format(", ".join(taken) if taken else "-"))
     rep.plain("  dilewati  : {}".format(", ".join(skipped) if skipped else "-"))
     rep.plain("  gagal     : {}".format(", ".join(failed) if failed else "-"))
+    rep.plain("  karantina : {}".format(", ".join(quarantined) if quarantined else "-"))
     rep.plain("")
 
     missing = [s["id"] for s in SHOTS if not (root / s["file"]).exists()]
