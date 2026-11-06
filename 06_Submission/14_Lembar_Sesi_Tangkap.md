@@ -20,6 +20,9 @@ harus muncul, dan berkas apa yang harus keluar — supaya tidak ada sesi yang di
 ## Sebelum mulai (5 menit)
 
 - [ ] Jendela WorkBuddy **dimaksimalkan** (1366 px); font diperbesar satu tingkat
+- [ ] Jalankan `python tools\capture_session.py` — skrip memandu keenam berkas satu per satu:
+      nama berkas, prompt yang dipaste, dan syarat isi frame sudah terisi. Tekan Enter, lalu
+      Alt+Tab ke WorkBuddy. `--list` untuk melihat rencana tanpa menangkap
 - [ ] `12_Capture_Prompts.txt` terbuka di layar kedua — jangan mengetik ulang prompt
 - [ ] Notifikasi mati; tidak ada jendela lain yang menutupi panel hasil
 - [ ] Terminal siap untuk perintah SESI 3.2

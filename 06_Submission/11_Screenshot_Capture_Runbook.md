@@ -110,6 +110,7 @@ dengan nama final.
 | Seluruh layar | `python tools/capture.py --out <nama>.png --delay 5` |
 | Area tertentu | `python tools/capture.py --out <nama>.png --region 0,0,1366,700` |
 | Semua monitor | `python tools/capture.py --out <nama>.png --all-screens` |
+| Enam berkas wajib berurutan | `python tools/capture_session.py` — memandu satu per satu, `--list` untuk melihat rencana |
 
 Cara pakai: jalankan perintahnya, **lalu** pindah ke jendela WorkBuddy — jeda 5 detik cukup. Alat ini
 menolak menimpa berkas yang sudah ada (pakai `--force` hanya kalau memang ingin mengulang) dan
