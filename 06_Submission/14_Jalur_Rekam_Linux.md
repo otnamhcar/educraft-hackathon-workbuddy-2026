@@ -109,6 +109,38 @@ depan. Rekaman asli selalu lebih kuat, dan Anda masih punya waktu satu malam.
 
 ---
 
+## 4b. Narasi justru **bisa** dikerjakan dari Linux
+
+Kalau yang Anda maksud adalah **suara** — bukan rekaman layar — jawabannya berbeda, dan lebih
+mudah: **ya, rekam narasi di Linux tidak menimbulkan masalah apa pun.**
+
+Alasannya: narasi tidak memperlihatkan sesi. Tidak ada run ID, tidak ada timestamp, tidak ada aturan
+yang dikutip. Yang dinilai dari narasi adalah isinya. Selama kata-katanya sesuai
+`NARASI_SKRIP_TAKE.md`, tidak ada yang bisa membandingkannya dengan screenshot dan menemukan selisih.
+
+| | Rekam layar di Linux | Rekam narasi di Linux |
+|---|---|---|
+| Memperlihatkan sesi | ya — run ID dan timestamp | tidak |
+| Harus sama dengan bukti uji | ya | tidak perlu |
+| Alat | manual, tanpa `$DISPLAY` | `ffmpeg`, Audacity, atau perekam bawaan distro |
+| Risiko | run baru bertanggal lain | tidak ada |
+
+**Syaratnya tiga, sama seperti di Windows:**
+
+1. **`.m4a` atau `.wav`, 48 kHz**, mono pun boleh — `attach_narration.py` menormalkan ke 48 kHz stereo.
+   Sudah diuji dengan masukan 44,1 kHz mono: keluaran benar.
+2. **Nama berkas `narasi_a`, `narasi_b`, `narasi_c`**, satu take per segmen.
+3. **Level rata-rata −16 LUFS**, puncak tidak menyentuh 0. Skrip meratakan dengan `loudnorm`, tetapi
+   `loudnorm` tidak menyelamatkan rekaman yang sejak awal terlalu pelan atau clipping.
+
+Rekam narasi di sini, lalu kirim ketiga berkas ke mesin Windows — **berkas jadi, bukan potongan**.
+Perakitan tetap satu mesin (`CUE_SHEET.md`).
+
+> **Yang tetap harus di Windows:** semua yang menyangkut layar. Tidak ada satu pun panel sesi tangkap
+> di mesin ini.
+
+---
+
 ## 5. Jawaban satu paragraf
 
 Rekam di Linux **bisa secara teknis**, tetapi rekaman itu akan memperlihatkan run 7 November sementara

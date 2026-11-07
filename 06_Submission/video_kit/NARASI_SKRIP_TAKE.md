@@ -147,9 +147,25 @@ jangan memotong kata di tengah.
 1. Nama berkas `narasi_a`, `narasi_b`, `narasi_c` di satu folder.
 2. **Dengarkan ketiganya sekali dari awal.** Yang perlu diperiksa: tidak ada kata terpotong di awal
    ("Pukul" jadi "ukul"), tidak ada suara kipas yang naik-turun, tidak ada dering.
-3. Kalau salah satu take melar lebih dari 5 detik dari perkiraan, potong **jeda**, bukan kata.
-4. Simpan apa adanya. Jangan menaikkan volume secara manual — `concat_video.py` meratakan dengan
-   `loudnorm` ke −16 LUFS saat menyambung.
+3. Kalau salah satu take melar, potong **jeda**, bukan kata. Jangan khawatir kalau masih kelebihan
+   sedikit — `attach_narration.py` memotongnya di ujung slot dan **melaporkannya**.
+4. Simpan apa adanya. Jangan menaikkan volume secara manual — skrip perakitan meratakan dengan
+   `loudnorm` ke −16 LUFS.
+
+## Memasang narasi ke video
+
+Bukan `concat_video.py` — skrip itu untuk menyambung layar dan tidak menerima berkas suara.
+
+```bat
+python 06_Submission\video_kit\attach_narration.py ^
+  --video tersambung.mp4 ^
+  --narasi-a narasi_a.m4a --narasi-b narasi_b.m4a --narasi-c narasi_c.m4a ^
+  --out bernarasi.mp4
+```
+
+Titik mulai tiap take dibaca dari `NARASI_TIMING.json` (A di 0:05, B di 2:10, C di 4:05 — sudah
+termasuk kartu pembuka 5 detik). Skrip memeriksa durasi tidak bergeser dan melaporkan take yang
+dipotong. Rincian di runbook 13 §5.2.
 
 ## Yang tidak perlu direkam
 

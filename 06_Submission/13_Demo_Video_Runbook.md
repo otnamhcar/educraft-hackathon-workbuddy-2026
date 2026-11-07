@@ -354,10 +354,45 @@ ffmpeg -f concat -safe 0 -i daftar.txt -c:v libx264 -crf 20 -pix_fmt yuv420p \
 
 ### 5.2 Tambahkan narasi
 
-```bash
-ffmpeg -i gabungan.mp4 -i narasi.wav -map 0:v -map 1:a -c:v copy -c:a aac -b:a 128k \
-       -shortest bernarasi.mp4
+**Tiga take narasi tidak dimulai di detik nol.** Take A mulai di 0:05 (setelah kartu pembuka), B di
+2:10, C di 4:05. Menempelkan satu berkas narasi utuh dari awal akan membuat seluruhnya maju 5 detik
+dan kalimatnya jatuh di adegan yang salah.
+
+Alatnya sudah ada: `06_Submission/video_kit/attach_narration.py`.
+
+```bat
+python 06_Submission\video_kit\attach_narration.py ^
+  --video tersambung.mp4 ^
+  --narasi-a narasi_a.m4a ^
+  --narasi-b narasi_b.m4a ^
+  --narasi-c narasi_c.m4a ^
+  --out bernarasi.mp4
 ```
+
+Titik mulainya dibaca dari `video_kit/NARASI_TIMING.json`. Yang dilakukan skrip: memotong take yang
+melar, menaruh tiap take di titiknya di atas dasar senyap, meratakan dengan `loudnorm` ke −16 LUFS, lalu
+**memeriksa durasi tidak bergeser** — kalau bergeser lebih dari 0,5 detik, skrip gagal.
+
+Yang dilaporkan per take:
+
+```
+  take A  narasi_a.m4a   mulai    5.0 s, suara   94.0 s, slot  125.0 s  (31 detik lebih pendek — jeda di akhir, itu wajar)
+  take C  narasi_c.m4a   mulai  245.0 s, suara  168.0 s, slot  235.0 s
+```
+
+Kalau ada baris berbunyi **"LEBIH PANJANG dari slot"**, take itu dipotong di ujungnya. Lebih baik
+mengulang take daripada membiarkan kalimat terakhir hilang — kalimat terakhir adegan C adalah penutup.
+
+> **Jangan pakai `-shortest` dengan satu berkas narasi.** Itu jalan pintas yang dipakai versi awal
+> dokumen ini; hasilnya narasi mulai dari 0:00 dan seluruh kalimat bergeser 5 detik. Kalau Anda hanya
+> punya **satu** berkas narasi utuh (bukan tiga take), tetap pakai skrip ini dengan `--narasi-a` saja
+> dan ubah `start` menjadi `0.0` di `NARASI_TIMING.json` — jangan kembali ke `-shortest`.
+
+> **Sudah diuji 7 November 2026** dengan video 475 detik dan tiga take sintetis: ketiganya muncul tepat
+> di 5 s / 130 s / 245 s, diam di antaranya, durasi keluaran tetap 475,0 s. Diuji juga kasus take A
+> melar 130 s pada slot 125 s: take A berhenti di 130 s dan take B **tetap** mulai di 130 s — bukan
+> 135 s. Bug itu nyata dan sempat terjadi: `adelay` menambah offset ke PTS yang ada, sehingga take yang
+> melar menggeser take berikutnya tanpa pesan apa pun. Perbaikannya `asetpts` sesudah `atrim`.
 
 ### 5.3 Subtitle terbakar (wajib — juri mungkin menonton tanpa suara)
 

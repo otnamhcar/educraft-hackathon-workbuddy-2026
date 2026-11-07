@@ -1,0 +1,25 @@
+{
+  "_catatan": "Titik mulai setiap take narasi di timeline video. Angka ini mengikuti skrip 07_Demo_Video_Script.md (7:55) DITAMBAH 5 detik kartu pembuka. Kalau --skip-cards dipakai, kurangi semuanya 5 detik. Kalau struktur segmen berubah, ubah di sini dan di CUE_SHEET.md bersamaan.",
+  "video_total_seconds": 475,
+  "card_open_seconds": 5,
+  "takes": {
+    "A": {
+      "start": 5.0,
+      "max_seconds": 125.0,
+      "covers": "Kail (0:00), masalah (0:35), arsitektur (1:10)",
+      "expected_words": 178
+    },
+    "B": {
+      "start": 130.0,
+      "max_seconds": 115.0,
+      "covers": "Planner (2:05), Writer (3:00)",
+      "expected_words": 135
+    },
+    "C": {
+      "start": 245.0,
+      "max_seconds": 235.0,
+      "covers": "Penolakan (4:00), eskalasi (5:00), gerbang (5:40), kegagalan (6:20), refleksi (6:45), penutup (7:30)",
+      "expected_words": 322
+    }
+  }
+}
