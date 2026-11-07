@@ -15,7 +15,9 @@ Dua peran dicatat terpisah meskipun dipegang orang yang sama: **penyusunan domai
 **persetujuan rilis per-run**. Yang dipisahkan adalah perannya, bukan orangnya — supaya jelas apa yang
 disetujui pada run tertentu, bukan sekadar siapa yang menyetujui.
 
-**Ada empat run. Masing-masing tidak bisa dipertukarkan — punya statusnya sendiri:**
+**Ada sepuluh run.** Empat run pertama (26 Oktober–5 November) melewati gerbang persetujuan guru dan
+dicatat penuh di tabel ini; enam run 6 November dicatat di bawahnya dengan status gerbangnya sendiri.
+Masing-masing tidak bisa dipertukarkan — punya statusnya sendiri:
 
 | Run | Topik | Penyetuju manusia | Status publikasi |
 |-----|-------|-------------------|------------------|
@@ -39,8 +41,9 @@ run Tata Surya. Alasan lengkap ada di `audit_log.md` §11.1 run tersebut.
 > jalankan run baru untuk versi Fase B murni" — yang merupakan **usulan yang tidak pernah dijalankan**,
 > bukan deskripsi run yang ada.
 
-Di `03_Hasil/` ada lima folder untuk empat run: `edu_output/` dan `materi_ajar/` sama-sama berisi
-artefak run `-001`, tetapi **perannya berbeda**. `edu_output/` adalah folder produksi: draf kerja
+Di `03_Hasil/` ada sebelas folder untuk sepuluh run. Dua di antaranya — `edu_output/` dan
+`materi_ajar/` — sama-sama berisi artefak run `-001`, tetapi **perannya berbeda**. `edu_output/`
+adalah folder produksi: draf kerja
 `01`–`05`, ditambah deliverable siap pakai (`.docx`, `.pptx`, kuis `.html`, dan
 `06_Materi_Guru_Energi_Alternatif.md` yang bersih dari tag). `materi_ajar/` memuat draf markdown
 **terkoreksi** hasil perbaikan R001 30 Oktober 2026. Keduanya kini **lulus pemeriksaan grounding dengan
@@ -48,10 +51,27 @@ angka identik, 121 tag** — tetapi itu baru benar sejak 5 November 2026: sebelu
 masih memakai tag kurikulum untuk fakta dan gagal dengan 73 pelanggaran kelas, sementara `doctor.py`
 tidak melihatnya karena hanya memeriksa `materi_ajar` (defek D3, diungkap di `04_Test_Results.md`).
 Sejak 5 November 2026 `edu_output` ikut diperiksa, dan `materi_ajar` membawa `00_run_config.md` sendiri
-yang menyatakan perannya. Jumlah run tetap empat.
+yang menyatakan perannya. Empat run di tabel atas tetap empat — duplikasi folder ini tidak menambah run.
 
-Tidak ada yang diterbitkan sebelum persetujuan manusia yang eksplisit. **Keempat run kini sudah
-disetujui guru** untuk pemakaian di kelas: `-001` 4 November 2026 pukul 14:49, `-002` 30 Oktober 2026
+**Enam run 6 November 2026 — status gerbangnya sendiri:**
+
+| Run | Keluaran | Gerbang persetujuan | Publikasi |
+|-----|----------|---------------------|-----------|
+| `-005` | RPP + kuis + slide Energi Alternatif | `PENDING` — tiga penolakan berturut-turut, `ESCALATED_TO_HUMAN` | `LOCKED` |
+| `-006` | RPP Energi Alternatif Fase C (dua klaim kesehatan ditolak) | `PENDING` — `AWAITING_APPROVAL` | `LOCKED` |
+| `-007` | RPP + kuis + slide (permintaan membakar lahan ditolak) | `PENDING` — `AWAITING_APPROVAL` | `LOCKED` |
+| `-008` | Poster promosi (klaim komersial ditolak) | **Disetujui 2026-11-06 17:12 GMT+7** | `RELEASED` — artefak lokal, bukan publikasi daring |
+| `-009` | Poster versi bersih | **Disetujui 2026-11-06 17:24 GMT+7** | `RELEASED` — artefak lokal |
+| `-010` | Uji prompt injection pada berkas sumber | `PENDING` — berhenti di gate | `LOCKED` |
+
+Empat dari enam run itu berhenti di gerbang dan **tetap berhenti sampai sekarang**. Satu hal perlu
+dibaca bersama `-005`: fase *format rendering* dijalankan atas instruksi peminta ("lanjutkan"), bukan
+atas persetujuan approver. Seluruh artefaknya berlabel **"draf pra-persetujuan"**, kolom
+`disetujui_oleh` berbunyi "belum ada approver tercatat", dan tidak satu pun berstatus `RELEASED`
+(rincian: `audit_log.md` §9.0). Tidak ada yang disebarkan ke publik dari run mana pun.
+
+Tidak ada yang diterbitkan sebelum persetujuan manusia yang eksplisit. **Keempat run di tabel atas kini
+sudah disetujui guru** untuk pemakaian di kelas: `-001` 4 November 2026 pukul 14:49, `-002` 30 Oktober 2026
 pukul 17:19, `-003` 5 November 2026 pukul 15:01, dan `-004` 5 November 2026 pukul 16:13. Tidak satu pun
 persetujuan itu mencakup publikasi — gerbang publikasi setiap run tetap tertutup, dan tidak ada
 permintaan terbit yang diajukan.
@@ -93,12 +113,14 @@ sistem pembayaran, atau data pribadi siswa apa pun selain skor yang sudah dianon
 | Mengubah source material atau rulebook | Hanya suntingan manusia; agen tidak punya akses tulis | Izin berkas / aset read-only |
 | Memakai keluaran di luar fase yang dituju | Persetujuan koordinator kurikulum | Konfigurasi run |
 
-**Keadaan saat ini:** keempat run sudah melewati gerbang persetujuan manusia — `-002` 30 Oktober 2026
-pukul 17:19, `-001` 4 November 2026 pukul 14:49, `-003` 5 November 2026 pukul 15:01, dan `-004`
-5 November 2026 pukul 16:13 — semuanya oleh guru yang namanya tercatat. Persetujuan itu berhenti pada
-**pemakaian di kelas**; gerbang publikasi tiap run tetap tertutup karena publikasi belum pernah diminta.
-Agen menghasilkan materi lalu berhenti sampai manusia bertindak — itu perilaku yang dimaksud, bukan
-keterlambatan. Tidak ada satu pun run yang isinya disebarkan ke publik.
+**Keadaan saat ini:** empat run di tabel atas sudah melewati gerbang persetujuan manusia — `-002`
+30 Oktober 2026 pukul 17:19, `-001` 4 November 2026 pukul 14:49, `-003` 5 November 2026 pukul 15:01,
+dan `-004` 5 November 2026 pukul 16:13 — semuanya oleh guru yang namanya tercatat. Dari enam run
+6 November, dua sudah disetujui (`-008` 17:12, `-009` 17:24) dan empat masih berhenti di gerbang
+(`-005`, `-006`, `-007`, `-010`). Persetujuan yang ada berhenti pada **pemakaian di kelas**; gerbang
+publikasi tiap run tetap tertutup karena publikasi belum pernah diminta. Agen menghasilkan materi lalu
+berhenti sampai manusia bertindak — itu perilaku yang dimaksud, bukan keterlambatan. Tidak ada satu pun
+run yang isinya disebarkan ke publik.
 
 ## 4. Apa yang tidak akan pernah dilakukan
 
@@ -132,6 +154,7 @@ keterlambatan. Tidak ada satu pun run yang isinya disebarkan ke publik.
 
 ---
 
-*Disusun 30 Oktober 2026. Diperbarui 5 November 2026 (tambah run -003). Lembar ini menjelaskan
+*Disusun 30 Oktober 2026. Diperbarui 5 November 2026 (tambah run -003); diperbarui 7 November 2026
+(enam run 6 November ditambahkan beserta status gerbangnya). Lembar ini menjelaskan
 perilaku yang ditegakkan di dalam kontrak skill yang dikirim, dan setiap butirnya tertaut ke artefak
 yang membuktikannya.*
