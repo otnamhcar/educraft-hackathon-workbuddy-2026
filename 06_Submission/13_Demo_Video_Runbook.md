@@ -14,7 +14,7 @@ cara memproduksinya.
 
 > **Diganti 7 November 2026.** Tabel "8 dari 11 adegan, 31 Okt" di bawah sudah kedaluwarsa: skill
 > terpasang, screenshot lunas, subtitle dan alat penyambung siap. **Yang memblokir sekarang tinggal
-> satu — rekaman panel sesi tangkap yang sudah ada di drive bersama belum disalin ke mesin perekam.**
+> satu — rekaman panel sesi tangkap yang sudah ada di drive bersama belum disalin ke mesin Windows.**
 > Lihat §10 untuk status terkini, dan §3.0 untuk daftar panel yang benar-benar perlu direkam.
 
 **8 dari 11 adegan bisa direkam sekarang.** Tiga sisanya butuh agen yang berjalan live.
@@ -36,7 +36,8 @@ cara memproduksinya.
 ### 1.1 Satu akar masalah untuk dua pekerjaan
 
 Adegan 4, 6, 7 butuh agen berjalan. Agen butuh skill terpasang, dan **skill belum terpasang** di
-mesin ini:
+mesin mana pun pada 31 Oktober. Sejak 5 November keempat skill ada di `~/.workbuddy-ai/skills/`, jadi
+blokir ini sudah hilang di kedua mesin:
 
 ```bash
 ls ~/.workbuddy-ai/skills/ | grep '^edu-'     # 31 Okt: kosong
@@ -53,9 +54,25 @@ dan itu terlalu mepet untuk editing + rekaman ulang. **Rekam yang tidak terbloki
 
 ---
 
-## 2. Alat — yang benar-benar ada di mesin ini
+## 2. Alat — dibagi dua mesin
 
-Diperiksa 6 November 2026 di mesin Windows ini, bukan diasumsikan:
+**Tim ini dua orang, dua sistem.** Dokumen video ini ditulis untuk **mesin Windows**, karena semua
+rekaman layar, narasi, dan penyambungan dikerjakan di sana. Mesin kedua (Linux Mint) memegang pekerjaan
+lain: penyuntingan dokumen, `doctor.py`, `check_capture.py`, `check_grounding.py`, dan pengelolaan repo.
+
+| Kerja | Mesin | Alasan |
+|-------|-------|--------|
+| Rekam layar sesi tangkap | **Windows** | Aplikasi yang direkam, dan panel layarnya 1366×768 |
+| Rekam narasi | **Windows** | Mikrofon terpasang di sana |
+| Potong, sambung, subtitle, export | **Windows** | `ffmpeg` 9.0.2 + `libass` terverifikasi di sana |
+| Edit `.md`, jalankan pemeriksa, commit | **Linux Mint** | Repo dikelola dari sana |
+
+Konsekuensinya yang harus dijaga: **berkas rekaman harus berpindah mesin tepat satu kali** (Windows →
+Linux atau sebaliknya, lewat drive bersama), dan yang berpindah adalah **berkas jadi**, bukan potongan
+setengah matang. Kalau dua orang memotong video yang sama di dua mesin, hasil sambungannya tidak akan
+cocok dan tidak ada yang tahu versi mana yang terakhir.
+
+Diperiksa 6 November 2026 di mesin Windows, bukan diasumsikan:
 
 | Alat | Ada? | Dipakai untuk |
 |------|------|---------------|
@@ -63,17 +80,17 @@ Diperiksa 6 November 2026 di mesin Windows ini, bukan diasumsikan:
 | `ffprobe` 9.0.2 | ✅ | **verifikasi** hasil (durasi, stream, resolusi) |
 | `libx264` + `aac` + `libass` (`subtitles`) | ✅ | encoder & subtitle bakar tersedia |
 | `gdigrab` | ✅ | capture layar Windows — pengganti `x11grab` |
-| OBS Studio | ❌ tidak terpasang | kalau dipasang, setelan §3.1 berlaku |
+| OBS Studio | ❌ tidak terpasang | pakai §3.3 atau §3.4 |
 | Audacity | ❌ tidak terpasang | rekam narasi; alternatif: perekam suara bawaan Windows |
-| `kdenlive`, `shotcut`, `kazam`, `simplescreenrecorder` | ❌ | alat Linux — tidak ada, jangan direncanakan |
+| `kdenlive`, `shotcut`, `kazam`, `simplescreenrecorder` | ❌ | alat Linux — tidak ada di mesin Windows |
 
-Uji encode sudah dijalankan di mesin ini dan berhasil: `1366×768`, `h264` + `aac` 48 kHz, 1 detik,
-35.545 byte. Artinya rangkaian export di §6 memang bisa dieksekusi di sini.
+Uji encode sudah dijalankan di mesin Windows dan berhasil: `1366×768`, `h264` + `aac` 48 kHz, 1 detik,
+35.545 byte. Artinya rangkaian export di §6 memang bisa dieksekusi di sana.
 
-> **Batas mesin (keputusan 6 November 2026).** Panel laptop yang dipakai merekam adalah **1366×768**,
-> bukan 1920×1080. Semua angka di §3, §5, dan §6 mengikuti 1366×768. `concat_video.py` juga memakai
-> 1366×768 sebagai bawaan (bisa ditimpa `--size 1920x1080` di mesin lain). Jangan memperbesar rekaman
-> 1366 ke 1920 — hasilnya buram dan terbaca sebagai manipulasi.
+> **Batas mesin (keputusan 6 November 2026).** Panel laptop Windows yang dipakai merekam adalah
+> **1366×768**, bukan 1920×1080. Semua angka di §3, §5, dan §6 mengikuti 1366×768. `concat_video.py`
+> juga memakai 1366×768 sebagai bawaan. Jangan memperbesar rekaman 1366 ke 1920 — hasilnya buram dan
+> terbaca sebagai manipulasi.
 
 ### 2.1 Kalau `ffmpeg` tidak dikenali — biasanya terminal lama, bukan PATH rusak
 
@@ -107,10 +124,13 @@ Urutan pemeriksaan, dari yang paling murah:
 
 ## 3. Merekam
 
-> **Baca ini sebelum memilih alat.** OBS **tidak terpasang** di mesin perekam (§2). Jadi jalur yang
+> **Baca ini sebelum memilih alat.** OBS **tidak terpasang** di mesin Windows (§2). Jadi jalur yang
 > benar-benar bisa dijalankan hari ini ada dua, dan keduanya gratis: **§3.3 ffmpeg + `gdigrab`**
 > (sudah terverifikasi tersedia) atau **§3.4 perekam bawaan Windows** (nol instalasi). §3.1 tetap
 > disimpan untuk berjaga kalau OBS dipasang, bukan sebagai langkah pertama.
+>
+> **Perekaman hanya terjadi di mesin Windows.** Kalau rekaman dikerjakan di Linux Mint, alat dan
+> resolusinya berbeda — lihat catatan di akhir §3.4.
 
 ### 3.0 Yang benar-benar perlu direkam
 
@@ -136,7 +156,7 @@ dan menghilangkan sebagian besar risiko salah ucap.
 
 | Setting | Nilai | Alasan |
 |---------|-------|--------|
-| Canvas & Output | **1366×768**, 30 fps | Batas panel mesin ini (§2, keputusan 6 Nov 2026). Jangan merekam 1920 lalu mengecilkan — teks tag jadi tidak terbaca |
+| Canvas & Output | **1366×768**, 30 fps | Batas panel Windows (§2, keputusan 6 Nov 2026). Jangan merekam 1920 lalu mengecilkan — teks tag jadi tidak terbaca |
 | Font aplikasi | Naikkan **satu tingkat** (16–18pt) | Menutup teks yang lebih kecil akibat resolusi 1366 |
 | Encoder | x264, CRI 20 | Kualitas baik, ukuran wajar |
 | Format rekaman | **`.mkv`** | MP4 rusak kalau OBS mati di tengah rekaman; MKV tidak |
@@ -181,8 +201,11 @@ ffmpeg -list_devices true -f dshow -i dummy
 `dshow` menolak, **rekam video saja** — buang bagian `-f dshow -i audio=... -c:a aac -b:a 128k` — lalu
 tambahkan narasi di §4. Jangan menunda rekaman hanya karena audio.
 
-> Padanan Linux/macOS (kalau rekaman dikerjakan di mesin lain):
+> Padanan Linux/macOS (kalau rekaman dikerjakan di mesin Linux Mint):
 > `ffmpeg -f x11grab -video_size 1366x768 -framerate 30 -i "$DISPLAY" -f pulse -i default ...`
+> Berbeda dari Windows: tidak ada `gdigrab`, tidak ada `dshow`. Periksa dulu `xrandr` untuk tahu
+> resolusi panel Linux — kalau bukan 1366×768, **jangan** memaksa 1366 di sini; rekam di resolusi asli
+> mesin itu lalu normalkan saat menyambung (§5.1 yang menormalkan sendiri).
 
 ### 3.4 Jalur tanpa instalasi: perekam bawaan Windows
 
@@ -218,7 +241,7 @@ mengulang seluruh adegan setiap kali salah kata, dan level audio ikut berubah-ub
 
 | Langkah | Detail |
 |---------|--------|
-| Alat | Audacity — **tidak terpasang di mesin ini** (§2). Alternatif: perekam suara bawaan Windows |
+| Alat | Audacity — **tidak terpasang di mesin Windows** (§2). Alternatif: perekam suara bawaan Windows |
 | Level target | puncak **−6 dB**, rata-rata **−16 LUFS** |
 | Jarak mic | 15–20 cm, sedikit menyamping (hindari letupan "p"/"b") |
 | Ruangan | Kain/tirai di belakang; hindari ruangan bergema |

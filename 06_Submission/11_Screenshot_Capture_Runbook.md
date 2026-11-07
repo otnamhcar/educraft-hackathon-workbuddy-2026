@@ -98,12 +98,17 @@ Satu subfolder per sesi. Jangan campur — nanti bingung saat menamai.
    kesempurnaan palsu — dan kita sudah punya satu kegagalan yang didisclose dengan baik.
 3. Jangan mengetik ulang output agen ke dalam file lalu memfotonya. Itu bukan screenshot.
 
-### 1.4 Alat tangkap layar (Windows — mesin ini)
+### 1.4 Alat tangkap layar (Windows — mesin rekam)
 
 Runbook versi sebelumnya ditulis di mesin Linux dan menyuruh `gnome-screenshot`. **Perintah itu tidak
-ada di mesin ini.** Penggantinya: `tools/capture.py` — memakai Pillow, menyetel DPI-awareness lebih
+ada di mesin Windows.** Penggantinya: `tools/capture.py` — memakai Pillow, menyetel DPI-awareness lebih
 dulu (tanpa itu layar 1366 px terekam sebagai 1093 px pada skala 125 %), dan menyimpan langsung
 dengan nama final.
+
+> **Tim ini dua orang, dua sistem.** Tangkapan layar dan rekaman video dikerjakan di **Windows**
+> (aplikasinya di sana). Mesin **Linux Mint** memegang penyuntingan dokumen, pemeriksaan
+> (`doctor.py`, `check_capture.py`), dan pengelolaan repo. Semua `*.png` di runbook ini berasal dari
+> mesin Windows — kalau ada yang diambil di Linux Mint, lebar panelnya bisa berbeda dan wajib dicatat.
 
 | Kebutuhan | Perintah |
 |-----------|----------|

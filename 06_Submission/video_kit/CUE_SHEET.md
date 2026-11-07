@@ -20,7 +20,12 @@ akhir **7:40**. Kalau salah satu segmen melar, potong di segmen itu — jangan m
 
 ## Sebelum merekam (5 menit, sekali saja)
 
-> **Batas mesin — keputusan 6 November 2026.** Layar mesin ini **1366×768**, jadi rekaman memakai
+> **Perekaman dilakukan di mesin Windows, bukan di mesin Linux.** Tim ini dua orang: rekaman layar,
+> narasi, dan penyambungan di Windows (aplikasi yang direkam ada di sana); penyuntingan dokumen dan
+> pemeriksaan repo di Linux Mint. Berkas rekaman berpindah mesin **satu kali**, dan yang berpindah
+> adalah berkas jadi — bukan potongan setengah matang.
+>
+> **Batas layar — keputusan 6 November 2026.** Panel laptop Windows **1366×768**, jadi rekaman memakai
 > resolusi itu (bukan 1920×1080). Konsekuensinya diterima sadar: teks lebih kecil, dan itu ditutup
 > dengan font aplikasi diperbesar satu tingkat serta narasi yang menyebut aturan secara lisan.
 > Jangan memperbesar hasil rekaman — buram dan terbaca sebagai manipulasi.
@@ -35,7 +40,7 @@ akhir **7:40**. Kalau salah satu segmen melar, potong di segmen itu — jangan m
 
 - [ ] Jendela WorkBuddy **dimaksimalkan** (1366 px) — sama dengan syarat screenshot, jadi satu
       sesi menghasilkan dua jenis bukti sekaligus
-- [ ] Rekaman pada **1366×768, 30 fps** (batas panel mesin ini). Jangan memperbesar hasil rekaman
+- [ ] Rekaman pada **1366×768, 30 fps** (batas panel Windows). Jangan memperbesar hasil rekaman
 - [ ] Uji mikrofon 10 detik, putar ulang. Suara yang terlalu pelan tidak bisa diperbaiki
       setelah rekaman — `loudnorm` hanya meratakan, tidak menguatkan yang terekam buruk
 - [ ] Tutup notifikasi. Satu pop-up di adegan penolakan merusak satu-satunya bukti terkuat
@@ -113,9 +118,10 @@ melar. Potong tiap sesi ke porsi yang dipakai skrip sebelum disambung.
 Yang dilakukan skrip, dan alasannya:
 
 1. **Menormalkan tiap segmen** ke satu ukuran / 30 fps / AAC 48 kHz. Bawaannya **1366×768** — batas
-   panel mesin perekam (keputusan 6 Nov 2026); timpa dengan `--size 1920x1080` hanya bila merekam di
-   layar selebar itu. Rekaman dari alat berbeda punya parameter berbeda; menyambung tanpa menormalkan
-   menghasilkan audio yang bergeser di sambungan.
+   panel Windows (keputusan 6 Nov 2026); timpa dengan `--size` bila menyambung di mesin lain atau
+   merekam di layar selebar itu. Rekaman dari alat berbeda punya parameter berbeda; menyambung tanpa
+   menormalkan menghasilkan audio yang bergeser di sambungan. Ini juga yang membuat rekaman dari dua
+   mesin bisa disatukan tanpa perlu diseragamkan lebih dulu.
 2. **Membuat klip kartu** 5 detik tanpa suara dari dua PNG di folder ini.
 3. **Menyambung** lalu meratakan suara dengan `loudnorm` (target −16 LUFS).
 4. **Memeriksa durasi.** Di luar 5:00–8:00, skrip gagal dengan exit 1 — bukan peringatan yang bisa
