@@ -261,6 +261,29 @@ sesi menghasilkan dua jenis bukti sekaligus.
 > mendukung — konsekuensinya kerangka layar ikut terekam, termasuk jam sistem. Itu bukan masalah
 > (screenshot yang sudah ada juga begitu), tetapi jangan sampai ada notifikasi masuk di tengah panel
 > penolakan.
+
+#### 3.4a Kalau tetap merekam layar penuh — tiga hal yang harus disiapkan
+
+Layar penuh bukan pelanggaran; yang dibuang di `CEK_MATA` §3 adalah **handle akun**, bukan taskbar.
+Tetapi handle itu kembali ke frame begitu panel kiri dibuka, dan di video ia muncul tiga ratus detik,
+bukan satu berkas PNG yang bisa dicuplik ulang. Karena itu, sebelum tombol rekam ditekan:
+
+1. **Ciutkan panel kiri.** Handle `qunndul…` ada di sudut kiri bawah panel WorkBuddy, bukan di taskbar.
+   Layar penuh **tidak** menyembunyikannya — justru kebalikannya, karena tangkapan 18:21 lolos *setelah*
+   panel kiri ditutup. Kalau panel kiri harus terbuka untuk memperlihatkan suatu panel, rekam **area**
+   yang memuat panel itu saja, jangan seluruh monitor.
+2. **Mode Fokus dulu, baru maksimalkan.** `Win+A` → "Hanya alarm". Notifikasi Windows muncul di kanan
+   bawah, tepat di atas notifikasi WorkBuddy sendiri — satu pop-up di detik 4:20 menghapus take itu.
+3. **Catat tepi kiri jendela.** Kalau mulai merekam di detik 0:00, segmen A (kail, masalah,
+   arsitektur — §1 adegan 1–3) **tidak boleh** berupa rekaman layar WorkBuddy sama sekali. Adegan 1
+   adalah layar hitam (`07_Demo_Video_Script.md` 0:00–0:35), adegan 2 dua paragraf, adegan 3 diagram
+   arsitektur — tiga-tiganya dibuat di editor, bukan diambil dari sesi WorkBuddy. Rekaman layar penuh
+   yang dibiarkan jalan dari 0:00 akan memperlihatkan WorkBuddy selama dua menit pertama, dan itu
+   membocorkan justru bagian yang tidak perlu dibuktikan.
+
+**Keputusan praktis:** rekam layar penuh untuk **segmen B dan C saja** (2:05–7:55, tempat panel sesi
+berjalan), lalu bangun **segmen A** dari slide/kartu. Itu juga yang diminta `concat_video.py` — ia
+menyambung A, B, C sebagai tiga berkas terpisah, jadi tidak ada kerugian memakai alat berbeda untuk A.
 >
 > **Kunci resep sebelum rekaman pertama.** Bingkai yang harus terlihat sudah ditentukan berkas yang ada;
 > yang berlaku adalah bingkai di `05_Bukti_Proses/evidence_bundle/03_screenshots/CEK_MATA_2026-11-06.md` §2.

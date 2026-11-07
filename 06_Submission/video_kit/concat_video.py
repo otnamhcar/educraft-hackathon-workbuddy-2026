@@ -50,6 +50,7 @@ CARD_SECONDS = 5
 TARGET = (1366, 768)  # batas panel mesin perekam; timpa dengan --size
 FPS = 30
 MIN_S, MAX_S = 300, 480
+TARGET_S = 475  # 7:55, durasi skrip setelah retiming 7 Nov 2026 (dulu 7:40)
 
 
 def run(cmd, label):
@@ -115,7 +116,7 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description="Sambung rekaman demo menjadi satu video.")
     parser.add_argument("--seg-a", required=True, help="0:00-2:05 kail, masalah, arsitektur")
     parser.add_argument("--seg-b", required=True, help="2:05-4:00 planner, writer")
-    parser.add_argument("--seg-c", required=True, help="4:00-7:40 tiga perhentian, refleksi, penutup")
+    parser.add_argument("--seg-c", required=True, help="4:00-7:30 tiga perhentian, refleksi, penutup")
     parser.add_argument("--seg-d", default=None,
                         help="opsional; sesi tangkap keempat (mis. sesi 3a)")
     parser.add_argument("--seg-e", default=None,
@@ -194,6 +195,15 @@ def main(argv=None):
     if not (MIN_S <= final <= MAX_S):
         print("GAGAL: durasi {:.0f} s di luar rentang 5:00-8:00.".format(final), file=sys.stderr)
         return 1
+    if final > TARGET_S + 5:
+        # Belum narasi. attach_narration.py hanya menambah audio, tidak memotong video;
+        # video 485 s + narasi tetap 485 s, dan 475 s adalah target akhir.
+        print(
+            "PERINGATAN: {:.0f} s, lebih dari {:.0f} s. Target skrip 475 s (7:55); segmen yang "
+            "kepanjangan akan memaksa attach_narration.py menggeser take berikutnya. "
+            "Periksa CUE_SHEET.md sebelum lanjut.".format(final, TARGET_S),
+            file=sys.stderr,
+        )
     print("Durasi masuk rentang 5:00-8:00. Tonton sekali dari awal sebelum diunggah.")
     return 0
 
