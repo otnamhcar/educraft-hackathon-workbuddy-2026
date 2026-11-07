@@ -27,8 +27,9 @@ Produknya bukan teks yang dihasilkan. **Produknya adalah gerbangnya.**
 
 ### Aturan siapa ini
 
-Ide, rujukan kurikulum, dan substansi rulebook berasal dari **Don Jimat Akbar**, guru IPAS SD yang masih
-aktif mengajar. Ia yang menetapkan apa yang tidak akan pernah diletakkan guru di depan kelas — tanpa
+Ide, rujukan kurikulum, dan substansi rulebook berasal dari **Don Jimat Akbar** — nama samaran untuk guru
+IPAS SD yang berperan dalam demo ini; identitas aslinya tidak ditampilkan. Ia yang menetapkan apa yang
+tidak akan pernah diletakkan guru di depan kelas — tanpa
 klaim kesehatan permanen, tanpa menakut-nakuti, tanpa klaim halal tanpa sertifikat. Pekerjaan tim
 adalah memformalkan penilaian itu menjadi predikat yang bisa diperiksa mesin, dan membangun pipeline
 yang menegakkannya.
@@ -346,8 +347,9 @@ Python 3.6+. Tanpa API key miliknya sendiri, tanpa langkah build, tanpa basis da
 
 - **Kode, kontrak, dan dokumentasi:** MIT — lihat `LICENSE`. Ini mencakup pipeline, keempat berkas
   `SKILL.md`, pemeriksa, dan setiap dokumen di repo ini.
-- **Atribusi:** substansi rulebook adalah penilaian profesional Don Jimat Akbar, yang diformalkan tim.
-  Lisensi MIT mencakup implementasi repo ini, bukan kepengarangannya.
+- **Atribusi:** substansi rulebook adalah penilaian profesional guru IPAS SD yang dalam repo ini
+  disebut dengan nama samaran **Don Jimat Akbar**, diformalkan tim. Lisensi MIT mencakup implementasi
+  repo ini, bukan kepengarangannya.
 - **Dua dokumen resmi kementerian diedarkan ulang tanpa perubahan** —
   `Final Panduan Mata Pelajaran IPAS_03_10_2025_Revisi 4.pdf` dan
   `Permendikdasmen-no-13-tahun-2025.pdf` — bersama teks polos hasil ekstraksinya. Keduanya ada di sini

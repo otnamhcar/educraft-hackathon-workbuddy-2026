@@ -7,9 +7,10 @@
 
 ## 0. Dari mana ini berasal
 
-Ide, rujukan sumber, dan substansi aturannya berasal dari **Don Jimat Akbar**, guru IPAS SD yang masih aktif
-mengajar. Ia bukan persona di slide: ia orang yang menyebut klaim mana yang tidak akan pernah ia
-letakkan di depan kelas, dan yang memasok materi kurikulum yang dipakai pipeline ini.
+Ide, rujukan sumber, dan substansi aturannya berasal dari **Don Jimat Akbar** — nama samaran untuk guru
+IPAS SD yang berperan dalam demo ini. Ia bukan persona di slide: ia orang yang menyebut klaim mana yang
+tidak akan pernah ia letakkan di depan kelas, dan yang memasok materi kurikulum yang dipakai pipeline ini.
+Identitas aslinya tidak kami tampilkan; peran dan penilaiannya nyata.
 
 Peran kami adalah separuh lainnya: mengubah penilaiannya menjadi predikat yang bisa diperiksa mesin,
 dan membangun pipeline yang menegakkannya. Semua di bawah ini tentang separuh itu — rekayasanya — dan

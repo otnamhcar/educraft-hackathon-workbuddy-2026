@@ -44,7 +44,8 @@ EDU-ORCH-20261026-001, topik "Energi Alternatif", berpijak pada capaian
 pembelajaran C4 (2.1.4) dengan fondasi B5 (1.1.5).
 
 Dari mana asalnya: ide, rujukan kurikulum, dan substansi aturannya berasal dari
-Don Jimat Akbar, guru IPAS SD yang masih aktif mengajar. Ia yang menetapkan klaim mana
+Don Jimat Akbar - nama samaran untuk guru IPAS SD yang berperan dalam demo ini -
+yang menetapkan klaim mana
 yang tidak akan pernah diletakkan guru di depan kelas; pekerjaan kami adalah
 memformalkan penilaian itu menjadi aturan yang bisa diperiksa mesin dan
 membangun pipeline yang menegakkannya. Rulebook, bukan kodenya, adalah artefak

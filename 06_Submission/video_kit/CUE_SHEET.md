@@ -82,8 +82,10 @@ Segmen ini butuh satu run berjalan. Bisa digabung dengan sesi screenshot S1.
 sekaligus saat mengambil screenshot — jangan menjalankan pipeline dua kali untuk hal yang sama.
 Simpan rekaman mentahnya; kalau ada frame yang lebih bagus, ambil dari rekaman, bukan dari run baru.
 
-**Nama guru.** Diputuskan 5 November 2026: **Don Jimat Akbar**. Sebut nama itu di adegan 6:55–7:15,
-lalu lanjutkan ke kartu penutup. Segmen C tidak lagi tertunda — ketiga segmen bisa direkam hari ini.
+**Nama guru.** **Don Jimat Akbar** — nama samaran yang disepakati untuk guru IPAS SD dalam demo ini,
+bukan identitas asli. Sebut nama itu apa adanya di adegan 6:55–7:15, lalu lanjutkan ke kartu penutup.
+Jangan menggantinya dengan nama lain di menit terakhir: sebutan yang berbeda antar-artefak memutus
+jejak yang justru menjadi nilai proyek ini.
 
 ---
 

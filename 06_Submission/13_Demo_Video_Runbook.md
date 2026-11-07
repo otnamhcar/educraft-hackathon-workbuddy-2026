@@ -1,6 +1,6 @@
 # Runbook Produksi Demo Video — Item 7
 
-**Target:** video 5–8 menit (skrip: **7:40**), bahasa Inggris, subtitle terbakar.
+**Target:** video 5–8 menit (skrip: **7:40**), **narasi Bahasa Indonesia**, subtitle Inggris terbakar.
 **Skrip narasi:** `06_Submission/07_Demo_Video_Script.md` — **baca itu dulu**; dokumen ini hanya
 cara memproduksinya.
 **Deadline submission:** 7 November 2026 · **target internal: 5 November 2026**.
@@ -163,15 +163,16 @@ mengulang seluruh adegan setiap kali salah kata, dan level audio ikut berubah-ub
 
 | Langkah | Detail |
 |---------|--------|
-| Alat | Audacity, 48 kHz, mono |
+| Alat | Audacity — **tidak terpasang di mesin ini** (§2). Alternatif: perekam suara bawaan Windows |
 | Level target | puncak **−6 dB**, rata-rata **−16 LUFS** |
 | Jarak mic | 15–20 cm, sedikit menyamping (hindari letupan "p"/"b") |
 | Ruangan | Kain/tirai di belakang; hindari ruangan bergema |
-| Per take | satu adegan = satu file (`n05_tags.wav`) |
+| Per take | tiga take, satu per segmen (`narasi_a.wav`, `narasi_b.wav`, `narasi_c.wav`) — sesuai `CUE_SHEET.md`, bukan per adegan |
 | Bersihkan | Noise Reduction sekali saja, jangan berlebihan — suara "berair" lebih buruk daripada noise |
 
-Teks narasi ada di skrip, per adegan, dalam bahasa Inggris. Baca **persis** seperti tertulis;
-kalimatnya sudah diuji panjangnya terhadap durasi.
+Teks narasi ada di skrip, per adegan, **dalam Bahasa Indonesia**. Baca persis seperti tertulis;
+kalimatnya sudah diuji panjangnya terhadap durasi. Subtitle yang dibakar berbahasa Inggris — itu
+terjemahannya, dan dibuat dari narasi yang sama, bukan narasi terpisah.
 
 ---
 

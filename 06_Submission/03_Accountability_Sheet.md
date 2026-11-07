@@ -11,6 +11,11 @@ SD yang masih aktif mengajar. Tim memformalkan penilaiannya menjadi predikat yan
 tim tidak menciptakannya. Ini penting bagi akuntabilitas: aturan yang ditegakkan agen adalah penilaian
 seorang praktisi yang dituliskan, bukan dugaan engineer tentang pedagogi.
 
+**Soal nama.** "Don Jimat Akbar" adalah **nama samaran** yang disepakati bersama guru tersebut untuk
+keperluan submission ini. Peran, latar belakang, dan persetujuannya nyata; identitas aslinya tidak
+kami tampilkan. Nama itu dipakai konsisten di seluruh artefak — repo, deskripsi proyek, lembar ini, dan
+video — supaya jejak persetujuan per-run tetap bisa diikuti tanpa membuka identitas pribadi.
+
 Dua peran dicatat terpisah meskipun dipegang orang yang sama: **penyusunan domain** dan
 **persetujuan rilis per-run**. Yang dipisahkan adalah perannya, bukan orangnya — supaya jelas apa yang
 disetujui pada run tertentu, bukan sekadar siapa yang menyetujui.

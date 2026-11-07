@@ -27,7 +27,8 @@ tertulis (R001–R012) dan seorang manusia menyetujuinya secara eksplisit.
 sitasi pada setiap klaim faktual, plus jejak audit tentang siapa memutuskan apa dan kenapa.
 
 **Asal-usul — aturannya milik guru, bukan milik kami.** Substansi rulebook tidak datang dari tim.
-Ia datang dari **Don Jimat Akbar**, guru IPAS SD yang masih aktif mengajar, yang memasok baik rujukan sumber
+Ia datang dari **Don Jimat Akbar** — nama samaran untuk guru IPAS SD yang berperan dalam demo ini — yang
+memasok baik rujukan sumber
 yang menjadi fondasi proyek ini maupun penilaian tentang apa yang akan dan tidak akan diletakkan
 seorang guru di depan anak-anak: tanpa klaim kesehatan permanen, tanpa menakut-nakuti, tanpa apa pun
 yang mempermalukan murid, tanpa klaim halal atau komersial tanpa sertifikat. Kontribusi tim adalah
@@ -39,8 +40,9 @@ tentang pedagogi; yang ini adalah penilaian seorang praktisi, dituliskan di temp
 Karena itu pula artefak yang bisa diadopsi sekolah adalah `rulebook_ipas.md`, bukan kodenya — tim
 kurikulum bisa menyunting aturan tanpa menyentuh pipeline.
 
-*(Don Jimat Akbar adalah sumber pain point yang disebut di §3.2, bukan persona: kebutuhan di bawah berasal
-dari dia, dan rulebook adalah bentuk tertulis dari penilaiannya.)*
+*(Don Jimat Akbar adalah nama samaran yang disepakati untuk guru IPAS SD yang berperan dalam demo ini —
+sumber pain point di §3.2, bukan persona. Kebutuhannya nyata; identitasnya tidak kami tampilkan, dan
+nama itu dipakai konsisten di seluruh artefak supaya jejak auditnya tetap bisa diikuti.)*
 
 **Run yang didemokan.** Run `EDU-ORCH-20261026-001`, topik *Energi Alternatif dan Penghematan Energi*,
 berpijak pada CP **C4 (2.1.4)** dengan fondasi **B5 (1.1.5)**. Keluaran: RPP, pre/post test (7 + 20
@@ -73,7 +75,7 @@ bukan saran — ia gerbang dengan rulebook tertulis, vonis, dan kutipan aturan p
 Sisa pekerjaan guru adalah penilaian atas draf yang sudah diperiksa, bukan audit menyeluruh.
 
 **Dari mana wawasan ini berasal.** Handbook §7 meminta *sumber pain point*, bukan sekadar
-deskripsinya. Sumber kami adalah **Don Jimat Akbar**, guru IPAS SD yang masih mengajar: empat pertanyaan di
+deskripsinya. Sumber kami adalah **Don Jimat Akbar** (nama samaran, lihat §3.3): empat pertanyaan di
 atas adalah yang benar-benar ia ajukan pada setiap draf, dan keempatnya menjadi R001 (grounding), R003
 (kesesuaian usia), R004 (keselarasan kurikulum), dan R006 (klaim kesehatan) di rulebook. Pain point ini
 tidak kami karang dalam sprint; kami menuliskannya dari orang yang harus mempertanggungjawabkannya di

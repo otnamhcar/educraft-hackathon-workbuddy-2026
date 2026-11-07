@@ -169,8 +169,10 @@ Submission saat ini tidak mengklaim penerbitan apa pun — pertahankan begitu sa
 - [ ] Setiap tautan berkas di formulir bisa dibuka oleh orang di luar tim
 - [ ] Tidak ada path berkas yang memuat huruf drive lokal (juri tidak bisa membuka `D:/...`)
 - [ ] Laporan penolakan disertakan, tidak diam-diam dihapus
-- [ ] **Guru yang namanya disebut sudah setuju namanya dicantumkan** — Don Jimat Akbar muncul di repo,
-      deskripsi, lembar akuntabilitas, dan video. Konfirmasikan secara tertulis sebelum submit
+- [ ] **Nama guru adalah nama samaran yang disepakati** — "Don Jimat Akbar" adalah nama anonim untuk
+      guru IPAS SD yang berperan dalam demo, bukan identitas asli. Dicantumkan konsisten di repo,
+      deskripsi, lembar akuntabilitas, dan video. Jangan menggantinya dengan nama asli di menit terakhir:
+      satu penggantian mengharuskan 10+ berkas disunting ulang dan repo di-push ulang
 - [ ] Video memuat refleksi pendekatan pembangunan dan menyebut nama guru (handbook §7 mewajibkan)
 - [ ] Nama tim dan kontak di kartu penutup cocok dengan data pendaftaran
 - [ ] Submit, lalu screenshot halaman konfirmasinya
