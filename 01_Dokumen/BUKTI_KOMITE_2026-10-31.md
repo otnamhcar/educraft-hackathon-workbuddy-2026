@@ -1,8 +1,9 @@
-# Bukti Komite — Referensi Internal (TIDAK DIPUBLIKASIKAN)
+# Bukti Komite — Referensi Internal
 
-> **Status:** Berkas internal, dikecualikan dari publikasi via `.gitignore`.
-> Berisi kutipan dari chat WhatsApp panitia Hackathon Tencent WorkBuddy Indonesia 2026.
-> Tidak dipublikasikan karena bukan hak kami untuk menerbitkan percakapan pihak lain.
+> **Status:** Disertakan di repo publik atas keputusan tim 7 November 2026. Isinya **hanya**
+> informasi yang panitia sampaikan ke seluruh peserta: tenggat dan tautan formulir. Tidak ada
+> percakapan pribadi, nama, atau nomor kontak di sini.
+> Ekspor obrolan WhatsApp penuh **tidak** disertakan di repo.
 
 ---
 
@@ -40,10 +41,12 @@ Persyaratan utama dari handbook §7:
 Handbook juga menyebut untuk Challenge C: *factual accuracy, brand tone, advertising and halal requirements* —
 yang menjadi dasar pembuatan R012 di rulebook v2.0.
 
-## §4. Catatan
+## §4. Apa yang tidak disertakan, dan mengapa
 
-- Handbook panitia (PDF) juga dikecualikan dari publikasi (`.gitignore`).
-- Enam lembar RPP dari `centralpendidikan.com` juga dikecualikan (materi komersial pihak ketiga).
-- Ekspor WhatsApp asli tidak disimpan di repo.
+| Tidak disertakan | Alasan |
+|------------------|--------|
+| Handbook panitia (PDF) | Dokumen milik panitia. Tidak disertakan karena alasan hak pihak ketiga, bukan karena belum ditempatkan. |
+| Enam lembar RPP `centralpendidikan.com` + panduan asesmen SMP | Materi komersial pihak ketiga, cakupan SMP di luar domain proyek, dan tidak dipakai artefak mana pun. Lihat `02_Sumber/README.md` dan `THIRD_PARTY_NOTICES.md` §3. |
+| Ekspor WhatsApp asli | Tidak disimpan di repo: isinya percakapan penuh, sedangkan yang dibutuhkan penyusunan hanya dua baris di §2. |
 
-*Dicatat 31 Oktober 2026. Diperbarui 5 November 2026.*
+*Dicatat 31 Oktober 2026. Diperbarui 5 November 2026; status publikasi diperbarui 7 November 2026.*

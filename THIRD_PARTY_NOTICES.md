@@ -32,9 +32,12 @@ kemampuannya *dikutip*.
 ## 3. Yang tidak disertakan
 
 - Enam lembar RPP `centralpendidikan.com` dan satu panduan asesmen SMP: materi komersial pihak ketiga,
-  di luar domain proyek ini (SD), dan tidak dipakai artefak mana pun.
-- Handbook Tencent Cloud Hackathon dan ekspor obrolan panitia: bukan hak kami untuk mendistribusikan
-  ulang. Lihat `.gitignore` untuk daftar pengecualian lengkap beserta alasan tiap entri.
+  di luar domain proyek ini (SD), dan tidak dipakai artefak mana pun. Alasannya dicatat di
+  `02_Sumber/README.md`.
+- Handbook Tencent Cloud Hackathon: dokumen milik panitia, tidak disertakan karena hak pihak ketiga.
+- Ekspor obrolan panitia: tidak disertakan karena isinya percakapan penuh. Yang disertakan hanya
+  `01_Dokumen/BUKTI_KOMITE_2026-10-31.md`, yang memuat dua baris informasi publik panitia — tenggat
+  dan tautan formulir.
 
 ## 4. Kepatuhan handbook §12
 

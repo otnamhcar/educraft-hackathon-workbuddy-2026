@@ -15,3 +15,14 @@ __pycache__/
 # Tangkapan yang ditolak saat konfirmasi (mis. frame-nya jendela terminal, bukan UI agen).
 # Berkasnya sengaja disimpan sebagai jejak, tetapi tidak boleh masuk bundel bukti.
 _karantina/
+
+# Bahan pihak ketiga & percakapan mentah — sengaja tidak disertakan.
+# Bukan soal kerahasiaan: handbook adalah dokumen panitia, dan ekspor obrolan berisi
+# percakapan penuh yang tidak dibutuhkan pembaca. Alasan lengkap ada di
+# THIRD_PARTY_NOTICES.md §3 dan 02_Sumber/README.md. Dua pola terakhir berlaku sebagai
+# jaring pengaman supaya `git add -A` tidak ikut menyeretnya.
+*Handbook*.pdf
+01_Dokumen/handbook_text.txt
+01_Dokumen/WhatsApp Chat*/
+02_Sumber/centralpendidikan.com*
+02_Sumber/*Panduan Penilaian SMP*
