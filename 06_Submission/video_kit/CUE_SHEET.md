@@ -25,6 +25,12 @@ akhir **7:40**. Kalau salah satu segmen melar, potong di segmen itu — jangan m
 > pemeriksaan repo di Linux Mint. Berkas rekaman berpindah mesin **satu kali**, dan yang berpindah
 > adalah berkas jadi — bukan potongan setengah matang.
 >
+> **Konsekuensi operasional.** Lembar ini dibaca dari mesin Windows oleh yang memegang mesin itu.
+> Tidak ada langkah di sini yang bisa dijalankan dari Linux Mint — panel sesi tangkap tidak ada di sana.
+> Kalau waktu mepet dan kedua mesin harus bekerja bersamaan, yang bisa dikerjakan paralel hanya:
+> **Windows merekam**, **Linux Mint menyunting dokumen** (`.md`, `doctor.py`). Menyambung video tetap
+> satu mesin saja.
+>
 > **Batas layar — keputusan 6 November 2026.** Panel laptop Windows **1366×768**, jadi rekaman memakai
 > resolusi itu (bukan 1920×1080). Konsekuensinya diterima sadar: teks lebih kecil, dan itu ditutup
 > dengan font aplikasi diperbesar satu tingkat serta narasi yang menyebut aturan secara lisan.

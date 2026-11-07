@@ -55,10 +55,19 @@ dan itu terlalu mepet untuk editing + rekaman ulang. **Rekam yang tidak terbloki
 ---
 
 ## 2. Alat — dibagi dua mesin
-
 **Tim ini dua orang, dua sistem.** Dokumen video ini ditulis untuk **mesin Windows**, karena semua
 rekaman layar, narasi, dan penyambungan dikerjakan di sana. Mesin kedua (Linux Mint) memegang pekerjaan
 lain: penyuntingan dokumen, `doctor.py`, `check_capture.py`, `check_grounding.py`, dan pengelolaan repo.
+
+> **Siapa duduk di depan mesin yang mana.** Dokumen ini **dibaca dan dijalankan dari mesin Windows**,
+> oleh anggota tim yang memegang mesin itu. Disusun dari mesin Linux Mint. Pemisahan ini bukan preferensi:
+> panel sesi tangkap yang harus direkam (§3.0) hanya ada di Windows — WorkBuddy berjalan di sana dan
+> keempat skill sudah terpasang di sana. Tidak ada satu pun langkah rekam di dokumen ini yang bisa
+> dijalankan dari Linux Mint, dan mencobanya menghasilkan rekaman layar kosong.
+>
+> Yang berarti: **tombol rekam tidak ada di tangan orang yang menulis dokumen ini.** Kalau ada langkah
+> yang terasa tidak cocok dengan layar di depan Anda, hentikan dan laporkan — jangan diakali dengan
+> mereka ulang adegan memakai screenshot.
 
 | Kerja | Mesin | Alasan |
 |-------|-------|--------|

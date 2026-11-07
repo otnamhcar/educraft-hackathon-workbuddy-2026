@@ -105,10 +105,18 @@ ada di mesin Windows.** Penggantinya: `tools/capture.py` — memakai Pillow, men
 dulu (tanpa itu layar 1366 px terekam sebagai 1093 px pada skala 125 %), dan menyimpan langsung
 dengan nama final.
 
-> **Tim ini dua orang, dua sistem.** Tangkapan layar dan rekaman video dikerjakan di **Windows**
-> (aplikasinya di sana). Mesin **Linux Mint** memegang penyuntingan dokumen, pemeriksaan
-> (`doctor.py`, `check_capture.py`), dan pengelolaan repo. Semua `*.png` di runbook ini berasal dari
-> mesin Windows — kalau ada yang diambil di Linux Mint, lebar panelnya bisa berbeda dan wajib dicatat.
+> **Tim ini dua orang, dua sistem — dan pembagiannya bukan soal selera.**
+> Dokumen ini **dibaca dan dijalankan dari mesin Windows**, oleh anggota tim yang memegang mesin itu;
+> tulisan ini disusun dari mesin Linux Mint. Tangkapan layar dan rekaman video **hanya bisa** dikerjakan
+> di Windows: WorkBuddy berjalan di sana, keempat skill sudah terpasang di sana, dan 12 `*.png` yang
+> sudah lolos `check_capture.py` berasal dari sesi di sana. Mesin Linux Mint tidak punya panel sesi
+> tangkap — memotret layar dari sini akan menghasilkan berkas tanpa isi, persis seperti kegagalan
+> 11:03–11:23 yang membuat enam berkas harus diulang.
+>
+> Yang dikerjakan dari Linux Mint: penyuntingan dokumen, `doctor.py`, `check_capture.py`,
+> `check_grounding.py`, dan pengelolaan repo. **Perintah di tabel di bawah adalah perintah Windows** —
+> kalau ada tangkapan yang benar-benar diambil di Linux Mint, lebar panelnya bisa berbeda dan wajib
+> dicatat di `INDEX.md`.
 
 | Kebutuhan | Perintah |
 |-----------|----------|
