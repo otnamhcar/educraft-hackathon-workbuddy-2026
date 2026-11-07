@@ -164,7 +164,8 @@ saat proses dibuat, tidak ikut berubah di tengah jalan.
 > disimpan untuk berjaga kalau OBS dipasang, bukan sebagai langkah pertama.
 >
 > **Perekaman hanya terjadi di mesin Windows.** Kalau rekaman dikerjakan di Linux Mint, alat dan
-> resolusinya berbeda — lihat catatan di akhir §3.4.
+> resolusinya berbeda — lihat catatan di akhir §3.4. Konsekuensi metodologisnya (run baru bertanggal
+> lain, padahal screenshot tetap dari 6 November) dibahas terpisah di `14_Jalur_Rekam_Linux.md`.
 
 ### 3.0 Yang benar-benar perlu direkam
 
@@ -177,9 +178,9 @@ Rekaman layar hanya dipakai untuk **sesi tangkap**, bukan untuk seluruh video. P
 | Sesi 2b — penolakan R007 | (cadangan) | **ya** kalau dipakai |
 | Sesi 3a — eskalasi berhenti di iterasi 3 | 5:00–5:40 | **ya** |
 | Sesi 3b — instruksi injeksi diabaikan | (cadangan) | **ya** kalau dipakai |
-| Kartu pembuka/penutup | 0:00–0:05, 7:58–8:03 | **tidak** — PNG statis, sudah ada di `video_kit/` |
-| Laporan penolakan 29 Okt | 6:20–6:55 | **tidak** — cukup gambar diam |
-| `rulebook_ipas.md` + `SKILL.md` | 6:55–7:15 | **tidak** — gambar diam |
+| Kartu pembuka/penutup | 0:00–0:05, 8:00–8:05 | **tidak** — PNG statis, sudah ada di `video_kit/` |
+| Laporan penolakan 29 Okt | 6:20–6:45 | **tidak** — cukup gambar diam |
+| `rulebook_ipas.md` + `SKILL.md` | 6:45–7:30 | **tidak** — gambar diam |
 | Arsitektur | 1:10–2:05 | **tidak** — `architecture_diagram.png` + pan lambat |
 
 Jadi yang perlu ditekan tombol rekamnya: **dua sampai empat panel**, total kurang dari 4 menit layar
@@ -428,8 +429,17 @@ Turun satu tingkat, dan **sebutkan tingkatnya di video** kalau memakai rekaman/s
 |---------|---------|----------------|
 | **V0** | Skill terpasang, agen menolak normal | Rekam live sesuai skrip |
 | **V1** | Skill terpasang, agen lambat | Rekam, lalu potong jeda tunggu di editing. **Jangan** mempercepat percakapan |
-| **V2** | Skill belum terpasang pada 4 Nov | Rekam adegan 6 dari **screenshot** (hasil G3) + narasi yang sama; nyatakan "captured in a verification run" |
+| **V2** | Mesin perekam tidak bisa dipakai | Pakai **screenshot** yang sudah lolos cek mata sebagai gambar diam + narasi yang sama; beri banner "screenshot sesi `EDU-CAP-20261106-0X`" |
 | **V3** | Tidak ada screenshot sama sekali | Adegan 6 diganti narasi + tampilan laporan penolakan 29 Okt (adegan 9). Video tetap memenuhi syarat "demonstrate at least one instance" lewat **STOP #3** (gerbang approval, bukti berkas nyata) |
+
+> **Catatan V2 (diperbarui 7 Nov).** Pemicu V2 sekarang bukan lagi "skill belum terpasang" — skill
+> sudah ada. Pemicunya adalah **mesin perekam tidak tersedia**. Bahan V2 nyata: `TC-08_reject-R006.png`,
+> `TC-13_escalation-3.png`, `S2-02_approve.png`, `S1-01_planner_outline.png`, `S1-02_writer_tags.png` —
+> kelimanya lulus cek mata. Yang hilang hanya gerakan kursor. Rinciannya di `14_Jalur_Rekam_Linux.md`.
+>
+> **Yang tidak boleh dilakukan: merekam run baru lalu menyebutnya sesi 6 November.** Kalau pipeline
+> dijalankan lagi — di Linux atau Windows — run ID-nya bertanggal 7 November, dan itu harus dinyatakan
+> di video, bukan disamarkan.
 
 V3 masih memenuhi syarat handbook secara harfiah — "refuses, seeks clarification **or** awaits
 approval". Tapi V3 lebih lemah, dan hanya dipakai kalau V0–V2 gagal.
