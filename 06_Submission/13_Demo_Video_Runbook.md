@@ -76,6 +76,31 @@ lain: penyuntingan dokumen, `doctor.py`, `check_capture.py`, `check_grounding.py
 | Potong, sambung, subtitle, export | **Windows** | `ffmpeg` 9.0.2 + `libass` terverifikasi di sana |
 | Edit `.md`, jalankan pemeriksa, commit | **Linux Mint** | Repo dikelola dari sana |
 
+### 2.0 Jawaban singkat: rekam di Windows
+
+Pertanyaan "Windows atau Linux?" sering ditanyakan seolah dua-duanya bisa. Di proyek ini tidak.
+Tiga alasan, dari yang paling menentukan:
+
+1. **Panel yang harus direkam sudah ada di Windows.** `S1-01` sampai `TC-15` — dua belas screenshot yang
+   lolos `check_capture.py` — diambil dari sesi di sana. Run `EDU-CAP-20261106-0X` hidup di mesin itu.
+   Merekam dari Linux berarti **menjalankan ulang seluruh sesi tangkap**: sepuluh run, ± 3 jam, dengan
+   angka dan vonis yang mungkin tidak identik. Itu bukan rekaman, itu run baru.
+2. **Angka di dokumen ini diukur di Windows.** 1366×768 adalah panel mesin itu, `ffmpeg` 9.0.2 +
+   `libass` sudah diverifikasi di sana, dan `concat_video.py` diuji dari sana. Memindahkan rantai
+   rekam ke Linux mengganti semua asumsi itu dengan asumsi baru — pada hari tenggat.
+3. **Anda tidak bisa merekam layar yang tidak Anda lihat.** Shell agen di sesi ini **tanpa `$DISPLAY`** —
+   sudah diperiksa 7 November: `xrandr` tidak mengembalikan apa pun. `x11grab` di mesin ini akan gagal
+   dengan "Cannot open display". Kalau Anda mau merekam dari Linux, itu harus dilakukan **manual di
+   desktop Anda**, bukan dari sesi ini — dan tetap tersandung alasan 1.
+
+**Kecuali satu hal:** kalau Anda memang merekam manual di desktop Linux (bukan dari sini), rekam di
+**resolusi asli panel Anda** dan biarkan `concat_video.py` yang menormalkan. Jangan paksa 1366×768 di
+panel yang lebih lebar, dan jangan memperkecil panel yang lebih sempit — teks tag harus tetap terbaca
+saat dijeda.
+
+**Yang justru harus dikerjakan di Linux sekarang:** menyiapkan `subtitle.srt` (sudah), memeriksa hasil
+dengan `ffprobe`, dan menyunting dokumen. Itu pekerjaan yang tidak bersaing dengan rekaman.
+
 Konsekuensinya yang harus dijaga: **berkas rekaman harus berpindah mesin tepat satu kali** (Windows →
 Linux atau sebaliknya, lewat drive bersama), dan yang berpindah adalah **berkas jadi**, bukan potongan
 setengah matang. Kalau dua orang memotong video yang sama di dua mesin, hasil sambungannya tidak akan
