@@ -4,11 +4,11 @@
 > application, a brief reflection on your build approach and any tooling insights. Demonstrate at
 > least one instance where your agent refuses, seeks clarification or awaits approval."*
 >
-> **Skrip ini berdurasi 7:40 dan memuat tiga contoh**, bukan satu: satu penolakan, satu eskalasi, dan
-> satu gerbang persetujuan. Target durasi: **7:30–7:50**.
+> **Skrip ini berdurasi 7:55 dan memuat tiga contoh**, bukan satu: satu penolakan, satu eskalasi, dan
+> satu gerbang persetujuan. Target durasi: **7:45–8:00**.
 >
 > Keempat unsur wajib tercakup: gambaran umum (§0:00), kapabilitas dan penerapannya (§2:05–5:00),
-> **refleksi pendekatan build dan wawasan perkakas (§6:55–7:15)**, serta tiga perhentian akuntabilitas
+> **refleksi pendekatan build dan wawasan perkakas (§6:45–7:30)**, serta tiga perhentian akuntabilitas
 > (§4:00–6:20).
 
 ---
@@ -151,7 +151,7 @@ menunggu persetujuan manusia`. Tampilkan `00_run_config.md` dengan `Human approv
 
 ---
 
-### 6:20 – 6:55 · Kegagalan yang kami sertakan dalam submission
+### 6:20 – 6:45 · Kegagalan yang kami sertakan dalam submission
 
 **Di layar:** Laporan penolakan 29 Oktober. Geser ke tiga temuan: R001, R011, R004.
 
@@ -159,13 +159,12 @@ menunggu persetujuan manusia`. Tampilkan `00_run_config.md` dengan `Human approv
 > "Satu hal lagi, karena ini hal paling jujur yang bisa saya tunjukkan.
 > Di hari ketiga, pipeline ini menolak keluarannya sendiri. Drafnya bertag — tetapi tag-nya menunjuk
 > berkas kurikulum, bukan sumber yang benar-benar menyatakan hal itu. Tag bukan sitasi.
-> Kami membangun ulang lapisan sumber, mewajibkan URL resmi bertanggal untuk klaim dunia nyata,
-> menandai ulang semuanya, dan review ulang dari nol. Kedua laporan ada di submission. Yang buruk tidak
-> kami hapus."
+> Kami membangun ulang lapisan sumber, mewajibkan URL resmi bertanggal, dan review ulang dari nol.
+> Yang buruk tidak kami hapus."
 
 ---
 
-### 6:55 – 7:15 · Bagaimana ini dibangun, dan siapa yang menulis aturannya
+### 6:45 – 7:30 · Bagaimana ini dibangun, dan siapa yang menulis aturannya
 
 **Di layar:** `rulebook_ipas.md` terbuka di R006, di sebelah sebuah `SKILL.md`. Lalu potong ke empat
 kontrak berdampingan.
@@ -176,7 +175,7 @@ kontrak berdampingan.
 > tidak akan pernah ia letakkan di depan kelas, dan memberi rujukan kurikulum untuk kami pakai.
 > Separuh pekerjaan kami adalah menuliskan penilaiannya sebagai aturan yang bisa diperiksa mesin, dan
 > membangun benda yang menegakkannya.
-> Wawasan perkakasnya sama: skill adalah kontrak, bukan prompt. Ketika reviewer menolak keluaran kami,
+> Wawasan perkakasnya: skill adalah kontrak, bukan prompt. Ketika reviewer menolak keluaran kami,
 > perbaikannya adalah perubahan kontrak — itulah sebabnya ia bertahan di run berikutnya."
 
 **Kenapa adegan ini ada:** handbook §7 menuntut *"a brief reflection on your build approach and any
@@ -184,7 +183,7 @@ tooling insights"*. Tanpa ini videonya tidak patuh, sebaik apa pun demonya.
 
 ---
 
-### 7:15 – 7:40 · Nilai dan penutup
+### 7:30 – 7:55 · Nilai dan penutup
 
 **Di layar:** Paket final di layar: lima dokumen + kuis interaktif. Lalu angkanya.
 
@@ -209,6 +208,7 @@ tooling insights"*. Tanpa ini videonya tidak patuh, sebaik apa pun demonya.
 - [ ] PERHENTIAN #3 menampilkan `PENDING` di run config
 - [ ] Laporan penolakan 29 Okt tampil di layar, temuannya terbaca
 - [ ] Adegan pendekatan build ada dan menyebut nama gurunya (wajib menurut handbook)
-- [ ] Durasi antara 5:00 dan 8:00 (target 7:40)
+- [ ] Durasi antara 5:00 dan 8:00 (target 7:55)
+- [ ] Narasi hanya mengisi ± 5:20 — sisa durasi adalah jeda, bukan suara yang dipercepat
 - [ ] Subtitle dibakar dan diperiksa kata "menolak"/"reject"
 - [ ] Tanpa musik latar menutupi narasi

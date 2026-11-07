@@ -1,6 +1,6 @@
 # Runbook Produksi Demo Video — Item 7
 
-**Target:** video 5–8 menit (skrip: **7:40**), **narasi Bahasa Indonesia**, subtitle Inggris terbakar.
+**Target:** video 5–8 menit (skrip: **7:55**), **narasi Bahasa Indonesia**, subtitle Inggris terbakar.
 **Skrip narasi:** `06_Submission/07_Demo_Video_Script.md` — **baca itu dulu**; dokumen ini hanya
 cara memproduksinya.
 **Deadline submission:** 7 November 2026 · **target internal: 5 November 2026**.
@@ -31,7 +31,7 @@ cara memproduksinya.
 | 8 | STOP #3 — gerbang approval | 5:40–6:20 | `03_Hasil/edu_output/00_run_config.md` | ✅ ya |
 | 9 | Laporan penolakan 29 Okt | 6:20–6:55 | `03_Hasil/audit/review_kepatuhan_R001-R011_2026-10-29.md` | ✅ ya |
 | 10 | **Build approach + kredit guru** | 6:55–7:15 | `08_Referensi/rulebook_ipas.md` + 4 `SKILL.md` | ✅ ya |
-| 11 | Penutup + paket akhir | 7:15–7:40 | PDF/PNG/HTML di `03_Hasil/` | ✅ ya |
+| 11 | Penutup + paket akhir | 7:30–7:55 | PDF/PNG/HTML di `03_Hasil/` | ✅ ya |
 
 ### 1.1 Satu akar masalah untuk dua pekerjaan
 
@@ -293,21 +293,35 @@ dibuka. Rekam panel pendek (di bawah 2 menit) supaya kerugiannya kecil kalau itu
 
 ## 4. Narasi
 
+**Ya — narasi harus direkam sebagai suara.** Video tanpa suara hanya memenuhi separuh syarat handbook
+§7: juri diminta menilai *"core agent capabilities and their application"* dan *"a brief reflection on
+your build approach"*. Refleksi tidak bisa disampaikan lewat teks di layar tanpa berubah jadi dinding
+tulisan. Subtitle yang dibakar adalah jaring pengaman untuk yang menonton tanpa suara — bukan pengganti
+narasi.
+
+**Naskah siap baca:** `06_Submission/video_kit/NARASI_SKRIP_TAKE.md`. Tiga bagian (A/B/C), 635 kata,
+± 5 menit 20 detik ucapan, sudah dipisah per adegan supaya bisa dibaca berurutan tanpa mencari.
+
 **Rekam narasi terpisah, jangan live.** Alasannya bukan estetika: narasi live memaksa Anda
 mengulang seluruh adegan setiap kali salah kata, dan level audio ikut berubah-ubah.
 
 | Langkah | Detail |
 |---------|--------|
-| Alat | Audacity — **tidak terpasang di mesin Windows** (§2). Alternatif: perekam suara bawaan Windows |
+| Alat | Audacity — **tidak terpasang di mesin Windows** (§2). Alternatif: perekam suara bawaan Windows (Voice Recorder) |
 | Level target | puncak **−6 dB**, rata-rata **−16 LUFS** |
 | Jarak mic | 15–20 cm, sedikit menyamping (hindari letupan "p"/"b") |
 | Ruangan | Kain/tirai di belakang; hindari ruangan bergema |
-| Per take | tiga take, satu per segmen (`narasi_a.wav`, `narasi_b.wav`, `narasi_c.wav`) — sesuai `CUE_SHEET.md`, bukan per adegan |
+| Per take | tiga take, satu per segmen (`narasi_a`, `narasi_b`, `narasi_c`) — sesuai `CUE_SHEET.md`, bukan per adegan |
+| Format | `.m4a` boleh — `concat_video.py` menerimanya |
 | Bersihkan | Noise Reduction sekali saja, jangan berlebihan — suara "berair" lebih buruk daripada noise |
 
 Teks narasi ada di skrip, per adegan, **dalam Bahasa Indonesia**. Baca persis seperti tertulis;
 kalimatnya sudah diuji panjangnya terhadap durasi. Subtitle yang dibakar berbahasa Inggris — itu
 terjemahannya, dan dibuat dari narasi yang sama, bukan narasi terpisah.
+
+> **Jangan mengisi seluruh durasi dengan suara.** Segmen C panjangnya 235 detik tetapi narasinya hanya
+> ± 160 detik. Sisanya jeda untuk menahan vonis dan membaca tabel di layar. Kalau semua slot diisi suara,
+> hasilnya 10 menit dan gagal syarat 5–8 menit.
 
 ---
 
@@ -379,7 +393,7 @@ ffprobe -v error -show_entries format=duration,size \
 
 | Yang diperiksa | Lulus kalau |
 |----------------|-------------|
-| Durasi | **300–480 detik** (5:00–8:00). Target 460 detik (7:40) |
+| Durasi | **300–480 detik** (5:00–8:00). Target 475 detik (7:55) — masih di dalam batas, dan tidak ada yang boleh melar |
 | Video | `h264`, `1366×768` (atau ukuran `--size` yang dipakai) |
 | Audio | ada stream `aac`; **dengar 30 detik pertama dan 30 detik terakhir** |
 | Subtitle | terbakar, terbaca saat dijeda |

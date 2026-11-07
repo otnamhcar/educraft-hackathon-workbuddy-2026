@@ -1,20 +1,26 @@
 # Cue sheet rekaman — tiga segmen, satu sesi per segmen
 
-**Skrip lengkap:** `06_Submission/07_Demo_Video_Script.md` (7:40, 10 adegan)
+**Skrip lengkap:** `06_Submission/07_Demo_Video_Script.md` (7:55, 11 adegan)
+**Naskah narasi siap baca:** `06_Submission/video_kit/NARASI_SKRIP_TAKE.md`
 **Alat penyambung:** `06_Submission/video_kit/concat_video.py`
 **Kartu judul:** `card_00_pembuka.png`, `card_99_penutup.png` (1920×1080, sudah jadi)
 
 Tiga segmen, bukan sepuluh. Alasannya praktis: salah ucap di tengah adegan ketujuh tidak
 menghapus empat menit rekaman sebelumnya. Ulangi satu segmen, bukan seluruh video.
 
-| Segmen | Rentang skrip | Durasi rekam | Isi |
-|--------|---------------|--------------|-----|
-| A | 0:00 – 2:05 | 125 s | Kail, masalah, arsitektur |
-| B | 2:05 – 4:00 | 115 s | Planner, Writer |
-| C | 4:00 – 7:40 | 220 s | Tiga perhentian, kegagalan, refleksi, penutup |
+| Segmen | Rentang skrip | Panjang segmen | Kata narasi | Isi |
+|--------|---------------|----------------|-------------|-----|
+| A | 0:00 – 2:05 | 125 s | 178 (≈90 s ucapan) | Kail, masalah, arsitektur |
+| B | 2:05 – 4:00 | 115 s | 135 (≈70 s ucapan) | Planner, Writer |
+| C | 4:00 – 7:55 | 235 s | 322 (≈160 s ucapan) | Tiga perhentian, kegagalan, refleksi, penutup |
 
-Kartu judul menambah 10 detik (5 detik di awal, 5 detik di akhir). Jadi rekam **7:30**, hasil
-akhir **7:40**. Kalau salah satu segmen melar, potong di segmen itu — jangan mempercepat audio.
+**Dua angka yang berbeda, dan itu disengaja.** Kolom "panjang segmen" adalah slot di timeline;
+kolom "kata narasi" adalah yang benar-benar diucapkan. Segmen **tidak** dipenuhi suara — ada jeda
+untuk menahan vonis, membaca tabel, dan menunjukkan gerbang. Kalau Anda merekam 235 detik suara untuk
+segmen C, videonya jadi 10 menit dan ditolak.
+
+Kartu judul menambah 10 detik (5 detik di awal, 5 detik di akhir). Jadi total timeline **7:55**,
+dengan **± 5:20 suara**. Kalau salah satu segmen melar, potong di segmen itu — jangan mempercepat audio.
 
 ---
 
@@ -77,16 +83,16 @@ Segmen ini butuh satu run berjalan. Bisa digabung dengan sesi screenshot S1.
 
 ---
 
-## Segmen C — 4:00–7:40 (220 s) — bagian yang wajib live
+## Segmen C — 4:00–7:55 (235 s) — bagian yang wajib live
 
 | Waktu | Adegan | Yang harus terlihat | Prompt |
 |-------|--------|---------------------|--------|
 | 4:00–5:00 | **Perhentian #1 — penolakan** | Vonis `REJECT`, ID aturan, kalimat yang dikutip. Tahan 3 detik penuh | `12_Capture_Prompts.txt` §2.1 (TC-08, R006) |
 | 5:00–5:40 | **Perhentian #2 — eskalasi** | Penghitung iterasi di angka 3, pesan berhenti | §3.1 (TC-13) |
 | 5:40–6:20 | **Perhentian #3 — gerbang** | `PENDING` / `TERTUTUP` setelah vonis `APPROVE` | §2.2 (TC-14) |
-| 6:20–6:55 | Kegagalan yang disertakan | `04_Test_Results.md` §4, temuan F-01 | — |
-| 6:55–7:15 | Refleksi + nama guru | Wajah atau layar kosong, narasi | **Sebut nama guru di sini** |
-| 7:15–7:40 | Penutup | Kartu penutup | "Satu sumber masuk. Lima format keluar." |
+| 6:20–6:45 | Kegagalan yang disertakan | `04_Test_Results.md` §4, temuan F-01 | — |
+| 6:45–7:30 | Refleksi + nama guru | Wajah atau layar kosong, narasi | **Sebut nama guru di sini** |
+| 7:30–7:55 | Penutup | Kartu penutup | "Lima format dari satu sumber." |
 
 **Satu sesi, dua keluaran.** Adegan 4:00–6:20 memakai run yang sama dengan screenshot
 `TC-08_reject-R006.png`, `TC-13_escalation-3.png`, dan `S1-04_approval_pending.png`. Rekam
@@ -94,7 +100,7 @@ sekaligus saat mengambil screenshot — jangan menjalankan pipeline dua kali unt
 Simpan rekaman mentahnya; kalau ada frame yang lebih bagus, ambil dari rekaman, bukan dari run baru.
 
 **Nama guru.** **Don Jimat Akbar** — nama samaran yang disepakati untuk guru IPAS SD dalam demo ini,
-bukan identitas asli. Sebut nama itu apa adanya di adegan 6:55–7:15, lalu lanjutkan ke kartu penutup.
+bukan identitas asli. Sebut nama itu apa adanya di adegan 6:45–7:30, lalu lanjutkan ke kartu penutup.
 Jangan menggantinya dengan nama lain di menit terakhir: sebutan yang berbeda antar-artefak memutus
 jejak yang justru menjadi nilai proyek ini.
 
