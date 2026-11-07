@@ -109,7 +109,7 @@ Python — jadi `concat_video.py` menemukannya. Kegagalan `'ffmpeg' is not recog
 biasanya berasal dari terminal atau sesi yang **lahir sebelum** PATH diperbarui: PATH dibaca sekali
 saat proses dibuat, tidak ikut berubah di tengah jalan.
 
-Urutan pemeriksaan, dari yang paling murah:
+**Urutan pemeriksaan, dari yang paling murah** — dijalankan di mesin Windows, di terminal baru:
 
 1. **Buka terminal baru**, lalu `ffmpeg -version`. Ini menyelesaikan hampir semua kasus.
 2. Masih gagal? Periksa apakah folder `bin` ada di PATH:
@@ -210,7 +210,9 @@ ffmpeg -list_devices true -f dshow -i dummy
 `dshow` menolak, **rekam video saja** — buang bagian `-f dshow -i audio=... -c:a aac -b:a 128k` — lalu
 tambahkan narasi di §4. Jangan menunda rekaman hanya karena audio.
 
-> Padanan Linux/macOS (kalau rekaman dikerjakan di mesin Linux Mint):
+> Padanan Linux/macOS — disimpan untuk berjaga, **bukan** jalur yang dipakai sekarang. Rekaman harus
+> dari mesin Windows karena panel sesi tangkap ada di sana; perintah ini hanya berguna kalau suatu saat
+> panel serupa dijalankan di Linux Mint:
 > `ffmpeg -f x11grab -video_size 1366x768 -framerate 30 -i "$DISPLAY" -f pulse -i default ...`
 > Berbeda dari Windows: tidak ada `gdigrab`, tidak ada `dshow`. Periksa dulu `xrandr` untuk tahu
 > resolusi panel Linux — kalau bukan 1366×768, **jangan** memaksa 1366 di sini; rekam di resolusi asli
@@ -218,13 +220,34 @@ tambahkan narasi di §4. Jangan menunda rekaman hanya karena audio.
 
 ### 3.4 Jalur tanpa instalasi: perekam bawaan Windows
 
-Paling cepat kalau ffmpeg terasa terlalu teknis. Tidak ada yang perlu dipasang.
+Paling cepat kalau ffmpeg terasa terlalu teknis. Tidak ada yang perlu dipasang. **Yang dipakai sebagai
+"jendela" adalah jendela WorkBuddy yang sudah dimaksimalkan** — sama dengan syarat screenshot, jadi satu
+sesi menghasilkan dua jenis bukti sekaligus.
 
 | Alat | Cara membuka | Catatan |
 |------|--------------|---------|
 | **Xbox Game Bar** (Win+G) | Tekan `Win+G`, tekan tombol rekam | Rekam **satu jendela** lewat tombol kamera di bilah Game Bar. Hasil `.mp4` di `Videos\Captures`. Batas praktisnya panjang, tetapi tidak bisa merekam seluruh desktop |
 | **Snipping Tool** (Win+Shift+S → ikon kamera) | Windows 11 23H2 ke atas | Merekam **area** atau seluruh layar, hasil `.mp4`. Lebih mudah dipotong daripada Game Bar |
 | Snipping Tool mode pita | Pilih "Rekam" lalu tarik kotak | Untuk rekaman yang hanya perlu area panel |
+
+> **Merekam jendela vs merekam layar penuh.** Rekam **jendela** WorkBuddy kalau bisa: taskbar, jam, dan
+> notifikasi tidak ikut, dan tidak ada nama akun di sudut. Rekam layar penuh hanya kalau alatnya tidak
+> mendukung — konsekuensinya kerangka layar ikut terekam, termasuk jam sistem. Itu bukan masalah
+> (screenshot yang sudah ada juga begitu), tetapi jangan sampai ada notifikasi masuk di tengah panel
+> penolakan.
+>
+> **Kunci resep sebelum rekaman pertama.** Bingkai yang harus terlihat sudah ditentukan berkas yang ada;
+> yang berlaku adalah bingkai di `05_Bukti_Proses/evidence_bundle/03_screenshots/CEK_MATA_2026-11-06.md` §2.
+> Untuk tiga panel yang paling penting, urutannya:
+>
+> | Panel | Frame yang harus ditahan ≥3 detik | Sumber patokan |
+> |-------|-----------------------------------|----------------|
+> | Penolakan R006 | Tabel "Mengapa ditolak" — `R001`, `R006`, `R002` + kedua kalimat **utuh** | `S2_refusal_cycle/TC-08_reject-R006.png` |
+> | Eskalasi | `Iteration 3 of max 3` + tiga pass + `ESCALATED_TO_HUMAN` + `Publish: LOCKED` | `S3_escalation/TC-13_escalation-3.png` |
+> | Gerbang | `APPROVE` + `pass 2` + `PASS — 134 tag` + `AWAITING_APPROVAL`/`LOCKED` | `S2_refusal_cycle/S2-02_approve.png` |
+>
+> Buka ketiga PNG itu di jendela lain selagi merekam. Yang harus Anda lakukan di depan kamera adalah
+> **mengulang frame yang sama**, bukan menciptakan tampilan baru.
 
 Aturan yang tetap berlaku apa pun alatnya:
 
