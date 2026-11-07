@@ -1,0 +1,320 @@
+1
+00:00:00,000 --> 00:00:05,000
+[EduCraft]
+
+2
+00:00:05,000 --> 00:00:09,500
+21:47 — teaching tomorrow.
+
+3
+00:00:09,500 --> 00:00:16,000
+Nine forty-seven at night. Tomorrow she teaches
+energy to forty eleven-year-olds.
+
+4
+00:00:16,000 --> 00:00:23,000
+She still needs a lesson plan, a pre-test,
+a post-test, slides, and something to send home.
+
+5
+00:00:23,000 --> 00:00:30,000
+She is not short on ideas.
+She is short on time to check them.
+
+6
+00:00:35,000 --> 00:00:41,500
+A chatbot can draft this in thirty seconds.
+That is not the hard part.
+
+7
+00:00:41,500 --> 00:00:46,000
+The hard part is the four questions
+she has to ask of every sentence.
+
+8
+00:00:46,000 --> 00:00:50,500
+Is this number actually in my source?
+
+9
+00:00:50,500 --> 00:00:55,000
+Is this too frightening for a ten-year-old?
+
+10
+00:00:55,000 --> 00:00:59,000
+Is it still aligned with the curriculum?
+
+11
+00:00:59,000 --> 00:01:05,000
+Does this sentence make a health claim
+I cannot stand behind?
+
+12
+00:01:05,000 --> 00:01:10,000
+A faster draft I cannot trust is not help.
+It is more work.
+
+13
+00:01:10,000 --> 00:01:16,000
+EduCraft is a pipeline of four agents.
+
+14
+00:01:16,000 --> 00:01:22,000
+The Planner breaks one source
+into an outline per format.
+
+15
+00:01:22,000 --> 00:01:28,000
+The Writer produces all five formats,
+tagging every factual sentence with its source.
+
+16
+00:01:28,000 --> 00:01:35,000
+The Reviewer checks twelve written rules
+and returns approve or reject —
+with the rule cited and the sentence quoted.
+
+17
+00:01:35,000 --> 00:01:42,000
+The Orchestrator holds state, caps revision
+at three loops, and refuses to publish.
+
+18
+00:01:42,000 --> 00:01:48,000
+And this dotted line is the most important one:
+
+19
+00:01:48,000 --> 00:01:54,000
+nothing leaves this system
+until a human opens that gate.
+
+20
+00:02:05,000 --> 00:02:11,000
+The teacher supplies one approved source.
+
+21
+00:02:11,000 --> 00:02:17,000
+It is the only well of facts for the whole run.
+The agent may not use facts from outside it.
+
+22
+00:02:17,000 --> 00:02:23,000
+Not from memory. Not from general knowledge.
+
+23
+00:02:23,000 --> 00:02:29,000
+That rule is enforced by the Reviewer,
+not by a firewall — so it is checked, not assumed.
+
+24
+00:02:29,000 --> 00:02:35,000
+From that source, the Planner maps five formats
+to learning outcome C4, on foundation B5:
+
+25
+00:02:35,000 --> 00:02:41,000
+a lesson plan, a quiz (pre-test and post-test),
+a slide outline,
+
+26
+00:02:41,000 --> 00:02:45,000
+a student article, and an infographic brief.
+
+27
+00:03:00,000 --> 00:03:07,000
+Every factual sentence carries a tag.
+
+28
+00:03:07,000 --> 00:03:13,000
+src:4 is a line in the source document.
+
+29
+00:03:13,000 --> 00:03:20,000
+CA1 is different. That is a real-world claim,
+and it must point to an official URL with an access date —
+or it does not ship.
+
+30
+00:03:20,000 --> 00:03:26,000
+If the Writer cannot find the fact in the source,
+it does not guess.
+
+31
+00:03:26,000 --> 00:03:32,000
+It writes the literal token U-N-V-E-R-I-F-I-E-D
+and asks the teacher to confirm.
+
+32
+00:03:32,000 --> 00:03:38,000
+A gap the teacher can see is still workable.
+An invention she cannot see is not.
+
+33
+00:04:00,000 --> 00:04:06,000
+Now the part that matters.
+
+34
+00:04:06,000 --> 00:04:12,000
+I ask for a health claim that sounds convincing
+and is not supported by the source.
+
+35
+00:04:12,000 --> 00:04:17,000
+The Reviewer rejects it.
+
+36
+00:04:17,000 --> 00:04:23,000
+Not a warning. Not a hedge. A rejection —
+citing rule six, quoting the sentence,
+
+37
+00:04:23,000 --> 00:04:28,000
+and proposing an alternative that rests on the source:
+common symptoms, and who is more vulnerable.
+
+38
+00:04:28,000 --> 00:04:33,000
+This is the behaviour I actually wanted to build.
+
+39
+00:04:33,000 --> 00:04:40,000
+Drafting is a commodity.
+The refusal is the product.
+
+40
+00:05:00,000 --> 00:05:06,000
+What if the request is broken
+in a way the Writer cannot repair?
+
+41
+00:05:06,000 --> 00:05:11,000
+It tries. Three times.
+
+42
+00:05:11,000 --> 00:05:16,000
+Then it stops, and hands the problem to a human
+with the findings attached.
+
+43
+00:05:16,000 --> 00:05:22,000
+A pipeline that keeps trying will eventually
+talk itself into approving.
+
+44
+00:05:22,000 --> 00:05:28,000
+Capping the loop is how we avoid that.
+
+45
+00:05:40,000 --> 00:05:46,000
+Here the Reviewer has approved everything.
+
+46
+00:05:46,000 --> 00:05:50,000
+And the system still does not publish.
+
+47
+00:05:50,000 --> 00:05:57,000
+Approval from a model is a precondition,
+not permission.
+
+48
+00:05:57,000 --> 00:06:02,000
+No timeout. No auto-approve-if-confident.
+No override flag.
+
+49
+00:06:02,000 --> 00:06:08,000
+The teacher signs, or nothing ships.
+
+50
+00:06:20,000 --> 00:06:25,000
+One more thing, because it is the most honest
+thing I can show you.
+
+51
+00:06:25,000 --> 00:06:31,000
+On day three, this pipeline rejected its own output.
+
+52
+00:06:31,000 --> 00:06:37,000
+The draft was tagged — but the tags pointed at
+a curriculum file, not at the source that actually
+said it.
+
+53
+00:06:37,000 --> 00:06:42,000
+A tag is not a citation.
+
+54
+00:06:42,000 --> 00:06:48,000
+We rebuilt the source layer, required dated official
+URLs for real-world claims,
+
+55
+00:06:48,000 --> 00:06:51,000
+re-tagged everything, and reviewed again from zero.
+
+56
+00:06:51,000 --> 00:06:55,000
+Both reports are in the submission.
+We did not delete the bad one.
+
+57
+00:06:55,000 --> 00:07:00,000
+One thing about how this was built,
+because this is the part that transfers.
+
+58
+00:07:00,000 --> 00:07:05,000
+The rules are not ours.
+
+59
+00:07:05,000 --> 00:07:11,000
+A primary school teacher told us which claims
+she would never put in front of a class,
+
+60
+00:07:11,000 --> 00:07:15,000
+and gave us curriculum references to use.
+(Her name here is a pseudonym.)
+
+61
+00:07:15,000 --> 00:07:20,000
+Half of our work was writing her judgement down
+as rules a machine can check,
+
+62
+00:07:20,000 --> 00:07:25,000
+and building the thing that enforces them.
+
+63
+00:07:25,000 --> 00:07:31,000
+The tooling insight is the same: a skill is a contract,
+not a prompt.
+
+64
+00:07:31,000 --> 00:07:39,500
+When the reviewer rejected our output, the fix was
+a change to the contract — which is why it held
+on the next run.
+
+65
+00:07:40,000 --> 00:07:46,000
+Five formats from one source.
+Twelve rules checked, each with a verdict.
+A complete audit trail.
+
+66
+00:07:46,000 --> 00:07:52,000
+Six to eight hours of drafting and checking
+becomes reviewing material that has already
+been checked.
+
+67
+00:07:52,000 --> 00:07:58,000
+EduCraft does not replace a teacher's judgement.
+It removes the part of her evening
+that was never teaching.
+
+68
+00:07:58,000 --> 00:08:03,000
+One source in. Five formats out.
