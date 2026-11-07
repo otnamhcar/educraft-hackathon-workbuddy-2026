@@ -252,6 +252,7 @@ sesi menghasilkan dua jenis bukti sekaligus.
 
 | Alat | Cara membuka | Catatan |
 |------|--------------|---------|
+| **Snipping Tool** (Win+Shift+R) | `Win+Shift+R` → "+ Baru" → tarik area → Rekam | **Jalur yang dipakai.** Langkah demi langkah, termasuk urutan persiapan dan penamaan berkas: `06_Submission/16_Panduan_Rekam_Snipping_Tool.md` |
 | **Xbox Game Bar** (Win+G) | Tekan `Win+G`, tekan tombol rekam | Rekam **satu jendela** lewat tombol kamera di bilah Game Bar. Hasil `.mp4` di `Videos\Captures`. Batas praktisnya panjang, tetapi tidak bisa merekam seluruh desktop |
 | **Snipping Tool** (Win+Shift+S → ikon kamera) | Windows 11 23H2 ke atas | Merekam **area** atau seluruh layar, hasil `.mp4`. Lebih mudah dipotong daripada Game Bar |
 | Snipping Tool mode pita | Pilih "Rekam" lalu tarik kotak | Untuk rekaman yang hanya perlu area panel |

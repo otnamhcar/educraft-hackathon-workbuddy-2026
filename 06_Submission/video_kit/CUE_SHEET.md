@@ -57,6 +57,7 @@ dengan **± 5:20 suara**. Kalau salah satu segmen melar, potong di segmen itu �
       setelah rekaman — `loudnorm` hanya meratakan, tidak menguatkan yang terekam buruk
 - [ ] Tutup notifikasi. Satu pop-up di adegan penolakan merusak satu-satunya bukti terkuat
 - [ ] Siapkan `12_Capture_Prompts.txt` di layar kedua
+- [ ] Sudah baca `06_Submission/16_Panduan_Rekam_Snipping_Tool.md` (cara merekam, langkah demi langkah)
 
 ---
 
