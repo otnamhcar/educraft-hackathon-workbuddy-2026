@@ -12,6 +12,11 @@ cara memproduksinya.
 
 ## 1. Status hari ini — apa yang memblokir apa
 
+> **Diganti 7 November 2026.** Tabel "8 dari 11 adegan, 31 Okt" di bawah sudah kedaluwarsa: skill
+> terpasang, screenshot lunas, subtitle dan alat penyambung siap. **Yang memblokir sekarang tinggal
+> satu — rekaman panel sesi tangkap yang sudah ada di drive bersama belum disalin ke mesin perekam.**
+> Lihat §10 untuk status terkini, dan §3.0 untuk daftar panel yang benar-benar perlu direkam.
+
 **8 dari 11 adegan bisa direkam sekarang.** Tiga sisanya butuh agen yang berjalan live.
 
 | # | Adegan | Waktu | Butuh | Bisa direkam 31 Okt? |
@@ -102,7 +107,32 @@ Urutan pemeriksaan, dari yang paling murah:
 
 ## 3. Merekam
 
-### 3.1 Pengaturan OBS (rekomendasi)
+> **Baca ini sebelum memilih alat.** OBS **tidak terpasang** di mesin perekam (§2). Jadi jalur yang
+> benar-benar bisa dijalankan hari ini ada dua, dan keduanya gratis: **§3.3 ffmpeg + `gdigrab`**
+> (sudah terverifikasi tersedia) atau **§3.4 perekam bawaan Windows** (nol instalasi). §3.1 tetap
+> disimpan untuk berjaga kalau OBS dipasang, bukan sebagai langkah pertama.
+
+### 3.0 Yang benar-benar perlu direkam
+
+Rekaman layar hanya dipakai untuk **sesi tangkap**, bukan untuk seluruh video. Panel yang dibutuhkan:
+
+| Panel | Bagian skrip | Perlu rekam layar? |
+|-------|--------------|--------------------|
+| Sesi 1 — Planner, Writer, Reviewer, gerbang `PENDING`, audit log, kuis | 2:05–4:00 dan 5:40–6:20 | **ya** — klik dan scroll yang bergerak |
+| Sesi 2 — penolakan R006, remediasi, `APPROVE` | 4:00–5:00 | **ya** — ini bukti terkuat |
+| Sesi 2b — penolakan R007 | (cadangan) | **ya** kalau dipakai |
+| Sesi 3a — eskalasi berhenti di iterasi 3 | 5:00–5:40 | **ya** |
+| Sesi 3b — instruksi injeksi diabaikan | (cadangan) | **ya** kalau dipakai |
+| Kartu pembuka/penutup | 0:00–0:05, 7:58–8:03 | **tidak** — PNG statis, sudah ada di `video_kit/` |
+| Laporan penolakan 29 Okt | 6:20–6:55 | **tidak** — cukup gambar diam |
+| `rulebook_ipas.md` + `SKILL.md` | 6:55–7:15 | **tidak** — gambar diam |
+| Arsitektur | 1:10–2:05 | **tidak** — `architecture_diagram.png` + pan lambat |
+
+Jadi yang perlu ditekan tombol rekamnya: **dua sampai empat panel**, total kurang dari 4 menit layar
+bergerak. Sisanya bisa dirakit dari berkas yang sudah ada di repo. Ini menghemat satu jam rekaman
+dan menghilangkan sebagian besar risiko salah ucap.
+
+### 3.1 Pengaturan OBS (hanya kalau OBS dipasang)
 
 | Setting | Nilai | Alasan |
 |---------|-------|--------|
@@ -122,9 +152,9 @@ ffmpeg -i rekaman.mkv -c copy rekaman.mp4
 
 ### 3.2 Aturan rekaman
 
-1. **Rekam per adegan, bukan satu take 7 menit.** Satu take panjang berarti satu salah kata
-   membuang semuanya.
-2. **Sebut nomor adegan di awal tiap file** (`s05_tags.mkv`) supaya urutan editing jelas.
+1. **Rekam per panel sesi tangkap, bukan satu take 7 menit.** Satu take panjang berarti satu salah
+   klik membuang semuanya. Panel yang perlu direkam ada di §3.0.
+2. **Sebut bagiannya di awal tiap berkas** (`s2b_penolakan.mp4`) supaya urutan dan isinya jelas.
 3. **Jangan rekam narasi bersamaan dengan layar** kecuali adegan 1–2. Lihat §4.
 4. Kalau salah: berhenti, tarik napas, ulangi adegan itu. Jangan menyunting salah kata di tengah.
 5. **Jangan** mempercepat gerakan kursor di editing supaya "terlihat rapi". Skrip sudah melarang
@@ -153,6 +183,31 @@ tambahkan narasi di §4. Jangan menunda rekaman hanya karena audio.
 
 > Padanan Linux/macOS (kalau rekaman dikerjakan di mesin lain):
 > `ffmpeg -f x11grab -video_size 1366x768 -framerate 30 -i "$DISPLAY" -f pulse -i default ...`
+
+### 3.4 Jalur tanpa instalasi: perekam bawaan Windows
+
+Paling cepat kalau ffmpeg terasa terlalu teknis. Tidak ada yang perlu dipasang.
+
+| Alat | Cara membuka | Catatan |
+|------|--------------|---------|
+| **Xbox Game Bar** (Win+G) | Tekan `Win+G`, tekan tombol rekam | Rekam **satu jendela** lewat tombol kamera di bilah Game Bar. Hasil `.mp4` di `Videos\Captures`. Batas praktisnya panjang, tetapi tidak bisa merekam seluruh desktop |
+| **Snipping Tool** (Win+Shift+S → ikon kamera) | Windows 11 23H2 ke atas | Merekam **area** atau seluruh layar, hasil `.mp4`. Lebih mudah dipotong daripada Game Bar |
+| Snipping Tool mode pita | Pilih "Rekam" lalu tarik kotak | Untuk rekaman yang hanya perlu area panel |
+
+Aturan yang tetap berlaku apa pun alatnya:
+
+1. **Nonaktifkan notifikasi lebih dulu** — `Win+A` → mode Fokus → "Hanya alarm". Satu pop-up di
+   panel penolakan merusak bukti terkuat di video.
+2. **Jangan rekam audio di tahap ini** kecuali Anda yakin. Narasi direkam terpisah (§4), jadi rekaman
+   layar yang senyap **lebih baik** — tidak ada suara klik keyboard yang harus dibersihkan.
+3. **Sebut bagiannya di awal berkas** (`s2b_penolakan.mp4`), jangan pakai nama bawaan "Rekaman layar
+   2026-11-07 1324". Anda akan menebak-nebak saat menyambung.
+4. **Rekor ulang seluruh panel, jangan menyambung potongan.** Dua take yang ditempel di tengah panel
+   membuat kursor terlihat melompat — juri membaca itu sebagai rekayasa.
+
+Konsekuensi format yang harus diterima: Game Bar dan Snipping Tool menghasilkan `.mp4`, bukan `.mkv`.
+Kalau proses merekam terhenti di tengah (listrik, Windows update), berkas `.mp4` sering tidak bisa
+dibuka. Rekam panel pendek (di bawah 2 menit) supaya kerugiannya kecil kalau itu terjadi.
 
 ---
 
@@ -300,16 +355,22 @@ approval". Tapi V3 lebih lemah, dan hanya dipakai kalau V0–V2 gagal.
 
 ---
 
-## 10. Yang belum ada (jujur)
+## 10. Yang belum ada (diperbarui 7 November 2026)
+
+Rencana waktu di §9 sudah **kedaluwarsa**: tanggal 31 Okt–5 Nov lewat. Yang tersisa dikerjakan hari ini.
 
 | Item | Status | Penghalang |
 |------|--------|------------|
-| Skill `edu-*` terpasang | **BELUM** | `ls ~/.workbuddy-ai/skills/` kosong |
-| Adegan 4, 6, 7 (agen live) | **BELUM** | idem |
-| Screenshot sebagai bahan V2 | **BELUM** | `11_Screenshot_Capture_Runbook.md` belum dijalankan |
-| Berkas video | **BELUM** | `06_Submission/` belum punya `.mp4` |
-| Bentuk pengiriman (berkas/tautan) | **TIDAK DIKETAHUI** | Handbook tidak menyebutkannya |
-| Uji OBS di mesin ini | **BELUM DIUJI** | Jalur ffmpeg sudah terverifikasi sebagai cadangan |
+| Skill `edu-*` terpasang | **SUDAH** (4 skill, 5 Nov) | — |
+| Screenshot 12 wajib | **SUDAH** (`check_capture.py` 20/0/2) | — |
+| `subtitle.srt` | **SUDAH** (68 blok, teruji bakar) | — |
+| `concat_video.py` 5 segmen | **SUDAH** (teruji 5 klip sintetis) | — |
+| Rekaman panel sesi tangkap | **BELUM** — 5 berkas mentah di drive bersama | Rekaman di mesin Windows, belum disalin |
+| Berkas video final | **BELUM** | Potong → sambung → narasi → bakar subtitle |
+| Bentuk pengiriman (berkas/tautan) | **BELUM PASTI** | Formulir punya bidang deskripsi; siapkan berkas + unggahan unlisted |
+| OBS terpasang | **TIDAK** | Pakai §3.3 `gdigrab` atau §3.4 perekam bawaan Windows |
+| `ffmpeg`/`ffprobe` | **SUDAH** 9.0.2-full_build | — |
+| Audacity | **TIDAK** | Pakai perekam suara bawaan Windows |
 
-Empat baris pertama hilang bersamaan begitu skill dipasang. Baris kelima butuh klarifikasi panitia
-atau keputusan "unggah dua-duanya" di §7.
+**Menit-menit ini, urutannya:** nonaktifkan notifikasi → rekam panel (§3.0) → potong per sesi → sambung
+(§5) → rekam narasi 3 take (§4) → bakar subtitle (§5.3) → `ffprobe` (§6).
