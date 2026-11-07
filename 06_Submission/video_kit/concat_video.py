@@ -11,6 +11,11 @@ ada; ia tidak merekam apa pun.
         --seg-c rekaman/seg_c.mp4 ^
         --out 06_Submission/EduCraft_Demo.mp4
 
+Sesi tangkap 6 November 2026 menghasilkan LIMA berkas, bukan tiga. Dua terakhir
+opsional dan disambung berurutan setelah C:
+
+    --seg-d rekaman/sesi3a.mp4 --seg-e rekaman/sesi3b.mp4
+
 (Garis miring biasa diterima di Windows; di PowerShell ganti `^` dengan backtick; di Linux/macOS
 pakai `python3`.)
 
@@ -111,6 +116,10 @@ def main(argv=None):
     parser.add_argument("--seg-a", required=True, help="0:00-2:05 kail, masalah, arsitektur")
     parser.add_argument("--seg-b", required=True, help="2:05-4:00 planner, writer")
     parser.add_argument("--seg-c", required=True, help="4:00-7:40 tiga perhentian, refleksi, penutup")
+    parser.add_argument("--seg-d", default=None,
+                        help="opsional; sesi tangkap keempat (mis. sesi 3a)")
+    parser.add_argument("--seg-e", default=None,
+                        help="opsional; sesi tangkap kelima (mis. sesi 3b)")
     parser.add_argument("--out", default=str(HERE.parent / "EduCraft_Demo.mp4"))
     parser.add_argument("--skip-cards", action="store_true", help="tanpa kartu judul")
     parser.add_argument("--size", default=None,
@@ -126,7 +135,10 @@ def main(argv=None):
             return 2
         TARGET = (w, h)
 
-    segments = [Path(args.seg_a), Path(args.seg_b), Path(args.seg_c)]
+    # Sesi tangkap 6 November menghasilkan lima berkas, bukan tiga. Tiga wajib;
+    # dua terakhir opsional supaya pemanggilan lama tetap jalan.
+    segments = [Path(p) for p in (args.seg_a, args.seg_b, args.seg_c, args.seg_d, args.seg_e)
+                if p]
     for path in segments:
         if not path.is_file():
             print("ERROR: rekaman tidak ditemukan: {}".format(path), file=sys.stderr)

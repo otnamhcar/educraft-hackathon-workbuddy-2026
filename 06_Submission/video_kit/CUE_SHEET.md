@@ -91,15 +91,24 @@ jejak yang justru menjadi nilai proyek ini.
 
 ## Menyambung
 
+**Lima berkas, bukan tiga.** Sesi tangkap 6 November menghasilkan lima rekaman (sesi 1, 2, 2b, 3a, 3b).
+`--seg-d` dan `--seg-e` menerima dua tambahan itu, disambung berurutan setelah C:
+
 ```bat
 python 06_Submission\video_kit\concat_video.py ^
-  --seg-a rekaman\seg_a.mp4 ^
-  --seg-b rekaman\seg_b.mp4 ^
-  --seg-c rekaman\seg_c.mp4 ^
+  --seg-a rekaman\sesi1.mp4 ^
+  --seg-b rekaman\sesi2.mp4 ^
+  --seg-c rekaman\sesi2b.mp4 ^
+  --seg-d rekaman\sesi3a.mp4 ^
+  --seg-e rekaman\sesi3b.mp4 ^
   --out 06_Submission\EduCraft_Demo.mp4
 ```
 
 Di PowerShell, ganti `^` dengan backtick (`` ` ``). Di Linux/macOS, `python3` dan garis miring biasa.
+
+**Jangan menumpuk kelimanya apa adanya.** Diuji 7 November 2026 dengan lima klip 124 detik: hasil
+630 detik (10:30) dan skrip menolaknya dengan exit 1 — batasnya 5:00–8:00. Lima rekaman utuh akan
+melar. Potong tiap sesi ke porsi yang dipakai skrip sebelum disambung.
 
 Yang dilakukan skrip, dan alasannya:
 
