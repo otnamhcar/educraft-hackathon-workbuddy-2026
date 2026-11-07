@@ -62,7 +62,19 @@ Peralatan pendukung: `tools/check_grounding.py` — cek R001 yang deterministik;
 
 ---
 
-## 4. Potret keadaan — 31 Oktober 2026
+## 4. Potret keadaan — diperbarui 7 November 2026
+
+> Potret 31 Oktober di bawah sudah **kedaluwarsa** pada dua baris terpentingnya (screenshot dan skor
+> item). Angka terkini ada di tabel ringkas ini; detail per butir di `06_Submission/00_SUBMISSION_CHECKLIST.md`.
+
+| Butir | Keadaan 7 Nov 2026 |
+|-------|--------------------|
+| Item submission | **9 SIAP** · item 7 (video) menunggu penyambungan + narasi di luar repo · item 11 (bonus) draf lokal |
+| Rangkaian uji | 21 kasus; **12/12 screenshot wajib tertangkap** (`check_capture.py` 20 passed / 0 failed), diperiksa mata di `CEK_MATA_2026-11-06.md` |
+| Cek deterministik | `doctor.py` **19 passed / 0 failed / 0 warning** — 11 run, 5 folder, 0 tag menggantung |
+| Gerbang etik | Keempat run disetujui guru (G16 ditutup 5 Nov 2026) |
+
+### Potret 31 Oktober (arsip — jangan dipakai sebagai status sekarang)
 
 | Butir | Keadaan |
 |-------|---------|

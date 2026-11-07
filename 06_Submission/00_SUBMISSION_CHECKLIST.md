@@ -27,10 +27,12 @@ Keterangan status: `SIAP` = artefaknya sudah ada di bundel ini · `BELUM` = haru
 
 **Skor: 9 siap · 1 finalisasi di luar repo · 1 draf lokal.** Satu-satunya item wajib yang belum
 tertutup adalah video demo: bahannya lengkap (lima rekaman mentah + kartu judul + alat penyambung yang
-sudah teruji), tetapi rekaman final masih harus disambung dan dinarasikan sebelum diunggah. Jangan
-submit hanya dengan alasan jumlah dokumen sudah banyak — video adalah item wajib.
-"Draf lokal" berarti berkasnya ada dan bisa diperiksa, tetapi belum punya URL, jadi belum bisa ditempel
-ke formulir.
+sudah teruji), tetapi rekaman final masih harus disambung dan dinarasikan sebelum diunggah. Artefak
+finalnya **tidak bisa** dilengkapi dari repo ini — rekaman ada di drive bersama, penyambungan dan narasi
+dikerjakan di mesin Windows. Jangan submit hanya dengan alasan jumlah dokumen sudah banyak — video
+adalah item wajib.
+"Draf lokal" (item 11, bonus) berarti berkasnya ada dan bisa diperiksa, tetapi belum punya URL, jadi
+belum bisa ditempel ke formulir.
 
 ---
 
