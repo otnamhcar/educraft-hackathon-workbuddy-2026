@@ -42,10 +42,9 @@ python tools\doctor.py                   :: Windows
 ```
 
 Tujuh pemeriksaan: versi Python, kontrak skill, skill terpasang, knowledge layer, checksum salinan
-(rulebook + tiap lembar sumber), cek grounding R001 pada kelima folder run, dan konvensi sitasi pada
+(rulebook + tiap lembar sumber), cek grounding R001 pada sebelas folder run, dan konvensi sitasi pada
 dokumen yang dibaca guru. Keluar dengan kode 0 hanya kalau semuanya lolos — hasil sehat mencetak
-`13 passed / 0 failed / 4 warning` (diukur di Windows, 6 Nov 2026). Empat `warning` itu run lama yang
-dilewati dengan `SKIP` oleh pemeriksaan sitasi, bukan kegagalan.
+`19 passed / 0 failed / 0 warning` (diukur di Windows, 7 Nov 2026).
 
 ### Kalau direktori skill Anda berbeda
 

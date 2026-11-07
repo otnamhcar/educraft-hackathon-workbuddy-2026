@@ -91,16 +91,17 @@ Keduanya menyalin empat skill ke `~/.workbuddy-ai/skills` (di Windows
 pada Windows, pakai launcher `py`: `py tools\doctor.py`. Garis miring biasa (`tools/doctor.py`) juga
 diterima di Windows.
 
-Diverifikasi di mesin Windows 6 November 2026 — bukan diasumsikan:
+Diverifikasi di mesin Windows 7 November 2026 — bukan diasumsikan:
 
 ```
 $ python tools\doctor.py
-  13 passed / 0 failed / 4 warning
+  19 passed / 0 failed / 0 warning
   Ready. Start with: README.md -> "Run it yourself"        (exit 0)
 ```
 
-Empat `warning` itu bukan kegagalan: keempat run lama dibuat sebelum konvensi sitasi berlaku, jadi
-pemeriksaan #7 melewatinya dengan `SKIP` dan menyebut alasannya. Clone yang sehat berakhir exit 0.
+Pemeriksaan #7 hanya dijalankan pada run yang memang memakai konvensi sitasi kelas
+(`03_Hasil/edu_output_tata_surya`), jadi tidak ada `SKIP` yang perlu dihitung sebagai warning. Clone
+yang sehat berakhir exit 0.
 
 Lalu panggil orchestrator dengan: topik, fase (Fase C), kode CP, dan berkas sumber yang sudah ada di
 `assets/` tiap skill. Harapkan

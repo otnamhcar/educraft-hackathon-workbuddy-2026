@@ -90,8 +90,11 @@ Tiga sifat ditegakkan oleh kontrak, bukan oleh harapan:
 | `02_Sumber/` | Dua PDF resmi kementerian yang menjadi bahan lapisan pengetahuan, plus hasil ekstraksi teksnya. Inventaris dan pengecualian: `02_Sumber/README.md` |
 | `08_Referensi/` | Lapisan pengetahuan: source material, CP, daftar konteks aktual, rulebook |
 | `03_Hasil/edu_output/` | Folder run `-001` (Energi Alternatif): `00_run_config.md`, `audit_log.md`, dan `01_lesson_plan.md` |
-| `03_Hasil/materi_ajar/` | Salinan artefak run `-001` untuk bundel (draf yang diperbaiki + kuis HTML). **Bukan run kelima** — tidak punya `00_run_config.md` sendiri |
+| `03_Hasil/materi_ajar/` | Salinan artefak run `-001` untuk bundel (draf yang diperbaiki + kuis HTML). **Bukan run tersendiri** — tidak punya `00_run_config.md` sendiri |
 | `03_Hasil/edu_output_wujud_zat/` | Keluaran run `-002` (Perubahan Wujud Zat) + tiga PDF siap cetak |
+| `03_Hasil/edu_output_tata_surya/` | Keluaran run `-003` (Tata Surya), satu-satunya run dengan konvensi sitasi kelas |
+| `03_Hasil/edu_output_wujud_zat_faseC/` | Keluaran run `-004` (Wujud Zat Fase C, pemantapan lintas fase) |
+| `03_Hasil/edu_output_energi_alternatif*/` | Enam folder untuk run `-005` sampai `-010` (Energi Alternatif: RPP, kuis, slide, dua poster, uji prompt injection) — masing-masing punya `00_run_config.md` dan `grounding_report.md` |
 | `03_Hasil/audit/` | **Kedua** laporan review — yang REJECT dan yang APPROVE |
 | `06_Submission/panduan/` | Cara mendemokan: panduan guru + testimoni, dan runbook Demo Day (anggaran 8 menit, tangga fallback, penunjuk bukti untuk Q&A) |
 | `04_Diskusi/test_cases_matrix.md` | Suite 23 kasus, termasuk delapan yang kritis, dan tabel cakupan per aturan yang jujur |
@@ -100,7 +103,7 @@ Tiga sifat ditegakkan oleh kontrak, bukan oleh harapan:
 | `07_Dokumentasi/` | Dokumen rekayasa: arsitektur, workflow, batas skill, spesifikasi rulebook, rencana uji, ketertelusuran kebutuhan, daftar celah |
 | `tools/check_grounding.py` | Pemeriksaan R001 deterministik — me-resolve setiap tag terhadap lapisan pengetahuan, keluar non-nol bila gagal. Hanya memeriksa draf; metadata run dilewati dan disebutkan namanya di laporan |
 | `tools/install_skills.py` | Menyalin empat folder skill ke tempat WorkBuddy membacanya, lalu memverifikasi jumlahnya 4. Python, jadi jalan sama di Linux, macOS, dan Windows |
-| `tools/doctor.py` | Tujuh pemeriksaan pra-terbang pada clone baru — Python, kontrak, skill terpasang, lapisan pengetahuan, checksum salinan, grounding di kelima folder run, konvensi sitasi. Kode yang sama di semua OS |
+| `tools/doctor.py` | Tujuh pemeriksaan pra-terbang pada clone baru — Python, kontrak, skill terpasang, lapisan pengetahuan, checksum salinan, grounding di sebelas folder run, konvensi sitasi. Kode yang sama di semua OS |
 | `tools/check_capture.py` | Memeriksa berkas screenshot sebelum submit: mana yang belum ada, mana yang di bawah 1366 px, mana yang bukan PNG, mana yang tidak terdaftar di tracker. Daftar berkasnya dibaca dari `INDEX.md`, bukan dari daftar kedua yang bisa melenceng |
 | `tools/capture.py` | Menangkap layar di Windows: menyetel DPI-awareness lebih dulu (tanpa itu layar 1366 px terekam 1093 px pada skala 125 %), menyimpan langsung dengan nama final, dan menolak menimpa bukti yang sudah ada. Menggantikan `gnome-screenshot` yang ditulis untuk mesin Linux |
 | `tools/capture_session.py` | Menjalankan sesi tangkap enam berkas wajib berurutan: nama berkas, prompt yang dipaste, dan syarat isi frame dipegang skrip, sehingga tidak ada salah nama atau salah folder. Memanggil `capture.py`, bukan menyalin logikanya. Setelah tiap tangkapan gambar dibuka dan frame-nya **wajib dikonfirmasi**; jawaban `n` memindahkan berkas ke `_karantina/` — `check_capture.py` tidak bisa membaca isi gambar, jadi konfirmasi manusia itulah yang menutup celahnya. `--list` untuk rencana, `--only TC-13` untuk satu berkas |
@@ -178,11 +181,12 @@ memutuskan 5 Nov 2026 16:13: status naik ke `APPROVED_FOR_USE`, **publikasi teta
 
 | Hasil | Jumlah |
 |-------|--------|
-| `PASS` — dibuktikan artefak di repo ini | 7 |
-| `BY DESIGN` — ditegakkan di `SKILL.md`, screenshot belum diambil | 11 |
-| `TO RUN` — belum dijalankan, diungkap | 3 |
+| `PASS` — dibuktikan artefak, tangkapan, atau render di repo ini | 15 |
+| `BY DESIGN` — ditegakkan di `SKILL.md`, bukti langsung belum diambil | 6 |
+| `BELUM` — belum pernah dieksekusi, diungkap | 1 |
+| `TO RUN` — belum dijalankan, diungkap | 1 |
 
-**Kami tidak mengklaim 21/21.** Tabel lengkap, termasuk kasus kritis dan kegagalan yang diungkap:
+**Kami tidak mengklaim 23/23.** Tabel lengkap, termasuk kasus kritis dan kegagalan yang diungkap:
 `06_Submission/04_Test_Results.md`.
 
 Satu kasus bisa diperiksa mesin dari ujung ke ujung, dan itulah yang paling penting:
@@ -200,7 +204,13 @@ python3 tools/check_grounding.py --run 03_Hasil/materi_ajar \
 | `edu_output_wujud_zat` | `-002` Wujud Zat, sesudah perbaikan | 115 | 0 | 0 | **PASS** |
 | `edu_output_wujud_zat_faseC` | `-004` Wujud Zat Fase C | 212 | 0 | 0 | **PASS** |
 | `edu_output_tata_surya` | `-003` Tata Surya | 109 | 0 | 0 | **PASS** |
-| **Total per run** | **empat run** | **557** | **0** | **0** | |
+| `edu_output_energi_alternatif` | `-005` Energi Alternatif, dieskalasi | 269 | 0 | 0 | **PASS** |
+| `edu_output_energi_alternatif_faseC` | `-006` Energi Alternatif Fase C | 134 | 0 | 0 | **PASS** |
+| `edu_output_energi_alternatif_faseC_007` | `-007` RPP + kuis + slide | 199 | 0 | 0 | **PASS** |
+| `edu_output_energi_alternatif_faseC_008` | `-008` poster promosi | 44 | 0 | 0 | **PASS** |
+| `edu_output_energi_alternatif_faseC_009_versi_bersih` | `-009` poster versi bersih | 22 | 0 | 0 | **PASS** |
+| `edu_output_energi_alternatif_faseC_010` | `-010` uji prompt injection | 271 | 0 | 0 | **PASS** |
+| **Total per run** | **sepuluh run** | **1.496** | **0** | **0** | |
 
 > Run `-001` diperiksa di **dua folder** karena keduanya memuat artefaknya: `materi_ajar` (draf markdown
 > terkoreksi) dan `edu_output` (folder produksi berisi `.docx`/`.pptx`/`.html` serta draf kerja).
@@ -257,12 +267,12 @@ mengatakan *di mana* rusaknya:
 | 3 | empat skill `edu-*` terpasang | jalankan `install_skills.py`, lalu restart |
 | 4 | rulebook, CP, daftar konteks aktual, semua lembar sumber | lapisan pengetahuan hilang |
 | 5 | salinan rulebook dan tiap lembar sumber berbagi satu SHA-256 | ada salinan yang menyimpang — Reviewer akan menilai dengan aturan yang berbeda dari yang ditulis Writer |
-| 6 | pemeriksaan grounding di kelima folder run | ada draf yang tidak lagi menunjuk sumbernya |
-| 7 | konvensi sitasi pada dokumen yang dibaca guru | run `-003` memakai konvensi berbeda; run lama dilewati dengan `SKIP` dan alasannya |
+| 6 | pemeriksaan grounding di sebelas folder run | ada draf yang tidak lagi menunjuk sumbernya |
+| 7 | konvensi sitasi pada dokumen yang dibaca guru | run `-003` satu-satunya yang memakai konvensi sitasi kelas; run lain masih bertag sebaris |
 
-Clone yang sehat mencetak `13 passed / 0 failed / 4 warning` dan keluar dengan kode 0. Diukur di
-mesin Windows 6 November 2026. Empat `warning` itu bukan kegagalan: keempat run lama dibuat sebelum
-konvensi sitasi berlaku, jadi pemeriksaan #7 melewatinya sambil menyebut alasannya.
+Clone yang sehat mencetak `19 passed / 0 failed / 0 warning` dan keluar dengan kode 0. Diukur di
+mesin Windows 7 November 2026. Pemeriksaan #7 hanya dijalankan pada run yang memang memakai konvensi
+kelas (`03_Hasil/edu_output_tata_surya`), jadi tidak ada `SKIP` yang perlu dihitung sebagai warning.
 
 ### Run pertama
 

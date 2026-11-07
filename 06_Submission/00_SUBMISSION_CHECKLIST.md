@@ -25,8 +25,10 @@ Keterangan status: `SIAP` = artefaknya sudah ada di bundel ini · `BELUM` = haru
 | 10 | Gambar sampul (opsional, 16:9) | OPSIONAL | **SIAP** | `cover_image_380x216.png` + `cover_image_1280x720.png` |
 | 11 | Tautan proyek (bonus) | BONUS | **DRAF LOKAL** | Halaman statis siap di `06_Submission/demo_site/` (lihat `README.md` di sana). **Belum diunggah, belum ada URL publik.** Jangan tulis tautan apa pun di formulir sebelum benar-benar hidup |
 
-**Skor: 8 siap · 1 sebagian · 1 draf lokal · 1 belum.** Sisa yang masih "sebagian" adalah bukti pengujian —
-bagian yang paling berat dinilai juri — jadi jangan submit hanya dengan alasan jumlah dokumen sudah banyak.
+**Skor: 9 siap · 1 finalisasi di luar repo · 1 draf lokal.** Satu-satunya item wajib yang belum
+tertutup adalah video demo: bahannya lengkap (lima rekaman mentah + kartu judul + alat penyambung yang
+sudah teruji), tetapi rekaman final masih harus disambung dan dinarasikan sebelum diunggah. Jangan
+submit hanya dengan alasan jumlah dokumen sudah banyak — video adalah item wajib.
 "Draf lokal" berarti berkasnya ada dan bisa diperiksa, tetapi belum punya URL, jadi belum bisa ditempel
 ke formulir.
 
@@ -100,7 +102,7 @@ baru tambahkan barisnya ke `INDEX.md`. Itu sesi baru, bukan foto ulang.
 ## 4. Publikasi kode — ✅ SELESAI (Opsi A)
 
 **Repo GitHub publik:** https://github.com/otnamhcar/educraft-hackathon-workbuddy-2026
-Lisensi MIT · 170 berkas ter-track · di-push pertama 31 Oktober 2026, diperbarui 5 November 2026.
+Lisensi MIT · 267 berkas ter-track · di-push pertama 31 Oktober 2026, diperbarui 7 November 2026.
 
 Sengaja tidak ada hash commit di sini. Hash yang ditulis di dalam berkas yang ikut berubah akan
 selalu kedaluwarsa begitu berkas itu di-commit — itu sudah terjadi dua kali. Untuk memeriksa versi yang
@@ -108,7 +110,7 @@ sedang Anda baca: `git log -1 --format='%h %ad' --date=short`.
 
 Isi yang dipublikasikan: `README.md` (halaman depan, termasuk jalur **"Jalankan sendiri"** yang
 ditulis untuk guru, bukan untuk pengembang), `05_Bukti_Proses/skills_package/` (empat kontrak +
-aset pengetahuan lengkap), `03_Hasil/` (empat run, dua laporan review), `06_Submission/`,
+aset pengetahuan lengkap), `03_Hasil/` (sebelas folder run, laporan review di tiap folder), `06_Submission/`,
 `04_Diskusi/test_cases_matrix.md`, `tools/` (cek grounding, `install_skills.py`, `doctor.py` — semuanya Python, semuanya lintas OS),
 `LICENSE`, `THIRD_PARTY_NOTICES.md`.
 
@@ -121,15 +123,17 @@ Sengaja **tidak** dipublikasikan, dengan alasan per berkas di `02_Sumber/README.
 lembar RPP dari `centralpendidikan.com`, panduan asesmen SMP, ekspor WhatsApp, handbook panitia,
 `.workbuddy-ai/`, dan catatan kerja. Ditegakkan oleh `.gitignore` di akar repo.
 
-**Terverifikasi 31 Oktober 2026, diperbarui 5 November 2026:** `git clone` baru dari `main` berhasil
-memasang keempat skill dan lolos `tools/doctor.py` — exit 0. Keluaran sekarang **13 passed / 0 failed /
-4 warning**. Keempat peringatan itu bukan kegagalan: semuanya `SKIP` dari `tools/check_sitasi.py` untuk
-run yang dibuat sebelum konvensi sitasi kelas berlaku — run `-003` sendiri **PASS** (7 pemeriksaan).
-Doctor kini memeriksa **lima folder** untuk empat run (121 + 121 + 115 + 212 + 109 = 678 tag,
-0 pelanggaran; run `-001` muncul di dua folder sehingga dihitung sekali pada angka per run, yaitu
-**557 tag**) dan tiga source material yang identik lintas skill package. Sejak 5 November 2026
-`03_Hasil/edu_output` ikut diperiksa — folder itu sebelumnya memuat draf dengan tag kurikulum untuk
-fakta (73 pelanggaran kelas) dan kini lulus dengan 121 tag, sama dengan `materi_ajar`.
+**Terverifikasi 31 Oktober 2026, diperbarui 7 November 2026:** `git clone` baru dari `main` berhasil
+memasang keempat skill dan lolos `tools/doctor.py` — exit 0. Keluaran sekarang **19 passed / 0 failed /
+0 warning** (diukur 7 November 2026). Doctor memeriksa **sebelas folder** untuk sepuluh run
+(121 + 121 + 115 + 212 + 109 + 269 + 134 + 199 + 44 + 22 + 271 = 1.617 tag, 0 pelanggaran; run `-001`
+muncul di dua folder sehingga dihitung sekali pada angka per run, yaitu **1.496 tag**) dan tiga source
+material yang identik lintas skill package. Pemeriksaan sitasi kelas hanya dijalankan pada run yang
+memang memakai konvensi itu — `03_Hasil/edu_output_tata_surya` (`-003`) — dan **PASS** dengan 7
+pemeriksaan; run lain tidak didaftarkan karena masih memakai tag sebaris, sehingga tidak ada `SKIP`
+yang dihitung sebagai warning. Sejak 5 November 2026 `03_Hasil/edu_output` ikut diperiksa — folder itu
+sebelumnya memuat draf dengan tag kurikulum untuk fakta (73 pelanggaran kelas) dan kini lulus dengan
+121 tag, sama dengan `materi_ajar`.
 
 Sisa pekerjaan rumah: jalankan push lagi setelah setiap penyuntingan, supaya repo dan bundel tetap sama.
 
