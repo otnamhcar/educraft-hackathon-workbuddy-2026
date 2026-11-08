@@ -1,0 +1,551 @@
+1
+00:00:00,000 --> 00:00:00,357
+EduCraft.
+
+2
+00:00:00,417 --> 00:00:02,857
+Paket ajar IPAS yang diperiksa aturan
+
+3
+00:00:02,917 --> 00:00:04,524
+sebelum sampai ke kelas.
+
+4
+00:00:05,030 --> 00:00:10,192
+Layar dibuka ke halaman kosong.
+
+5
+00:00:10,252 --> 00:00:14,391
+Satu kolom, satu kursor, beberapa
+contoh pertanyaan di bawahnya.
+
+6
+00:00:14,451 --> 00:00:17,321
+Saya ketik satu baris.
+
+7
+00:00:17,381 --> 00:00:20,904
+Bantu saya membuat
+materi IPAS. Lalu Enter.
+
+8
+00:00:20,964 --> 00:00:27,447
+Bukan perintah panjang. Bukan template.
+
+9
+00:00:27,507 --> 00:00:30,506
+Satu kalimat, seperti yang diucapkan
+guru di ruang guru menjelang malam.
+
+10
+00:00:30,566 --> 00:00:34,201
+Pesan itu naik ke atas.
+
+11
+00:00:34,261 --> 00:00:37,541
+Riwayat masih kosong.
+
+12
+00:00:37,601 --> 00:00:40,680
+Yang muncul cuma nama agen,
+
+13
+00:00:40,740 --> 00:00:43,894
+dan angka yang terus bertambah:
+processed empat puluh tiga detik.
+
+14
+00:00:43,954 --> 00:00:45,746
+Di bawahnya, satu baris kecil.
+
+15
+00:00:45,806 --> 00:00:52,806
+Waiting for model.
+Menunggu model. Itu jujur.
+
+16
+00:00:53,571 --> 00:00:58,647
+Pekerjaan yang sebenarnya
+terjadi tidak menarik dilihat.
+
+17
+00:00:58,707 --> 00:01:02,777
+Yang bisa ditampilkan hanya bahwa
+sesuatu sedang berjalan.
+
+18
+00:01:02,837 --> 00:01:08,305
+Lalu di detik ketujuh
+puluh, panelnya terbuka.
+
+19
+00:01:10,000 --> 00:01:12,770
+Dan yang muncul berikutnya bukan paragraf.
+
+20
+00:01:12,830 --> 00:01:13,642
+Yang muncul pertanyaan.
+
+21
+00:01:13,702 --> 00:01:17,787
+Materi IPAS ini untuk kelas
+atau fase berapa. Tiga pilihan:
+
+22
+00:01:17,847 --> 00:01:20,634
+kelas satu sampai dua Fase A,
+
+23
+00:01:20,694 --> 00:01:22,773
+kelas tiga empat Fase B,
+
+24
+00:01:22,833 --> 00:01:25,054
+kelas lima enam Fase C.
+
+25
+00:01:25,114 --> 00:01:26,840
+Lalu pertanyaan kedua.
+
+26
+00:01:26,900 --> 00:01:33,114
+Bentuk keluaran apa yang dibutuhkan.
+Empat pilihan: modul ajar, bahan bacaan,
+
+27
+00:01:33,174 --> 00:01:35,351
+LKPD dan kuis,
+
+28
+00:01:35,411 --> 00:01:39,208
+atau paket lengkap. Dua
+pertanyaan. Tidak lebih.
+
+29
+00:01:40,000 --> 00:01:42,153
+Perhatikan apa yang tidak terjadi.
+
+30
+00:01:42,213 --> 00:01:43,923
+Agen tidak langsung menulis.
+
+31
+00:01:43,983 --> 00:01:47,022
+Lalu layar menampilkan dua
+butir yang bertentangan.
+
+32
+00:01:47,082 --> 00:01:49,677
+Soal gaya, belum ada lembar faktanya.
+
+33
+00:01:49,737 --> 00:01:51,890
+Tidak bisa diproduksi tanpa sumber.
+
+34
+00:01:51,950 --> 00:01:54,103
+Sementara soal energi sudah siap,
+
+35
+00:01:54,163 --> 00:01:58,529
+tetapi isinya bentuk dan perubahan
+energi. Tidak gesek. Tidak magnet.
+
+36
+00:01:58,589 --> 00:01:59,940
+Tidak gravitasi. Tidak pegas.
+
+37
+00:02:00,000 --> 00:02:01,205
+Agen menemukannya sendiri.
+
+38
+00:02:01,265 --> 00:02:03,971
+Ia tidak memilih sendiri,
+
+39
+00:02:04,031 --> 00:02:06,107
+tidak mengarang penengah.
+
+40
+00:02:06,167 --> 00:02:13,167
+Ia mengembalikan pertanyaan kepada orang
+yang berhak memutuskan. Keputusan
+tercatat.
+
+41
+00:02:13,323 --> 00:02:19,554
+Gaya dan gerak, dengan lembar
+fakta disusun lebih dulu.
+
+42
+00:02:19,614 --> 00:02:22,294
+Lalu ia pergi membaca.
+
+43
+00:02:22,354 --> 00:02:25,305
+Di layar tidak ada yang berubah.
+
+44
+00:02:25,365 --> 00:02:27,657
+Tidak ada progres bar.
+
+45
+00:02:27,717 --> 00:02:31,891
+Tidak ada daftar situs yang dikunjungi.
+
+46
+00:02:31,951 --> 00:02:38,951
+Hanya satu baris: preparing to
+create task. Menyiapkan tugas.
+
+47
+00:02:40,510 --> 00:02:44,131
+Bagian ini berlangsung
+lebih dari satu menit.
+
+48
+00:02:44,191 --> 00:02:48,731
+Dan saya sengaja tidak memotongnya.
+
+49
+00:02:48,791 --> 00:02:54,030
+Karena di situlah pertanyaan yang paling
+sering diajukan orang tua dan kepala
+
+50
+00:02:54,090 --> 00:02:54,471
+sekolah:
+
+51
+00:02:54,531 --> 00:02:57,526
+dari mana materinya.
+
+52
+00:02:57,586 --> 00:03:01,542
+Bukan berapa lama membuatnya.
+
+53
+00:03:02,100 --> 00:03:03,460
+Layar tidak bergerak.
+
+54
+00:03:03,520 --> 00:03:05,828
+Yang berjalan sekarang bukan menulis,
+
+55
+00:03:05,888 --> 00:03:07,248
+melainkan menyusun bahan.
+
+56
+00:03:07,308 --> 00:03:11,983
+Di titik ini agen menulis satu
+aturan untuk dirinya sendiri.
+
+57
+00:03:12,043 --> 00:03:13,877
+Penulis dilarang mengarang fakta.
+
+58
+00:03:13,937 --> 00:03:17,665
+Setiap pernyataan sains harus
+dapat ditelusuri ke sumber.
+
+59
+00:03:17,725 --> 00:03:19,085
+Bukan dari ingatan.
+
+60
+00:03:19,145 --> 00:03:20,979
+Bukan dari pengetahuan umum.
+
+61
+00:03:21,039 --> 00:03:22,873
+Bukan karena kedengarannya benar.
+
+62
+00:03:22,933 --> 00:03:27,608
+Lembar fakta itu menjadi satu-satunya
+sumur fakta untuk seluruh paket.
+
+63
+00:03:27,668 --> 00:03:29,975
+Aturan itu ditegakkan oleh pemeriksa,
+
+64
+00:03:30,035 --> 00:03:31,396
+bukan oleh tembok.
+
+65
+00:03:31,456 --> 00:03:33,763
+Artinya ia diperiksa, bukan dianggap.
+
+66
+00:03:33,823 --> 00:03:36,604
+Angka di layar mulai naik. Creating.
+
+67
+00:03:36,664 --> 00:03:38,971
+Dua ratus sembilan puluh lima.
+
+68
+00:03:39,031 --> 00:03:40,865
+Itu bukan jumlah kata.
+
+69
+00:03:40,925 --> 00:03:44,180
+Itu jumlah fakta yang sudah punya alamat.
+
+70
+00:03:44,240 --> 00:03:48,914
+Pipeline yang menghemat bagian
+ini akan terlihat jauh lebih cepat.
+
+71
+00:03:48,974 --> 00:03:54,123
+Ia juga akan menghasilkan kalimat yang
+tidak bisa Anda pertanggungjawabkan di
+
+72
+00:03:54,183 --> 00:03:55,383
+depan kelas.
+
+73
+00:03:56,130 --> 00:04:02,515
+Kartu ini merangkum apa
+yang baru saja terjadi.
+
+74
+00:04:02,575 --> 00:04:06,040
+Empat keputusan, bukan satu.
+
+75
+00:04:06,100 --> 00:04:09,705
+Kartunya menyebut alasannya sendiri.
+
+76
+00:04:09,765 --> 00:04:13,356
+Empat keputusan ini mengubah isi materi.
+
+77
+00:04:13,416 --> 00:04:18,178
+Karena itu agen tidak berwenang
+memutuskan sendiri. Persetujuan tercatat.
+
+78
+00:04:18,238 --> 00:04:19,652
+Saya mulai render artefak.
+
+79
+00:04:19,712 --> 00:04:26,712
+Perhatikan dua kata di depan tiap
+baris kecil. Modify. Run checks.
+
+80
+00:04:27,465 --> 00:04:28,481
+Mengubah, lalu memeriksa.
+
+81
+00:04:28,541 --> 00:04:29,636
+Bukan mengubah lalu selesai.
+
+82
+00:04:29,696 --> 00:04:30,701
+Dan setiap baris menyebut berkasnya.
+
+83
+00:04:30,761 --> 00:04:32,604
+Zero zero run config.
+Build docx. build pptx.
+
+84
+00:04:32,664 --> 00:04:37,566
+Sekarang satu baris yang layak
+dibaca dua kali. Ditemukan cacat.
+
+85
+00:04:37,626 --> 00:04:40,663
+Penomoran daftar berlanjut lintas bagian.
+
+86
+00:04:40,723 --> 00:04:42,597
+Lima sampai sembilan.
+
+87
+00:04:42,657 --> 00:04:46,626
+Lalu sepuluh sampai dua belas.
+
+88
+00:04:46,686 --> 00:04:50,461
+Lalu tiga belas sampai lima belas.
+
+89
+00:04:50,521 --> 00:04:52,197
+Itu bukan kesalahan
+yang Anda lihat dari jauh.
+
+90
+00:04:52,257 --> 00:04:53,622
+Dari jauh, halamannya terlihat rapi.
+
+91
+00:04:53,682 --> 00:04:55,127
+Anda harus menghitung untuk menemukannya.
+
+92
+00:04:56,000 --> 00:04:58,066
+Yang lebih penting
+adalah kalimat sesudahnya.
+
+93
+00:04:58,126 --> 00:05:00,603
+Saya periksa halaman
+lain sebelum memperbaiki.
+
+94
+00:05:00,663 --> 00:05:04,093
+Itu enam kata
+yang mengubah arti seluruhnya.
+
+95
+00:05:04,153 --> 00:05:08,149
+Ia tidak memperbaiki satu
+tempat lalu menyatakan beres.
+
+96
+00:05:08,209 --> 00:05:12,397
+Ia bertanya dulu apakah cacat
+yang sama ada di tempat lain.
+
+97
+00:05:12,457 --> 00:05:16,755
+Karena kalau pola penomorannya yang salah,
+
+98
+00:05:16,815 --> 00:05:20,232
+yang salah bukan satu halaman.
+
+99
+00:05:20,292 --> 00:05:20,626
+DOCX lolos verifikasi visual.
+
+100
+00:05:20,686 --> 00:05:22,612
+Sekarang slide deck.
+
+101
+00:05:22,672 --> 00:05:24,323
+Lalu cacat kedua.
+
+102
+00:05:24,383 --> 00:05:25,688
+Slide konten terlalu
+kosong di bagian bawah.
+
+103
+00:05:25,748 --> 00:05:27,885
+Saya seimbangkan tata letaknya.
+
+104
+00:05:27,945 --> 00:05:29,759
+Ini bukan kesalahan fakta.
+
+105
+00:05:29,819 --> 00:05:31,437
+Tidak ada angka yang salah.
+
+106
+00:05:31,497 --> 00:05:33,210
+Tidak ada aturan yang dilanggar.
+
+107
+00:05:33,270 --> 00:05:34,756
+Faktanya benar semua.
+
+108
+00:05:34,816 --> 00:05:38,568
+Yang salah adalah apakah materinya
+layak dilihat di depan kelas.
+
+109
+00:05:38,628 --> 00:05:41,722
+Kebanyakan pemeriksaan
+otomatis berhenti di fakta.
+
+110
+00:05:41,782 --> 00:05:45,854
+Yang ini berhenti di ruang kosong
+di bawah slide. Langkah tiga.
+
+111
+00:05:45,914 --> 00:05:48,888
+Agen memeriksa hasil sendiri.
+
+112
+00:05:48,948 --> 00:05:52,023
+Kartunya menyebut alasannya:
+
+113
+00:05:52,083 --> 00:05:55,738
+verifikasi tidak berhenti di satu temuan.
+
+114
+00:05:55,798 --> 00:05:59,717
+Setelah memperbaiki, ia memeriksa ulang.
+
+115
+00:05:59,777 --> 00:06:06,777
+Supaya cacat sejenis tidak lolos
+di halaman lain. Dua kali. Tiga kali.
+
+116
+00:06:12,278 --> 00:06:15,467
+Bangun, periksa, temukan,
+perbaiki, bangun lagi.
+
+117
+00:06:15,527 --> 00:06:18,344
+Bukan sekali jadi.
+
+118
+00:06:18,404 --> 00:06:23,679
+Dan yang membuat hasilnya bisa dipercaya
+justru bagian yang tidak mulus itu.
+
+119
+00:06:24,200 --> 00:06:26,282
+Kuis dibuat sebagai satu berkas.
+
+120
+00:06:26,342 --> 00:06:27,568
+Jalan tanpa internet.
+
+121
+00:06:27,628 --> 00:06:29,710
+Lalu ia menguji kuisnya sendiri.
+
+122
+00:06:29,770 --> 00:06:31,424
+Kolom jawaban terlalu sempit,
+
+123
+00:06:31,484 --> 00:06:34,423
+judul Uraian lepas
+dari tabelnya. Dua-duanya dicatat.
+
+124
+00:06:35,230 --> 00:06:36,784
+Cacat ditemukan lewat pengujian.
+
+125
+00:06:38,230 --> 00:06:40,657
+Satu sumber masuk,
+
+126
+00:06:40,717 --> 00:06:41,564
+lima format keluar,
+
+127
+00:06:41,624 --> 00:06:42,893
+tidak ada yang terbit tanpa manusia.
+

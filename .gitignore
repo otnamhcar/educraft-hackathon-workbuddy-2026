@@ -26,3 +26,14 @@ _karantina/
 01_Dokumen/WhatsApp Chat*/
 02_Sumber/centralpendidikan.com*
 02_Sumber/*Panduan Penilaian SMP*
+
+# Bahan antara produksi video demo — bukan artefak submission.
+# Yang dipublikasikan adalah skrip, subtitle, dan alatnya; audio per blok (69 MB) dan
+# versi video yang cacat tidak ikut. Alasan: repo ini dinilai sebagai bukti proses, dan
+# menyamakan take yang gagal dengan take final merusak jejak itu. Rincian di
+# 06_Submission/narasi/BACA_INI_DULU.md.
+06_Submission/narasi/audio_layar/*.mp3
+06_Submission/narasi/audio_layar/*.wav
+06_Submission/narasi/audio_v2_lama/
+06_Submission/narasi/EduCraft_Demo_narasi.mp4
+*.srt.bak

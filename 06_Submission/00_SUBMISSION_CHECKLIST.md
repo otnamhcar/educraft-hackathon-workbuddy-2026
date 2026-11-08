@@ -19,31 +19,61 @@ Keterangan status: `SIAP` = artefaknya sudah ada di bundel ini · `BELUM` = haru
 | 4 | Lembar akuntabilitas (satu halaman) | WAJIB | **SIAP** | `03_Accountability_Sheet.md` |
 | 5 | Hasil pengujian **beserta screenshot** | WAJIB | **SIAP** | Tabel di `04_Test_Results.md` (15 PASS / 6 BY DESIGN / 1 BELUM / 1 TO RUN) + 12 berkas wajib di `03_screenshots/`, semuanya sudah diperiksa mata (`CEK_MATA_2026-11-06.md`). Satu kasus diungkap `BELUM`: TC-07 |
 | 6 | Diagram arsitektur | WAJIB | **SIAP** | `architecture_diagram.png` (2720×3000) + `.html` + `05_Architecture.md` |
-| 7 | Video demo, 5–8 menit | WAJIB | **BAHAN LENGKAP, FINALISASI DI LUAR REPO** | Skrip `07_Demo_Video_Script.md` (7:55) + naskah narasi siap baca `video_kit/NARASI_SKRIP_TAKE.md` + runbook `13_Demo_Video_Runbook.md` + **kit siap pakai** di `video_kit/`. Rekaman mentah sudah ada lima berkas (sesi 1, 2, 2b, 3a, 3b; 117 MB) dan **disimpan di drive bersama, tidak di dalam repo** — diunggah terpisah oleh guru. Yang belum: penyambungan final + narasi |
+| 7 | Video demo, 5–8 menit | WAJIB | **SIAP — BELUM DIUNGGAH** | Berkas final: `narasi/EduCraft_Demo_narasi_bakar.mp4` — 403,2 s (6:43), 1366×768, H.264 + AAC, audio −19,4 dB rata-rata / −4,2 dB puncak, subtitle ter-burn, 14,6 MB. Diperiksa 8 November 2026. Skrip `07_Demo_Video_Script.md`, naskah `narasi/SKRIP_TTS_LAYAR.md`, runbook `13_Demo_Video_Runbook.md`, alat di `narasi/*.py` dan `video_kit/`. **Yang belum: hanya mengunggah + menempel tautan di formulir.** Bentuk penyerahan tidak diatur handbook (lihat `07_Dokumentasi/06_TRACEABILITY.md` butir U7) — unggah video final, lalu uji tautannya di jendela privat |
 | 8 | Product sharing | WAJIB | **SIAP** | `06_Product_Sharing.md` |
 | 9 | Kode sumber / workflow yang diekspor | WAJIB | **SIAP** | Repo publik (MIT): https://github.com/otnamhcar/educraft-hackathon-workbuddy-2026 — 11 run, 4 skill, `doctor.py` **19 passed / 0 failed / 0 warning** |
 | 10 | Gambar sampul (opsional, 16:9) | OPSIONAL | **SIAP** | `cover_image_380x216.png` + `cover_image_1280x720.png` |
 | 11 | Tautan proyek (bonus) | BONUS | **DRAF LOKAL** | Halaman statis siap di `06_Submission/demo_site/` (lihat `README.md` di sana). **Belum diunggah, belum ada URL publik.** Jangan tulis tautan apa pun di formulir sebelum benar-benar hidup |
 
-**Skor: 9 siap · 1 finalisasi di luar repo · 1 draf lokal.** Satu-satunya item wajib yang belum
-tertutup adalah video demo: bahannya lengkap (lima rekaman mentah + kartu judul + alat penyambung yang
-sudah teruji), tetapi rekaman final masih harus disambung dan dinarasikan sebelum diunggah. Artefak
-finalnya **tidak bisa** dilengkapi dari repo ini — rekaman ada di drive bersama, penyambungan dan narasi
-dikerjakan di mesin Windows. Jangan submit hanya dengan alasan jumlah dokumen sudah banyak — video
-adalah item wajib.
+**Skor: 10 siap · 1 belum diunggah · 1 draf lokal.** Sepuluh item wajib kini punya artefak final;
+yang tersisa dari item 7 bukan lagi pengerjaan, melainkan pengunggahan dan penempelan tautan.
+Item 11 (bonus) tetap tanpa URL, jadi belum bisa ditempel ke formulir.
+
+Jangan unggah dua berkas video yang lebih kecil di folder yang sama. `EduCraft_Demo.mp4` (5,9 MB)
+audionya senyap total (−91 dB) dan `EduCraft_Demo_narasi.mp4` (13,5 MB) belum memuat subtitle —
+keduanya versi antara, bukan hasil akhir. Salah unggah berkas pertama otomatis menggugurkan syarat
+"audio jelas" di handbook §7.
 "Draf lokal" (item 11, bonus) berarti berkasnya ada dan bisa diperiksa, tetapi belum punya URL, jadi
 belum bisa ditempel ke formulir.
 
 ---
 
-## 2. Siap tempel
+## 2. Bentuk penyerahan — apa yang diunggah, ke mana
+
+Handbook §7 (teks di `01_Dokumen/handbook_text.txt` baris 534–643) hanya menulis *"The following
+items must be submitted"* lalu mendaftar sepuluh baris. **Tidak ada satu pun kalimat tentang media
+penyerahan** — tidak ada Google Drive, tidak ada ZIP, tidak ada penamaan folder. Yang ada hanya satu
+tautan: formulir `forms.gle/y1aHBH4BsrytXDxdA`. Celah ini sudah tercatat di
+`07_Dokumentasi/06_TRACEABILITY.md` butir **U7** ("BELUM DIKETAHUI... Lakukan keduanya").
+
+Konsekuensinya: pertanyaannya bukan "apa yang wajib ke Drive", melainkan **"apa yang harus punya URL
+yang bisa dibuka juri di luar tim"**. Formulir Google Forms tidak menerima unggahan berkas, jadi lima
+item butuh URL, sisanya cukup teks tempel:
+
+| Butuh URL | Item | Yang diunggah | Catatan |
+|-----------|------|---------------|---------|
+| Ya | 5 — Test results | 12 PNG wajib dari `03_screenshots/`, struktur subfolder dipertahankan | Berkas di akar folder dianggap *stray* oleh `check_capture.py` |
+| Ya | 6 — Architecture | `architecture_diagram.png` (2720×3000) | Jangan unggah versi `.html` saja; juri mungkin tidak menjalankannya |
+| Ya | 7 — Demo video | `narasi/EduCraft_Demo_narasi_bakar.mp4` | YouTube *unlisted* lebih aman daripada Drive: pemutar Drive sering gagal untuk berkas besar dan menuntut login Google |
+| Ya | 10 — Cover image (opsional) | `cover_image_380x216.png` | Ukuran yang diminta handbook |
+| Ya | 11 — Project link (bonus) | Isi `demo_site/` sebagai situs statis | Belum dikerjakan |
+| Tidak | 1, 2, 3, 4, 8 | — | Teks tempel; sumbernya `10_Submission_Form_CopyPaste.txt` |
+| Sudah | 9 — Source code | — | Repo GitHub publik, sudah memenuhi syarat "public code repository" |
+
+Cara GDrive dipakai di proyek ini hanyalah keputusan operasional tim (memindahkan rekaman dari mesin
+perekam Windows), bukan kewajiban panitia. Kalau nanti panitia mengirim instruksi unggah, catat di
+sini — sampai saat itu, anggap tautan adalah bentuk serahnya.
+
+---
+
+## 3. Siap tempel
 
 `10_Submission_Form_CopyPaste.txt` — blok teks polos untuk setiap isian formulir, berurutan.
 Buka berkas itu di samping formulir, lalu tempel bagian per bagian. Jangan diformat ulang.
 
 ---
 
-## 3. Screenshot — apa yang harus diambil (P0 lebih dulu)
+## 4. Screenshot — apa yang harus diambil (P0 lebih dulu)
 
 > **Cara mengambilnya:** ikuti `11_Screenshot_Capture_Runbook.md` — 4 sesi run, ± 2 jam 45 menit,
 > dengan prompt siap-tempel di `12_Capture_Prompts.txt`. Jangan menjalankan pipeline 20 kali;
@@ -101,7 +131,7 @@ baru tambahkan barisnya ke `INDEX.md`. Itu sesi baru, bukan foto ulang.
 
 ---
 
-## 4. Publikasi kode — ✅ SELESAI (Opsi A)
+## 5. Publikasi kode — ✅ SELESAI (Opsi A)
 
 **Repo GitHub publik:** https://github.com/otnamhcar/educraft-hackathon-workbuddy-2026
 Lisensi MIT · 267 berkas ter-track · di-push pertama 31 Oktober 2026, diperbarui 7 November 2026.
@@ -141,7 +171,7 @@ Sisa pekerjaan rumah: jalankan push lagi setelah setiap penyuntingan, supaya rep
 
 ---
 
-## 5. Gerbang etik (jangan dilewati)
+## 6. Gerbang etik (jangan dilewati)
 
 | Pemeriksaan | Status |
 |-------------|--------|
@@ -159,12 +189,13 @@ Submission saat ini tidak mengklaim penerbitan apa pun — pertahankan begitu sa
 
 ---
 
-## 6. Pra-terbang (30 menit sebelum submit)
+## 7. Pra-terbang (30 menit sebelum submit)
 
 - [ ] Kesebelas item sudah ditempel; blurb dihitung ulang dan masih di bawah 10 kata
 - [ ] PNG arsitektur terbuka dalam ukuran penuh dan terbaca
 - [ ] Gambar sampul 16:9, versi 380×216 tersedia
 - [ ] Video berjalan dari awal sampai akhir; durasi 5:00–8:00; audio jelas
+      (berkas final 6:43, audio terukur −19,4 dB — jangan unggah `EduCraft_Demo.mp4` yang senyap)
 - [ ] Video menampilkan minimal satu penolakan **atau** satu penantian persetujuan (kita menampilkan tiga)
 - [ ] Setiap tautan berkas di formulir bisa dibuka oleh orang di luar tim
 - [ ] Tidak ada path berkas yang memuat huruf drive lokal (juri tidak bisa membuka `D:/...`)
@@ -179,7 +210,7 @@ Submission saat ini tidak mengklaim penerbitan apa pun — pertahankan begitu sa
 
 ---
 
-## 7. Peta berkas bundel ini
+## 8. Peta berkas bundel ini
 
 ```
 06_Submission/
@@ -200,13 +231,17 @@ Submission saat ini tidak mengklaim penerbitan apa pun — pertahankan begitu sa
 ├── 13_Demo_Video_Runbook.md          <- cara memproduksi video
 ├── 14_Lembar_Sesi_Tangkap.md         <- lembar kerja sesi tangkap (0 berkas sisa per 6 Nov)
 ├── video_kit/                        <- item 7 (kartu judul, concat_video.py, CUE_SHEET.md)
+├── narasi/                           <- item 7 (video final + skrip produksi + subtitle)
+│   └── EduCraft_Demo_narasi_bakar.mp4   <- UNGGAH YANG INI
 ├── panduan/                          <- runbook Demo Day + panduan testimoni guru (pindah dari 03_Hasil/panduan 5 Nov 2026)
 ├── cover_image.svg                   <- item 10 (sumber)
 ├── cover_image_1280x720.png          <- item 10 (deck/media sosial)
 └── cover_image_380x216.png           <- item 10 (unggah ke formulir)
 ```
 
-**Rekaman video tidak ada di repo.** Lima berkas rekaman mentah (117 MB) disimpan dan diunggah
-terpisah ke drive bersama; repo ini hanya memuat skrip, runbook, dan kit penyambungnya. Alasannya
-ukuran — menggelembungkan repo yang di-clone juri tanpa manfaat, karena video dinilai dari tautan,
-bukan dari isi git.
+**Video demo:** berkas final `narasi/EduCraft_Demo_narasi_bakar.mp4` ada di repo (14,6 MB) — cukup
+kecil untuk ikut di-commit tanpa menggelembungkan clone. Yang **tidak** disertakan dan ditegakkan
+`.gitignore`: audio per blok (`narasi/audio_layar/*.mp3`, `*_laras.wav`, ± 69 MB), tujuh take v2 yang
+sudah dinyatakan tidak terpakai (`narasi/audio_v2_lama/`), dan versi antara `EduCraft_Demo_narasi.mp4`
+(tanpa subtitle). Alasannya di `narasi/BACA_INI_DULU.md`: repo ini dinilai sebagai bukti proses, dan
+menyamakan take yang gagal dengan take final merusak jejak itu.
