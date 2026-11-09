@@ -54,7 +54,7 @@ item butuh URL, sisanya cukup teks tempel:
 |-----------|------|---------------|---------|
 | Ya | 5 — Test results | 12 PNG wajib dari `03_screenshots/`, struktur subfolder dipertahankan | Berkas di akar folder dianggap *stray* oleh `check_capture.py` |
 | Ya | 6 — Architecture | `architecture_diagram.png` (2720×3000) | Jangan unggah versi `.html` saja; juri mungkin tidak menjalankannya |
-| Ya | 7 — Demo video | `narasi/EduCraft_Demo_narasi_bakar.mp4` | YouTube *unlisted* lebih aman daripada Drive: pemutar Drive sering gagal untuk berkas besar dan menuntut login Google |
+| Ya | 7 — Demo video | `narasi/EduCraft_Demo_narasi_bakar.mp4` | Keputusan tim 9 Nov: folder Drive milik akun sendiri, izin *Anyone with the link → Viewer*. Prosedurnya di `15_Operasi_Drive.md` |
 | Ya | 10 — Cover image (opsional) | `cover_image_380x216.png` | Ukuran yang diminta handbook |
 | Ya | 11 — Project link (bonus) | Isi `demo_site/` sebagai situs statis | Belum dikerjakan |
 | Tidak | 1, 2, 3, 4, 8 | — | Teks tempel; sumbernya `10_Submission_Form_CopyPaste.txt` |
@@ -63,6 +63,11 @@ item butuh URL, sisanya cukup teks tempel:
 Cara GDrive dipakai di proyek ini hanyalah keputusan operasional tim (memindahkan rekaman dari mesin
 perekam Windows), bukan kewajiban panitia. Kalau nanti panitia mengirim instruksi unggah, catat di
 sini — sampai saat itu, anggap tautan adalah bentuk serahnya.
+
+**Pekerjaan Drive yang tersisa setelah submit 8 November: `15_Operasi_Drive.md`.** Dokumen itu
+memuat ukuran target, hash SHA256 video final, daftar sembilan berkas yang harus dihapus dari folder
+lama, dan teks koreksi siap kirim ke panitia. Folder lama **bukan milik tim** (owner mayoritas
+`informatika.alyaku01`), jadi tautan pengganti harus dibuat di folder milik akun sendiri.
 
 ---
 
