@@ -27,6 +27,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -91,12 +92,21 @@ def cari(folder: Path, nomor: str) -> Path | None:
     Subtitle diselaraskan ke waktu bicara di berkas ini. Kalau yang terpilih rekaman
     asli sementara video memakai versi yang sudah diregangkan, setiap cue setelah
     jeda pertama akan bergeser lebih awal — dan tidak ada yang memberi tahu.
+
+    Pencocokan nomor harus UTUH, bukan awalan: `09*` ikut menangkap `09b.mp3` dan
+    `1*` ikut menangkap `10.mp3`. Di berkas ini akibatnya lebih halus daripada
+    sekadar salah audio — cue akan diselaraskan ke blok yang salah dan tetap
+    terlihat wajar.
     """
-    calon = [c for c in sorted(folder.glob(f"{nomor}*.*")) if c.suffix.lower() in EKSTENSI]
+    calon = [
+        c for c in sorted(folder.iterdir())
+        if c.suffix.lower() in EKSTENSI
+        and (c.stem == nomor or c.stem.startswith(nomor + "_"))
+    ]
     if not calon:
         return None
     for akhiran in ("_laras", "_rapi"):
-        cocok = [c for c in calon if c.stem.endswith(akhiran)]
+        cocok = [c for c in calon if c.stem == nomor + akhiran]
         if cocok:
             return cocok[0]
     return calon[0]
@@ -311,6 +321,23 @@ def main() -> int:
             total_kata = sum(x for _, x in bagian) or 1
             for teks_cue, kata_cue in bagian:
                 panjang = dur_kal * kata_cue / total_kata
+                # Cue lebih dari 6,5 detik sulit dibaca sekaligus. Pengenal kalimat
+                # kadang menggabungkan dua kalimat asli ("Ia mengembalikan pertanyaan
+                # kepada orang yang berhak memutuskan. Keputusan tercatat."), sehingga
+                # satu cue tampil 7 detik. Pecah di titik akhir kalimat, bagi waktunya
+                # menurut jumlah kata.
+                if panjang > 6.5 and re.search(r"[.!?]\s", teks_cue):
+                    keping = [x.strip() for x in re.split(r"(?<=[.!?])\s+", teks_cue) if x.strip()]
+                    if len(keping) > 1:
+                        n_kata = [len(x.split()) for x in keping]
+                        tot = sum(n_kata) or 1
+                        tt = t
+                        for kp, nk in zip(keping, n_kata):
+                            pk = panjang * nk / tot
+                            cues.append((tt, tt + pk - NAPAS, kp))
+                            tt += pk
+                        t += panjang
+                        continue
                 cues.append((t, t + panjang - NAPAS, teks_cue))
                 t += panjang
             t = max(t, selesai)
@@ -327,6 +354,48 @@ def main() -> int:
                 gabung[-1] = (prev_a, b, calon)
                 continue
         gabung.append((a, b, teks_cue))
+
+    # Penggabungan di atas bisa menghasilkan cue 7 detik berisi dua kalimat:
+    # "Keputusan tercatat." hanya dua kata, jadi ia menempel ke kalimat sebelumnya.
+    # Pemeriksaan panjang di loop utama tidak pernah melihat hasil gabungan ini.
+    # Pecah lagi di titik akhir kalimat, bagi waktunya menurut jumlah kata.
+    gabung2: list[tuple[float, float, str]] = []
+    for a, b, teks_cue in gabung:
+        if (b - a) > 6.5 and len(teks_cue.split()) >= 3 and re.search(r"[.!?]\s", teks_cue):
+            keping = [x.strip() for x in re.split(r"(?<=[.!?])\s+", teks_cue) if x.strip()]
+            if len(keping) > 1:
+                n_kata = [len(x.split()) for x in keping]
+                tot = sum(n_kata) or 1
+                tt = a
+                for kp, nk in zip(keping, n_kata):
+                    pk = (b - a) * nk / tot
+                    gabung2.append((tt, tt + pk - NAPAS, kp))
+                    tt += pk
+                continue
+        gabung2.append((a, b, teks_cue))
+    gabung = gabung2
+
+    # Pemenggal kata bisa memotong di tengah frasa: "…kepala" lalu "sekolah:" lalu
+    # "dari mana materinya." Cue tengah yang sangat pendek TIDAK boleh diberi durasi
+    # tambahan — harus disatukan kembali ke tetangganya. Menambah durasi hanya membuat
+    # potongan yang sama tampil lebih lama.
+    gabung3: list[tuple[float, float, str]] = []
+    for a, b, teks_cue in gabung:
+        terlalu_pendek = (b - a) < 1.0 and len(teks_cue.split()) <= 2
+        if terlalu_pendek and gabung3:
+            pa, pb, pt = gabung3[-1]
+            calon = f"{pt} {teks_cue}"
+            # Kelonggaran 6 karakter: menolak penggabungan karena lewat 2 karakter
+            # hanya memindahkan masalahnya — kata jadi berdiri sendiri 0,6 detik.
+            # Tiga baris singkat masih terbaca; kata terisolasi tidak.
+            if len(calon) <= MAKS_BARIS * BARIS_PER_CUE + 6:
+                gabung3[-1] = (pa, b, calon)
+                continue
+        # Cue pendek di awal blok: gabung ke cue SESUDAHNYA tidak bisa dilakukan di
+        # sini (belum dibaca), tapi ini hanya terjadi pada kata pertama blok dan
+        # durasinya sudah wajar.
+        gabung3.append((a, b, teks_cue))
+    gabung = gabung3
 
     out = []
     for i, (a, b, teks_cue) in enumerate(gabung):

@@ -51,7 +51,10 @@ class Kalimat:
 
 
 def baca_blok(teks: str) -> dict[str, str]:
-    return {m.group(1): m.group(2) for m in re.finditer(r"## `(\d{2})`.*?```\n(.*?)```", teks, re.S)}
+    # `b?` menerima blok bersufiks (`09b`). Tanpa itu blok seperti itu tidak
+    # terbaca, sehingga subtitle-nya tidak pernah dibuat dan tidak ada yang
+    # memberi tahu — hasilnya cue hilang begitu saja di detik itu.
+    return {m.group(1): m.group(2) for m in re.finditer(r"## `(\d{2}b?)`.*?```\n(.*?)```", teks, re.S)}
 
 
 def pecah(isi: str) -> list[Kalimat]:

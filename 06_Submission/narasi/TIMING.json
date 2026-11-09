@@ -1,10 +1,11 @@
 {
   "_catatan": "Sumber kebenaran waktu. Diturunkan dari deteksi adegan EduCraft_Demo.mp4 lalu diperiksa bingkai demi bingkai. Batas blok di segmen percakapan mengikuti titik di mana layar benar-benar berubah.",
-  "_versi": "3 — 8 Nov 2026",
+  "_versi": "4 — 8 Nov 2026",
   "_riwayat": {
     "v1": "8 blok rata, batas 87/182/236/345/384. Salah: tidak ada pergantian adegan di 87.",
     "v2": "7 blok mengikuti 6 segmen aksi + 5 kartu. Strukturnya benar, tapi rekaman selesai terlalu cepat: blok 02 habis di 2:05 dari slot sampai 3:02, dan dua kalimat menunjuk momen yang belum terjadi.",
-    "v3": "12 blok. Segmen percakapan dipecah 4 bagian di titik perubahan layar (70,0 / 100,0 / 120,0), segmen build dipecah 2 (296,0)."
+    "v3": "12 blok. Segmen percakapan dipecah 4 bagian di titik perubahan layar (70,0 / 100,0 / 120,0), segmen build dipecah 2 (296,0).",
+    "v4": "Blok 09b ditambahkan (kartu 4/5). Sebelumnya blok 09 memakai slot sampai 384,20 padahal batas_blok.seg4=381,20: kartu 4/5 tidak pernah punya slot audio dan lewat tanpa narasi. Blok 09 dipotong ke 36,03 s; 09b mengisi 381,20-384,20."
   },
   "video": "06_Submission/EduCraft_Demo.mp4",
   "durasi_video_s": 403.234,
@@ -122,8 +123,15 @@
       "nomor": "09",
       "segmen": "seg4",
       "mulai": 345.17,
-      "slot": 39.03,
-      "isi": "Kartu 3/5, perbaikan, verifikasi ulang"
+      "slot": 36.03,
+      "isi": "Kartu 3/5, perbaikan, verifikasi ulang (dipotong di 381,20 agar kartu 4/5 dapat slot)"
+    },
+    {
+      "nomor": "09b",
+      "segmen": "seg4",
+      "mulai": 381.2,
+      "slot": 3.0,
+      "isi": "Kartu 4/5 Permintaan di luar lingkup"
     },
     {
       "nomor": "10",

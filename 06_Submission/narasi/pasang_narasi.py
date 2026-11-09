@@ -116,12 +116,22 @@ def cari(folder: Path, nomor: str) -> Path | None:
     pangkas_senyap.py) > rekaman asli. Tanpa aturan ini, urutan abjad yang
     kebetulan menang — dan yang terpilih bisa jadi rekaman mentah yang belum
     diregangkan, sehingga narasi habis sebelum slotnya selesai.
+
+    Pencocokan nomor harus UTUH, bukan awalan. `09*` ikut menangkap `09b.mp3`,
+    dan `1*` ikut menangkap `10.mp3` — yang terakhir berarti satu salah ketik
+    nomor tanpa nol bisa memasang audio blok 10 di slot blok 1. Karena itu
+    dipakai pencocokan tepat: stem harus `nomor`, `nomor_laras`, `nomor_rapi`,
+    dan seterusnya — bukan sekadar diawali nomor.
     """
-    calon = [c for c in sorted(folder.glob(f"{nomor}*.*")) if c.suffix.lower() in EKSTENSI]
+    calon = [
+        c for c in sorted(folder.iterdir())
+        if c.suffix.lower() in EKSTENSI
+        and (c.stem == nomor or c.stem.startswith(nomor + "_"))
+    ]
     if not calon:
         return None
     for akhiran in ("_laras", "_rapi"):
-        cocok = [c for c in calon if c.stem.endswith(akhiran)]
+        cocok = [c for c in calon if c.stem == nomor + akhiran]
         if cocok:
             return cocok[0]
     return calon[0]
@@ -181,8 +191,8 @@ def main() -> int:
 
     if masalah:
         print(f"\n{masalah} blok melewati slotnya. Perbaiki dulu dengan "
-              f"setel_jeda.py, atau saya bisa potong di ujung slot — tapi itu akan "
-              f"memotong kata terakhir. Lihat dulu apakah itu bisa diterima.")
+              f"regang_jeda.py --tulis, atau saya bisa potong di ujung slot — "
+              f"tapi itu akan memotong kata terakhir. Lihat dulu apakah itu bisa diterima.")
     kurang = [b["nomor"] for b in blok_ada if b["slot"] - b["durasi"] > 3.0]
     if kurang:
         print(f"\n{len(kurang)} blok menyisakan lebih dari 3 detik kosong: "

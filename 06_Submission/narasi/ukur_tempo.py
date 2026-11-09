@@ -103,7 +103,7 @@ def senyap(berkas: Path) -> list[tuple[float, float]]:
 def blok_skrip(teks: str) -> dict[str, str]:
     return {
         m.group(1): m.group(2)
-        for m in re.finditer(r"^## `(\d{2})`.*?```\n(.*?)```", teks, re.M | re.S)
+        for m in re.finditer(r"^## `(\d{2}b?)`.*?```\n(.*?)```", teks, re.M | re.S)
     }
 
 

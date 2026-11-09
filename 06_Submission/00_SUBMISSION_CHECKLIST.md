@@ -19,7 +19,7 @@ Keterangan status: `SIAP` = artefaknya sudah ada di bundel ini · `BELUM` = haru
 | 4 | Lembar akuntabilitas (satu halaman) | WAJIB | **SIAP** | `03_Accountability_Sheet.md` |
 | 5 | Hasil pengujian **beserta screenshot** | WAJIB | **SIAP** | Tabel di `04_Test_Results.md` (15 PASS / 6 BY DESIGN / 1 BELUM / 1 TO RUN) + 12 berkas wajib di `03_screenshots/`, semuanya sudah diperiksa mata (`CEK_MATA_2026-11-06.md`). Satu kasus diungkap `BELUM`: TC-07 |
 | 6 | Diagram arsitektur | WAJIB | **SIAP** | `architecture_diagram.png` (2720×3000) + `.html` + `05_Architecture.md` |
-| 7 | Video demo, 5–8 menit | WAJIB | **SIAP — BELUM DIUNGGAH** | Berkas final: `narasi/EduCraft_Demo_narasi_bakar.mp4` — 403,2 s (6:43), 1366×768, H.264 + AAC, audio −19,4 dB rata-rata / −4,2 dB puncak, subtitle ter-burn, 14,6 MB. Diperiksa 8 November 2026. Skrip `07_Demo_Video_Script.md`, naskah `narasi/SKRIP_TTS_LAYAR.md`, runbook `13_Demo_Video_Runbook.md`, alat di `narasi/*.py` dan `video_kit/`. **Yang belum: hanya mengunggah + menempel tautan di formulir.** Bentuk penyerahan tidak diatur handbook (lihat `07_Dokumentasi/06_TRACEABILITY.md` butir U7) — unggah video final, lalu uji tautannya di jendela privat |
+| 7 | Video demo, 5–8 menit | WAJIB | **SIAP — BELUM DIUNGGAH** | Berkas final: `narasi/EduCraft_Demo_narasi_bakar.mp4` — 403,2 s (6:43), 1366×768, H.264 + AAC, audio −19,9 dB rata-rata / −1,5 dB puncak, subtitle ter-burn, 13,9 MB, 122 cue. Dirender ulang 9 November 2026 (TIMING v4: blok `09b` menambal kartu 4/5 yang sebelumnya lewat tanpa narasi). Diperiksa bingkai detik 30/200/400: subtitle terbakar dan sinkron. Skrip `07_Demo_Video_Script.md`, naskah `narasi/SKRIP_TTS_LAYAR.md`, runbook `13_Demo_Video_Runbook.md`, alat di `narasi/*.py` dan `video_kit/`. **Yang belum: hanya mengunggah + menempel tautan di formulir** |
 | 8 | Product sharing | WAJIB | **SIAP** | `06_Product_Sharing.md` |
 | 9 | Kode sumber / workflow yang diekspor | WAJIB | **SIAP** | Repo publik (MIT): https://github.com/otnamhcar/educraft-hackathon-workbuddy-2026 — 11 run, 4 skill, `doctor.py` **19 passed / 0 failed / 0 warning** |
 | 10 | Gambar sampul (opsional, 16:9) | OPSIONAL | **SIAP** | `cover_image_380x216.png` + `cover_image_1280x720.png` |
@@ -30,7 +30,7 @@ yang tersisa dari item 7 bukan lagi pengerjaan, melainkan pengunggahan dan penem
 Item 11 (bonus) tetap tanpa URL, jadi belum bisa ditempel ke formulir.
 
 Jangan unggah dua berkas video yang lebih kecil di folder yang sama. `EduCraft_Demo.mp4` (5,9 MB)
-audionya senyap total (−91 dB) dan `EduCraft_Demo_narasi.mp4` (13,5 MB) belum memuat subtitle —
+audionya senyap total (−91 dB) dan `EduCraft_Demo_narasi.mp4` (12,2 MB) belum memuat subtitle —
 keduanya versi antara, bukan hasil akhir. Salah unggah berkas pertama otomatis menggugurkan syarat
 "audio jelas" di handbook §7.
 "Draf lokal" (item 11, bonus) berarti berkasnya ada dan bisa diperiksa, tetapi belum punya URL, jadi
@@ -195,7 +195,7 @@ Submission saat ini tidak mengklaim penerbitan apa pun — pertahankan begitu sa
 - [ ] PNG arsitektur terbuka dalam ukuran penuh dan terbaca
 - [ ] Gambar sampul 16:9, versi 380×216 tersedia
 - [ ] Video berjalan dari awal sampai akhir; durasi 5:00–8:00; audio jelas
-      (berkas final 6:43, audio terukur −19,4 dB — jangan unggah `EduCraft_Demo.mp4` yang senyap)
+      (berkas final 6:43, audio terukur −19,9 dB — jangan unggah `EduCraft_Demo.mp4` yang senyap)
 - [ ] Video menampilkan minimal satu penolakan **atau** satu penantian persetujuan (kita menampilkan tiga)
 - [ ] Setiap tautan berkas di formulir bisa dibuka oleh orang di luar tim
 - [ ] Tidak ada path berkas yang memuat huruf drive lokal (juri tidak bisa membuka `D:/...`)
@@ -239,7 +239,7 @@ Submission saat ini tidak mengklaim penerbitan apa pun — pertahankan begitu sa
 └── cover_image_380x216.png           <- item 10 (unggah ke formulir)
 ```
 
-**Video demo:** berkas final `narasi/EduCraft_Demo_narasi_bakar.mp4` ada di repo (14,6 MB) — cukup
+**Video demo:** berkas final `narasi/EduCraft_Demo_narasi_bakar.mp4` ada di repo (13,9 MB) — cukup
 kecil untuk ikut di-commit tanpa menggelembungkan clone. Yang **tidak** disertakan dan ditegakkan
 `.gitignore`: audio per blok (`narasi/audio_layar/*.mp3`, `*_laras.wav`, ± 69 MB), tujuh take v2 yang
 sudah dinyatakan tidak terpakai (`narasi/audio_v2_lama/`), dan versi antara `EduCraft_Demo_narasi.mp4`

@@ -26,7 +26,11 @@ POLA_JEDA = re.compile(r"\(\(⏱️=\d+\)\)")
 # Judul blok memakai heading tepat setelah baris pemisah, jadi pola ini tidak
 # boleh menelan tanda baca di judul. Blok diambil dari ``` … ``` pertama sesudah
 # heading nomornya.
-POLA_BLOK = re.compile(r"^## `(\d{2})`[^\n]*\n(?:(?!^## `).)*?```\n(.*?)\n```", re.M | re.S)
+#
+# Sufiks huruf diizinkan (`09b`) karena satu segmen bisa punya dua blok narasi.
+# Tanpa `b?`, blok `09b` tidak terbaca sama sekali — lalu `09b.txt` dianggap
+# yatim dan dihapus oleh pembersihan di bawah, tepat setelah dibuat.
+POLA_BLOK = re.compile(r"^## `(\d{2}b?)`[^\n]*\n(?:(?!^## `).)*?```\n(.*?)\n```", re.M | re.S)
 
 
 def blok_skrip(teks: str) -> dict[str, str]:

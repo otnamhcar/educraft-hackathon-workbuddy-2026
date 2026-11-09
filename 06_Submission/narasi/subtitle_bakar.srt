@@ -1,111 +1,111 @@
 1
-00:00:05,030 --> 00:00:10,192
+00:00:05,030 --> 00:00:07,881
 Layar dibuka ke halaman kosong.
 
 2
-00:00:10,252 --> 00:00:14,391
+00:00:07,941 --> 00:00:13,122
 Satu kolom, satu kursor, beberapa
 contoh pertanyaan di bawahnya.
 
 3
-00:00:14,451 --> 00:00:17,321
+00:00:13,182 --> 00:00:15,451
 Saya ketik satu baris.
 
 4
-00:00:17,381 --> 00:00:20,904
+00:00:15,511 --> 00:00:19,527
 Bantu saya membuat
 materi IPAS. Lalu Enter.
 
 5
-00:00:20,964 --> 00:00:27,447
+00:00:19,587 --> 00:00:22,439
 Bukan perintah panjang. Bukan template.
 
 6
-00:00:27,507 --> 00:00:30,506
+00:00:22,499 --> 00:00:28,844
 Satu kalimat, seperti yang diucapkan
 guru di ruang guru menjelang malam.
 
 7
-00:00:30,566 --> 00:00:34,201
+00:00:28,904 --> 00:00:31,755
 Pesan itu naik ke atas.
 
 8
-00:00:34,261 --> 00:00:37,541
+00:00:31,815 --> 00:00:33,502
 Riwayat masih kosong.
 
 9
-00:00:37,601 --> 00:00:40,680
+00:00:33,562 --> 00:00:36,414
 Yang muncul cuma nama agen,
 
 10
-00:00:40,740 --> 00:00:43,894
+00:00:36,474 --> 00:00:42,237
 dan angka yang terus bertambah:
 processed empat puluh tiga detik.
 
 11
-00:00:43,954 --> 00:00:45,746
+00:00:42,297 --> 00:00:45,148
 Di bawahnya, satu baris kecil.
 
 12
-00:00:45,806 --> 00:00:52,806
+00:00:45,208 --> 00:00:49,224
 Waiting for model.
 Menunggu model. Itu jujur.
 
 13
-00:00:53,571 --> 00:00:58,647
+00:00:49,284 --> 00:00:53,300
 Pekerjaan yang sebenarnya
 terjadi tidak menarik dilihat.
 
 14
-00:00:58,707 --> 00:01:02,777
+00:00:53,360 --> 00:00:57,958
 Yang bisa ditampilkan hanya bahwa
 sesuatu sedang berjalan.
 
 15
-00:01:02,837 --> 00:01:08,305
+00:00:58,018 --> 00:01:02,034
 Lalu di detik ketujuh
 puluh, panelnya terbuka.
 
 16
-00:01:10,000 --> 00:01:12,770
+00:01:10,000 --> 00:01:12,882
 Dan yang muncul berikutnya bukan paragraf.
 
 17
-00:01:12,830 --> 00:01:13,642
+00:01:12,942 --> 00:01:14,353
 Yang muncul pertanyaan.
 
 18
-00:01:13,702 --> 00:01:17,787
+00:01:14,413 --> 00:01:19,256
 Materi IPAS ini untuk kelas
 atau fase berapa. Tiga pilihan:
 
 19
-00:01:17,847 --> 00:01:20,634
+00:01:19,316 --> 00:01:22,197
 kelas satu sampai dua Fase A,
 
 20
-00:01:20,694 --> 00:01:22,773
+00:01:22,257 --> 00:01:24,649
 kelas tiga empat Fase B,
 
 21
-00:01:22,833 --> 00:01:25,054
+00:01:24,709 --> 00:01:27,100
 kelas lima enam Fase C.
 
 22
-00:01:25,114 --> 00:01:26,840
+00:01:27,160 --> 00:01:28,571
 Lalu pertanyaan kedua.
 
 23
-00:01:26,900 --> 00:01:33,114
+00:01:28,631 --> 00:01:33,965
 Bentuk keluaran apa yang dibutuhkan.
 Empat pilihan: modul ajar, bahan bacaan,
 
 24
-00:01:33,174 --> 00:01:35,351
+00:01:34,025 --> 00:01:35,435
 LKPD dan kuis,
 
 25
-00:01:35,411 --> 00:01:39,208
+00:01:35,495 --> 00:01:38,867
 atau paket lengkap. Dua
 pertanyaan. Tidak lebih.
 
@@ -144,383 +144,388 @@ energi. Tidak gesek. Tidak magnet.
 Tidak gravitasi. Tidak pegas.
 
 34
-00:02:00,000 --> 00:02:01,205
+00:02:00,000 --> 00:02:01,993
 Agen menemukannya sendiri.
 
 35
-00:02:01,265 --> 00:02:03,971
+00:02:02,053 --> 00:02:04,731
 Ia tidak memilih sendiri,
 
 36
-00:02:04,031 --> 00:02:06,107
+00:02:04,791 --> 00:02:06,785
 tidak mengarang penengah.
 
 37
-00:02:06,167 --> 00:02:13,167
-Ia mengembalikan pertanyaan kepada orang
-yang berhak memutuskan. Keputusan
-tercatat.
+00:02:06,845 --> 00:02:12,212
+Ia mengembalikan pertanyaan kepada
+orang yang berhak memutuskan.
 
 38
-00:02:13,323 --> 00:02:19,554
+00:02:12,272 --> 00:02:13,569
+Keputusan tercatat.
+
+39
+00:02:13,689 --> 00:02:19,789
 Gaya dan gerak, dengan lembar
 fakta disusun lebih dulu.
 
-39
-00:02:19,614 --> 00:02:22,294
+40
+00:02:19,849 --> 00:02:22,527
 Lalu ia pergi membaca.
 
-40
-00:02:22,354 --> 00:02:25,305
+41
+00:02:22,587 --> 00:02:26,634
 Di layar tidak ada yang berubah.
 
-41
-00:02:25,365 --> 00:02:27,657
+42
+00:02:26,694 --> 00:02:29,372
 Tidak ada progres bar.
 
-42
-00:02:27,717 --> 00:02:31,891
+43
+00:02:29,432 --> 00:02:33,479
 Tidak ada daftar situs yang dikunjungi.
 
-43
-00:02:31,951 --> 00:02:38,951
+44
+00:02:33,539 --> 00:02:39,639
 Hanya satu baris: preparing to
 create task. Menyiapkan tugas.
 
-44
-00:02:40,510 --> 00:02:44,131
+45
+00:02:39,699 --> 00:02:44,430
 Bagian ini berlangsung
 lebih dari satu menit.
 
-45
-00:02:44,191 --> 00:02:48,731
+46
+00:02:44,490 --> 00:02:47,853
 Dan saya sengaja tidak memotongnya.
 
-46
-00:02:48,791 --> 00:02:54,030
+47
+00:02:47,913 --> 00:02:54,913
 Karena di situlah pertanyaan yang paling
 sering diajukan orang tua dan kepala
-
-47
-00:02:54,090 --> 00:02:54,471
 sekolah:
 
 48
-00:02:54,531 --> 00:02:57,526
+00:02:56,811 --> 00:02:58,804
 dari mana materinya.
 
 49
-00:02:57,586 --> 00:03:01,542
+00:02:58,864 --> 00:03:01,542
 Bukan berapa lama membuatnya.
 
 50
-00:03:02,100 --> 00:03:03,460
+00:03:02,100 --> 00:03:03,471
 Layar tidak bergerak.
 
 51
-00:03:03,520 --> 00:03:05,828
+00:03:03,531 --> 00:03:05,856
 Yang berjalan sekarang bukan menulis,
 
 52
-00:03:05,888 --> 00:03:07,248
+00:03:05,916 --> 00:03:07,287
 melainkan menyusun bahan.
 
 53
-00:03:07,308 --> 00:03:11,983
+00:03:07,347 --> 00:03:12,057
 Di titik ini agen menulis satu
 aturan untuk dirinya sendiri.
 
 54
-00:03:12,043 --> 00:03:13,877
+00:03:12,117 --> 00:03:13,964
 Penulis dilarang mengarang fakta.
 
 55
-00:03:13,937 --> 00:03:17,665
+00:03:14,024 --> 00:03:17,780
 Setiap pernyataan sains harus
 dapat ditelusuri ke sumber.
 
 56
-00:03:17,725 --> 00:03:19,085
+00:03:17,840 --> 00:03:19,211
 Bukan dari ingatan.
 
 57
-00:03:19,145 --> 00:03:20,979
+00:03:19,271 --> 00:03:21,119
 Bukan dari pengetahuan umum.
 
 58
-00:03:21,039 --> 00:03:22,873
+00:03:21,179 --> 00:03:23,027
 Bukan karena kedengarannya benar.
 
 59
-00:03:22,933 --> 00:03:27,608
+00:03:23,087 --> 00:03:27,797
 Lembar fakta itu menjadi satu-satunya
 sumur fakta untuk seluruh paket.
 
 60
-00:03:27,668 --> 00:03:29,975
+00:03:27,857 --> 00:03:30,182
 Aturan itu ditegakkan oleh pemeriksa,
 
 61
-00:03:30,035 --> 00:03:31,396
+00:03:30,242 --> 00:03:31,613
 bukan oleh tembok.
 
 62
-00:03:31,456 --> 00:03:33,763
+00:03:31,673 --> 00:03:33,998
 Artinya ia diperiksa, bukan dianggap.
 
 63
-00:03:33,823 --> 00:03:36,604
+00:03:34,058 --> 00:03:36,860
 Angka di layar mulai naik. Creating.
 
 64
-00:03:36,664 --> 00:03:38,971
+00:03:36,920 --> 00:03:39,244
 Dua ratus sembilan puluh lima.
 
 65
-00:03:39,031 --> 00:03:40,865
+00:03:39,304 --> 00:03:41,152
 Itu bukan jumlah kata.
 
 66
-00:03:40,925 --> 00:03:44,180
+00:03:41,212 --> 00:03:44,491
 Itu jumlah fakta yang sudah punya alamat.
 
 67
-00:03:44,240 --> 00:03:48,914
+00:03:44,551 --> 00:03:49,261
 Pipeline yang menghemat bagian
 ini akan terlihat jauh lebih cepat.
 
 68
-00:03:48,974 --> 00:03:54,123
+00:03:49,321 --> 00:03:55,462
 Ia juga akan menghasilkan kalimat yang
 tidak bisa Anda pertanggungjawabkan di
-
-69
-00:03:54,183 --> 00:03:55,383
 depan kelas.
 
-70
-00:03:56,130 --> 00:04:02,515
+69
+00:03:56,130 --> 00:04:00,274
 Kartu ini merangkum apa
 yang baru saja terjadi.
 
-71
-00:04:02,575 --> 00:04:06,040
+70
+00:04:00,334 --> 00:04:02,377
 Empat keputusan, bukan satu.
 
-72
-00:04:06,100 --> 00:04:09,705
+71
+00:04:02,437 --> 00:04:04,479
 Kartunya menyebut alasannya sendiri.
 
-73
-00:04:09,765 --> 00:04:13,356
+72
+00:04:04,539 --> 00:04:07,632
 Empat keputusan ini mengubah isi materi.
 
-74
-00:04:13,416 --> 00:04:18,178
+73
+00:04:07,692 --> 00:04:12,362
 Karena itu agen tidak berwenang
 memutuskan sendiri. Persetujuan tercatat.
 
-75
-00:04:18,238 --> 00:04:19,652
+74
+00:04:12,422 --> 00:04:14,464
 Saya mulai render artefak.
 
-76
-00:04:19,712 --> 00:04:26,712
+75
+00:04:14,524 --> 00:04:20,245
 Perhatikan dua kata di depan tiap
 baris kecil. Modify. Run checks.
 
-77
-00:04:27,465 --> 00:04:28,481
+76
+00:04:20,305 --> 00:04:21,822
 Mengubah, lalu memeriksa.
 
-78
-00:04:28,541 --> 00:04:29,636
+77
+00:04:21,882 --> 00:04:23,924
 Bukan mengubah lalu selesai.
 
-79
-00:04:29,696 --> 00:04:30,701
+78
+00:04:23,984 --> 00:04:26,552
 Dan setiap baris menyebut berkasnya.
 
-80
-00:04:30,761 --> 00:04:32,604
+79
+00:04:26,612 --> 00:04:30,756
 Zero zero run config.
 Build docx. build pptx.
 
-81
-00:04:32,664 --> 00:04:37,566
+80
+00:04:30,816 --> 00:04:36,012
 Sekarang satu baris yang layak
 dibaca dua kali. Ditemukan cacat.
 
-82
-00:04:37,626 --> 00:04:40,663
+81
+00:04:36,072 --> 00:04:38,639
 Penomoran daftar berlanjut lintas bagian.
 
-83
-00:04:40,723 --> 00:04:42,597
+82
+00:04:38,699 --> 00:04:40,216
 Lima sampai sembilan.
 
-84
-00:04:42,657 --> 00:04:46,626
+83
+00:04:40,276 --> 00:04:42,844
 Lalu sepuluh sampai dua belas.
 
-85
-00:04:46,686 --> 00:04:50,461
+84
+00:04:42,904 --> 00:04:45,997
 Lalu tiga belas sampai lima belas.
 
-86
-00:04:50,521 --> 00:04:52,197
+85
+00:04:46,057 --> 00:04:50,201
 Itu bukan kesalahan
 yang Anda lihat dari jauh.
 
-87
-00:04:52,257 --> 00:04:53,622
+86
+00:04:50,261 --> 00:04:52,829
 Dari jauh, halamannya terlihat rapi.
 
-88
-00:04:53,682 --> 00:04:55,127
+87
+00:04:52,889 --> 00:04:55,457
 Anda harus menghitung untuk menemukannya.
 
-89
-00:04:56,000 --> 00:04:58,066
+88
+00:04:56,000 --> 00:04:58,547
 Yang lebih penting
 adalah kalimat sesudahnya.
 
-90
-00:04:58,126 --> 00:05:00,603
+89
+00:04:58,607 --> 00:05:01,153
 Saya periksa halaman
 lain sebelum memperbaiki.
 
-91
-00:05:00,663 --> 00:05:04,093
+90
+00:05:01,213 --> 00:05:04,195
 Itu enam kata
 yang mengubah arti seluruhnya.
 
-92
-00:05:04,153 --> 00:05:08,149
+91
+00:05:04,255 --> 00:05:07,670
 Ia tidak memperbaiki satu
 tempat lalu menyatakan beres.
 
-93
-00:05:08,209 --> 00:05:12,397
+92
+00:05:07,730 --> 00:05:12,449
 Ia bertanya dulu apakah cacat
 yang sama ada di tempat lain.
 
-94
-00:05:12,457 --> 00:05:16,755
+93
+00:05:12,509 --> 00:05:15,056
 Karena kalau pola penomorannya yang salah,
 
-95
-00:05:16,815 --> 00:05:20,232
+94
+00:05:15,116 --> 00:05:17,228
 yang salah bukan satu halaman.
 
-96
-00:05:20,292 --> 00:05:20,626
+95
+00:05:17,288 --> 00:05:18,966
 DOCX lolos verifikasi visual.
 
-97
-00:05:20,686 --> 00:05:22,612
+96
+00:05:19,026 --> 00:05:20,269
 Sekarang slide deck.
 
-98
-00:05:22,672 --> 00:05:24,323
+97
+00:05:20,329 --> 00:05:21,573
 Lalu cacat kedua.
 
-99
-00:05:24,383 --> 00:05:25,688
+98
+00:05:21,633 --> 00:05:24,614
 Slide konten terlalu
 kosong di bagian bawah.
 
-100
-00:05:25,748 --> 00:05:27,885
+99
+00:05:24,674 --> 00:05:26,352
 Saya seimbangkan tata letaknya.
 
-101
-00:05:27,945 --> 00:05:29,759
+100
+00:05:26,412 --> 00:05:28,089
 Ini bukan kesalahan fakta.
 
-102
-00:05:29,819 --> 00:05:31,437
+101
+00:05:28,149 --> 00:05:30,262
 Tidak ada angka yang salah.
 
-103
-00:05:31,497 --> 00:05:33,210
+102
+00:05:30,322 --> 00:05:32,434
 Tidak ada aturan yang dilanggar.
 
-104
-00:05:33,270 --> 00:05:34,756
+103
+00:05:32,494 --> 00:05:33,737
 Faktanya benar semua.
 
-105
-00:05:34,816 --> 00:05:38,568
+104
+00:05:33,797 --> 00:05:38,082
 Yang salah adalah apakah materinya
 layak dilihat di depan kelas.
 
-106
-00:05:38,628 --> 00:05:41,722
+105
+00:05:38,142 --> 00:05:40,688
 Kebanyakan pemeriksaan
 otomatis berhenti di fakta.
 
-107
-00:05:41,782 --> 00:05:45,854
+106
+00:05:40,748 --> 00:05:46,565
 Yang ini berhenti di ruang kosong
 di bawah slide. Langkah tiga.
 
-108
-00:05:45,914 --> 00:05:48,888
+107
+00:05:46,625 --> 00:05:49,476
 Agen memeriksa hasil sendiri.
 
-109
-00:05:48,948 --> 00:05:52,023
+108
+00:05:49,536 --> 00:05:51,660
 Kartunya menyebut alasannya:
 
-110
-00:05:52,083 --> 00:05:55,738
+109
+00:05:51,720 --> 00:05:56,026
 verifikasi tidak berhenti di satu temuan.
 
-111
-00:05:55,798 --> 00:05:59,717
+110
+00:05:56,086 --> 00:05:59,665
 Setelah memperbaiki, ia memeriksa ulang.
 
+111
+00:05:59,725 --> 00:06:05,446
+Supaya cacat sejenis
+tidak lolos di halaman lain.
+
 112
-00:05:59,777 --> 00:06:06,777
-Supaya cacat sejenis tidak lolos
-di halaman lain. Dua kali. Tiga kali.
+00:06:05,506 --> 00:06:06,892
+Dua kali.
 
 113
-00:06:12,278 --> 00:06:15,467
+00:06:06,952 --> 00:06:08,337
+Tiga kali.
+
+114
+00:06:08,457 --> 00:06:12,764
 Bangun, periksa, temukan,
 perbaiki, bangun lagi.
 
-114
-00:06:15,527 --> 00:06:18,344
+115
+00:06:12,824 --> 00:06:14,947
 Bukan sekali jadi.
 
-115
-00:06:18,404 --> 00:06:23,679
+116
+00:06:15,007 --> 00:06:22,007
 Dan yang membuat hasilnya bisa dipercaya
 justru bagian yang tidak mulus itu.
 
-116
-00:06:24,200 --> 00:06:26,282
+117
+00:06:24,200 --> 00:06:26,386
 Kuis dibuat sebagai satu berkas.
 
-117
-00:06:26,342 --> 00:06:27,568
+118
+00:06:26,446 --> 00:06:27,734
 Jalan tanpa internet.
 
-118
-00:06:27,628 --> 00:06:29,710
+119
+00:06:27,794 --> 00:06:29,979
 Lalu ia menguji kuisnya sendiri.
 
-119
-00:06:29,770 --> 00:06:31,424
+120
+00:06:30,039 --> 00:06:31,776
 Kolom jawaban terlalu sempit,
 
-120
-00:06:31,484 --> 00:06:34,423
+121
+00:06:31,836 --> 00:06:34,920
 judul Uraian lepas
 dari tabelnya. Dua-duanya dicatat.
 
-121
+122
 00:06:35,230 --> 00:06:36,784
 Cacat ditemukan lewat pengujian.

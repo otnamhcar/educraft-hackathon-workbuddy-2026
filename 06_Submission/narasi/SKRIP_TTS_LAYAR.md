@@ -69,10 +69,14 @@ menarasikan **urutannya dari atas ke bawah**, bukan menunggu tiap baris muncul.
 
 **Pertentangannya B5 lawan B6, bukan "kelas berapa".**
 
-## Empat hal yang tidak saya narasikan
+## Empat hal yang sengaja tidak dijelaskan
 
-1. **Kartu LANGKAH 4/5 menyebut "makanan halal"**, tetapi pada 381–395 layar menampilkan **kuis
-   interaktif**. Kartu itu sisa dari versi rekaman lain. Narasi blok `10` mengikuti layar.
+1. **Kartu LANGKAH 4/5 "Permintaan di luar lingkup"** tampil 381,0–383,9 s, lalu digantikan preview
+   kuis pada 384,0 s. Sebelumnya kartu ini **tidak dinarasikan sama sekali** — dan itu salah.
+   Ia satu-satunya kartu yang lewat tanpa suara, padahal kartu 3/5 di detik 343 dibacakan. Sudah
+   diperbaiki lewat blok `09b`. Kalimatnya sengaja **tidak** menyebut "makanan halal" secara
+   harfiah: kartunya sendiri yang menanggung rincian itu, dan menyebutkan dua kali dalam 3 detik
+   hanya akan membuatnya tumpang tindih dengan teks di layar.
 2. **Header kuis menulis "KELAS IV · FASE B"** padahal pengguna memilih Kelas 5–6 Fase C, dan nama
    berkasnya `Kuis_IPAS_Kelas_IV_...`. Saya tidak menyebut kelas supaya tidak mengklaim yang tidak
    konsisten di layar.
@@ -84,10 +88,15 @@ menarasikan **urutannya dari atas ke bawah**, bukan menunggu tiap baris muncul.
 ## Aturan pakai
 
 - Satu kotak = satu berkas audio. Tempel satu kotak sekali jalan.
+- **Teks rekaman tiap blok ada di `audio_layar/NN.txt`** — itu yang dibaca, bukan berkas ini.
+  Berkas ini hanya mencatat alasan, isi layar, dan anggaran waktu.
 - Jeda hanya di antara kalimat.
 - Blok `01` dan `12` pendek: slot 5 detik. Blok `11` cuma 3 detik — satu kalimat, jangan ditambah.
-- Tempo acuan **2,85 kata/detik** — diukur dari rekaman Anda sendiri, bukan asumsi.
-- Angka `((⏱️=…))` sudah dihitung per blok. Kalau rekaman Anda lebih lambat dari 2,85, jalankan
+  Blok `09b` juga 3 detik: **7 kata, jangan ditambah satu kata pun.**
+- Tempo acuan **2,70 kata/detik** — diukur dari blok `09` Anda sendiri (53 kata, 19,63 s ucapan
+  murni), bukan asumsi. Angka 2,85 di versi lama terlalu optimistis dan membuat tiga blok
+  kelebihan kata.
+- Angka `((⏱️=…))` sudah dihitung per blok. Kalau rekaman Anda lebih lambat dari 2,70, jalankan
   `ukur_tempo.py` sebelum apa pun.
 
 ---
@@ -130,6 +139,13 @@ bisa ditampilkan hanya bahwa sesuatu sedang berjalan. ((⏱️=1550))
 
 Lalu di detik ketujuh puluh, panelnya terbuka. ((⏱️=1550))
 ```
+
+> **Hening yang disengaja di blok ini.** Rekaman `02.mp3` berhenti di kalimat "Lalu di detik
+> ketujuh puluh…", sehingga detik 62–70 (7,6 s) berisi hening sementara layar menampilkan
+> paragraf *"Sebelum menyusun, saya perlu memastikan beberapa parameter… IPAS sangat bergantung
+> pada fase/kelas…"* beserta status *Waiting for your answer*. Ini keputusan yang diambil
+> sadar — bukan cacat render. Kalau ingin diisi, tambahkan kalimat tentang paragraf itu,
+> rekam ulang `02`, lalu jalankan `regang_jeda.py --maks 2.6 --tulis`.
 
 ---
 
@@ -336,6 +352,38 @@ Bukan sekali jadi. ((⏱️=1800))
 Dan yang membuat hasilnya bisa dipercaya justru bagian yang tidak mulus itu.
 ((⏱️=1800))
 ```
+
+---
+
+## `09b` — 6:21 · slot 3,0 s · kartu 4/5 "Permintaan di luar lingkup"
+
+Kartu ini tampil **381,20–384,20 s** — tiga detik saja. Sebelum versi ini kartu itu **lewat tanpa
+satu kata pun**; kata "makanan", "halal", "katalog", "menolak", "dua jalan" nol kemunculan di
+seluruh `subtitle_id.srt`. Penonton mendengar blok `09` habis di 380,4 s, lalu hening 3,4 s, lalu
+blok `10` sudah membicarakan kuis. Itu yang terasa sebagai lompatan.
+
+**Sebabnya bukan lupa, tapi tumpang tindih slot.** `TIMING.json` mencatat `batas_blok.seg4` =
+381,20, tetapi blok `09` diberi slot sampai 384,20 — ia memakan 3,0 s milik jendela kartu. Kartu
+itu tidak pernah punya slot audio. Sudah diperbaiki: blok `09` dipotong di 381,20, blok `09b`
+diisi 381,20–384,20.
+
+Satu kalimat, tujuh kata: sebut **apa yang terjadi** (di luar katalog), **apa jawabannya**
+(ditolak), **apa tawarannya** (dua jalan). Kartunya sendiri menanggung "makanan halal" — jangan
+diulang di audio, 3 detik tidak cukup untuk dua kali.
+
+```
+Di luar katalog: ((⏱️=700)) ditolak, lalu dua jalan.
+```
+
+**Kenapa tepat 7 kata.** Tempo rekaman Anda 2,70 kata/detik (diukur dari blok `09`: 53 kata,
+19,63 s ucapan murni). 7 kata = 2,59 s, sisa 0,41 s di slot 3,0 s. Versi 8 kata = 2,96 s dan hanya
+menyisakan 0,04 s — satu tarikan napas saja sudah melewati slot, lalu `pasang_narasi.py` memotong
+kata terakhir. **Jangan ditambah.** Batas keras: 7 kata.
+
+Jangan pula memperpanjang slot kartu dengan menggeser `seg5`: preview kuis sudah tampil penuh di
+384,0 s, jadi narasi yang masih jalan setelah itu akan menunjuk hal yang salah.
+
+
 
 ---
 

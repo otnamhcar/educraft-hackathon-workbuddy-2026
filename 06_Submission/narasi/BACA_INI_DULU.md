@@ -21,10 +21,18 @@ Buka juga `SKRIP_TTS_LAYAR.md` di layar kedua. Teks siap tempel ada di `audio_la
 | `06` | 54,0 s | 112 | 3:02 | "Penulis dilarang mengarang fakta" → creating +295 |
 | `07` | 59,9 s | 113 | 3:56 | Log build: render artefak, cacat penomoran 5–9 / 10–12 / 13–15 |
 | `08` | 49,2 s | 112 | 4:56 | "Periksa halaman lain" → DOCX lolos → slide terlalu kosong |
-| `09` | 39,0 s | 53 | 5:45 | Kartu 3/5, perbaikan, verifikasi ulang |
+| `09` | 36,0 s | 50 | 5:45 | Kartu 3/5, perbaikan, verifikasi ulang |
+| `09b` | 3,0 s | 7 | 6:21 | Kartu 4/5 "Permintaan di luar lingkup" — **7 kata, jangan ditambah** |
 | `10` | 11,0 s | 24 | 6:24 | Kuis interaktif, dua cacat tata letak |
 | `11` | 3,0 s | 4 | 6:35 | Kartu 5/5 — **satu kalimat saja** |
 | `12` | 5,0 s | 12 | 6:38 | Kartu penutup "Satu sumber masuk" |
+
+> **Koreksi 9 November 2026 — sekarang 13 blok, bukan 12.** Blok `09b` ditambahkan untuk menambal
+> cacat yang lolos di versi sebelumnya: kartu 4/5 (381,0–383,9 s) **lewat tanpa narasi sama sekali**,
+> padahal kartu 3/5 di detik 343 dibacakan. Penyebabnya `TIMING.json` v3 memberi blok `09` slot sampai
+> 384,20 s sementara batas segmennya 381,20 — kartu 4/5 tidak pernah kebagian slot audio. Sudah
+> diperbaiki di `TIMING.json` v4: blok `09` dipotong ke 36,03 s, `09b` mengisi 381,20–384,20.
+> Video final sudah dirender ulang dengan perbaikan ini.
 
 Taruh hasilnya di folder ini dengan nama persis `01.wav` … `12.wav`. `.mp3` juga boleh — saya
 kenali dari nomornya. Sebelum merekam, pindahkan dulu tujuh berkas v2 ke `audio_v2_lama/` supaya
